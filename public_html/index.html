@@ -50,7 +50,6 @@
             </form>
         </div>
         <div class="nav-tool">
-            <a href="local.html" class="pseudo button">Favorites</a>
             <a href="faq.html" class="pseudo button">Common Problem Fixes</a>
             <a href="settings.html" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
@@ -60,11 +59,11 @@
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
-                Announcement: <a href="https://github.com/users/BlaNKtext"> BlaNK translated all this</a>!
+                Announcement: <a href="https://github.com/users/BlaNKtext"> English now</a>!
             </div>
             <br>
             <div class="index-area">
-                <h2>What Happened</h2>
+                <h2>Live Plays</h2>
                 <hr />
                 <table>
                     <thead>
@@ -74,7 +73,7 @@
                             <td>Combo</td>
                             <td>Score</td>
                             <td>Accuracy</td>
-                            <td>Mods Used</td>
+                            <td>Mods</td>
                             <td>Time</td>
                         </tr>
                     </thead>
@@ -93,7 +92,7 @@
             </div>
             <div class="index-area">
                 <h2>Recently Played</h2>
-                <a href="history.html" class="more">Chech your play history</a>
+                <a href="history.html" class="more">Check your play history</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-history">
                     <!-- to be filled in script -->
@@ -124,14 +123,13 @@
                 </div>
             </div>
             <div class="text">
-                <a href="https://pornhub.com">This is pornhub</a>!❤️
                 <a href="https://paypal.me/Sayobot">Donate to Sayobot with Paypal</a>
             </div>
             <div class="button" style="width:100%; margin-bottom: 10px;" id="btnmore">Load more</div>
             <div class="text">It is recommended to use the updated version of Firefox or Chrome.</div>
             <div class="text">Beta version v1.4.3<a href="https://github.com/111116/osu"> Github</a></div>
             <div class="text">Made by: <a href="https://osu.sayobot.cn/"> Sayobot</a> Provide chart</div>
-            <div class="text">Translated by: <a href="https://github.com/user/BlaNKtext"> BlaNK</a>.</div>
+            <div class="text">Translated by: <a href="https://github.com/BlaNKtext"> BlaNK</a>.</div>
         </div>
 
         <div class="statuslines" id="statuslines">
@@ -280,7 +278,7 @@
                     for (let i = 0; i < list.length && i < 4; ++i)
                         addBeatmapSid(list[i], listlike);
                 } else {
-                    document.getElementById("beatmap-list-liked").innerText = "你还没有收藏一首歌曲哦！点击曲目右下角的爱心以收藏这个曲目。";
+                    document.getElementById("beatmap-list-liked").innerText = "You haven't collected this song yet! Click on the love in the lower right corner of the track to bookmark this track.";
                 }
             });
         } else {

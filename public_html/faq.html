@@ -21,12 +21,11 @@
         </div>
         <div class="nav-search">
             <form action="search.html">
-                <input type="text" name="q" placeholder="Beatmap or Keywords" />
+                <input type="text" name="q" placeholder="Beatmap name or Keywords" />
                 <input type="image" class="search-button" src="research.svg">
             </form>
         </div>
         <div class="nav-tool">
-            <a href="local.html" class="pseudo button">Favorites</a>
             <a href="faq.html" class="pseudo button">Common Problems Fixes</a>
             <a href="settings.html" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
@@ -36,7 +35,7 @@
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="faqentry">
-                <h2>How to play this game? </h2>
+                <h2>How to play </h2>
                 The default buttons are the left and right mouse buttons and the Z and X buttons, which can be modified
                 in the settings.
                 The discs that appear on the game screen are called strike circles. When the circle outside the circle
@@ -46,7 +45,7 @@
                 of the circle.
             </div>
             <div class="faqentry">
-                <h2>The cursor movement seems to be delayed? </h2>
+                <h2>The cursor movement and/or clicking seems to be delayed? </h2>
                 Try to enable the hardware cursor in the settings, which can reduce the delay of cursor feedback.
                 However, in some operating systems or browsers, problems such as flickering or inability to display the
                 cursor may occur, so it is turned off by default. In addition, the current cursor size adjustment of the
@@ -54,13 +53,13 @@
                 value is displayed above 0.95.
             </div>
             <div class="faqentry">
-                <h2>The game is very stuck, what should I do? </h2>
+                <h2>The game is very glitchy and freezes, what should I do? </h2>
                 You can uncheck "Use system resolution" in the settings and set the resolution to a value lower than the
                 system zoom (the computer system zoom for laptops or high-resolution screens usually exceeds 100%). It
-                is recommended to avoid high CPU usage, close anti-virus software/computer housekeeper like 360, try to
+                is recommended to avoid high CPU usage, close anti-virus software, try to
                 close other tabs of the browser and restart the browser. Please make sure you are using a mainstream
                 modern browser (such as Firefox, Chrome). If it is still stuck, please <a
-                    href="https://github.com/111116/osu">file an issue</a>.
+                    href="https://github.com/111116/osu">file an issue and we'll do our best to fix it.</a>.
             </div>
             <div class="faqentry">
                 <h2>Why is nothing displayed on the webpage? </h2>
@@ -70,12 +69,12 @@
                 <!--In addition, you can add the chart to your favorites, and playing the favorite chart will not be affected by errors in the mirror station. -->
             </div>
             <div class="faqentry">
-                <h2>The downloader (IDM) on my computer pops up many pop-up windows! </h2>
-                This site uses XHR to load audio and video resources. Please set the downloader (IDM) to be disabled on
+                <h2>The downloader (InternetDownloadManager) on my computer opens a ton pop-up windows! </h2>
+                This site uses XHR to load audio and video resources. IDM Likes to intercept these requests and download them itself, please set the downloader (IDM) to be disabled on
                 this site.
             </div>
             <div class="faqentry">
-                <h2>Can I upload the chart from local? </h2>
+                <h2>Can I upload a beatmap from my PC? </h2>
                 This feature is still under development. You can search for existing charts in the library.
                 <!-- Yes. You can find the entry to add local charts in the "favorite" chart list. Only you can see the local chart you added. -->
             </div>

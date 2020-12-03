@@ -20,7 +20,7 @@
     </div>
 
     <div class="pause-menu" id="pause-menu" hidden>
-        <div class="paused-title">paused</div>
+        <div class="paused-title">Paused</div>
         <div class="button-list">
             <div class="pausebutton continue" id="pausebtn-continue">
                 <div class="inner">Continue</div>
@@ -48,7 +48,6 @@
             </form>
         </div>
         <div class="nav-tool">
-            <a href="local.html" class="pseudo button">Favorites</a>
             <a href="faq.html" class="pseudo button">Common Problem Fixes</a>
             <a href="settings.html" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter fullscreen</a>
@@ -61,9 +60,10 @@
                 <!-- to be filled in script -->
             </div>
             <div class="button" style="width:100%; margin-bottom: 10px;" id="btnmore">Load more</div>
-            <div class="text">It is recommended to use the updated version of Firefox or Chrome.</div>
-            <div class="text">Beta version v1.4.3<a href="https://github.com/111116/osu"> Github</a></div>
-            <div class="text">Made by: <a href="https://osu.sayobot.cn/"> Sayobot</a> Provide chart</div>
+            <div class="text">It is recommended to use the updated version of Firefox or Chrome, Other browsers such as Brave, Opera, etc. may run into compatibilty issues</div>
+            <div class="text">Beta version v1.4.3<a href="https://github.com/111116/osu"></a></div>
+            <div class="text">Official Github Repo<a href="https://github.com/111116/webosu"></a></div>
+            <div class="text">Made by: <a href="https://osu.sayobot.cn/"> Sayobot</a> <=(Opens website)</div>
             <div class="text">Translated by: <a href="https://github.com/user/BlaNKtext"> BlaNK</a>.</div>
         </div>
         <!-- <div class="side-panel">
@@ -108,7 +108,7 @@
                         cur += 20;
                     }
                 } else {
-                    document.getElementById("beatmap-list").innerText = "你还没有收藏一首歌曲哦！点击曲目右下角的爱心以收藏这个曲目。";
+                    document.getElementById("beatmap-list").innerText = "You haven't collected a song yet! Click on the love in the lower right corner of the track to bookmark this track.";
                 }
             });
         } else {
