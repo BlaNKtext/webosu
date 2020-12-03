@@ -60,10 +60,29 @@
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
-                Announcement: <a href="https://github.com/users/BlaNKtext"> BlaNK translated all this</a>
-                <a href="https://osu.ppy.sh/users/19096303"> His Osu!</a>
+                Announcement: <a href="https://github.com/users/BlaNKtext"> BlaNK translated all this</a>!
             </div>
             <br>
+            <div class="index-area">
+                <h2>What Happened</h2>
+                <hr />
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Player</td>
+                            <td>Song</td>
+                            <td>Combo</td>
+                            <td>Score</td>
+                            <td>Accuracy</td>
+                            <td>Mods Used</td>
+                            <td>Time</td>
+                        </tr>
+                    </thead>
+                    <tbody id="activity-list">
+                        <!-- will be filled in script -->
+                    </tbody>
+                </table>
+            </div>
             <div class="index-area">
                 <h2>Random beatmaps</h2>
                 <a onclick="genRandomList()" class="more" style="cursor:pointer;">Change</a>
@@ -281,15 +300,7 @@
         gtag('config', 'UA-169262247-1');
     </script>
 </body>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.1.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
 </html>
 
 <!-- attribution -->
