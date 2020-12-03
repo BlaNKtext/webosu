@@ -17,8 +17,7 @@ const postserver = http.createServer((req, res) => {
       ip[3] = "**";
     }
     ip = ip.join(".");
-  }
-  else {
+  } else {
     ip = "";
   }
   q.ip = ip;
@@ -46,4 +45,3 @@ postserver.listen(postport, hostname, () => {
 getserver.listen(getport, hostname, () => {
   console.log(`Server running at http://${hostname}:${getport}/`);
 });
-

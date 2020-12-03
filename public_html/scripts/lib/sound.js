@@ -1,4 +1,3 @@
-
 /*
 Sound.js
 ===============
@@ -28,7 +27,7 @@ Thank you, Chris!
   'use strict';
 
   function fixSetTarget(param) {
-    if (!param)	// if NYI, just return
+    if (!param) // if NYI, just return
       return;
     if (!param.setTargetAtTime)
       param.setTargetAtTime = param.setTargetValueAtTime;
@@ -267,7 +266,9 @@ var sounds = {
     self.loaded += 1;
 
     if (self.onProgress) {
-      self.onProgress(100 * self.loaded / self.toLoad, { url: source });
+      self.onProgress(100 * self.loaded / self.toLoad, {
+        url: source
+      });
     }
 
     //Check whether everything has loaded.
@@ -487,7 +488,7 @@ function makeSound(source, loadHandler, shouldLoadSound, xhr, failHandler) {
     }
   };
 
-  o.getPosition = function() {
+  o.getPosition = function () {
     return actx.currentTime - o.startTime + o.startOffset;
   };
 
@@ -544,7 +545,7 @@ function makeSound(source, loadHandler, shouldLoadSound, xhr, failHandler) {
 
   //Fade a sound in, from an initial volume level of zero.
 
-  o.fadeIn = function(durationInSeconds) {
+  o.fadeIn = function (durationInSeconds) {
 
     //Set the volume to 0 so that you can fade
     //in from silence
@@ -568,7 +569,8 @@ function makeSound(source, loadHandler, shouldLoadSound, xhr, failHandler) {
         o.volumeNode.gain.value = value;
         o.volumeValue = value;
       },
-      enumerable: true, configurable: true
+      enumerable: true,
+      configurable: true
     },
 
     //The pan node uses the high-efficiency stereo panner, if it's
@@ -600,7 +602,8 @@ function makeSound(source, loadHandler, shouldLoadSound, xhr, failHandler) {
           o.panNode.pan.value = value;
         }
       },
-      enumerable: true, configurable: true
+      enumerable: true,
+      configurable: true
     }
   });
 
@@ -660,4 +663,3 @@ function decodeAudio(o, xhr, loadHandler, failHandler) {
   );
 }
 // exports.decodeAudio = decodeAudio;
-

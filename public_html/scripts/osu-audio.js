@@ -1,12 +1,13 @@
-define([], function() {
+define([], function () {
     function syncStream(node) { // https://stackoverflow.com/questions/10365335/decodeaudiodata-returning-a-null-error
-        var buf8 = new Uint8Array(node.buf); 
+        var buf8 = new Uint8Array(node.buf);
         buf8.indexOf = Array.prototype.indexOf;
-        var i = node.sync, b = buf8;
+        var i = node.sync,
+            b = buf8;
         while (1) {
             node.retry++;
-            i = b.indexOf(0xFF,i);
-            if (i == -1 || (b[i+1] & 0xE0 == 0xE0 ))
+            i = b.indexOf(0xFF, i);
+            if (i == -1 || (b[i + 1] & 0xE0 == 0xE0))
                 break;
             i++;
         }
@@ -27,13 +28,13 @@ define([], function() {
             console.warn("mp3 offset predictor: mp3 tag missing");
             return default_offset;
         }
-        let frametag = tags[tags.length-1];
+        let frametag = tags[tags.length - 1];
         if (frametag._section.sampleLength != 1152) {
             console.warn("mp3 offset predictor: unexpected sample length");
             return default_offset;
         }
         let vbr_tag = null;
-        for (let i=0; i<tags.length; ++i)
+        for (let i = 0; i < tags.length; ++i)
             if (tags[i]._section.type == "Xing")
                 vbr_tag = tags[i];
         if (!vbr_tag) {
@@ -48,18 +49,20 @@ define([], function() {
             return default_offset;
         }
         let sampleRate = vbr_tag.header.samplingRate;
-        if (sampleRate == 32000) return 89 - 1152000/sampleRate;
-        if (sampleRate == 44100) return 68 - 1152000/sampleRate;
-        if (sampleRate == 48000) return 68 - 1152000/sampleRate;
+        if (sampleRate == 32000) return 89 - 1152000 / sampleRate;
+        if (sampleRate == 44100) return 68 - 1152000 / sampleRate;
+        if (sampleRate == 48000) return 68 - 1152000 / sampleRate;
         console.warn("mp3 offset predictor: sampleRate unexpected");
         return default_offset;
     }
 
     function preprocAudio(filename, buffer) {
         let suffix = filename.substr(-3);
-        if (suffix != "mp3")  {
+        if (suffix != "mp3") {
             console.log("preproc audio: ogg", suffix);
-            return {startoffset:19};
+            return {
+                startoffset: 19
+            };
         }
         mp3Parser.readTagsNew = readTagsNew;
         let tags = mp3Parser.readTagsNew(new DataView(buffer));
@@ -70,11 +73,16 @@ define([], function() {
             let offsetAfter = tags[1]._section.offset + tags[1]._section.byteLength;
             arr.set(new Uint8Array(buffer, offsetAfter, buffer.byteLength - offsetAfter), tags[0]._section.offset);
             buffer = arr.buffer;
-            return {startoffset:offset_predict_mp3(tags), newbuffer:arr.buffer};
+            return {
+                startoffset: offset_predict_mp3(tags),
+                newbuffer: arr.buffer
+            };
         }
-        return {startoffset:offset_predict_mp3(tags)};
+        return {
+            startoffset: offset_predict_mp3(tags)
+        };
     }
-    
+
     //mp3 parser bug fix
     function readTagsNew(view, offset) {
         offset || (offset = 0);
@@ -125,7 +133,7 @@ define([], function() {
         this.posoffset += game.globalOffset || 0;
 
         function decode(node) {
-            self.audio.decodeAudioData(node.buf, function(decoded) {
+            self.audio.decodeAudioData(node.buf, function (decoded) {
                 self.decoded = decoded;
                 console.log("Song decoded");
                 if (typeof callback !== "undefined") {
@@ -140,10 +148,14 @@ define([], function() {
                 }
             });
         }
-        decode({ buf: buffer, sync: 0, retry: 0 });
+        decode({
+            buf: buffer,
+            sync: 0,
+            retry: 0
+        });
 
-        this.getPosition = function() {
-            return this._getPosition() - this.posoffset/1000;
+        this.getPosition = function () {
+            return this._getPosition() - this.posoffset / 1000;
         }
 
         this._getPosition = function _getPosition() {
@@ -164,10 +176,9 @@ define([], function() {
             self.source.connect(self.gain);
             self.started = self.audio.currentTime;
             if (wait > 0) {
-                self.position = -wait/1000;
-                self.source.start(self.audio.currentTime + wait/1000 / self.playbackRate, 0);
-            }
-            else {
+                self.position = -wait / 1000;
+                self.source.start(self.audio.currentTime + wait / 1000 / self.playbackRate, 0);
+            } else {
                 self.source.start(0, self.position);
             }
             self.playing = true;
@@ -175,7 +186,7 @@ define([], function() {
 
         // return value true: success
         this.pause = function pause() {
-            if (!self.playing || self._getPosition()<=0) return false;
+            if (!self.playing || self._getPosition() <= 0) return false;
             self.position += (self.audio.currentTime - self.started) * self.playbackRate;
             self.source.stop();
             self.playing = false;

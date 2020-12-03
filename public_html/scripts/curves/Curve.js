@@ -1,4 +1,4 @@
-define([], function() {
+define([], function () {
     function Curve(hitObject) {
         this.hitObject = hitObject;
     }

@@ -6,8 +6,10 @@
 		throw new Error('z-worker.js should be run only once');
 	global.zWorkerInitialized = true;
 
-	addEventListener("message", function(event) {
-		var message = event.data, type = message.type, sn = message.sn;
+	addEventListener("message", function (event) {
+		var message = event.data,
+			type = message.type,
+			sn = message.sn;
 		var handler = handlers[type];
 		if (handler) {
 			try {
@@ -33,7 +35,9 @@
 	function doImportScripts(msg) {
 		if (msg.scripts && msg.scripts.length > 0)
 			importScripts.apply(undefined, msg.scripts);
-		postMessage({type: 'importScripts'});
+		postMessage({
+			type: 'importScripts'
+		});
 	}
 
 	function newTask(msg) {
@@ -41,20 +45,25 @@
 		var sn = msg.sn;
 		if (tasks[sn])
 			throw Error('duplicated sn');
-		tasks[sn] =  {
+		tasks[sn] = {
 			codec: new CodecClass(msg.options),
 			crcInput: msg.crcType === 'input',
 			crcOutput: msg.crcType === 'output',
 			crc: new Crc32(),
 		};
-		postMessage({type: 'newTask', sn: sn});
+		postMessage({
+			type: 'newTask',
+			sn: sn
+		});
 	}
 
 	// performance may not be supported
 	var now = global.performance ? global.performance.now.bind(global.performance) : Date.now;
 
 	function processData(msg) {
-		var sn = msg.sn, type = msg.type, input = msg.data;
+		var sn = msg.sn,
+			type = msg.type,
+			input = msg.data;
 		var task = tasks[sn];
 		// allow creating codec on first append
 		if (!task && msg.codecClass) {
@@ -67,7 +76,11 @@
 		if (isAppend) {
 			try {
 				output = task.codec.append(input, function onprogress(loaded) {
-					postMessage({type: 'progress', sn: sn, loaded: loaded});
+					postMessage({
+						type: 'progress',
+						sn: sn,
+						loaded: loaded
+					});
 				});
 			} catch (e) {
 				delete tasks[sn];
@@ -86,7 +99,12 @@
 			task.crc.append(output);
 		var crcTime = now() - start;
 
-		var rmsg = {type: type, sn: sn, codecTime: codecTime, crcTime: crcTime};
+		var rmsg = {
+			type: type,
+			sn: sn,
+			codecTime: codecTime,
+			crcTime: crcTime
+		};
 		var transferables = [];
 		if (output) {
 			rmsg.data = output;
@@ -94,11 +112,11 @@
 		}
 		if (!isAppend && (task.crcInput || task.crcOutput))
 			rmsg.crc = task.crc.get();
-		
+
 		// posting a message with transferables will fail on IE10
 		try {
 			postMessage(rmsg, transferables);
-		} catch(ex) {
+		} catch (ex) {
 			postMessage(rmsg); // retry without transferables
 		}
 	}
@@ -113,7 +131,10 @@
 	}
 
 	function formatError(e) {
-		return { message: e.message, stack: e.stack };
+		return {
+			message: e.message,
+			stack: e.stack
+		};
 	}
 
 	// Crc32 code copied from file zip.js
@@ -121,7 +142,8 @@
 		this.crc = -1;
 	}
 	Crc32.prototype.append = function append(data) {
-		var crc = this.crc | 0, table = this.table;
+		var crc = this.crc | 0,
+			table = this.table;
 		for (var offset = 0, len = data.length | 0; offset < len; offset++)
 			crc = (crc >>> 8) ^ table[(crc ^ data[offset]) & 0xFF];
 		this.crc = crc;
@@ -129,7 +151,7 @@
 	Crc32.prototype.get = function get() {
 		return ~this.crc;
 	};
-	Crc32.prototype.table = (function() {
+	Crc32.prototype.table = (function () {
 		var i, j, t, table = []; // Uint32Array is actually slower than []
 		for (i = 0; i < 256; i++) {
 			t = i;

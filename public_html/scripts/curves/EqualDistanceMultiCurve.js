@@ -1,6 +1,6 @@
 var CURVE_POINTS_SEPERATION = 5;
 
-define(["curves/Curve"], function(Curve) {
+define(["curves/Curve"], function (Curve) {
     // Adapted from EqualDistanceMultiCurve.java from github://itdelatrisu/opsu
     function EqualDistanceMultiCurve(hit) {
         Curve.call(this, hit);
@@ -9,7 +9,7 @@ define(["curves/Curve"], function(Curve) {
         this.endAngle = 0;
     }
     EqualDistanceMultiCurve.prototype.init = function init(curves) {
-        this.ncurve = Math.floor(this.hitObject.pixelLength / CURVE_POINTS_SEPERATION)+1;
+        this.ncurve = Math.floor(this.hitObject.pixelLength / CURVE_POINTS_SEPERATION) + 1;
         // number of segments, which have approximately same length
         this.curve = [];
 
@@ -55,8 +55,7 @@ define(["curves/Curve"], function(Curve) {
             // lastDistanceAt <= prefDistance <= distanceAt
             if (lastCurve == thisCurve) {
                 this.curve[i] = thisCurve;
-            }
-            else {
+            } else {
                 let t = (prefDistance - lastDistanceAt) / (distanceAt - lastDistanceAt);
                 this.curve[i] = {
                     x: Curve.lerp(lastCurve.x, thisCurve.x, t),
