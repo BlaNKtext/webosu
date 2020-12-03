@@ -1,0 +1,144 @@
+!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Owu!</title>
+    <link rel="stylesheet" href="style/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/font.css">
+    <link rel="icon" href="favicon.png">
+    <script src="scripts/launchgame.js"></script>
+    <script src="scripts/downloader.js"></script>
+    <script src="scripts/addbeatmaplist.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/jsloader.js"></script>
+</head>
+
+<body>
+    <div class="game-area" id="game-area" hidden>
+    </div>
+
+    <div class="pause-menu" id="pause-menu" hidden>
+        <div class="paused-title">paused</div>
+        <div class="button-list">
+            <div class="pausebutton continue" id="pausebtn-continue">
+                <div class="inner">Continue</div>
+            </div>
+            <div class="pausebutton retry" id="pausebtn-retry">
+                <div class="inner">Retry</div>
+            </div>
+            <div class="pausebutton quit" id="pausebtn-quit">
+                <div class="inner">Quit</div>
+            </div>
+        </div>
+    </div>
+
+    <nav id="main-nav">
+        <div class="nav-link">
+            <a href="index.html" class="brand">owu!</a>
+            <a href="new.html" class="pseudo button active">Updated</a>
+            <a href="hot.html" class="pseudo button">Popular</a>
+            <a href="genre.html" class="pseudo button">Sort by</a>
+        </div>
+        <div class="nav-search">
+            <form action="search.html">
+                <input type="text" name="q" placeholder="Beatmap or Keywords" />
+                <input type="image" class="search-button" src="research.svg">
+            </form>
+        </div>
+        <div class="nav-tool">
+            <a href="local.html" class="pseudo button">Favorites</a>
+            <a href="faq.html" class="pseudo button">Common Problem Fixes</a>
+            <a href="settings.html" class="pseudo button">Settings</a>
+            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter fullscreen</a>
+        </div>
+    </nav>
+
+    <div class="main-page" id="main-page">
+        <div class="main-content">
+            <div class="beatmap-list" id="beatmap-list">
+                <!-- to be filled in script -->
+            </div>
+            <div class="button" style="width:100%; margin-bottom: 10px;" id="btnmore">Load more</div>
+            <div class="text">It is recommended to use the updated version of Firefox or Chrome.</div>
+            <div class="text">Beta version v1.4.3<a href="https://github.com/111116/osu"> Github</a></div>
+            <div class="text">Made by: <a href="https://osu.sayobot.cn/"> Sayobot</a> Provide chart</div>
+            <div class="text">Translated by: <a href="https://github.com/user/BlaNKtext"> BlaNK</a>.</div>
+        </div>
+        <!-- <div class="side-panel">
+                to be activated in script
+            </div> -->
+        <div class="statuslines" id="statuslines">
+            <div class="progress" id="script-progress">
+                Scripts
+                <div class="lds-dual-ring"></div>
+            </div>
+            <div class="progress" id="skin-progress">
+                Skin
+                <div class="lds-dual-ring"></div>
+            </div>
+            <div class="progress" id="sound-progress">
+                Hitsounds
+                <div class="lds-dual-ring"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        if (window.localforage) {
+            window.localforage.getItem("likedsidset", function (err, val) {
+                if (err) {
+                    alert("Error loading liked beatmap list");
+                    return;
+                }
+                if (val && val.size) {
+                    list = Array.from(val);
+
+                    function addlist(startoffset, maxlength) {
+                        for (let i = startoffset; i < list.length && i < startoffset + maxlength; ++i)
+                            addBeatmapSid(list[i]);
+                        if (list.length <= startoffset + maxlength) {
+                            document.getElementById("btnmore").setAttribute("style", "display:none;");
+                        }
+                    }
+                    addlist(0, 20);
+                    var cur = 20;
+                    document.getElementById("btnmore").onclick = function () {
+                        addlist(cur, 20);
+                        cur += 20;
+                    }
+                } else {
+                    document.getElementById("beatmap-list").innerText = "你还没有收藏一首歌曲哦！点击曲目右下角的爱心以收藏这个曲目。";
+                }
+            });
+        } else {
+            alert("localforage not supported")
+        }
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169262247-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-169262247-1');
+    </script>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+</html>
+
+<!-- attribution -->
+<!-- play icon made by https://www.flaticon.com/authors/those-icons -->
+<!-- search icon made by https://www.flaticon.com/authors/good-ware -->

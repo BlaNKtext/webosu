@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Owu!</title>
+    <link rel="stylesheet" href="style/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/font.css">
+    <link rel="icon" href="favicon.png">
+    <script type="text/javascript" src="scripts/lib/localforage.min.js"></script>
+</head>
+
+<body>
+    <nav id="main-nav">
+        <div class="nav-link">
+            <a href="index.html" class="brand">owu!</a>
+            <a href="new.html" class="pseudo button">Updated</a>
+            <a href="hot.html" class="pseudo button">Popular</a>
+            <a href="genre.html" class="pseudo button">Sort by</a>
+        </div>
+        <div class="nav-search">
+            <form action="search.html">
+                <input type="text" name="q" placeholder="Beatmap or Keywords" />
+                <input type="image" class="search-button" src="research.svg">
+            </form>
+        </div>
+        <div class="nav-tool">
+            <a href="local.html" class="pseudo button">Favorites</a>
+            <a href="faq.html" class="pseudo button">Common Problems Fixes</a>
+            <a href="settings.html" class="pseudo button">Settings</a>
+            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
+        </div>
+    </nav>
+
+    <div class="main-page" id="main-page">
+        <div class="main-content">
+            <div class="faqentry">
+                <h2>How to play this game? </h2>
+                The default buttons are the left and right mouse buttons and the Z and X buttons, which can be modified
+                in the settings.
+                The discs that appear on the game screen are called strike circles. When the circle outside the circle
+                shrinks and just falls on the circle, click the circle.
+                Some percussion rings have a slider, you need to hold down the percussion ring and follow it.
+                When a large disk appears on the screen, press and hold the button to quickly rotate around the center
+                of the circle.
+            </div>
+            <div class="faqentry">
+                <h2>The cursor movement seems to be delayed? </h2>
+                Try to enable the hardware cursor in the settings, which can reduce the delay of cursor feedback.
+                However, in some operating systems or browsers, problems such as flickering or inability to display the
+                cursor may occur, so it is turned off by default. In addition, the current cursor size adjustment of the
+                hardware cursor is only fixed to 3 levels, the smallest value is displayed below 0.65, and the largest
+                value is displayed above 0.95.
+            </div>
+            <div class="faqentry">
+                <h2>The game is very stuck, what should I do? </h2>
+                You can uncheck "Use system resolution" in the settings and set the resolution to a value lower than the
+                system zoom (the computer system zoom for laptops or high-resolution screens usually exceeds 100%). It
+                is recommended to avoid high CPU usage, close anti-virus software/computer housekeeper like 360, try to
+                close other tabs of the browser and restart the browser. Please make sure you are using a mainstream
+                modern browser (such as Firefox, Chrome). If it is still stuck, please <a
+                    href="https://github.com/111116/osu">file an issue</a>.
+            </div>
+            <div class="faqentry">
+                <h2>Why is nothing displayed on the webpage? </h2>
+                It may be that the mirror station that provides the chart is wrong. You can find that there is no
+                content on the mirror site <a href="https://osu.sayobot.cn/home/new">Sayobot</a>. If this is the case,
+                you can contact the webmaster of the mirror site to restore it.
+                <!--In addition, you can add the chart to your favorites, and playing the favorite chart will not be affected by errors in the mirror station. -->
+            </div>
+            <div class="faqentry">
+                <h2>The downloader (IDM) on my computer pops up many pop-up windows! </h2>
+                This site uses XHR to load audio and video resources. Please set the downloader (IDM) to be disabled on
+                this site.
+            </div>
+            <div class="faqentry">
+                <h2>Can I upload the chart from local? </h2>
+                This feature is still under development. You can search for existing charts in the library.
+                <!-- Yes. You can find the entry to add local charts in the "favorite" chart list. Only you can see the local chart you added. -->
+            </div>
+            <div class="faqentry">
+                <h2>The audio and video are out of sync? </h2>
+                Please <a href="https://github.com/111116/osu">file an issue</a>.
+            </div>
+
+            <div class="faqentry">
+                <h2>Other questions? </h2>
+                Please <a href="https://github.com/111116/osu">file an issue</a>.
+            </div>
+        </div>
+    </div>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169262247-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-169262247-1');
+    </script>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+
+</html>
+
+<!-- attribution -->
+<!-- play icon made by https://www.flaticon.com/authors/those-icons -->
+<!-- search icon made by https://www.flaticon.com/authors/good-ware -->

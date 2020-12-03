@@ -1,0 +1,418 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Owu!</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="style/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/font.css">
+    <script src="scripts/settings.js"></script>
+</head>
+
+<body>
+    <nav id="main-nav">
+        <div class="nav-link">
+            <a href="index.html" class="brand">owu!</a>
+            <a href="new.html" class="pseudo button">Recently Updated</a>
+            <a href="hot.html" class="pseudo button">Popular</a>
+            <a href="genre.html" class="pseudo button">Sort</a>
+        </div>
+        <div class="nav-search">
+            <form action="search.html">
+                <input type="text" name="q" placeholder="Beatmap Name or keyword" />
+                <input type="image" class="search-button" src="research.svg">
+            </form>
+        </div>
+        <div class="nav-tool">
+            <a href="local.html" class="pseudo button">Favorites</a>
+            <a href="faq.html" class="pseudo button">Common Problems</a>
+            <a href="settings.html" class="pseudo button active">Set up</a>
+            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
+        </div>
+    </nav>
+    <div class="main-page" id="main-page">
+        <div class="panel">
+            <!-- <h1>Settings</h1> -->
+            <table class="holder" id="settings-panel">
+                <tr>
+                    <td>
+                        <h3>
+                            Display Settings
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Background Dim (Changes how dark the wallaper is during play)
+                        </div>
+                        <div class="option-control">
+                            <input id="dim-range" class="slider" type="range" min="0" max="100" value="0">
+                            <div class="range-indicator" id="dim-range-indicator" hidden></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Background Blur (same as Dim but with blur)
+                        </div>
+                        <div class="option-control">
+                            <input id="blur-range" class="slider" type="range" min="0" max="8" value="0">
+                            <div class="range-indicator" id="blur-range-indicator" hidden></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Cursor size (Not recommended to change)
+                        </div>
+                        <div class="option-control">
+                            <input id="cursorsize-range" class="slider" type="range" min="0.5" max="2.0" step="0.01"
+                                value="0.5">
+                            <div class="range-indicator" id="cursorsize-range-indicator" hidden></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="Reduce cursor delay, but poor compatibility, may flicker or fail to display cursor">
+                        <div class="option-name">
+                            Use OS Cursor (Use the corsor that your computer uses)
+                        </div>
+                        <div class="option-control">
+                            <input id="showhwmouse-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Slider In
+                        </div>
+                        <div class="option-control">
+                            <input id="snakein-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Slider out
+                        </div>
+                        <div class="option-control">
+                            <input id="snakeout-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Use fullscreen automatically
+                        </div>
+                        <div class="option-control">
+                            <input id="autofullscreen-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Use System resoloution
+                        </div>
+                        <div class="option-control">
+                            <input id="sysdpi-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Resoloution
+                        </div>
+                        <div class="option-control">
+                            <input id="dpi-range" class="slider" type="range" min="0.5" max="2.0" value="1.0"
+                                step="0.05">
+                            <div class="range-indicator" id="dpi-range-indicator" hidden></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>
+                            Button Settings
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="To avoid accidentally changing the volume">
+                        <div class="option-name">
+                            Operation Setting
+                        </div>
+                        <div class="option-control">
+                            <input id="disable-wheel-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="To avoid accidentally clicking on objects">
+                        <div class="option-name">
+                            Disable scroll wheel while playing
+                        </div>
+                        <div class="option-control">
+                            <input id="disable-button-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Left Click
+                        </div>
+                        <div class="option-control">
+                            <input id="lbutton1select" type="button" value="oops" />
+                            <input type="button" value="M1" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Right Click
+                        </div>
+                        <div class="option-control">
+                            <input id="rbutton1select" type="button" value="oops" />
+                            <input type="button" value="M2" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Pause Button
+                        </div>
+                        <div class="option-control">
+                            <input id="pausebuttonselect" type="button" value="oops" />
+                            <input id="pausebutton2select" type="button" value="oops" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Skip Intro
+                        </div>
+                        <div class="option-control">
+                            <input id="skipbuttonselect" type="button" value="oops" />
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>
+                            Audio Settings
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Main Volume
+                        </div>
+                        <div class="option-control">
+                            <input id="mastervolume-range" class="slider" type="range" min="0" max="100" value="0">
+                            <div class="range-indicator" id="mastervolume-range-indicator" hidden></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Sound Effect Volume
+                        </div>
+                        <div class="option-control">
+                            <input id="effectvolume-range" class="slider" type="range" min="0" max="100" value="0">
+                            <div class="range-indicator" id="effectvolume-range-indicator" hidden></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Music Volume
+                        </div>
+                        <div class="option-control">
+                            <input id="musicvolume-range" class="slider" type="range" min="0" max="100" value="0">
+                            <div class="range-indicator" id="musicvolume-range-indicator" hidden></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr title="Not recommended for use! If there isnt a shit ton of click delay, don't use it!">
+                    <td>
+                        <div class="option-name">
+                            Audio Offset
+                        </div>
+                        <div class="option-control">
+                            <input id="audiooffset-range" class="slider" type="range" min="-50" max="50" value="-50">
+                            <div class="range-indicator" id="audiooffset-range-indicator" hidden></div>
+                        </div>
+                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Not recommended for use! If you
+                            use it, please turn off the percussion sound effect. Set it to a positive value to delay the
+                            judgment point relative to the music. Go to <a style="color: #8bc"
+                                href="https://bemuse.ninja/?mode=sync">bemuse sync</a> to determine the keyboard delay.
+                        </div>
+                    </td>
+                </tr>
+                <tr hidden>
+                    <td>
+                        <div class="option-name disabled">
+                            Enable beatmap hitsounds
+                        </div>
+                        <div class="option-control">
+                            <input id="beatmap-hitsound-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>
+                            MODS
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="This doesn't make things easier!">
+                        <div class="option-name">
+                            Easy
+                        </div>
+                        <div class="option-control">
+                            <input id="easy-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="Everything gets slower...">
+                        <div class="option-name">
+                            Daycore
+                        </div>
+                        <div class="option-control">
+                            <input id="daycore-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="Everything gets a bit harder...">
+                        <div class="option-name">
+                            Hard Rock
+                        </div>
+                        <div class="option-control">
+                            <input id="hardrock-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="Play with no approach circles and fading circles/sliders">
+                        <div class="option-name">
+                            Hidden
+                        </div>
+                        <div class="option-control">
+                            <input id="hidden-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="Everything gets faster...">
+                        <div class="option-name">
+                            Nightcore
+                        </div>
+                        <div class="option-control">
+                            <input id="nightcore-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td title="Watch a (probably) perfect automated play">
+                        <div class="option-name">
+                            Autoplay
+                        </div>
+                        <div class="option-control">
+                            <input id="autoplay-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>
+                            Skin Settings
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Hide number on Circle
+                        </div>
+                        <div class="option-control">
+                            <input id="hidenumbers-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Hide Great timing popup
+                        </div>
+                        <div class="option-control">
+                            <input id="hidegreat-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Hide Order Lines (Idk why you would do this)
+                        </div>
+                        <div class="option-control">
+                            <input id="hidefollowpoints-check" type="checkbox" /><span></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                        <input id="restoredefault-btn" type="button" class="warnbtn"
+                            value="Restore all default settings" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169262247-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-169262247-1');
+    </script>
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.1.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+</html>
