@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 body {
-  background: #191919;
-  color: #eee;
+  background: #171A1C;
+  color: rgb(223, 245, 255);
   font-family: "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
@@ -18,7 +18,7 @@ h6 {
 }
 
 a {
-  color: #6df;
+  color:rgb(58,134,172);
 }
 
 body.gaming {
@@ -58,7 +58,7 @@ canvas {
 
 
 nav {
-  background: #b63258;
+  background: rgb(58,134,172);
   color: #fff;
   display: flex;
   white-space: nowrap;
@@ -141,7 +141,7 @@ nav form {
 
 /*fix placeholder color for chrome*/
 form input[type="text"]::-webkit-input-placeholder {
-  color: #c89eaa;
+  color: #849cac;
 }
 
 form input[type="text"] {
@@ -315,7 +315,7 @@ thead {
 }
 
 .paused-title {
-  color: #ffcc22;
+  color: #ff2922;
   padding-top: 60px;
   text-align: center;
   letter-spacing: 0.16em;
@@ -363,15 +363,15 @@ thead {
 }
 
 .pausebutton.continue {
-  background: #88b300;
+  background: #747474f6;
 }
 
 .pausebutton.retry {
-  background: #eeaa00;
+  background: #444444;
 }
 
 .pausebutton.quit {
-  background: #aa1b27;
+  background: #252223;
 }
 
 
@@ -1055,7 +1055,7 @@ progress.finished::-webkit-progress-value {
 }
 
 .beatmaplike.hint-liked::after {
-  content: "已收藏";
+  content: "Liked!";
   white-space: nowrap;
   position: absolute;
   bottom: 32px;
@@ -1128,8 +1128,8 @@ progress.finished::-webkit-progress-value {
 }
 
 input {
-  background: #892e48;
-  color: #fff;
+  background: rgb(38, 79, 99);
+  color: rgb(255, 255, 255);
   border: none;
 }
 
@@ -1152,9 +1152,9 @@ input[type=checkbox] {
 }
 
 input[type=checkbox]+span {
-  background: #555;
+  background: rgba(85, 85, 85, 0);
   border-radius: 10px;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
   display: inline-block;
   height: 20px;
   margin: 2px 2px;
@@ -1182,7 +1182,7 @@ input[type=checkbox]+span::after {
 }
 
 input[type=checkbox]:checked+span {
-  background: #fc7bb4;
+  background: rgb(82, 189, 243);
 }
 
 input[type=checkbox]:checked+span::after {
@@ -1263,7 +1263,7 @@ input[type=button]:hover {
 }
 
 input[type=button].using {
-  background: #fc7bb4;
+  background: rgb(73, 162, 207);
   color: #fff;
 }
 
@@ -1302,7 +1302,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 input[type=range]::-moz-range-progress {
-  background-color: #fc7bb4;
+  background-color: rgb(36, 155, 214);
 }
 
 input[type=range]::-moz-range-track {
@@ -1313,7 +1313,7 @@ hr {
   height: 2px;
   margin-bottom: 12px;
   border: none;
-  background: #ee6da7;
+  background:rgb(55, 167, 223);
 }
 
 

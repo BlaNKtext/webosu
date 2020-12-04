@@ -87,7 +87,7 @@
                 <a onclick="genRandomList()" class="more" style="cursor:pointer;">Change</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-random">
-                    <!-- to be filled in script -->
+                    <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
@@ -95,7 +95,7 @@
                 <a href="history.html" class="more">Check your play history</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-history">
-                    <!-- to be filled in script -->
+                    <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
@@ -103,7 +103,7 @@
                 <a href="new.html" class="more">See more Latest Tracks</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-new">
-                    <!-- to be filled in script -->
+                    <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
@@ -111,7 +111,7 @@
                 <a href="local.html" class="more"> View more favorite tracks</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-liked">
-                    <!-- to be filled in script -->
+                    <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
@@ -123,9 +123,8 @@
                 </div>
             </div>
             <div class="text">
-                <a href="https://paypal.me/Sayobot">Donate to Sayobot with Paypal</a>
             </div>
-            <div class="button" style="width:100%; margin-bottom: 10px;" id="btnmore">Load more</div>
+            <div class="text"><a href="https://paypal.me/Sayobot">Donate to Sayobot on paypal</a></div>
             <div class="text">It is recommended to use the updated version of Firefox or Chrome.</div>
             <div class="text">Beta version v1.4.3<a href="https://github.com/111116/osu"> Github</a></div>
             <div class="text">Made by: <a href="https://osu.sayobot.cn/"> Sayobot</a> Provide chart</div>
@@ -278,7 +277,8 @@
                     for (let i = 0; i < list.length && i < 4; ++i)
                         addBeatmapSid(list[i], listlike);
                 } else {
-                    document.getElementById("beatmap-list-liked").innerText = "You haven't collected this song yet! Click on the love in the lower right corner of the track to bookmark this track.";
+                    document.getElementById("beatmap-list-liked").innerText =
+                        "You haven't collected this song yet! Click on the love in the lower right corner of the track to bookmark this track.";
                 }
             });
         } else {
