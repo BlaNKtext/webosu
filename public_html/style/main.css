@@ -1344,13 +1344,13 @@ div[hidden=""] {
 }
 
 .difficulty-item {
-  background: #142b33;
+  background:#2c2c34;
   box-shadow: 2px 2px 5px #000;
   border-radius: 8px;
   margin-bottom: 6px;
   padding: 12px;
   height: 50px;
-  color: #fff;
+  color: #8291a0;
   white-space: nowrap;
   font-size: 16px;
   cursor: pointer;
