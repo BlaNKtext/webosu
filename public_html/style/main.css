@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 body {
-  background: #25292e;
-  color: rgb(223, 245, 255);
+  background: #282c34;
+  color: #a7aebd;
   font-family: "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
@@ -18,7 +18,7 @@ h6 {
 }
 
 a {
-  color:rgb(84, 181, 230);
+  color:#9d7dcc;
 }
 
 body.gaming {
@@ -58,7 +58,7 @@ canvas {
 
 
 nav {
-  background: rgb(58,134,172);
+  background: #9d7dcc;
   color: #fff;
   display: flex;
   white-space: nowrap;
@@ -169,7 +169,7 @@ form input {
 .announcement {
   width: 100%;
   border-radius: 4px;
-  background: rgb(146, 125, 54);
+  background: #403a63;
   padding-left: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -897,7 +897,7 @@ progress.finished::-webkit-progress-value {
 
 .beatmapbox {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
-  background: rgb(61, 61, 61);
+  background: #21252b;
   font-size: 18px;
   height: 190px;
   width: 400px;
@@ -926,7 +926,7 @@ progress.finished::-webkit-progress-value {
 
 .beatmappreview {
   position: absolute;
-  fill: #fff;
+  fill: rgb(221, 221, 221);
   margin-left: 365px;
   margin-top: 10px;
   width: 24px;
@@ -950,7 +950,7 @@ progress.finished::-webkit-progress-value {
   padding-right: 10px;
   font-size: 1.3em;
   font-style: italic;
-  color: #fff;
+  color:rgb(221, 221, 221);
   overflow: hidden;
   position: absolute;
   text-overflow: ellipsis;
@@ -965,7 +965,7 @@ progress.finished::-webkit-progress-value {
   padding-right: 10px;
   font-size: 0.8em;
   font-style: italic;
-  color: #fff;
+  color: rgb(221, 221, 221);
   overflow: hidden;
   position: absolute;
   text-overflow: ellipsis;
@@ -976,7 +976,7 @@ progress.finished::-webkit-progress-value {
 .beatmapcreator {
   padding-top: 134px;
   padding-left: 10px;
-  color: rgb(214, 214, 214);
+  color: #b0b7c3;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1003,7 +1003,7 @@ progress.finished::-webkit-progress-value {
 .beatmapauthor {
   padding-top: 102px;
   padding-left: 10px;
-  color: #444;
+  color: #b0b7c3;
   font-size: 14px;
   padding-top: 10px;
   overflow: hidden;
@@ -1018,7 +1018,7 @@ progress.finished::-webkit-progress-value {
   position: absolute;
   float: right;
   font-style: italic;
-  color: #fff;
+  color: #b0b7c3;
   font-size: 0.8em;
   padding-top: 82px;
 }
@@ -1028,7 +1028,7 @@ progress.finished::-webkit-progress-value {
   position: absolute;
   float: right;
   font-style: italic;
-  color: #fff;
+  color: #b0b7c3;
   font-size: 0.8em;
   padding-top: 102px;
 }
@@ -1047,7 +1047,7 @@ progress.finished::-webkit-progress-value {
 }
 
 .beatmaplike.icon-heart-empty {
-  color: rgb(112, 112, 112);
+  color: #5c617c;
 }
 
 .beatmaplike.icon-heart {
@@ -1128,7 +1128,7 @@ progress.finished::-webkit-progress-value {
 }
 
 input {
-  background: rgb(38, 79, 99);
+  background: #46406b;
   color: rgb(255, 255, 255);
   border: none;
 }
@@ -1313,7 +1313,7 @@ hr {
   height: 2px;
   margin-bottom: 12px;
   border: none;
-  background:rgb(55, 167, 223);
+  background:#9d7dcc;
 }
 
 
