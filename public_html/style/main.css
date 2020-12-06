@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-  background: #171A1C;
+  background: #25292e;
   color: rgb(223, 245, 255);
   font-family: "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -18,7 +18,7 @@ h6 {
 }
 
 a {
-  color:rgb(58,134,172);
+  color:rgb(84, 181, 230);
 }
 
 body.gaming {
@@ -169,7 +169,7 @@ form input {
 .announcement {
   width: 100%;
   border-radius: 4px;
-  background: #333;
+  background: rgb(146, 125, 54);
   padding-left: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -897,7 +897,7 @@ progress.finished::-webkit-progress-value {
 
 .beatmapbox {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
-  background: #fff;
+  background: rgb(61, 61, 61);
   font-size: 18px;
   height: 190px;
   width: 400px;
@@ -976,7 +976,7 @@ progress.finished::-webkit-progress-value {
 .beatmapcreator {
   padding-top: 134px;
   padding-left: 10px;
-  color: #444;
+  color: rgb(214, 214, 214);
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1047,7 +1047,7 @@ progress.finished::-webkit-progress-value {
 }
 
 .beatmaplike.icon-heart-empty {
-  color: #333;
+  color: rgb(112, 112, 112);
 }
 
 .beatmaplike.icon-heart {
