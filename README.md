@@ -8,13 +8,14 @@ Note: Some music might not be perfectly synced and modes other than osu! (standa
 
 ## Screenshots
 
-[web page:](http://owu.surge.sh/)
+[Main Page:](http://owubeta.surge.sh/)
 
 ![webpage](Screenshots/SS1.png)
 
 Gameplay:
 
 ![webpage](Screenshots/clip.gif)
+
 Credits for gameplay go to [original repo](https://github.com/111116/webosu)
 ## Hosting
 
