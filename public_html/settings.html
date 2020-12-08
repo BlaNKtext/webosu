@@ -3,25 +3,47 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Owu!beta Settings</title>
-    <link rel="icon" href="favicon.png">
+    <title>Owu!beta Setings</title>
     <link rel="stylesheet" href="style/picnic.min.css">
     <link rel="stylesheet" type="text/css" href="style/main.css">
     <link rel="stylesheet" type="text/css" href="style/font.css">
+    <link rel="icon" href="favicon.png">
+    <script src="scripts/launchgame.js"></script>
+    <script src="scripts/downloader.js"></script>
+    <script src="scripts/addbeatmaplist.js"></script>
     <script src="scripts/settings.js"></script>
+    <script src="scripts/jsloader.js"></script>
 </head>
 
 <body>
+    <div class="game-area" id="game-area" hidden>
+    </div>
+
+    <div class="pause-menu" id="pause-menu" hidden>
+        <div class="paused-title">paused</div>
+        <div class="button-list">
+            <div class="pausebutton continue" id="pausebtn-continue">
+                <div class="inner">Continue</div>
+            </div>
+            <div class="pausebutton retry" id="pausebtn-retry">
+                <div class="inner">Retry</div>
+            </div>
+            <div class="pausebutton quit" id="pausebtn-quit">
+                <div class="inner">Quit</div>
+            </div>
+        </div>
+    </div>
+
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">owu!</a>
-            <a href="new.html" class="pseudo button">Recently Updated</a>
+            <a href="new.html" class="pseudo button">Updated</a>
             <a href="hot.html" class="pseudo button">Popular</a>
             <a href="genre.html" class="pseudo button">Sort by</a>
         </div>
         <div class="nav-search">
             <form action="search.html">
-                <input type="text" name="q" placeholder="Beatmap Name or keyword" />
+                <input type="text" name="q" placeholder="Beatmap or Keyword" />
                 <input type="image" class="search-button" src="research.svg">
             </form>
         </div>
@@ -31,6 +53,8 @@
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
         </div>
     </nav>
+
+<body>
     <div class="main-page" id="main-page">
         <div class="panel">
             <!-- <h1>Settings</h1> -->
@@ -38,14 +62,14 @@
                 <tr>
                     <td>
                         <h3>
-                            Display Settings
+                            GAMEPLAY
                         </h3>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="option-name">
-                            Background Dim
+                            Background dim
                         </div>
                         <div class="option-control">
                             <input id="dim-range" class="slider" type="range" min="0" max="100" value="0">
@@ -56,7 +80,7 @@
                 <tr>
                     <td>
                         <div class="option-name">
-                            Background Blur
+                            Background blur
                         </div>
                         <div class="option-control">
                             <input id="blur-range" class="slider" type="range" min="0" max="8" value="0">
@@ -77,64 +101,47 @@
                     </td>
                 </tr>
                 <tr>
-                    <td title="Reduce cursor delay, but poor compatibility, may flicker or fail to display cursor">
-                        <div class="option-name">
-                            Use Computer Cursor
+                    <td>
+                        <div class="option-name" title="less latency, but on some browsers donesn't display correctly">
+                            Show hardware cursor
                         </div>
                         <div class="option-control">
                             <input id="showhwmouse-check" type="checkbox" /><span></span>
                         </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;"> Changes cursor to the one your
-                            PC uses instead of the Osu! styled one. Use this if the game is overly laggy
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="option-name">
+                            Snaking in sliders
+                        </div>
+                        <div class="option-control">
+                            <input id="snakein-check" type="checkbox" /><span></span>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="option-name">
-                            Use fullscreen automatically
+                            Snaking out sliders
                         </div>
                         <div class="option-control">
-                            <input id="autofullscreen-check" type="checkbox" /><span></span>
+                            <input id="snakeout-check" type="checkbox" /><span></span>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        <div class="option-name">
-                            Use System resoloution
-                        </div>
-                        <div class="option-control">
-                            <input id="sysdpi-check" type="checkbox" /><span></span>
-                        </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;"> Changes the size of the window
-                            the game is played in, it's not suggested to change this unless the game is overly laggy
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="option-name">
-                            Resoloution
-                        </div>
-                        <div class="option-control">
-                            <input id="dpi-range" class="slider" type="range" min="0.5" max="2.0" value="1.0"
-                                step="0.05">
-                            <div class="range-indicator" id="dpi-range-indicator" hidden></div>
-                        </div>
-                    </td>
-                </tr>
+
                 <tr>
                     <td>
                         <h3>
-                            Button Settings
+                            INPUT
                         </h3>
                     </td>
                 </tr>
                 <tr>
-                    <td title="To avoid accidentally changing the volume">
-                        <div class="option-name">
-                            Disable scroll wheel volume control
+                    <td>
+                        <div class="option-name" title="So that you don't change volume accidentally">
+                            Disable mouse wheel in gameplay
                         </div>
                         <div class="option-control">
                             <input id="disable-wheel-check" type="checkbox" /><span></span>
@@ -142,9 +149,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td title="To avoid accidentally clicking on objects">
-                        <div class="option-name">
-                            Disable scroll wheel while playing
+                    <td>
+                        <div class="option-name" title="So that you don't hit things accidentally">
+                            Disable mouse buttons in gameplay
                         </div>
                         <div class="option-control">
                             <input id="disable-button-check" type="checkbox" /><span></span>
@@ -154,10 +161,10 @@
                 <tr>
                     <td>
                         <div class="option-name">
-                            Left Click
+                            Left button
                         </div>
                         <div class="option-control">
-                            <input id="lbutton1select" type="button" value="X" />
+                            <input id="lbutton1select" type="button" value="Z" />
                             <input type="button" value="M1" />
                         </div>
                     </td>
@@ -165,31 +172,11 @@
                 <tr>
                     <td>
                         <div class="option-name">
-                            Right Click
+                            Right button
                         </div>
                         <div class="option-control">
-                            <input id="rbutton1select" type="button" value="Z" />
+                            <input id="rbutton1select" type="button" value="X" />
                             <input type="button" value="M2" />
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="option-name">
-                            Pause Button
-                        </div>
-                        <div class="option-control">
-                            <input id="pausebuttonselect" type="button" value="ESC" />
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="option-name">
-                            Skip Intro
-                        </div>
-                        <div class="option-control">
-                            <input id="skipbuttonselect" type="button" value="CTRL" />
                         </div>
                     </td>
                 </tr>
@@ -197,14 +184,14 @@
                 <tr>
                     <td>
                         <h3>
-                            Audio Settings
+                            AUDIO
                         </h3>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="option-name">
-                            Master Volume
+                            Master volume
                         </div>
                         <div class="option-control">
                             <input id="mastervolume-range" class="slider" type="range" min="0" max="100" value="0">
@@ -215,7 +202,7 @@
                 <tr>
                     <td>
                         <div class="option-name">
-                            Sound Effect Volume
+                            Effect volume
                         </div>
                         <div class="option-control">
                             <input id="effectvolume-range" class="slider" type="range" min="0" max="100" value="0">
@@ -226,7 +213,7 @@
                 <tr>
                     <td>
                         <div class="option-name">
-                            Music Volume
+                            Music volume
                         </div>
                         <div class="option-control">
                             <input id="musicvolume-range" class="slider" type="range" min="0" max="100" value="0">
@@ -234,23 +221,18 @@
                         </div>
                     </td>
                 </tr>
-                <tr title="Not recommended for use! If there isnt a shit ton of click delay, don't use it!">
+                <tr>
                     <td>
-                        <div class="option-name">
-                            Audio Offset
+                        <div class="option-name disabled">
+                            Audio offset
                         </div>
                         <div class="option-control">
-                            <input id="audiooffset-range" class="slider" type="range" min="-50" max="50" value="-50">
+                            <input id="audiooffset-range" class="slider" type="range" min="-80" max="80" value="-80">
                             <div class="range-indicator" id="audiooffset-range-indicator" hidden></div>
-                        </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Not recommended for use! If you
-                            use it, please turn off the percussion sound effect. Set it to a positive value to delay the
-                            judgment point relative to the music. Go to <a style="color: #8bc"
-                                href="https://bemuse.ninja/?mode=sync">bemuse sync</a> to determine the keyboard delay.
                         </div>
                     </td>
                 </tr>
-                <tr hidden>
+                <tr>
                     <td>
                         <div class="option-name disabled">
                             Enable beatmap hitsounds
@@ -269,9 +251,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td title="This makes things easier!">
-                        <div class="option-name">
-                            Easy Mode
+                    <td>
+                        <div class="option-name" title="This doesn't make things easier!">
+                            Easy
                         </div>
                         <div class="option-control">
                             <input id="easy-check" type="checkbox" /><span></span>
@@ -279,20 +261,18 @@
                     </td>
                 </tr>
                 <tr>
-                    <td title="Everything gets slower...">
-                        <div class="option-name">
+                    <td>
+                        <div class="option-name" title="Everything gets slower...">
                             Daycore
                         </div>
                         <div class="option-control">
                             <input id="daycore-check" type="checkbox" /><span></span>
                         </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;"> Everything slows down a bit.
-                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td title="Everything gets a bit harder...">
-                        <div class="option-name">
+                    <td>
+                        <div class="option-name" title="Everything gets a bit harder...">
                             Hard Rock
                         </div>
                         <div class="option-control">
@@ -301,41 +281,32 @@
                     </td>
                 </tr>
                 <tr>
-                    <td title="Play with no approach circles and fading circles/sliders">
-                        <div class="option-name">
+                    <td>
+                        <div class="option-name" title="Play with no approach circles and fading circles/sliders">
                             Hidden
                         </div>
                         <div class="option-control">
                             <input id="hidden-check" type="checkbox" /><span></span>
                         </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;"> Your timing better be damn good,
-                            because this removes the outer circle and fading for sliders.
-                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td title="Everything gets faster...">
-                        <div class="option-name">
+                    <td>
+                        <div class="option-name" title="Everything gets faster...">
                             Nightcore
                         </div>
                         <div class="option-control">
                             <input id="nightcore-check" type="checkbox" /><span></span>
                         </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;"> It all just got a little bit
-                            harder, and faster, like alot faster.
-                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td title="Watch a (probably) perfect automated play">
-                        <div class="option-name">
+                    <td>
+                        <div class="option-name" title="Watch a perfect automated play">
                             Autoplay
                         </div>
                         <div class="option-control">
                             <input id="autoplay-check" type="checkbox" /><span></span>
-                        </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;"> Watch a perfect automated pay of
-                            the map, no this doesnt count towards your real score lol.
                         </div>
                     </td>
                 </tr>
@@ -343,14 +314,14 @@
                 <tr>
                     <td>
                         <h3>
-                            Skin Settings
+                            SKIN
                         </h3>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <div class="option-name">
-                            Hide number on Circle
+                            Don't show hit circle numbers
                         </div>
                         <div class="option-control">
                             <input id="hidenumbers-check" type="checkbox" /><span></span>
@@ -360,7 +331,7 @@
                 <tr>
                     <td>
                         <div class="option-name">
-                            Hide Great timing popup
+                            Don't show "Great" (300s)
                         </div>
                         <div class="option-control">
                             <input id="hidegreat-check" type="checkbox" /><span></span>
@@ -370,13 +341,10 @@
                 <tr>
                     <td>
                         <div class="option-name">
-                            Hide Order Lines
+                            Don't show follow points
                         </div>
                         <div class="option-control">
                             <input id="hidefollowpoints-check" type="checkbox" /><span></span>
-                        </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;"> This removes the lines telling
-                            you which order to click when this get hectic.
                         </div>
                     </td>
                 </tr>
@@ -384,24 +352,12 @@
                     <td>
                         <br />
                         <input id="restoredefault-btn" type="button" class="warnbtn"
-                            value="Restore all default settings" />
+                            value="Restore all settings to default" />
                     </td>
                 </tr>
             </table>
         </div>
     </div>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169262247-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-169262247-1');
-    </script>
 </body>
 
 </html>
