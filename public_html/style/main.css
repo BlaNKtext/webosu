@@ -169,7 +169,7 @@ form input {
 .announcement {
   width: 100%;
   border-radius: 4px;
-  background: #403a63;
+  background: #393b47;
   padding-left: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -315,7 +315,7 @@ thead {
 }
 
 .paused-title {
-  color: #ff2922;
+  color:#f04747;
   padding-top: 60px;
   text-align: center;
   letter-spacing: 0.16em;
@@ -363,15 +363,15 @@ thead {
 }
 
 .pausebutton.continue {
-  background: #747474f6;
+  background: #43b581;
 }
 
 .pausebutton.retry {
-  background: #444444;
+  background: #faa61a;
 }
 
 .pausebutton.quit {
-  background: #252223;
+  background: #f04747;
 }
 
 
@@ -669,12 +669,12 @@ thead {
 
 .grading .btn.retry {
   right: -10px;
-  background: #eeaa00;
+  background:#43b581;
 }
 
 .grading .btn.quit {
   left: -10px;
-  background: #aa1b27;
+  background: #f04747;
 }
 
 
@@ -696,7 +696,7 @@ thead {
   line-height: 2em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  color: #7df;
+  color: rgb(77, 77, 77);
   cursor: pointer;
   transition: 0.2s ease all;
 }
@@ -781,7 +781,7 @@ thead {
 .panel table h3 {
   margin-top: 1em;
   margin-bottom: 0.5em;
-  color: #aef;
+  color: #9d7dcc;
   font-size: 1.3em;
 }
 
@@ -844,19 +844,19 @@ progress::-webkit-progress-bar {
 }
 
 progress::-moz-progress-bar {
-  background: #f6a;
+  background: #39af3c;
 }
 
 progress::-webkit-progress-value {
-  background: #f6a;
+  background:  #9d7dcc;
 }
 
 progress.finished::-moz-progress-bar {
-  background: #6cf;
+  background:  #9d7dcc;
 }
 
 progress.finished::-webkit-progress-value {
-  background: #6cf;
+  background: #39af3c;
 }
 
 .text {
@@ -1051,7 +1051,7 @@ progress.finished::-webkit-progress-value {
 }
 
 .beatmaplike.icon-heart {
-  color: #ed4956;
+  color: #f04747;
 }
 
 .beatmaplike.hint-liked::after {
