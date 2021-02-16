@@ -325,13 +325,13 @@ thead {
 }
 
 .paused-desc {
-  color:#414141;
+  color:#575757;
   padding-top: 60px;
   text-align: center;
   letter-spacing: 0.16em;
   position: absolute;
   width: 100%;
-  top: calc(50% - 7.5em);
+  top: calc(50% - 8.5em);
 }
 
 .button-list {
