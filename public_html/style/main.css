@@ -324,6 +324,16 @@ thead {
   top: calc(50% - 9.5em);
 }
 
+.paused-desc {
+  color:#414141;
+  padding-top: 60px;
+  text-align: center;
+  letter-spacing: 0.16em;
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 11em);
+}
+
 .button-list {
   font-style: italic;
   margin-left: auto;
