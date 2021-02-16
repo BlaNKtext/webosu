@@ -331,7 +331,7 @@ thead {
   letter-spacing: 0.16em;
   position: absolute;
   width: 100%;
-  top: calc(50% - 11em);
+  top: calc(50% - 7.5em);
 }
 
 .button-list {
