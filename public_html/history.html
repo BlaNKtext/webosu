@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="style/font.css">
         <script src="scripts/lib/localforage.min.js"></script>
     </head>
-
+<!--Main Nav Bar-->
 <body>
     <nav id="main-nav">
         <div class="nav-link">
@@ -24,8 +24,8 @@
         </div>
         <div class="nav-search">
             <form action="search.html">
-                <input type="text" name="q" placeholder="Beatmap or SID" />
-                <input type="image" class="search-button" src="research.svg">
+            <input type="text" name="q" placeholder="Beatmap or SID" />
+            <input type="image" class="search-button" src="research.svg">
             </form>
         </div>
         <div class="nav-tool">
@@ -34,30 +34,27 @@
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
         </div>
     </nav>
-
+    <!--Main Page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
             <table style="white-space: nowrap;">
                 <thead>
                     <tr>
-                        <td>Song</td>
-                        <td>Combo</td>
-                        <td>Score</td>
-                        <td>Accuracy</td>
-                        <td>Mods Used</td>
-                        <td>Time</td>
+                    <td>Song</td>
+                    <td>Combo</td>
+                    <td>Score</td>
+                    <td>Accuracy</td>
+                    <td>Mods Used</td>
+                    <td>Time</td>
                     </tr>
                 </thead>
                 <tbody id="history-list">
-                    <!-- will be filled in script -->
+                <!-- will be filled in script -->
                 </tbody>
             </table>
         </div>
     </div>
     <script>
-        //*** This code is copyright 2002-2016 by Gavin Kistner, !@phrogz.net
-        //*** It is covered under the license viewable at http://phrogz.net/JS/_ReuseLicense.txt
-        //*** customFormat starts
         Date.prototype.customFormat = function (formatString) {
             var YYYY, YY, MMMM, MMM, MM, M, DDDD, DDD, DD, D, hhhh, hhh, hh, h, mm, m, ss, s, ampm, AMPM, dMod, th;
             var dateObject = this;
@@ -127,22 +124,14 @@
             alert("localforage is not supported.")
         }
     </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169262247-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-169262247-1');
-    </script>
 </body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/8.2.7/firebase-app.js"></script>
 
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/8.2.7/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
 </html>
-
-<!-- attribution -->
-<!-- play icon made by https://www.flaticon.com/authors/those-icons -->
-<!-- search icon made by https://www.flaticon.com/authors/good-ware -->
