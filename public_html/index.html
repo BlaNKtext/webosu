@@ -5,7 +5,7 @@
     <meta property="og:title" content="owu!beta | home">
     <meta property="og:image" content="https://i.ibb.co/DKgvZ4z/favicon.png">
     <meta property="og:description" content="The Unofficial port of 'Osu!">
-    <meta property="og:url" content="https://owubeta.surge.sh">
+    <meta property="og:url" content="https://owu.vercel.app/">
     <meta charset="utf-8" />
     <title>owu!beta | Home</title>
     <link rel="icon" href="favicon.png">
@@ -18,28 +18,28 @@
     <script src="scripts/settings.js"></script>
     <script src="scripts/jsloader.js"></script>
     <script src="scripts/lib/localforage.min.js"></script>
+    <script src="scripts/dragdrop.js"></script>
 </head>
-
+<!--Pause menu-->
 <body>
     <div class="game-area" id="game-area" hidden>
     </div>
-
     <div class="pause-menu" id="pause-menu" hidden>
         <div class="paused-title">paused</div>
-        <div class="paused-desc">you're not gonna do what i think you're gonna do, are you?</div>
+        <div class="paused-desc">you're not gonna do what i think you're gonna do, are ya?</div>
         <div class="button-list">
             <div class="pausebutton continue" id="pausebtn-continue">
-                <div class="inner">Continue</div>
+            <div class="inner">Continue</div>
             </div>
             <div class="pausebutton retry" id="pausebtn-retry">
-                <div class="inner">Retry</div>
+            <div class="inner">Retry</div>
             </div>
             <div class="pausebutton quit" id="pausebtn-quit">
-                <div class="inner">Quit</div>
+            <div class="inner">Quit</div>
             </div>
         </div>
     </div>
-
+    <!--Top nav bar-->
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">owu!</a>
@@ -59,20 +59,18 @@
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
         </div>
     </nav>
-
+    <!--Main page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
-            <div class="announcement">
-                Announcement: Stable Release!
-            </div>
+            <div class="announcement">Announcement: Stable Release!</div>
             <br>
-                    <!-- filled in with live plays html-->
+            <!-- filled in with live plays html-->
             <div class="index-area">
                 <h2>Random beatmaps</h2>
-                <a onclick="genRandomList()" class="more" style="cursor:pointer;">Change</a>
+                <a onclick="genRandomList()" class="more" style="cursor:pointer;">Randomize</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-random">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
@@ -80,7 +78,7 @@
                 <a href="history.html" class="more">Check your play history</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-history">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
@@ -88,15 +86,15 @@
                 <a href="new.html" class="more">See more Latest Tracks</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-new">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Favorite Tracks</h2>
-                <a href="local.html" class="more"> View more favorite tracks</a>
+                <a href="local.html" class="more">iew more favorite tracks</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-liked">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
@@ -104,18 +102,19 @@
                 <a href="hot.html" class="more">See more Popular Tracks</a>
                 <hr />
                 <div class="beatmap-list" id="beatmap-list-hot">
-                    <!-- to be filled in script -->
+                <!-- to be filled in script -->
                 </div>
             </div>
+
+            <!--Footer-->
             <div class="text">
             </div>
-            <div class="text">Translation made by: <a href="https://github.com/user/BlaNKtext"> BlaNK</a>.</div>
-            <div class="text">Root <a href="https://github.com/111116/webosu">repo </a> for the site (I had no part in this)</div>
+            <div class="text">Translation made by: <a href="https://github.com/user/BlaNKtext">BlaNK</a>.</div>
             <div class="text">API made by: <a href="https://osu.sayobot.cn/"> Sayobot</a></div>
             <div class="text">It's best to use the updated version of Firefox or Chrome, Other browsers such as Brave, Opera, etc. may run into compatibilty issues</div>
-            <div class="text">Stable Release: v.1.0.2<a href="https://github.com/BlaNKtext/Owubeta"></a></div>
+            <div class="text">Stable Release: v.1.0.2<a href="https://github.com/BlaNKtext/Owu-game"></a></div>
         </div>
-
+        <!--Loader progress-->
         <div class="statuslines" id="statuslines">
             <div class="progress" id="script-progress">
                 Scripts
@@ -183,7 +182,7 @@
         if (window.localforage) {
             window.localforage.getItem("likedsidset", function (err, val) {
                 if (err) {
-                    document.getElementById("beatmap-list-liked").innerText = "Failed to load favorites.";
+                    document.getElementById("beatmap-list-liked").innerText = "Failed to load favorites list.";
                     return;
                 }
                 if (val && val.size) {
@@ -193,11 +192,11 @@
                         addBeatmapSid(list[i], listlike);
                 } else {
                     document.getElementById("beatmap-list-liked").innerText =
-                        "You haven't collected this song yet! Click on the love in the lower right corner of the track to bookmark this track.";
+                        "You haven't liked this song yet! Click on the heart in the lower right corner of the track to save this beatmap.";
                 }
             });
         } else {
-            alert("Uh oh, localforage isn't supported on this browser")
+            alert("Oh no, localforage isn't supported on this browser")
         }
     </script>
 </body>

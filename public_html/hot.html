@@ -3,7 +3,7 @@
 
 <head>
     <meta property="og:title" content="owu!beta | Popular Beatmaps">
-    <meta property="og:url" content="https://owubeta.surge.sh/hot.html">
+    <meta property="og:url" content="https://owu.vercel.app/hot.html">
     <meta charset="utf-8" />
     <title>owu!beta | Popular</title>
     <link rel="icon" href="public_html/favicon.png">
@@ -16,27 +16,26 @@
     <script src="scripts/settings.js"></script>
     <script src="scripts/jsloader.js"></script>
 </head>
-
 <body>
     <div class="game-area" id="game-area" hidden>
     </div>
-
+    <!--Pause menu-->
     <div class="pause-menu" id="pause-menu" hidden>
         <div class="paused-title">paused</div>
-        <div class="paused-desc">you're not gonna do what i think you're gonna do, are you?</div>
+        <div class="paused-desc">you're not gonna do what i think you're gonna do, are ya?</div>
         <div class="button-list">
             <div class="pausebutton continue" id="pausebtn-continue">
-                <div class="inner">Continue</div>
+            <div class="inner">Continue</div>
             </div>
             <div class="pausebutton retry" id="pausebtn-retry">
-                <div class="inner">Retry</div>
+            <div class="inner">Retry</div>
             </div>
             <div class="pausebutton quit" id="pausebtn-quit">
-                <div class="inner">Quit</div>
+            <div class="inner">Quit</div>
             </div>
         </div>
     </div>
-
+<!--Nav bar-->
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">owu!</a>
@@ -46,8 +45,8 @@
         </div>
         <div class="nav-search">
             <form action="search.html">
-                <input type="text" name="q" placeholder="Beatmap or SID" />
-                <input type="image" class="search-button" src="research.svg">
+            <input type="text" name="q" placeholder="Beatmap or SID" />
+            <input type="image" class="search-button" src="research.svg">
             </form>
         </div>
         <div class="nav-tool">
@@ -56,33 +55,25 @@
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter fullscreen</a>
         </div>
     </nav>
-
+    <!--Main Page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="beatmap-list" id="beatmap-list">
-                <!-- to be filled in script -->
+            <!-- to be filled in script -->
             </div>
+            <!--Footer-->
             <div class="text">Translation made by: <a href="https://github.com/user/BlaNKtext"> BlaNK</a>.</div>
-            <div class="text">Root <a href="https://github.com/111116/webosu">repo </a> for the site (I had no part in this)</div>
             <div class="text">API made by: <a href="https://osu.sayobot.cn/"> Sayobot</a></div>
             <div class="text">It's best to use the updated version of Firefox or Chrome, Other browsers such as Brave, Opera, etc. may run into compatibilty issues</div>
             <div class="text">Stable Release: v.1.0.2<a href="https://github.com/BlaNKtext/Owubeta"></a></div>
         </div>
-        <!-- <div class="side-panel">
-                to be activated in script
-            </div> -->
+        <!-- <div class="side-panel">to be activated in script</div> -->
         <div class="statuslines" id="statuslines">
-            <div class="progress" id="script-progress">
-                Scripts
-                <div class="lds-dual-ring"></div>
+            <div class="progress" id="script-progress">Scripts<div class="lds-dual-ring"></div>
             </div>
-            <div class="progress" id="skin-progress">
-                Skin
-                <div class="lds-dual-ring"></div>
+            <div class="progress" id="skin-progress">Skin<div class="lds-dual-ring"></div>
             </div>
-            <div class="progress" id="sound-progress">
-                Hitsounds
-                <div class="lds-dual-ring"></div>
+            <div class="progress" id="sound-progress">Hitsounds<div class="lds-dual-ring"></div>
             </div>
         </div>
     </div>
@@ -94,7 +85,7 @@
                 addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + cur + "&2=1&5=1");
             } else {
                 if (window.list_endid == 0)
-                    document.getElementById("btnmore").innerText = "已经没有更多了哦！";
+                    document.getElementById("btnmore").innerText = "There is no more beatmaps to load";
                 else
                     addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + window.list_endid + "&2=1&5=1");
 
@@ -102,22 +93,5 @@
             cur += 20;
         }
     </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169262247-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-169262247-1');
-    </script>
 </body>
-
 </html>
-
-<!-- attribution -->
-<!-- play icon made by https://www.flaticon.com/authors/those-icons -->
-<!-- search icon made by https://www.flaticon.com/authors/good-ware -->

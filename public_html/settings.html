@@ -9,7 +9,7 @@
         <link rel="stylesheet" type="text/css" href="style/font.css">
         <script src="scripts/settings.js"></script>
     </head>
-
+    <!--Main Nav Bar-->
     <body>
         <nav id="main-nav">
             <div class="nav-link">
@@ -30,6 +30,7 @@
                 <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
             </div>
         </nav>
+        <!--Main Page-->
         <div class="main-page" id="main-page">
             <div class="panel">
                 <!-- <h1>Settings</h1> -->
@@ -78,52 +79,42 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Slider snake in
-                            </div>
+                            <div class="option-name">Slider snake in</div>
                             <div class="option-control">
-                                <input id="snakein-check" type="checkbox" /><span></span>
+                            <input id="snakein-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Slider snake out
-                            </div>
+                            <div class="option-name">Slider snake out</div>
                             <div class="option-control">
-                                <input id="snakeout-check" type="checkbox" /><span></span>
+                            <input id="snakeout-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Auto start game in fullscreen
-                            </div>
+                            <div class="option-name">Auto start game in fullscreen</div>
                             <div class="option-control">
-                                <input id="autofullscreen-check" type="checkbox" /><span></span>
+                            <input id="autofullscreen-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Use system resolution
-                            </div>
+                            <div class="option-name">Use system resolution</div>
                             <div class="option-control">
-                                <input id="sysdpi-check" type="checkbox" /><span></span>
+                            <input id="sysdpi-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Resoloution
-                            </div>
+                            <div class="option-name">Resoloution</div>
                             <div class="option-control">
-                                <input id="dpi-range" class="slider" type="range" min="0.5" max="2.0" value="1.0" step="0.05">
-                                <div class="range-indicator" id="dpi-range-indicator" hidden></div>
+                            <input id="dpi-range" class="slider" type="range" min="0.5" max="2.0" value="1.0" step="0.05">
+                            <div class="range-indicator" id="dpi-range-indicator" hidden></div>
                             </div>
                         </td>
                     </tr>
@@ -200,55 +191,45 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Master Volume
-                            </div>
+                            <div class="option-name">Master Volume</div>
                             <div class="option-control">
-                                <input id="mastervolume-range" class="slider" type="range" min="0" max="100" value="0">
-                                <div class="range-indicator" id="mastervolume-range-indicator" hidden></div>
+                            <input id="mastervolume-range" class="slider" type="range" min="0" max="100" value="0">
+                            <div class="range-indicator" id="mastervolume-range-indicator" hidden></div>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Effect Volume
-                            </div>
+                            <div class="option-name">Effect Volume</div>
                             <div class="option-control">
-                                <input id="effectvolume-range" class="slider" type="range" min="0" max="100" value="0">
-                                <div class="range-indicator" id="effectvolume-range-indicator" hidden></div>
+                            <input id="effectvolume-range" class="slider" type="range" min="0" max="100" value="0">
+                            <div class="range-indicator" id="effectvolume-range-indicator" hidden></div>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Music Volume
-                            </div>
+                            <div class="option-name">Music Volume</div>
                             <div class="option-control">
-                                <input id="musicvolume-range" class="slider" type="range" min="0" max="100" value="0">
-                                <div class="range-indicator" id="musicvolume-range-indicator" hidden></div>
+                            <input id="musicvolume-range" class="slider" type="range" min="0" max="100" value="0">
+                            <div class="range-indicator" id="musicvolume-range-indicator" hidden></div>
                             </div>
                         </td>
                     </tr>
                         <td>
-                            <div class="option-name">
-                                Audio Offset
-                            </div>
+                            <div class="option-name">Audio Offset</div>
                             <div class="option-control">
-                                <input id="audiooffset-range" class="slider" type="range" min="-50" max="50" value="-50">
-                                <div class="range-indicator" id="audiooffset-range-indicator" hidden></div>
+                            <input id="audiooffset-range" class="slider" type="range" min="-50" max="50" value="-50">
+                            <div class="range-indicator" id="audiooffset-range-indicator" hidden></div>
                             </div>
                             <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Not recommended to use! If you do, please turn off the hitsound. Go to <a style="color: #8bc" href="https://bemuse.ninja/?mode=sync">bemuse sync</a> to determine the keyboard delay.</div>
                         </td>
                     </tr>
                     <tr hidden>
                         <td>
-                            <div class="option-name disabled">
-                                Enable beatmap hitsounds
-                            </div>
+                            <div class="option-name disabled">Enable beatmap hitsounds</div>
                             <div class="option-control">
-                                <input id="beatmap-hitsound-check" type="checkbox" /><span></span>
+                            <input id="beatmap-hitsound-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
@@ -262,65 +243,52 @@
                     </tr>
                     <tr>
                         <td title="This doesn't make things easier!">
-                            <div class="option-name">
-                                Easy
-                            </div>
+                            <div class="option-name">Easy</div>
                             <div class="option-control">
-                                <input id="easy-check" type="checkbox" /><span></span>
+                            <input id="easy-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td title="Everything gets slower...">
-                            <div class="option-name">
-                                Daycore
-                            </div>
+                            <div class="option-name">Daycore</div>
                             <div class="option-control">
-                                <input id="daycore-check" type="checkbox" /><span></span>
+                            <input id="daycore-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td title="Everything gets a bit harder...">
-                            <div class="option-name">
-                                Hard Rock
-                            </div>
+                            <div class="option-name">Hard Rock</div>
                             <div class="option-control">
-                                <input id="hardrock-check" type="checkbox" /><span></span>
+                            <input id="hardrock-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td title="Play with no approach circles and fading circles/sliders">
-                            <div class="option-name">
-                                Hidden
-                            </div>
+                            <div class="option-name">Hidden</div>
                             <div class="option-control">
-                                <input id="hidden-check" type="checkbox" /><span></span>
+                            <input id="hidden-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td title="Everything gets faster...">
-                            <div class="option-name">
-                                Nightcore
-                            </div>
+                            <div class="option-name">Nightcore</div>
                             <div class="option-control">
-                                <input id="nightcore-check" type="checkbox" /><span></span>
+                            <input id="nightcore-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td title="Watch a (probably) perfect automated play">
-                            <div class="option-name">
-                                Autoplay
-                            </div>
+                            <div class="option-name">Autoplay</div>
                             <div class="option-control">
-                                <input id="autoplay-check" type="checkbox" /><span></span>
+                            <input id="autoplay-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
-
                     <tr>
                         <td>
                             <h3>
@@ -330,31 +298,25 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Don't Show Hit Circle Numbers
-                            </div>
+                            <div class="option-name">Don't Show Hit Circle Numbers</div>
                             <div class="option-control">
-                                <input id="hidenumbers-check" type="checkbox" /><span></span>
+                            <input id="hidenumbers-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Don't show "Great" (300s)
-                            </div>
+                            <div class="option-name"> Don't show "Great" (300s)</div>
                             <div class="option-control">
-                                <input id="hidegreat-check" type="checkbox" /><span></span>
+                            <input id="hidegreat-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="option-name">
-                                Don't Show Follow Points
-                            </div>
+                            <div class="option-name">Don't Show Follow Points</div>
                             <div class="option-control">
-                                <input id="hidefollowpoints-check" type="checkbox" /><span></span>
+                            <input id="hidefollowpoints-check" type="checkbox" /><span></span>
                             </div>
                         </td>
                     </tr>
@@ -367,14 +329,5 @@
                 </table>
             </div>
         </div>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169262247-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-169262247-1');
-</script>
     </body>
 </html>
