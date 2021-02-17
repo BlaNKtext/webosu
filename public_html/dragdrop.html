@@ -1,88 +1,120 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>owu!d&d</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="icon" href="favicon.png">
-        <script src="scripts/lib/zip.js"></script>
-        <script src="scripts/lib/zip-fs.js"></script>
-        <script src="scripts/lib/pixi.min.js"></script>
-        <script src="scripts/lib/mp3parse.min.js"></script>
-        <script src="scripts/lib/localforage.min.js"></script>
-        <script> zip.workerScriptsPath = 'scripts/lib/'; </script>
-        <script data-main="scripts/main" src="scripts/require.js"></script>
-        <script>
-            require.config({
-                paths: {
-                    underscore: 'lib/underscore',
-                    sound: 'lib/sound'
-                },
-                shim: {
-                    "underscore": {
-                        exports: "_"
-                    }
-                },
-                urlArgs: "bust=" +  (new Date()).getTime()
-            });
-        </script>
-        <script src="scripts/settings.js"></script>
-    </head>
+
+<head>
+    <meta property="og:title" content="owu!beta | home">
+    <meta property="og:image" content="https://i.ibb.co/DKgvZ4z/favicon.png">
+    <meta property="og:description" content="The Unofficial port of 'Osu!">
+    <meta property="og:url" content="https://owu.vercel.app/">
+    <meta charset="utf-8" />
+    <title>owu!beta | Drag and Drop</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="style/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/font.css">
+    <script src="scripts/launchgame.js"></script>
+    <script src="scripts/downloader.js"></script>
+    <script src="scripts/addbeatmaplist.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/jsloader.js"></script>
+    <script src="scripts/lib/localforage.min.js"></script>
+    <script src="scripts/dragdrop.js"></script>
+    <script src="scripts/lib/zip.js"></script>
+    <script src="scripts/lib/zip-fs.js"></script>
+    <script src="scripts/lib/pixi.min.js"></script>
+    <script src="scripts/lib/mp3parse.min.js"></script>
+    <script src="scripts/lib/localforage.min.js"></script>
+    <script> zip.workerScriptsPath = 'scripts/lib/'; </script>
+    <script data-main="scripts/main" src="scripts/require.js"></script>
+    <script>
+        require.config({
+            paths: {
+                underscore: 'lib/underscore',
+                sound: 'lib/sound'
+            },
+            shim: {
+                "underscore": {
+                    exports: "_"
+                }
+            },
+            urlArgs: "bust=" +  (new Date()).getTime()
+        });
+    </script>
+    <script src="scripts/settings.js"></script>
+</head>
 <!--Pause menu-->
 <body>
-  <div class="game-area" id="game-area" hidden>
-  </div>
-  <div class="pause-menu" id="pause-menu" hidden>
-      <div class="paused-title">paused</div>
-      <div class="paused-desc">you're not gonna do what i think you're gonna do, are ya?</div>
-      <div class="button-list">
-          <div class="pausebutton continue" id="pausebtn-continue">
-          <div class="inner">Continue</div>
-          </div>
-          <div class="pausebutton retry" id="pausebtn-retry">
-          <div class="inner">Retry</div>
-          </div>
-          <div class="pausebutton quit" id="pausebtn-quit">
-          <div class="inner">Quit</div>
-          </div>
-      </div>
-  </div>
-  <!--Top nav bar-->
-  <nav id="main-nav">
-      <div class="nav-link">
-          <a href="index.html" class="brand">owu!</a>
-          <a href="new.html" class="pseudo button">Updated</a>
-          <a href="hot.html" class="pseudo button">Popular</a>
-          <a href="genre.html" class="pseudo button">Sort by</a>
-      </div>
-      <div class="nav-search">
-          <form action="search.html">
-              <input type="text" name="q" placeholder="Beatmap or SID" />
-              <input type="image" class="search-button" src="research.svg">
-          </form>
-      </div>
-      <div class="nav-tool">
-          <a href="local.html" class="pseudo button">Favorites</a>
-          <a href="settings.html" class="pseudo button">Settings</a>
-          <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
-      </div>
-    </nav>
-        <div class="main-page" id="main-page">
-                <h2>Beatmaps</h2>
-                <hr/>
-                <div class="beatmap-list" id="beatmap-list">
-                    <div class="dragbox" id="beatmap-dragbox">
-                        <div class="dragbox-inner" id="beatmap-dragbox-inner" hidden>
-                            <div class="dragbox-title" id="beatmap-dragbox-title">
-                                <h3> Custom beatmap </h3>
-                            </div>
-                            <div class="dragbox-hint" id="beatmap-dragbox-hint">
-                                +
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="game-area" id="game-area" hidden>
+    </div>
+    <div class="pause-menu" id="pause-menu" hidden>
+        <div class="paused-title">paused</div>
+        <div class="paused-desc">you're not gonna do what i think you're gonna do, are ya?</div>
+        <div class="button-list">
+            <div class="pausebutton continue" id="pausebtn-continue">
+            <div class="inner">Continue</div>
+            </div>
+            <div class="pausebutton retry" id="pausebtn-retry">
+            <div class="inner">Retry</div>
+            </div>
+            <div class="pausebutton quit" id="pausebtn-quit">
+            <div class="inner">Quit</div>
             </div>
         </div>
-    </body>
+    </div>
+    <!--Top nav bar-->
+    <nav id="main-nav">
+        <div class="nav-link">
+            <a href="index.html" class="brand">owu!</a>
+            <a href="new.html" class="pseudo button">Updated</a>
+            <a href="hot.html" class="pseudo button">Popular</a>
+            <a href="genre.html" class="pseudo button">Sort by</a>
+        </div>
+        <div class="nav-search">
+            <form action="search.html">
+                <input type="text" name="q" placeholder="Beatmap or SID" />
+                <input type="image" class="search-button" src="research.svg">
+            </form>
+        </div>
+        <div class="nav-tool">
+            <a href="local.html" class="pseudo button">Favorites</a>
+            <a href="settings.html" class="pseudo button">Settings</a>
+            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
+        </div>
+    </nav>
+    <!--Main Page-->
+    <body>
+      <div class="game-area" id="game-area" hidden>
+      </div>
+      <div class="main-page" id="main-page">
+          <div class="main-content">
+              <div class="progress-list">
+                  <div class="progress" id="script-progress">Loading scripts ...</div>
+                  <div class="progress" id="skin-progress">Loading skin ... </div>
+                  <div class="progress" id="sound-progress">Loading hitsounds ...</div>
+                  <div class="progress" id="beatmap-progress">
+                      Loading local beatmap&nbsp;
+                      <span id="bm-loaded-counter">--</span>
+                      &sol;
+                      <span id="bm-total-counter">--</span>
+                  </div>
+              </div>
+              <h2>BEATMAPS</h2>
+              <hr/>
+              <div class="beatmap-list" id="beatmap-list">
+                  <div class="dragbox" id="beatmap-dragbox">
+                      <div class="dragbox-inner" id="beatmap-dragbox-inner" hidden>
+                          <div class="dragbox-title" id="beatmap-dragbox-title">
+                              <h3> Custom beatmap </h3>
+                          </div>
+                          <div class="dragbox-hint" id="beatmap-dragbox-hint">
+                              +
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="text">Please use latest versions of Firefox or Chrome.</div>
+          </div>
+        </div>
+      </div>
+  </body>
 </html>
