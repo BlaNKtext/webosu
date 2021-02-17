@@ -28,12 +28,50 @@
         </script>
         <script src="scripts/settings.js"></script>
     </head>
-
+<!--Pause menu-->
+<body>
+  <div class="game-area" id="game-area" hidden>
+  </div>
+  <div class="pause-menu" id="pause-menu" hidden>
+      <div class="paused-title">paused</div>
+      <div class="paused-desc">you're not gonna do what i think you're gonna do, are ya?</div>
+      <div class="button-list">
+          <div class="pausebutton continue" id="pausebtn-continue">
+          <div class="inner">Continue</div>
+          </div>
+          <div class="pausebutton retry" id="pausebtn-retry">
+          <div class="inner">Retry</div>
+          </div>
+          <div class="pausebutton quit" id="pausebtn-quit">
+          <div class="inner">Quit</div>
+          </div>
+      </div>
+  </div>
+  <!--Top nav bar-->
+  <nav id="main-nav">
+      <div class="nav-link">
+          <a href="index.html" class="brand">owu!</a>
+          <a href="new.html" class="pseudo button">Updated</a>
+          <a href="hot.html" class="pseudo button">Popular</a>
+          <a href="genre.html" class="pseudo button">Sort by</a>
+      </div>
+      <div class="nav-search">
+          <form action="search.html">
+              <input type="text" name="q" placeholder="Beatmap or SID" />
+              <input type="image" class="search-button" src="research.svg">
+          </form>
+      </div>
+      <div class="nav-tool">
+          <a href="local.html" class="pseudo button">Favorites</a>
+          <a href="settings.html" class="pseudo button">Settings</a>
+          <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter Fullscreen</a>
+      </div>
+  </nav>
     <body>
         <div class="game-area" id="game-area" hidden>
         </div>
         <div class="main-page" id="main-page">
-                <h2>BEATMAPS</h2>
+                <h2>Beatmaps</h2>
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list">
                     <div class="dragbox" id="beatmap-dragbox">
