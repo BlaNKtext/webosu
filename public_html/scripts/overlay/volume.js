@@ -1,11 +1,3 @@
-/*
- * class: VolumeMenu (extends PIXI.Container)
- * 
- * Construct params
- *   gamefield: {width, height} in real pixels
- *
- */
-
 define([], function () {
     function VolumeMenu(windowfield) // constructor. 
     {
