@@ -1,0 +1,387 @@
+body{
+	background: #ecf0f1;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+}
+
+body.gaming {
+  overflow: hidden;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+canvas {
+  display: block;
+}
+.game-area {
+}
+.game-area.showhwmouse {
+  cursor: url("skin/cursor.cur") 40 40, crosshair !important;
+}
+.game-area.shownomouse {
+  cursor: none !important;
+}
+
+
+.main-page {
+	width: 1240px;
+	min-height: 1200px;
+	margin:auto;
+}
+
+
+.main-content{
+	float: left;
+	background: #fff;
+	border-radius:5px;  
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1); 
+	margin:20px auto;
+	padding:20px 20px 20px;
+	width:770px;
+	height:100%;
+}
+
+.disabled{
+  color: #bbb;
+}
+
+.panel{
+  float: right;
+	background: #fff;
+	border-radius:5px;  
+	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1); 
+	margin:20px auto;
+	padding:20px 20px 20px;
+	width:370px;
+	height:100%;
+}
+
+.progress {
+	line-height: 1.8em;
+}
+
+.text {
+	line-height: 1.8em;
+}
+
+
+.beatmap-list {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-right: -17px;
+  position: relative;
+}
+
+
+.dragbox {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.3); 
+  background: #eee;
+  color: #666;
+  border-radius: 6px;
+  font-size: 18px;
+  height: 200px;
+  width: 245px;
+  margin-bottom: 20px;
+  margin-right: 17px;
+}
+.dragbox-inner {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 16%;
+  line-height: 1.5em;
+}
+
+.beatmapbox {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.3); 
+  background: #fff;
+  border-radius: 6px;
+  font-size: 18px;
+  height: 200px;
+  width: 245px;
+  margin-bottom: 20px;
+  margin-right: 17px;
+  position: relative;
+  cursor: pointer;
+  /* shouldn't hide overflow because we have to show difficulty selection box */
+  /* but we must ensure content don't get outside this box */
+}
+.beatmapbox:hover {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.7); 
+}
+.beatmapcover {
+  object-fit: cover;
+  background: #eee;
+  color: gray;
+  width: 245px;
+  height: 130px;
+  border-radius: 5px 5px 0 0;
+  position: absolute;
+}
+.beatmaptitle {
+  padding-top: 142px;
+  padding-left: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.beatmapauthor {
+  padding-left: 13px;
+  float: left;
+  color: #888;
+  font-size: 14px;
+  padding-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 180px;
+}
+.beatmaplength {
+  padding-right: 13px;
+  float: right;
+  color: #888;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+
+
+table {
+  width: 100%;
+}
+tr{
+  height: 2.7em;
+}
+tr:last-child {
+  text-align: center;
+}
+td{
+  /*border-bottom:1px solid #f6f6f6;*/
+  padding:5px 10px;
+}
+
+td:nth-child(2){
+  text-align: right;
+  width: 40px;
+}
+
+input {
+  cursor: pointer;
+}
+
+input:focus {outline:0;}
+
+input[type=checkbox] {
+  height: 20px;
+  margin: 2px 2px;
+  position: absolute;
+  opacity: 0;
+  width: 40px;
+  z-index: 2;
+}
+
+input[type=checkbox] + span {
+  background: #BBBBBB;
+  border-radius: 10px;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+  display: inline-block;
+  height: 20px;
+  margin: 2px 2px;
+  position:relative;
+  width: 40px;
+  transition: all .2s ease;
+}
+
+input[type=checkbox] + span::before, input[type=checkbox] + span::after{
+  background:#fff;
+  content:'';
+  display:block;
+  position:absolute;
+  height:16px;
+  top:2px;
+  border-radius: 50%;
+  transition: all .2s ease;
+}
+
+input[type=checkbox] + span::after{
+  right:22px;
+  width:16px;
+}
+
+input[type=checkbox]:checked + span {
+  background:#fc7bb4;         
+}
+
+input[type=checkbox]:checked + span::after{
+  right: 2px;
+  width:16px;
+}
+
+
+.option-name{
+  float:left;
+}
+.option-control{
+  float:right;
+  position: relative;
+}
+.slider {
+  width: 180px;
+}
+
+.range-indicator {
+  position: absolute;
+  background: #111;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 30px; 
+  text-align: center; 
+  color: white; 
+  border-radius: 5px; 
+  display: inline-block; 
+  line-height: 2em;
+  bottom: 150%;
+  left: 0px;
+  opacity: 0.8;
+  margin-left: -1%;
+  transform: translateX(-50%)
+}
+.range-indicator:after { 
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid #111;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -1px;
+}
+
+input[type=button] {
+  border-radius: 12px;
+  position: relative;
+  width: auto;
+  transition: all .2s ease;
+  color: #555;
+  font-size: 16px;
+  line-height: 17px;
+  padding-top: 0px;
+  height: 24px;
+  margin-left: 5px;
+  /*padding-left: 12px;*/
+  /*padding-right: 12px;*/
+  min-width: 70px;
+  background: #eee;
+  border: none;
+}
+input[type=button]:hover {
+  background: #888;
+  color: #fff;
+}
+input[type=button].using {
+  background: #fc7bb4;
+  color: #fff;
+}
+input[type=button].warnbtn {
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  color: #000;
+  font-size:16px;
+  text-align: center;
+  padding: 12px 20px 14px;
+  height: auto;
+}
+input[type=button].warnbtn:hover {
+  background: #a00;
+  color: #fff;
+}
+
+hr {
+  height: 2px;
+  border: none;
+  background: #ee6da7;
+}
+
+div[hidden=""] {
+  visibility: hidden;
+}
+
+
+.difficulty-box{
+  width: auto;
+  min-width: 180px;
+  height: auto;
+  position: absolute;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px 2px;
+  border-radius: 3px;
+  z-index: 2;
+  animation: 0.2s unfold ease;
+  transform-origin: top left;
+}
+
+@keyframes unfold {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.difficulty-item {
+  padding: 12px;
+  height: 18px;
+  white-space: nowrap;
+  font-size: 16px;
+  cursor: pointer;
+}
+.difficulty-item span {
+  top: -4px;
+  position: relative;
+}
+.difficulty-ring {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: solid #aaa 3px;
+  margin-top: 2px;
+  margin-left: 0px;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.difficulty-ring.easy {
+  border-color: #88b300;
+}
+.difficulty-ring.normal {
+  border-color: #6cf;
+}
+.difficulty-ring.hard {
+  border-color: #fc2;
+}
+.difficulty-ring.insane {
+  border-color: #f6a;
+}
+.difficulty-ring.expert {
+  border-color: #86e;
+}
+.difficulty-ring.expert-plus {
+  border-color: #000;
+}
+
+.difficulty-item:hover {
+  background: #eee; 
+}
