@@ -53,7 +53,7 @@ function setOptionPanel() {
 		autoplay: false,
 
         hideNumbers: false,
-        hideGreat: false,
+        hideGreat: true,
         hideFollowPoints: false,
 	};
 	window.gamesettings = {};
