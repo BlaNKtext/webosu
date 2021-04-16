@@ -101,6 +101,11 @@
                 addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=4&3=" + keyword + "&5=1");
                 cur = 20;
             }
+            list = document.getElementById("beatmap-list");
+            document.getElementById("btnmore").innerText = "Load more";
+            while (list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
             document.getElementById("btnmore").onclick = function() {
                 if (typeof(window.list_endid) == "undefined") {
                     addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=4&3=" + keyword + "&5=1");
