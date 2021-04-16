@@ -97,19 +97,18 @@
                 addBeatmapSid(keyword);
             }
             else {
-                // search keyword
-                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=4&3=" + keyword + "&5=1");
-                cur = 20;
-            }
+                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=1&5=1");
+            var cur = 20;
             document.getElementById("btnmore").onclick = function() {
                 if (typeof(window.list_endid) == "undefined") {
-                    addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + cur + "&2=4&3=" + keyword + "&5=1");
+                    addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1="+cur+"&2=1&5=1");
                 }
                 else {
                     if (window.list_endid == 0)
                         document.getElementById("btnmore").innerText = "There's no more beatmaps ;-;";
                     else
-                        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + window.list_endid + "&2=4&3=" + keyword + "&5=1");
+                        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1="+window.list_endid+"&2=1&5=1");
+
                 }
                 cur += 20;
             }
