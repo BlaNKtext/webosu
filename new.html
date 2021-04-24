@@ -94,7 +94,7 @@
                 addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + cur + "&2=2&5=1");
             } else {
                 if (window.list_endid == 0)
-                    document.getElementById("btnmore").innerText = "已经没有更多了哦！";
+                    document.getElementById("btnmore").innerText = "No more beatmaps to load!";
                 else
                     addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + window.list_endid + "&2=2&5=1");
 
