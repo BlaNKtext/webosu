@@ -706,7 +706,7 @@ thead {
   line-height: 2em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  color: rgb(77, 77, 77);
+  color: #a7aebd;
   cursor: pointer;
   transition: 0.2s ease all;
 }
