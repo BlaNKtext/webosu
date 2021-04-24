@@ -1441,7 +1441,7 @@ body:not(.sound-ready) .difficulty-item {
 }
 
 .difficulty-count {
-  color: #000;
+  color: #a7aebd;
   line-height: 18px;
   font-size: 0.8em;
   position: relative;
