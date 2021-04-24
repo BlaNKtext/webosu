@@ -109,54 +109,54 @@
             </div>
         </div>
     </div>
-    <script>
-            let btns = document.getElementsByClassName("selitem");
-            function search(genre, lang) {
-                // clear list
-                list = document.getElementById("beatmap-list");
-                document.getElementById("btnmore").innerText = "Load More";
-                while (list.firstChild) {
-                    list.removeChild(list.firstChild);
-                }
-                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=4&5=1&7=" + genre + "&8=" + lang);
-                var cur = 20;
-                document.getElementById("btnmore").onclick = function() {
-                    if (typeof(window.list_endid) == "undefined") {
-                        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1="+cur+"&2=4&5=1&7=" + genre + "&8=" + lang);
-                    }
-                    else {
-                        if (window.list_endid == 0)
-                            document.getElementById("btnmore").innerText = "";
-                        else
-                            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1="+window.list_endid+"&2=4&5=1&7=" + genre + "&8=" + lang);
-                    }
-                    cur += 20;
-                }
-                // update buttons state
-                for (let i=0; i<btns.length; ++i) {
-                    let g = eval(btns[i].getAttribute("genre"));
-                    let l = eval(btns[i].getAttribute("lang"));
-                    if (g==genre || l==lang) {
-                        btns[i].classList.add("active");
-                    }
-                    else {
-                        btns[i].classList.remove("active");
-                    }
-                }
+    <script>            
+    let btns = document.getElementsByClassName("selitem");
+        function search(genre, lang) {
+            // clear list
+            list = document.getElementById("beatmap-list");
+            document.getElementById("btnmore").innerText = "Load More";
+            while (list.firstChild) {
+                list.removeChild(list.firstChild);
             }
-            let curgenre = 1;
-            let curlang = 1;
-            search(curgenre, curlang);
+            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=4&5=1&7=" + genre + "&8=" + lang);
+            var cur = 20;
+            document.getElementById("btnmore").onclick = function() {
+                if (typeof(window.list_endid) == "undefined") {
+                    addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1="+cur+"&2=4&5=1&7=" + genre + "&8=" + lang);
+                }
+                else {
+                    if (window.list_endid == 0)
+                        document.getElementById("btnmore").innerText = "There's no more beatmaps to load!";
+                    else
+                        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1="+window.list_endid+"&2=4&5=1&7=" + genre + "&8=" + lang);
+                }
+                cur += 20;
+            }
+            // update buttons state
             for (let i=0; i<btns.length; ++i) {
-                btns[i].onclick = function() {
-                    let g = eval(btns[i].getAttribute("genre"));
-                    let l = eval(btns[i].getAttribute("lang"));
-                    if (g) curgenre = g;
-                    if (l) curlang = l;
-                    search(curgenre, curlang);
+                let g = eval(btns[i].getAttribute("genre"));
+                let l = eval(btns[i].getAttribute("lang"));
+                if (g==genre || l==lang) {
+                    btns[i].classList.add("active");
+                }
+                else {
+                    btns[i].classList.remove("active");
                 }
             }
-    </script>
+        }
+        let curgenre = 1;
+        let curlang = 1;
+        search(curgenre, curlang);
+        for (let i=0; i<btns.length; ++i) {
+            btns[i].onclick = function() {
+                let g = eval(btns[i].getAttribute("genre"));
+                let l = eval(btns[i].getAttribute("lang"));
+                if (g) curgenre = g;
+                if (l) curlang = l;
+                search(curgenre, curlang);
+            }
+        }
+</script>
 
 </body>
 </html>
