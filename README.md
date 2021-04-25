@@ -1,9 +1,8 @@
 # owu!
-I try to update this site frequently. Some changes may be more helpful than others, please feel free to make pull requests or if there is a problem of any kind leave a issue ticket
+The unofficial web port of osu!<br>
+Feel free to drop by the [Discord server](https://discord.gg/gHgcR92QMy)
 
-(fork of [Webosu](https://github.com/111116/webosu))
-
-Made possible with [PixiJS](https://www.pixijs.com). Beatmap API: [Sayobot](https://osu.sayobot.cn)
+Beatmap API: [Sayobot](https://osu.sayobot.cn)
 ## Hosting
 
 Set up a surge.sh site with the root directory located where `index.html` is in, usually public_html or something
