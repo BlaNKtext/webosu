@@ -1,14 +1,15 @@
-body{
-	background: #ecf0f1;
-	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 16px;
+body {
+  background: #ecf0f1;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 
 body.gaming {
   overflow: hidden;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -18,55 +19,57 @@ html, body {
 canvas {
   display: block;
 }
-.game-area {
-}
+
+.game-area {}
+
 .game-area.showhwmouse {
   cursor: url("skin/cursor.cur") 40 40, crosshair !important;
 }
+
 .game-area.shownomouse {
   cursor: none !important;
 }
 
 
 .main-page {
-	width: 1240px;
-	min-height: 1200px;
-	margin:auto;
+  width: 1240px;
+  min-height: 1200px;
+  margin: auto;
 }
 
 
-.main-content{
-	float: left;
-	background: #fff;
-	border-radius:5px;  
-	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1); 
-	margin:20px auto;
-	padding:20px 20px 20px;
-	width:770px;
-	height:100%;
+.main-content {
+  float: left;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+  margin: 20px auto;
+  padding: 20px 20px 20px;
+  width: 770px;
+  height: 100%;
 }
 
-.disabled{
+.disabled {
   color: #bbb;
 }
 
-.panel{
+.panel {
   float: right;
-	background: #fff;
-	border-radius:5px;  
-	box-shadow: 0 2px 3px 0 rgba(0,0,0,.1); 
-	margin:20px auto;
-	padding:20px 20px 20px;
-	width:370px;
-	height:100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+  margin: 20px auto;
+  padding: 20px 20px 20px;
+  width: 370px;
+  height: 100%;
 }
 
 .progress {
-	line-height: 1.8em;
+  line-height: 1.8em;
 }
 
 .text {
-	line-height: 1.8em;
+  line-height: 1.8em;
 }
 
 
@@ -82,7 +85,7 @@ canvas {
 
 
 .dragbox {
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.3); 
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
   background: #eee;
   color: #666;
   border-radius: 6px;
@@ -92,6 +95,7 @@ canvas {
   margin-bottom: 20px;
   margin-right: 17px;
 }
+
 .dragbox-inner {
   width: 80%;
   margin-left: 10%;
@@ -100,7 +104,7 @@ canvas {
 }
 
 .beatmapbox {
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.3); 
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
   background: #fff;
   border-radius: 6px;
   font-size: 18px;
@@ -113,9 +117,11 @@ canvas {
   /* shouldn't hide overflow because we have to show difficulty selection box */
   /* but we must ensure content don't get outside this box */
 }
+
 .beatmapbox:hover {
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.7); 
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .7);
 }
+
 .beatmapcover {
   object-fit: cover;
   background: #eee;
@@ -125,6 +131,7 @@ canvas {
   border-radius: 5px 5px 0 0;
   position: absolute;
 }
+
 .beatmaptitle {
   padding-top: 142px;
   padding-left: 13px;
@@ -132,6 +139,7 @@ canvas {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .beatmapauthor {
   padding-left: 13px;
   float: left;
@@ -143,6 +151,7 @@ canvas {
   white-space: nowrap;
   width: 180px;
 }
+
 .beatmaplength {
   padding-right: 13px;
   float: right;
@@ -156,18 +165,21 @@ canvas {
 table {
   width: 100%;
 }
-tr{
+
+tr {
   height: 2.7em;
 }
+
 tr:last-child {
   text-align: center;
 }
-td{
+
+td {
   /*border-bottom:1px solid #f6f6f6;*/
-  padding:5px 10px;
+  padding: 5px 10px;
 }
 
-td:nth-child(2){
+td:nth-child(2) {
   text-align: right;
   width: 40px;
 }
@@ -176,7 +188,9 @@ input {
   cursor: pointer;
 }
 
-input:focus {outline:0;}
+input:focus {
+  outline: 0;
+}
 
 input[type=checkbox] {
   height: 20px;
@@ -187,51 +201,54 @@ input[type=checkbox] {
   z-index: 2;
 }
 
-input[type=checkbox] + span {
+input[type=checkbox]+span {
   background: #BBBBBB;
   border-radius: 10px;
-  box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
   display: inline-block;
   height: 20px;
   margin: 2px 2px;
-  position:relative;
+  position: relative;
   width: 40px;
   transition: all .2s ease;
 }
 
-input[type=checkbox] + span::before, input[type=checkbox] + span::after{
-  background:#fff;
-  content:'';
-  display:block;
-  position:absolute;
-  height:16px;
-  top:2px;
+input[type=checkbox]+span::before,
+input[type=checkbox]+span::after {
+  background: #fff;
+  content: '';
+  display: block;
+  position: absolute;
+  height: 16px;
+  top: 2px;
   border-radius: 50%;
   transition: all .2s ease;
 }
 
-input[type=checkbox] + span::after{
-  right:22px;
-  width:16px;
+input[type=checkbox]+span::after {
+  right: 22px;
+  width: 16px;
 }
 
-input[type=checkbox]:checked + span {
-  background:#fc7bb4;         
+input[type=checkbox]:checked+span {
+  background: #fc7bb4;
 }
 
-input[type=checkbox]:checked + span::after{
+input[type=checkbox]:checked+span::after {
   right: 2px;
-  width:16px;
+  width: 16px;
 }
 
 
-.option-name{
-  float:left;
+.option-name {
+  float: left;
 }
-.option-control{
-  float:right;
+
+.option-control {
+  float: right;
   position: relative;
 }
+
 .slider {
   width: 180px;
 }
@@ -241,11 +258,11 @@ input[type=checkbox]:checked + span::after{
   background: #111;
   padding-left: 8px;
   padding-right: 8px;
-  height: 30px; 
-  text-align: center; 
-  color: white; 
-  border-radius: 5px; 
-  display: inline-block; 
+  height: 30px;
+  text-align: center;
+  color: white;
+  border-radius: 5px;
+  display: inline-block;
   line-height: 2em;
   bottom: 150%;
   left: 0px;
@@ -253,7 +270,8 @@ input[type=checkbox]:checked + span::after{
   margin-left: -1%;
   transform: translateX(-50%)
 }
-.range-indicator:after { 
+
+.range-indicator:after {
   content: "";
   position: absolute;
   width: 0;
@@ -284,24 +302,28 @@ input[type=button] {
   background: #eee;
   border: none;
 }
+
 input[type=button]:hover {
   background: #888;
   color: #fff;
 }
+
 input[type=button].using {
   background: #fc7bb4;
   color: #fff;
 }
+
 input[type=button].warnbtn {
   border-radius: 4px;
   cursor: pointer;
   display: inline-block;
   color: #000;
-  font-size:16px;
+  font-size: 16px;
   text-align: center;
   padding: 12px 20px 14px;
   height: auto;
 }
+
 input[type=button].warnbtn:hover {
   background: #a00;
   color: #fff;
@@ -318,7 +340,7 @@ div[hidden=""] {
 }
 
 
-.difficulty-box{
+.difficulty-box {
   width: auto;
   min-width: 180px;
   height: auto;
@@ -336,6 +358,7 @@ div[hidden=""] {
   0% {
     transform: scaleY(0);
   }
+
   100% {
     transform: scaleY(1);
   }
@@ -348,10 +371,12 @@ div[hidden=""] {
   font-size: 16px;
   cursor: pointer;
 }
+
 .difficulty-item span {
   top: -4px;
   position: relative;
 }
+
 .difficulty-ring {
   height: 12px;
   width: 12px;
@@ -366,22 +391,27 @@ div[hidden=""] {
 .difficulty-ring.easy {
   border-color: #88b300;
 }
+
 .difficulty-ring.normal {
   border-color: #6cf;
 }
+
 .difficulty-ring.hard {
   border-color: #fc2;
 }
+
 .difficulty-ring.insane {
   border-color: #f6a;
 }
+
 .difficulty-ring.expert {
   border-color: #86e;
 }
+
 .difficulty-ring.expert-plus {
   border-color: #000;
 }
 
 .difficulty-item:hover {
-  background: #eee; 
+  background: #eee;
 }

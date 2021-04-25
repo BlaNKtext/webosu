@@ -1,28 +1,27 @@
 <!doctype html>
 <html>
 
-    <head>
-        <title>owu! | Favorites</title>
-        <meta name="description" content="owu = osu! + web | The unofficial web port of the popular rythm game 'osu!'">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-        <link rel="icon" href="favicon.png">
-        <link rel="stylesheet" href="style/picnic.min.css">
-        <link rel="stylesheet" type="text/css" href="style/main.css">
-        <link rel="stylesheet" type="text/css" href="style/font.css">
-        <script src="scripts/launchgame.js"></script>
-        <script src="scripts/downloader.js"></script>
-        <script src="scripts/addbeatmaplist.js"></script>
-        <script src="scripts/settings.js"></script>
-        <script src="scripts/jsloader.js"></script>
-        <script src="scripts/lib/localforage.min.js"></script>
-        <script async src="https://arc.io/widget.min.js#f6CePGyv"></script>
-    </head>
+<head>
+    <title>owu! | Favorites</title>
+    <meta name="description" content="owu = osu! + web | The unofficial web port of the popular rythm game 'osu!'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="style/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/font.css">
+    <script src="scripts/launchgame.js"></script>
+    <script src="scripts/downloader.js"></script>
+    <script src="scripts/addbeatmaplist.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/jsloader.js"></script>
+    <script src="scripts/lib/localforage.min.js"></script>
+    <script async src="https://arc.io/widget.min.js#f6CePGyv"></script>
+</head>
 
 <body>
     <div class="game-area" id="game-area" hidden>
     </div>
-
     <div class="pause-menu" id="pause-menu" hidden>
         <div class="paused-title">Paused</div>
         <div class="paused-desc">you're not gonna do what i think you're gonna do, are ya?</div>
@@ -38,7 +37,6 @@
             </div>
         </div>
     </div>
-
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">owu!</a>
@@ -59,60 +57,61 @@
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter fullscreen</a>
         </div>
     </nav>
-
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="beatmap-list" id="beatmap-list">
                 <!-- to be filled in script -->
             </div>
-        <!-- <div class="side-panel">
-                to be activated in script
+            <!-- <div class="side-panel">
+            to be activated in script
             </div> -->
-        <div class="statuslines" id="statuslines">
-            <div class="progress" id="script-progress">
-                Scripts
-                <div class="lds-dual-ring"></div>
-            </div>
-            <div class="progress" id="skin-progress">
-                Skin
-                <div class="lds-dual-ring"></div>
-            </div>
-            <div class="progress" id="sound-progress">
-                Hitsounds
-                <div class="lds-dual-ring"></div>
+            <div class="statuslines" id="statuslines">
+                <div class="progress" id="script-progress">
+                    Scripts
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="skin-progress">
+                    Skin
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="sound-progress">
+                    Hitsounds
+                    <div class="lds-dual-ring"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        if (window.localforage) {
-            window.localforage.getItem("likedsidset", function (err, val) {
-                if (err) {
-                    alert("Error loading liked beatmap list");
-                    return;
-                }
-                if (val && val.size) {
-                    list = Array.from(val);
+        <script>
+            if (window.localforage) {
+                window.localforage.getItem("likedsidset", function (err, val) {
+                    if (err) {
+                        alert("Error loading liked beatmap list");
+                        return;
+                    }
+                    if (val && val.size) {
+                        list = Array.from(val);
 
-                    function addlist(startoffset, maxlength) {
-                        for (let i = startoffset; i < list.length && i < startoffset + maxlength; ++i)
-                            addBeatmapSid(list[i]);
-                        if (list.length <= startoffset + maxlength) {
-                            document.getElementById("btnmore").setAttribute("style", "display:none;");
+                        function addlist(startoffset, maxlength) {
+                            for (let i = startoffset; i < list.length && i < startoffset + maxlength; ++i)
+                                addBeatmapSid(list[i]);
+                            if (list.length <= startoffset + maxlength) {
+                                document.getElementById("btnmore").setAttribute("style", "display:none;");
+                            }
                         }
+                        addlist(0, 20);
+                        var cur = 20;
+                        document.getElementById("btnmore").onclick = function () {
+                            addlist(cur, 20);
+                            cur += 20;
+                        }
+                    } else {
+                        document.getElementById("beatmap-list").innerText =
+                            "You haven't collected a song yet! Click on the love in the lower right corner of the track to bookmark this track.";
                     }
-                    addlist(0, 20);
-                    var cur = 20;
-                    document.getElementById("btnmore").onclick = function () {
-                        addlist(cur, 20);
-                        cur += 20;
-                    }
-                } else {
-                    document.getElementById("beatmap-list").innerText = "You haven't collected a song yet! Click on the love in the lower right corner of the track to bookmark this track.";
-                }
-            });
-        } else {
-            alert("Ah crap! localforage not supported")
-        }
-    </script>
+                });
+            } else {
+                alert("Ah crap! localforage not supported")
+            }
+        </script>
 </body>
+
 </html>

@@ -1,27 +1,26 @@
 <!doctype html>
 <html>
 
-    <head>
-        <title>owu! | New Beatmaps</title>
-        <meta name="description" content="owu = osu! + web | The unofficial web port of the popular rythm game 'osu!'">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-        <link rel="icon" href="favicon.png">
-        <link rel="stylesheet" href="style/picnic.min.css">
-        <link rel="stylesheet" type="text/css" href="style/main.css">
-        <link rel="stylesheet" type="text/css" href="style/font.css">
-        <script src="scripts/launchgame.js"></script>
-        <script src="scripts/downloader.js"></script>
-        <script src="scripts/addbeatmaplist.js"></script>
-        <script src="scripts/settings.js"></script>
-        <script src="scripts/jsloader.js"></script>
-        <script src="scripts/lib/localforage.min.js"></script>
-        <script async src="https://arc.io/widget.min.js#f6CePGyv"></script>
-    </head>
+<head>
+    <title>owu! | New Beatmaps</title>
+    <meta name="description" content="owu = osu! + web | The unofficial web port of the popular rythm game 'osu!'">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="style/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/font.css">
+    <script src="scripts/launchgame.js"></script>
+    <script src="scripts/downloader.js"></script>
+    <script src="scripts/addbeatmaplist.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/jsloader.js"></script>
+    <script src="scripts/lib/localforage.min.js"></script>
+    <script async src="https://arc.io/widget.min.js#f6CePGyv"></script>
+</head>
 
 <body>
     <div class="game-area" id="game-area" hidden></div>
-
     <div class="pause-menu" id="pause-menu" hidden>
         <div class="paused-title">paused</div>
         <div class="paused-desc">You're not gonna do what I think you're gonna do, are you?</div>
@@ -37,7 +36,6 @@
             </div>
         </div>
     </div>
-
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">owu!</a>
@@ -58,7 +56,6 @@
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Enter fullscreen</a>
         </div>
     </nav>
-
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="beatmap-list" id="beatmap-list">
@@ -70,7 +67,8 @@
             <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord!</a></div>
             <div class="text">Translation and tweaks by: <a href="https://github.com/user/BlaNKtext">BlaNK</a></div>
             <div class="text">Beatmap API made by: <a href="https://osu.sayobot.cn/"> Sayobot</a></div>
-            <div class="text">Stable Release: v.1.1.0<a href="https://github.com/BlaNKtext/Owu-game"></a></div></div>
+            <div class="text">Stable Release: v.1.1.0<a href="https://github.com/BlaNKtext/Owu-game"></a></div>
+        </div>
         <!-- <div class="side-panel"> to be activated in script</div> -->
         <div class="statuslines" id="statuslines">
             <div class="progress" id="script-progress">
@@ -87,22 +85,22 @@
             </div>
         </div>
     </div>
-    <script>            
-    addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=2&5=1");
+    <script>
+        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=2&5=1");
         var cur = 20;
-        document.getElementById("btnmore").onclick = function() {
-            if (typeof(window.list_endid) == "undefined") {
-                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1="+cur+"&2=2&5=1");
-            }
-            else {
+        document.getElementById("btnmore").onclick = function () {
+            if (typeof (window.list_endid) == "undefined") {
+                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + cur + "&2=2&5=1");
+            } else {
                 if (window.list_endid == 0)
                     document.getElementById("btnmore").innerText = "There's no more to load!";
                 else
-                    addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1="+window.list_endid+"&2=2&5=1");
+                    addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + window.list_endid + "&2=2&5=1");
 
             }
             cur += 20;
         }
     </script>
 </body>
+
 </html>

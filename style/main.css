@@ -18,7 +18,7 @@ h6 {
 }
 
 a {
-  color:#9d7dcc;
+  color: #9d7dcc;
 }
 
 body.gaming {
@@ -315,7 +315,7 @@ thead {
 }
 
 .paused-title {
-  color:#f04747;
+  color: #f04747;
   padding-top: 60px;
   text-align: center;
   letter-spacing: 0.16em;
@@ -325,7 +325,7 @@ thead {
 }
 
 .paused-desc {
-  color:#575757;
+  color: #575757;
   padding-top: 60px;
   text-align: center;
   letter-spacing: 0.16em;
@@ -679,7 +679,7 @@ thead {
 
 .grading .btn.retry {
   right: -10px;
-  background:#43b581;
+  background: #43b581;
 }
 
 .grading .btn.quit {
@@ -858,11 +858,11 @@ progress::-moz-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background:  #9d7dcc;
+  background: #9d7dcc;
 }
 
 progress.finished::-moz-progress-bar {
-  background:  #9d7dcc;
+  background: #9d7dcc;
 }
 
 progress.finished::-webkit-progress-value {
@@ -960,7 +960,7 @@ progress.finished::-webkit-progress-value {
   padding-right: 10px;
   font-size: 1.3em;
   font-style: italic;
-  color:rgb(221, 221, 221);
+  color: rgb(221, 221, 221);
   overflow: hidden;
   position: absolute;
   text-overflow: ellipsis;
@@ -1323,7 +1323,7 @@ hr {
   height: 2px;
   margin-bottom: 12px;
   border: none;
-  background:#9d7dcc;
+  background: #9d7dcc;
 }
 
 
@@ -1354,7 +1354,7 @@ div[hidden=""] {
 }
 
 .difficulty-item {
-  background:#2c2c34;
+  background: #2c2c34;
   box-shadow: 2px 2px 5px #000;
   border-radius: 8px;
   margin-bottom: 6px;
