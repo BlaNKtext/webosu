@@ -1,3 +1,1 @@
-Sitemap:https://owu.vercel.app/sitemap.txt
-
-https://owu.vercel.app/ping?sitemap=https://owu.vercel.app/sitemap.txt
+Sitemap: https://owu.vercel.app/sitemap.txt
