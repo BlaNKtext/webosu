@@ -154,7 +154,7 @@
             }
             function showActivity(records) {
                 records = records.reverse();
-                while (tbody.firstChild)
+                while (tbody.firstChild);
                     tbody.removeChild(tbody.firstChild);
                 for (let i=0; i<records.length && i<10; ++i) {
                     let tr = document.createElement("tr");
