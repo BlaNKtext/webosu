@@ -194,7 +194,7 @@
             function refreshLivescore(){
                 let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
-                xhr.open("GET", "https://webosuapi.herokuapp.com/fetch/");
+                xhr.open("GET", "https://3001-magenta-cockroach-8wmgi1ls.ws-us04.gitpod.io/fetch/");
                 xhr.onload = function() {
                     showActivity(JSON.parse(xhr.response));
                 }
