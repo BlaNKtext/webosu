@@ -214,7 +214,7 @@
             function refreshLivescore(){
                 let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
-                xhr.open("GET", "http://127.0.0.1:3001/fetch/");
+                xhr.open("GET", "http://127.0.0.1:3000/fetch/");
                 xhr.onload = function() {
                     showActivity(JSON.parse(xhr.response));
                 }
