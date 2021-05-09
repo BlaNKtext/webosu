@@ -265,10 +265,10 @@ define([], function () {
             xhr.open("GET", url);
             console.log(url);
             xhr.onload = function () {
-                console.log("play record uploaded");
+                console.log("Score uploaded");
             }
             xhr.onerror = function () {
-                console.error("play record upload failed");
+                console.error("Score upload failed");
             }
             xhr.send();
         }

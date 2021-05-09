@@ -330,7 +330,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
                     case 300:
                         return "great";
                     default:
-                        throw "no such judgement";
+                        throw "No judgement";
                 }
             }
 
@@ -345,7 +345,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
                     case 300:
                         return 0x66ccff;
                     default:
-                        throw "no such judgement";
+                        throw "No judgement";
                 }
             }
 

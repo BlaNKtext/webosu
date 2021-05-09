@@ -8,8 +8,8 @@ function launchOSU(osu, beatmapid, version) {
     console.log("launching", beatmapid, version)
     if (trackid == -1) {
         if (log_to_server) log_to_server("unmatch " + beatmapid + " " + version);
-        console.error("no suck track");
-        console.log("available tracks are:");
+        console.error("No such track");
+        console.log("Available tracks are:");
         for (let i = 0; i < osu.tracks.length; ++i)
             console.log(osu.tracks[i].metadata.BeatmapID, osu.tracks[i].mode, osu.tracks[i].metadata.Version);
         return;
@@ -87,8 +87,6 @@ function launchOSU(osu, beatmapid, version) {
     var gameLoop;
     // set quit callback
     window.quitGame = function () {
-        // this shouldn't be called before playback is cleaned up
-        // restore webpage state
         pGameArea.setAttribute("hidden", "");
         pMainPage.removeAttribute("hidden");
         pNav.removeAttribute("style");

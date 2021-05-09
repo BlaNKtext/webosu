@@ -58,7 +58,7 @@ window.beatmaplistLoadedCallback = function () {
 								window.liked_sid_set_callbacks[i]();
 							window.liked_sid_set_callbacks = [];
 						} else {
-							console.error("failed loading liked list");
+							console.error("Favorites list failed to load");
 						}
 					});
 				}

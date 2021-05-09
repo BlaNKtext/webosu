@@ -1,4 +1,3 @@
-// load beatmap from local
 localforage.getItem("beatmapfilelist", function (err, names) {
     if (!err && names && typeof names.length !== undefined) {
         names = names.filter(function (t) {
@@ -35,15 +34,15 @@ localforage.getItem("beatmapfilelist", function (err, names) {
                         }
                     );
                 } else {
-                    console.error("error while loading beatmap:", names[i], err);
+                    console.error("Error while loading beatmap:", names[i], err);
                 }
             });
         }
     } else {
         if (!names)
-            console.log("no local beatmap list found.");
+            console.log("No local beatmap list found.");
         else
-            console.error("error while loading beatmap list:", err, names);
+            console.error("Error while loading beatmap list:", err, names);
     }
 });
 
@@ -54,7 +53,7 @@ function addbeatmap(osz, f) {
     var map = new BeatmapController();
     map.osu = new Osu(osz.root);
     map.filename = osz.filename;
-    console.log("adding beatmap filename:", osz.filename)
+    console.log("Adding beatmap filename:", osz.filename)
 
     // ask sayobot of star ratings of beatmaps immediately when decoded
     map.osu.ondecoded = function () {
@@ -76,7 +75,7 @@ function addbeatmap(osz, f) {
             beatmapFileList.push(map.filename);
             localforage.setItem("beatmapfilelist", beatmapFileList, function (err, val) {
                 if (!err) {
-                    console.log("local beatmap list set to", val);
+                    console.log("Local beatmap list set to", val);
                 } else {
                     console.error("Error while saving beatmap list");
                 }
@@ -84,7 +83,7 @@ function addbeatmap(osz, f) {
         }
     };
     map.osu.onerror = function (error) {
-        console.error("osu load error");
+        console.error("Osu load error");
     };
     map.osu.load();
 }

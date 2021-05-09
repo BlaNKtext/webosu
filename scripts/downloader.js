@@ -84,7 +84,7 @@ function startdownload(box) {
         bar.value = e.loaded / e.total;
     }
     xhr.onerror = function () {
-        console.error("download failed");
+        console.error("Download failed");
         alert("Beatmap download failed. Please retry later.")
         box.downloading = false;
         box.classList.remove("downloading");

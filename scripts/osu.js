@@ -294,7 +294,7 @@ define(["underscore", "osu-audio", "curves/LinearBezier", "curves/CircumscribedC
                     self.onerror("No .osu files found!");
                 } else {
                     _.each(self.raw_tracks, function (t) {
-                        console.log("attemping loading track:", t.name)
+                        console.log("Attempting to load track:", t.name)
                         t.getText(function (text) {
                             var track = new Track(this.zip, text);
                             self.tracks.push(track);
