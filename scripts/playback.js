@@ -1333,7 +1333,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
 
             this.destroy = function () {
                 // clean up
-                console.log("playback:destroy");
+                console.log("Destroy gamefield");
                 _.each(self.hits, function (hit) {
                     if (!hit.destroyed) {
                         _.each(hit.objects, function (o) {
@@ -1371,7 +1371,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
             };
 
             this.start = function () {
-                console.log("start playback")
+                console.log("Start playback")
                 self.started = true;
                 self.skipped = false;
                 self.osu.audio.gain.gain.value = self.game.musicVolume * self.game.masterVolume;
@@ -1384,7 +1384,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
                     self.osu.audio.pause();
                     self.game.paused = true;
                 }
-                console.log("playback: retrying");
+                console.log("Re-trying playback...");
                 self.destroy();
                 self.constructor(self.game, self.osu, self.track);
                 self.loadingMenu.hide();
@@ -1397,7 +1397,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
                     self.osu.audio.pause();
                     self.game.paused = true;
                 }
-                console.log("playback: quiting");
+                console.log("Exiting gamefield...");
                 self.destroy();
                 if (window.quitGame)
                     window.quitGame();
