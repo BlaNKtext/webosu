@@ -59,7 +59,7 @@ define([], function () {
     function preprocAudio(filename, buffer) {
         let suffix = filename.substr(-3);
         if (suffix != "mp3") {
-            console.log("preproc audio: ogg", suffix);
+            console.log("Preproc audio: ogg", suffix);
             return {
                 startoffset: 19
             };
@@ -67,7 +67,7 @@ define([], function () {
         mp3Parser.readTagsNew = readTagsNew;
         let tags = mp3Parser.readTagsNew(new DataView(buffer));
         if (tags.length == 3 && tags[1]._section.type == "Xing") {
-            console.log("dumbifing", filename);
+            console.log("Dumbifing", filename);
             let arr = new Uint8Array(buffer.byteLength - tags[1]._section.byteLength);
             arr.set(new Uint8Array(buffer, 0, tags[1]._section.offset), 0);
             let offsetAfter = tags[1]._section.offset + tags[1]._section.byteLength;

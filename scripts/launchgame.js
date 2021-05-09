@@ -5,7 +5,7 @@ function launchOSU(osu, beatmapid, version) {
     for (let i = 0; i < osu.tracks.length; ++i)
         if (osu.tracks[i].metadata.BeatmapID == beatmapid || !osu.tracks[i].mode && osu.tracks[i].metadata.Version == version)
             trackid = i;
-    console.log("launching", beatmapid, version)
+    console.log("Launching", beatmapid, version)
     if (trackid == -1) {
         if (log_to_server) log_to_server("unmatch " + beatmapid + " " + version);
         console.error("No such track");
@@ -16,7 +16,7 @@ function launchOSU(osu, beatmapid, version) {
     }
     // prevent launching multiple times
     if (window.app) return;
-    console.log("launching PIXI app");
+    console.log("Launching PIXI app");
     // launch PIXI app
     let app = window.app = new PIXI.Application({
         width: window.innerWidth,
@@ -24,7 +24,7 @@ function launchOSU(osu, beatmapid, version) {
         resolution: (window.game.overridedpi ? window.game.dpiscale : window.devicePixelRatio) || 1,
         autoResize: true,
     });
-    app.renderer.autoResize = true;
+    app.renderer.autoDensity = true;
     app.renderer.backgroundColor = 0x111111;
 
     // remember where the page is scrolled to
