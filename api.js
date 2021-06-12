@@ -1,12 +1,9 @@
 const http = require('http');
 const url = require('url');
-
 const hostname = '127.0.0.1';
 const postport = 3000;
 const getport = 3001;
-
 var a = [];
-
 const postserver = http.createServer((req, res) => {
   var q = url.parse(req.url, true).query;
   var ip = req.headers["x-real-ip"];
@@ -33,17 +30,15 @@ const postserver = http.createServer((req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.end("");
 });
-
 const getserver = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.end(JSON.stringify(a));
 });
-
 postserver.listen(postport, hostname, () => {
-  console.log(`Server running at http://${hostname}:${postport}/`);
+  console.log(`Post server running at http://${hostname}:${postport}/`);
 });
 getserver.listen(getport, hostname, () => {
-  console.log(`Server running at http://${hostname}:${getport}/`);
+  console.log(`Get server running at http://${hostname}:${getport}/`);
 });

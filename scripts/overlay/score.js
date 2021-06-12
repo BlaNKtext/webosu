@@ -251,7 +251,7 @@ define([], function () {
 
         function uploadScore(summary) {
             let xhr = new XMLHttpRequest();
-            let url = "https://3000-brown-koala-z1tyjlt9.ws-us03.gitpod.io/";
+            let url = "https://3001-magenta-cockroach-8wmgi1ls.ws-us09.gitpod.io/";
             url += "?sid=" + encodeURIComponent(summary.sid);
             url += "&bid=" + encodeURIComponent(summary.bid);
             url += "&title=" + encodeURIComponent(summary.title);
