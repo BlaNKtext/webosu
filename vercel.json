@@ -1,0 +1,7 @@
+{
+    "functions": {
+      "api/api.js": {
+        "includeFiles": "_files/**"
+      }
+    }
+  }
