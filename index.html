@@ -195,7 +195,7 @@
             function refreshLivescore(){
                 let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
-                xhr.open("GET", "https://3000-magenta-cockroach-8wmgi1ls.ws-us09.gitpod.io/");
+                xhr.open("GET", "http://127.0.0.1:3001/");
                 xhr.onload = function() {
                     showActivity(JSON.parse(xhr.response));
                 }
