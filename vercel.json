@@ -1,7 +1,0 @@
-{
-    "functions": {
-      "api/owu-api.js": {
-        "includeFiles": "_files/**"
-      }
-    }
-  }
