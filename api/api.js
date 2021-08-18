@@ -1,6 +1,3 @@
-const { readFileSync } = require('fs')
-const { join } = require('path')
-const file = readFileSync(join(__dirname, '/'), 'utf8')
 const http = require('http');
 const url = require('url');
 const hostname = '127.0.0.1';
