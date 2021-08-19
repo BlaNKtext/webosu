@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>owu! | Favorites</title>
+    <link rel=”canonical” href=”https://owu.vercel.app/”/>
+    <meta name="description" content="owu = osu! + web | The unofficial web port of the rhythm game osu!">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="style/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link rel="stylesheet" type="text/css" href="style/font.css">
+    <script src="scripts/launchgame.js"></script>
+    <script src="scripts/downloader.js"></script>
+    <script src="scripts/addbeatmaplist.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/jsloader.js"></script>
+    <script src="scripts/lib/localforage.min.js"></script>
+    <script async src="https://arc.io/widget.min.js#f6CePGyv"></script>
+</head>
+
+<body>
+    <div class="game-area" id="game-area" hidden>
+    </div>
+    <div class="pause-menu" id="pause-menu" hidden>
+        <div class="paused-title">Paused</div>
+        <div class="paused-desc">You're not gonna do what I think you're gonna do, are you?</div>
+        <div class="button-list">
+            <div class="pausebutton continue" id="pausebtn-continue">
+                <div class="inner">Continue</div>
+            </div>
+            <div class="pausebutton retry" id="pausebtn-retry">
+                <div class="inner">Retry</div>
+            </div>
+            <div class="pausebutton quit" id="pausebtn-quit">
+                <div class="inner">Quit</div>
+            </div>
+        </div>
+    </div>
+    <nav id="main-nav">
+        <div class="nav-link">
+            <a href="index.html" class="brand">owu!</a>
+            <a href="new.html" class="pseudo button">Updated</a>
+            <a href="hot.html" class="pseudo button">Popular</a>
+            <a href="browse.html" class="pseudo button">Browse</a>
+        </div>
+        <div class="nav-search">
+            <form action="search.html">
+                <input type="text" name="q" placeholder="Beatmap or SID" />
+                <input type="image" class="search-button" src="research.svg">
+            </form>
+        </div>
+        <div class="nav-tool">
+            <a href="faq.html" class="pseudo button">FAQ</a>
+            <a href="local.html" class="pseudo button active">Favorites</a>
+            <a href="settings.html" class="pseudo button">Settings</a>
+            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
+        </div>
+    </nav>
+    <div class="main-page" id="main-page">
+        <div class="main-content">
+            <div class="beatmap-list" id="beatmap-list">
+                <!-- to be filled in script -->
+            </div>
+            <!-- <div class="side-panel">
+            to be activated in script
+            </div> -->
+            <div class="statuslines" id="statuslines">
+                <div class="progress" id="script-progress">
+                    Scripts
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="skin-progress">
+                    Skin
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="sound-progress">
+                    Hitsounds
+                    <div class="lds-dual-ring"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            if (window.localforage) {
+                window.localforage.getItem("likedsidset", function (err, val) {
+                    if (err) {
+                        alert("Error loading liked beatmap list");
+                        return;
+                    }
+                    if (val && val.size) {
+                        list = Array.from(val);
+
+                        function addlist(startoffset, maxlength) {
+                            for (let i = startoffset; i < list.length && i < startoffset + maxlength; ++i)
+                                addBeatmapSid(list[i]);
+                            if (list.length <= startoffset + maxlength) {
+                                document.getElementById("btnmore").setAttribute("style", "display:none;");
+                            }
+                        }
+                        addlist(0, 20);
+                        var cur = 20;
+                        document.getElementById("btnmore").onclick = function () {
+                            addlist(cur, 20);
+                            cur += 20;
+                        }
+                    } else {
+                        document.getElementById("beatmap-list").innerText =
+                            "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to save it.";
+                    }
+                });
+            } else {
+                alert("Ah crap! localforage not supported")
+            }
+        </script>
+</body>
+
+</html>
