@@ -1547,8 +1547,8 @@ body:not(.sound-ready) .difficulty-item {
   margin-top: 0.1em;
   margin-left: 0.2em;
   border-radius: 50%;
-  border: 2px solid #fff;
-  border-color: #fff #fff #fff transparent;
+  border: 2px solid #9d7dcc;
+  border-color: #9d7dcc #9d7dcc #9d7dcc transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
@@ -1564,7 +1564,8 @@ body:not(.sound-ready) .difficulty-item {
 
 .finished .lds-dual-ring:after {
   border: none;
-  content: "OK";
+  content: "\2714";
+  color: #39af3c;
   line-height: 0.8em;
   animation: none;
 }
