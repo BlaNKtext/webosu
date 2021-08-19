@@ -24,7 +24,7 @@
         <div class="nav-search">
             <form action="search.html">
                 <input type="text" name="q" placeholder="Beatmap or SID" />
-                <input type="image" class="search-button" src="research.svg">
+                <input type="image" class="search-button" src="search.svg">
             </form>
         </div>
         <div class="nav-tool">
@@ -37,7 +37,6 @@
     <!--Main Page-->
     <div class="main-page" id="main-page">
         <div class="panel">
-            <!-- <h1>Settings</h1> -->
             <table class="holder" id="settings-panel">
                 <tr>
                     <td>
@@ -108,7 +107,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="option-name">Use system resoloution</div>
+                        <div class="option-name">Use system resolution</div>
                         <div class="option-control">
                             <input id="sysdpi-check" type="checkbox" /><span></span>
                         </div>
@@ -116,7 +115,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="option-name">Resoloution</div>
+                        <div class="option-name">Resolution</div>
                         <div class="option-control">
                             <input id="dpi-range" class="slider" type="range" min="0.5" max="2.0" value="1.0"
                                 step="0.05">
@@ -204,7 +203,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="option-name">Effect Volume</div>
+                        <div class="option-name">Hitsound Volume</div>
                         <div class="option-control">
                             <input id="effectvolume-range" class="slider" type="range" min="0" max="100" value="0">
                             <div class="range-indicator" id="effectvolume-range-indicator" hidden></div>
@@ -236,7 +235,7 @@
                     <td>
                         <div class="option-name disabled">Enable beatmap hitsounds</div>
                         <div class="option-control">
-                            <input id="beatmap-hitsound-check" type="checkbox" /><span></span>
+                        <input id="beatmap-hitsound-check" type="checkbox" /><span></span>
                         </div>
                     </td>
                 </tr>
@@ -298,13 +297,13 @@
                 <tr>
                     <td>
                         <h3>
-                            Skin
+                            Skin Options
                         </h3>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <div class="option-name">Don't Show Hit Circle Numbers</div>
+                        <div class="option-name">Don't Show Hitcircle Numbers</div>
                         <div class="option-control">
                             <input id="hidenumbers-check" type="checkbox" /><span></span>
                         </div>
@@ -337,14 +336,7 @@
         </div>
     </div>
 </body>
-<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/8.9.1/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="/__/firebase/8.9.1/firebase-analytics.js"></script>
-
-<!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
-
 </html>
