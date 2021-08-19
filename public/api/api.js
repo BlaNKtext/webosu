@@ -7,7 +7,7 @@ const hostname = '127.0.0.1';
 const postport = 3000;
 const getport = 3001;
 
-var a = [];
+var a = ["Among Us"];
 
 const postserver = http.createServer((req, res) => {
   var q = url.parse(req.url, true).query;
@@ -32,7 +32,7 @@ const postserver = http.createServer((req, res) => {
   }
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end("");
+  res.end("Shitting");
 });
 
 const getserver = http.createServer((req, res) => {
