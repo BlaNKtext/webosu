@@ -194,7 +194,7 @@
             function refreshLivescore(){
                 let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
-                xhr.open("GET", "http://localhost:placeholder-lmao");
+                xhr.open("GET", "http://localhost:3001");
                 xhr.onload = function() {
                     showActivity(JSON.parse(xhr.response));
                 }
