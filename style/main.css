@@ -1538,7 +1538,6 @@ body:not(.sound-ready) .difficulty-item {
   width: 1em;
   height: 1em;
 }
-
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -1547,21 +1546,18 @@ body:not(.sound-ready) .difficulty-item {
   margin-top: 0.1em;
   margin-left: 0.2em;
   border-radius: 50%;
-  border: 2px solid #9d7dcc;
+  border: 2.5px solid #9d7dcc;
   border-color: #9d7dcc #9d7dcc #9d7dcc transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
-
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
 }
-
 .finished .lds-dual-ring:after {
   border: none;
   content: "\2714";
