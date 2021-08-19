@@ -1,6 +1,8 @@
 const http = require('http');
 const url = require('url');
-
+const { readFileSync } = require('fs')
+const { join } = require('path')
+const file = readFileSync(join(__dirname, '_files'), 'utf8')
 const hostname = '127.0.0.1';
 const postport = 3000;
 const getport = 3001;
