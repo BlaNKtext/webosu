@@ -61,12 +61,12 @@
     <!--Main page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
-            <div class="announcement">Announcement: New domain! Check out the <a href="https://webosu.online/changes.html">changelog</a> for more info!</div>
+            <div class="announcement">Announcement: Live plays has been delayed because its a pain in the ass!</div>
             <br>
             <div class="index-area">
                 <h2>Public plays (W.I.P)</h2>
                 <hr/>
-                <table>
+               <!--<table>
                     <thead>
                         <tr>
                             <td>Player</td>
@@ -79,9 +79,9 @@
                         </tr>
                     </thead>
                     <tbody id="activity-list">
-                        <!-- will be filled in script -->
+                        will be filled in by script
                     </tbody>
-                </table>
+                </table>-->
             </div>
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
@@ -194,7 +194,7 @@
             function refreshLivescore(){
                 let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
-                xhr.open("GET", "https://3000-magenta-cockroach-8wmgi1ls.ws-us09.gitpod.io/");
+                xhr.open("GET", "null");
                 xhr.onload = function() {
                     showActivity(JSON.parse(xhr.response));
                 }
