@@ -1,1 +1,1 @@
-Sitemap: https://owu.vercel.app/sitemap.txt
+Sitemap: https://webosu.online/sitemap.txt

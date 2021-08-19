@@ -64,3 +64,10 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# Google shit
+robots.txt
+sitemap.txt
+
+# Arc
+arc-sw.js
