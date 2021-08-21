@@ -71,3 +71,6 @@ sitemap.txt
 
 # Arc
 arc-sw.js
+
+# Local Netlify folder
+.netlify
