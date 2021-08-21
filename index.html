@@ -65,7 +65,7 @@
             <div class="index-area">
                 <h2>Public plays (Coming Soon)</h2>
                 <hr/>
-               <!--<table>
+               <table>
                     <thead>
                         <tr>
                             <td>Player</td>
@@ -80,7 +80,7 @@
                     <tbody id="activity-list">
                         will be filled in by script
                     </tbody>
-                </table>-->
+                </table>
             </div>
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
@@ -146,6 +146,65 @@
         </div>
     </div>
     <script>
+         // what's happening
+         let tbody = document.getElementById("activity-list");
+            function formattime(date) {
+                let m;
+                return date.getHours() + ":" + ((m=date.getMinutes())<10?('0'+m):m);
+            }
+            function showActivity(records) {
+                records = records.reverse();
+                while (tbody.firstChild)
+                    tbody.removeChild(tbody.firstChild);
+                for (let i=0; i<records.length && i<10; ++i) {
+                    let tr = document.createElement("tr");
+                    tbody.appendChild(tr);
+                    function nexttd(content) {
+                        let td = document.createElement("td");
+                        tr.appendChild(td);
+                        if (!content) return;
+                        if (content.tagName)
+                            td.appendChild(content);
+                        else
+                            td.innerText = content;
+                    }
+                    let b = records[i].ip.split(".");
+                    b[0]="**";
+                    if (b.length>3) b[3]="**";
+                    nexttd(b.join("."));
+                    let title = document.createElement("a");
+                    title.innerText = records[i].title + " [" + records[i].version + "]";
+                    title.title = records[i].title + " [" + records[i].version + "]";
+                    if (records[i].sid == "undefined")
+                        records[i].sid = undefined;
+                    title.href = "search.html?q=" + (records[i].sid || records[i].title);
+                    nexttd(title);
+                    nexttd(records[i].combo + "x");
+                    nexttd(parseInt(records[i].score).toLocaleString());
+                    let acc = document.createElement("span");
+                    acc.innerText = records[i].acc;
+                    acc.className = records[i].grade;
+                    nexttd(acc);
+                    nexttd(records[i].mods);
+                    nexttd(formattime(new Date(parseInt(records[i].time))));
+                }
+            }
+            let b={ip:"",title:"",version:"loading",score:0,combo:0,acc:0};
+            showActivity([b,b,b,b,b,b,b,b,b,b])
+            function refreshLivescore(){
+                let xhr = new XMLHttpRequest();
+                xhr.responseType = 'text';
+                xhr.open("GET", "http://localhost:3001");
+                xhr.onload = function() {
+                    showActivity(JSON.parse(xhr.response));
+                }
+                xhr.onerror = function() {
+                    console.error("Failed to fetch uploaded plays");
+                }
+                xhr.send();
+            }
+            refreshLivescore();
+            window.setInterval(refreshLivescore, 5000);
         // recently played
         if (window.localforage) {
             let listhistory = document.getElementById("beatmap-list-history");
