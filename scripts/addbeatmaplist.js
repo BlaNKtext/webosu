@@ -82,16 +82,13 @@ function createDifficultyList(boxclicked, event) {
         let line = document.createElement("div");
         let version = document.createElement("div");
         let mapper = document.createElement("div");
-        let sid = document.createElement("div");
         line.className = "versionline";
         version.className = "version";
-        sid.className = "sid";
         mapper.className = "mapper";
         line.appendChild(version);
         line.appendChild(mapper);
         difficultyItem.appendChild(line);
         version.innerText = boxclicked.data[i].version;
-        sid.innerText = boxclicker.data[i].sid;
         mapper.innerText = "mapped by " + boxclicked.data[i].creator;
         // add row of stars
         difficultyItem.appendChild(createStarRow(boxclicked.data[i].star));
@@ -191,6 +188,7 @@ var NSaddBeatmapList = {
         let pBeatmapArtist = document.createElement("div");
         let pBeatmapCreator = document.createElement("div");
         let pBeatmapApproved = document.createElement("div");
+        let pBeatmapSID = document.createElement("div");
         pBeatmapBox.className = "beatmapbox";
         pBeatmapCover.className = "beatmapcover";
         pBeatmapCoverOverlay.className = "beatmapcover-overlay";
@@ -198,17 +196,20 @@ var NSaddBeatmapList = {
         pBeatmapArtist.className = "beatmapartist";
         pBeatmapCreator.className = "beatmapcreator";
         pBeatmapApproved.className = "beatmapapproved";
+        pBeatmapSID.className = "beatmapsid"
         pBeatmapBox.appendChild(pBeatmapCover);
         pBeatmapBox.appendChild(pBeatmapCoverOverlay);
         pBeatmapBox.appendChild(pBeatmapTitle);
         pBeatmapBox.appendChild(pBeatmapArtist);
         pBeatmapBox.appendChild(pBeatmapCreator);
         pBeatmapBox.appendChild(pBeatmapApproved);
+        pBeatmapBox.appendChild(pBeatmapSID)
         NSaddBeatmapList.addlikeicon(pBeatmapBox);
         // set beatmap title & artist display (prefer ascii title)
         pBeatmapTitle.innerText = map.title;
         pBeatmapArtist.innerText = map.artist;
-        pBeatmapCreator.innerText = "mapped by " + map.creator;
+        pBeatmapCreator.innerText = "Mapped by: " + map.creator;
+        pBeatmapSID.innerText = "SID: " + map.sid;
         pBeatmapCover.alt = "cover" + map.sid;
         pBeatmapCover.src = "https://cdn.sayobot.cn:25225/beatmaps/" + map.sid + "/covers/cover.webp";
         list.appendChild(pBeatmapBox);
