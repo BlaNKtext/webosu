@@ -82,13 +82,16 @@ function createDifficultyList(boxclicked, event) {
         let line = document.createElement("div");
         let version = document.createElement("div");
         let mapper = document.createElement("div");
+        let sid = document.createElement("div");
         line.className = "versionline";
         version.className = "version";
+        sid.className = "sid";
         mapper.className = "mapper";
         line.appendChild(version);
         line.appendChild(mapper);
         difficultyItem.appendChild(line);
         version.innerText = boxclicked.data[i].version;
+        sid.innerText = boxclicker.data[i].sid;
         mapper.innerText = "mapped by " + boxclicked.data[i].creator;
         // add row of stars
         difficultyItem.appendChild(createStarRow(boxclicked.data[i].star));

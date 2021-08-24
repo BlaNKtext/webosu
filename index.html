@@ -17,7 +17,6 @@
     <script src="scripts/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
-
 <body>
     <!--Pause menu-->
     <div class="game-area" id="game-area" hidden>
@@ -39,31 +38,32 @@
     <!--Nav Bar-->
     <nav id="main-nav">
         <div class="nav-link">
-            <a href="index.html" class="brand">owu!</a>
-            <a href="new.html" class="pseudo button">Updated</a>
-            <a href="hot.html" class="pseudo button">Popular</a>
-            <a href="browse.html" class="pseudo button">Browse</a>
+            <a href="index" class="brand">owu!</a>
+            <a href="new" class="pseudo button">New</a>
+            <a href="hot" class="pseudo button">Popular</a>
+            <a href="browse" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
-            <form action="search.html">
+            <form action="search">
                 <input type="text" name="q" placeholder="Beatmap or SID" />
                 <input type="image" class="search-button" src="search.svg">
             </form>
         </div>
         <div class="nav-tool">
-            <a href="faq.html" class="pseudo button">FAQ</a>
-            <a href="local.html" class="pseudo button">Favorites</a>
-            <a href="settings.html" class="pseudo button">Settings</a>
+            <a href="faq" class="pseudo button">FAQ</a>
+            <a href="local" class="pseudo button">Favorites</a>
+            <a href="settings" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
         </div>
     </nav>
     <!--Main page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
-            <div class="announcement">Announcement: Live plays has been delayed because its a pain in the ass!</div>
+            <div class="announcement">Announcement: Make sure to enable Arc so I can make money! (Click that purple circle at the bottom left)</div>
             <br>
             <div class="index-area">
                 <h2>Public plays (Coming Soon)</h2>
+                <hr/>
               <!--<hr/>
                <table>
                     <thead>
@@ -84,32 +84,32 @@
             </div>
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
-                <a href="hot.html" class="more">See more Popular Beatmaps</a>
-                <hr />
+                <a href="hot" class="more">See more Popular Beatmaps</a>
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-hot">
                     <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Recently Played</h2>
-                <a href="history.html" class="more">See your play history</a>
-                <hr />
+                <a href="history" class="more">See your play history</a>
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-history">
                     <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Favorited Beatmaps</h2>
-                <a href="local.html" class="more">See all favorited Beatmaps</a>
-                <hr />
+                <a href="local" class="more">See all favorited Beatmaps</a>
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-liked">
                     <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Latest Beatmaps</h2>
-                <a href="new.html" class="more">See all latest Beatmaps</a>
-                <hr />
+                <a href="new" class="more">See all latest Beatmaps</a>
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-new">
                     <!-- Beatmaps will be here -->
                 </div>
@@ -117,7 +117,7 @@
             <div class="index-area">
                 <h2>Random Beatmaps<h2>
                         <a onclick="genRandomList()" class="more" style="cursor:pointer;">Randomize Beatmaps</a>
-                        <hr />
+                        <hr/>
                         <div class="beatmap-list" id="beatmap-list-random">
                             <!-- to be filled in script -->
                         </div>
@@ -170,18 +170,18 @@
                 }
             })
         }
-        // new
+        // Get new beatmaps
         addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=2&5=1",
             document.getElementById("beatmap-list-new"),
             function (t) {
                 return (t.modes & 1) != 0;
             }, 4);
-        // random
+        // Get random beatmaps
         function genRandomList() {
-            // clear list
+            // Wipe Random List
             let list = document.getElementById("beatmap-list-random");
 
-            // fill list
+            // Re-fill Random List
             let randstart = Math.floor(Math.random() * 20000);
             addBeatmapList("https://api.sayobot.cn/beatmaplist?0=10&1=" + randstart + "&2=1&5=1", list,
                 function (t) {
@@ -190,10 +190,10 @@
                 }, 4);
         }
         genRandomList();
-        // hot
+        // Get hot beatmaps
         addBeatmapList("https://api.sayobot.cn/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById(
             "beatmap-list-hot"));
-        // liked
+        // Favorite beatmaps
         if (window.localforage) {
             window.localforage.getItem("likedsidset", function (err, val) {
                 if (err) {
@@ -218,5 +218,4 @@
 <script src="/__/firebase/8.9.1/firebase-app.js"></script>
 <script src="/__/firebase/8.9.1/firebase-analytics.js"></script>
 <script src="/__/firebase/init.js"></script>
-
 </html>

@@ -29,7 +29,7 @@
                     title.title = records[i].title + " [" + records[i].version + "]";
                     if (records[i].sid == "undefined")
                         records[i].sid = undefined;
-                    title.href = "search.html?q=" + (records[i].sid || records[i].title);
+                    title.href = "search?q=" + (records[i].sid || records[i].title);
                     nexttd(title);
                     nexttd(records[i].combo + "x");
                     nexttd(parseInt(records[i].score).toLocaleString());

@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
     <title>owu! | Favorites</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
@@ -18,7 +17,6 @@
     <script src="scripts/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
-
 <body>
     <div class="game-area" id="game-area" hidden>
     </div>
@@ -38,21 +36,21 @@
     </div>
     <nav id="main-nav">
         <div class="nav-link">
-            <a href="index.html" class="brand">owu!</a>
-            <a href="new.html" class="pseudo button">Updated</a>
-            <a href="hot.html" class="pseudo button">Popular</a>
-            <a href="browse.html" class="pseudo button">Browse</a>
+            <a href="index" class="brand">owu!</a>
+            <a href="new" class="pseudo button">New</a>
+            <a href="hot" class="pseudo button">Popular</a>
+            <a href="browse" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
-            <form action="search.html">
+            <form action="search">
                 <input type="text" name="q" placeholder="Beatmap or SID" />
                 <input type="image" class="search-button" src="search.svg">
             </form>
         </div>
         <div class="nav-tool">
-            <a href="faq.html" class="pseudo button">FAQ</a>
-            <a href="local.html" class="pseudo button active">Favorites</a>
-            <a href="settings.html" class="pseudo button">Settings</a>
+            <a href="faq" class="pseudo button">FAQ</a>
+            <a href="local" class="pseudo button active">Favorites</a>
+            <a href="settings" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
         </div>
     </nav>
@@ -88,7 +86,6 @@
                     }
                     if (val && val.size) {
                         list = Array.from(val);
-
                         function addlist(startoffset, maxlength) {
                             for (let i = startoffset; i < list.length && i < startoffset + maxlength; ++i)
                                 addBeatmapSid(list[i]);
@@ -108,7 +105,7 @@
                     }
                 });
             } else {
-                alert("Ah crap! localforage not supported")
+                alert("Ah crap! localforage is not supported")
             }
         </script>
 </body>

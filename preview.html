@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>owu! | Preview</title>
+        <link rel="stylesheet" href="style/picnic.min.css">
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+        <link rel="stylesheet" type="text/css" href="style/font.css">
+        <link rel="icon" href="favicon.png">
+        <script src="scripts/launchgame.js"></script>
+        <script src="scripts/downloader.js"></script>
+        <script src="scripts/addbeatmaplist.js"></script>
+        <script src="scripts/jsloader.js"></script>
+    </head>
+    <body>
+    <!--Pause menu-->
+    <div class="game-area" id="game-area" hidden>
+    </div>
+    <div class="pause-menu" id="pause-menu" hidden>
+        <div class="paused-title">Paused</div>
+        <div class="button-list">
+            <div class="pausebutton continue" id="pausebtn-continue">
+                <div class="inner">Continue</div>
+            </div>
+            <div class="pausebutton retry" id="pausebtn-retry">
+                <div class="inner">Retry</div>
+            </div>
+            <div class="pausebutton quit" id="pausebtn-quit">
+                <div class="inner">Quit</div>
+            </div>
+        </div>
+    </div>
+    <!--Nav Bar-->
+    <nav id="main-nav">
+        <div class="nav-link">
+            <a href="index" class="brand">owu!</a>
+            <a href="new" class="pseudo button">New</a>
+            <a href="hot" class="pseudo button">Popular</a>
+            <a href="browse" class="pseudo button">Browse</a>
+        </div>
+        <div class="nav-search">
+            <form action="search">
+                <input type="text" name="q" placeholder="Beatmap or SID" />
+                <input type="image" class="search-button" src="search.svg">
+            </form>
+        </div>
+        <div class="nav-tool">
+            <a href="faq" class="pseudo button">FAQ</a>
+            <a href="local" class="pseudo button">Favorites</a>
+            <a href="settings" class="pseudo button">Settings</a>
+            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
+        </div>
+    </nav>
+        <div class="main-page" id="main-page">
+            <div class="main-content">
+                <div class="beatmap-list" id="beatmap-list">
+                    <!-- to be filled in script -->
+                    <h1 id="hint">Beatmap preview loading...</h1>
+                </div>
+            <!--Footer-->
+            <div class="text"></div>
+            <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord!</a></div>
+            <div class="text">Translation by: <a href="https://github.com/BlaNKtext">BlaNK</a>#1154</div>
+            <div class="text">Beatmap API used: <a href="https://osu.sayobot.cn/">Sayobot</a></div>
+            <div class="text">Stable Release: v.1.4<a href="https://github.com/BlaNKtext/web-osu"></a></div>
+        </div>
+            <!-- <div class="side-panel">
+                to be activated in script
+            </div> -->
+            <div class="statuslines" id="statuslines">
+                <div class="progress" id="script-progress">
+                    Scripts
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="skin-progress">
+                    Skin
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="sound-progress">
+                    Hitsounds
+                    <div class="lds-dual-ring"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let cururl = new URL(window.location.href);
+            let sid = cururl.searchParams.get("sid");
+            let bid = cururl.searchParams.get("bid");
+            // version look up
+            let version = null;
+            {
+                let xhr = new XMLHttpRequest();
+                let url = "https://api.sayobot.cn/v2/beatmapinfo?T=1&K=" + bid;
+                xhr.responseType = 'text';
+                xhr.open("GET", url);
+                xhr.onload = function() {
+                    let res = JSON.parse(xhr.response);
+                    console.log(res)
+                    for (let i=0; i<res.data.bid_data.length; ++i)
+                        if (res.data.bid_data[i].bid == bid)
+                            version = res.data.bid_data[i].version;
+                }
+                xhr.send();
+            }
+            // download beatmap
+            let url = "https://txy1.sayobot.cn/beatmaps/download/mini/" + sid;
+            let xhr = new XMLHttpRequest();
+            xhr.responseType = 'arraybuffer';
+            xhr.open("GET", url);
+            // create download progress bar
+            let container = document.createElement("div");
+            let title = document.createElement("div");
+            let bar = document.createElement("progress");
+            container.className = "download-progress";
+            title.className = "title";
+            title.innerText = sid;
+            container.appendChild(title);
+            container.appendChild(bar);
+            // insert so that download list from recent to old
+            let statuslines = document.getElementById("statuslines");
+            statuslines.insertBefore(container, statuslines.children[3]);
+            bar.max = 1;
+            bar.value = 0;
+            // async part
+            function start(){
+                function f(){
+                    window.game.autoplay = true;
+                    launchGame(window.oszblob, bid, version);
+                    function wtf(){
+                        if (window.playback)
+                            window.playback.pause = function(){};
+                        else
+                            window.setTimeout(wtf, 50);
+                    }
+                    wtf();
+                    window.removeEventListener("click",f);
+                    document.getElementById("hint").innerText = "If the beatmap preview does not start, there may be errors in the beatmap file.";
+                };
+                window.addEventListener("click",f);
+                document.getElementById("hint").innerText = "Click anywhere to start";
+            }
+            xhr.onload = function() {
+                window.oszblob = new Blob([xhr.response]);
+                bar.className = "finished";
+                function checktostart(){
+                    if (!window.scriptReady || !window.soundReady || !window.skinReady) {
+                        window.setTimeout(checktostart, 50);
+                        return;
+                    }
+                    start();
+                }
+                checktostart();
+            }
+            xhr.onprogress = function(e) {
+                bar.value = e.loaded / e.total;
+            }
+            xhr.onerror = function() {
+                console.error("Download failed");
+                alert("Beatmap download failed.")
+                log_to_server("fail " + box.sid);
+            }
+            xhr.send();
+            if (window.beatmaplistLoadedCallback) {
+                window.beatmaplistLoadedCallback();
+                window.beatmaplistLoadedCallback = null;
+                // to make sure it's called only once
+            }
+        </script>
+    </body>
+    <script src="/__/firebase/8.9.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.9.1/firebase-analytics.js"></script>
+    <script src="/__/firebase/init.js"></script>
+</html>

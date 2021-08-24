@@ -18,21 +18,21 @@
 <body>
     <nav id="main-nav">
         <div class="nav-link">
-            <a href="index.html" class="brand">owu!</a>
-            <a href="new.html" class="pseudo button">Updated</a>
-            <a href="hot.html" class="pseudo button">Popular</a>
-            <a href="browse.html" class="pseudo button">Browse</a>
+            <a href="index" class="brand">owu!</a>
+            <a href="new" class="pseudo button">New</a>
+            <a href="hot" class="pseudo button">Popular</a>
+            <a href="browse" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
-            <form action="search.html">
+            <form action="search">
                 <input type="text" name="q" placeholder="Beatmap or SID" />
                 <input type="image" class="search-button" src="search.svg">
             </form>
         </div>
         <div class="nav-tool">
-            <a href="faq.html" class="pseudo button">FAQ</a>
-            <a href="local.html" class="pseudo button">Favorites</a>
-            <a href="settings.html" class="pseudo button">Settings</a>
+            <a href="faq" class="pseudo button">FAQ</a>
+            <a href="local" class="pseudo button">Favorites</a>
+            <a href="settings" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
         </div>
     </nav>
@@ -105,7 +105,7 @@
             }
             let title = document.createElement("a");
             title.innerText = summary.title + " [" + summary.version + "]";
-            title.href = "search.html?q=" + (summary.sid || summary.title);
+            title.href = "search?q=" + (summary.sid || summary.title);
             nexttd(title);
             nexttd(summary.combo);
             nexttd(summary.score);
