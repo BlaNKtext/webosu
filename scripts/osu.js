@@ -205,7 +205,7 @@ define(["underscore", "osu-audio", "curves/LinearBezier", "curves/CircumscribedC
                 this.general.PreviewTime /= 10;
                 if (this.general.PreviewTime > this.hitObjects[0].time) {
                     this.general.PreviewTime = 0;
-                } // WTF is this
+                }
 
                 // complete with default values
                 if (this.colors.length === 0) {
