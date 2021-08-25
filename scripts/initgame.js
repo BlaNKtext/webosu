@@ -25,9 +25,9 @@ require(["osu", "underscore", "sound", "playback"],
             snakeout: true,
 
             // audio
-            masterVolume: 0.7,
+            masterVolume: 0.5,
             effectVolume: 1.0,
-            musicVolume: 1.0,
+            musicVolume: 0.5,
             beatmapHitsound: true,
             globalOffset: 0,
 

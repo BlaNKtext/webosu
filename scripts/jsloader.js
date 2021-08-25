@@ -21,7 +21,7 @@ window.beatmaplistLoadedCallback = function () {
 			window.zip.workerScriptsPath = 'scripts/lib/';
 			loadScript("scripts/lib/zip-fs.js", checkdep);
 		});
-		loadScript("scripts/lib/pixi.min.js", checkdep);
+		loadScript("scripts/lib/pixi.min.mjs", checkdep);
 		loadScript("scripts/lib/mp3parse.min.js", checkdep);
 		loadScript("scripts/lib/localforage.min.js", checkdep);
 
