@@ -39,9 +39,9 @@ function setOptionPanel() {
 		Kpause2keycode: 27,
 		Kskipkeycode: 17,
 
-		mastervolume: 100,
-		effectvolume: 15,
-		musicvolume: 15,
+		mastervolume: 25,
+		effectvolume: 100,
+		musicvolume: 50,
 		audiooffset: 0,
 		beatmapHitsound: true,
 
@@ -81,9 +81,9 @@ function setOptionPanel() {
 			window.game.ESC2keycode = this.Kpause2keycode;
 			window.game.CTRLkeycode = this.Kskipkeycode;
 
-			window.game.masterVolume = this.mastervolume / 100;
+			window.game.masterVolume = this.mastervolume / 25;
 			window.game.effectVolume = this.effectvolume / 100;
-			window.game.musicVolume = this.musicvolume / 100;
+			window.game.musicVolume = this.musicvolume / 50;
 			window.game.beatmapHitsound = this.beatmapHitsound;
 			window.game.globalOffset = parseFloat(this.audiooffset);
 
