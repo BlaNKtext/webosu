@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   background: #282c34;
-  color: #a7aebd;
+  color: #d0d5df;
   font-family: "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
@@ -991,7 +991,7 @@ input[type=checkbox]+span::after {
   width: 16px;
 }
 input[type=checkbox]:checked+span {
-  background: rgb(82, 189, 243);
+  background: #9d7dcc;
 }
 input[type=checkbox]:checked+span::after {
   right: 2px;
@@ -1060,7 +1060,7 @@ input[type=button]:hover {
   color: #fff;
 }
 input[type=button].using {
-  background: rgb(73, 162, 207);
+  background: #9d7dcc;
   color: #fff;
 }
 input[type=button].warnbtn {
@@ -1093,7 +1093,7 @@ input[type=range]::-moz-range-thumb {
   width: 10px;
 }
 input[type=range]::-moz-range-progress {
-  background-color: rgb(165, 223, 58);
+  background-color: #9d7dcc;
 }
 input[type=range]::-moz-range-track {
   background-color: #888;
