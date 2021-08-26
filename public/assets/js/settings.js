@@ -39,9 +39,9 @@ function setOptionPanel() {
 		Kpause2keycode: 27,
 		Kskipkeycode: 17,
 
-		mastervolume: 25,
-		effectvolume: 100,
-		musicvolume: 50,
+		mastervolume: 5,
+		effectvolume: 35,
+		musicvolume: 25,
 		audiooffset: 0,
 		beatmapHitsound: true,
 
