@@ -66,7 +66,7 @@ function(Osu, _, sound, Playback) {
 
     // load skin & game cursor
     PIXI.Loader.shared
-    .add('fonts/venera.fnt')
+    .add('assets/fonts/venera.fnt')
     .add("sprites.json").load(function() {
         window.skinReady = true;
         document.getElementById("skin-progress").innerText += " Done";

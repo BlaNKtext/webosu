@@ -1,22 +1,21 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <title>webosu! | Local maps
     </title>
-    <link rel="stylesheet" href="picnic.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" href="favicon.png">
-    <script src="scripts/lib/zip.js"></script>
-    <script src="scripts/lib/zip-fs.js"></script>
-    <script src="scripts/lib/pixi.min.js"></script>
-    <script src="scripts/lib/mp3parse.min.js"></script>
-    <script src="scripts/lib/localforage.min.js"></script>
+    <link rel="stylesheet" href="assets/css/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/favicon.png">
+    <script src="assets/js/lib/zip.js"></script>
+    <script src="assets/js/lib/zip-fs.js"></script>
+    <script src="assets/js/lib/pixi.min.js"></script>
+    <script src="assets/js/lib/mp3parse.min.js"></script>
+    <script src="assets/js/lib/localforage.min.js"></script>
     <script>
-        zip.workerScriptsPath = 'scripts/lib/';
+        zip.workerScriptsPath = 'assets/js/lib/';
     </script>
-    <script data-main="scripts/main" src="scripts/require.js"></script>
+    <script data-main="assets/js/main" src="assets/js/require.js"></script>
     <script>
         require.config({
             paths: {
@@ -31,7 +30,7 @@
             urlArgs: "bust=" + (new Date()).getTime()
         });
     </script>
-    <script src="scripts/settings.js"></script>
+    <script src="assets/js/settings.js"></script>
 </head>
 
 <body>
@@ -48,7 +47,7 @@
         <div class="nav-search">
             <form action="search.html">
                 <input type="text" name="q" placeholder="Beatmap or SID" />
-                <input type="image" class="search-button" src="search.svg">
+                <input type="image" class="search-button" src="assets/img/search.svg">
             </form>
         </div>
         <div class="nav-tool">
@@ -64,6 +63,7 @@
         <div class="main-content">
             <div class="announcement">Please use the settings menu below, otherwise it wont work. Due to limitations
                 pausing isn't possible either.</div>
+            <div class="announcement">This page may be discontinued if nobody uses it, feel free to pop by the discord server and tell me what you think</div>
             <h2>Local Beatmaps</h2>
             <hr />
             <div class="beatmap-list" id="beatmap-list">
