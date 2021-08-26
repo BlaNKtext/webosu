@@ -3,7 +3,7 @@
 function startpreview(box) {
     let volume = 1;
     if (window.gamesettings) {
-        volume = (window.gamesettings.mastervolume / 100) * (window.gamesettings.musicvolume / 100);
+        volume = (window.gamesettings.mastervolume / 60) * (window.gamesettings.musicvolume / 60);
         volume = Math.min(1, Math.max(0, volume));
     }
     let audios = document.getElementsByTagName("audio");
