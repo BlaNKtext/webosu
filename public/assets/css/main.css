@@ -507,7 +507,8 @@ thead {
 .grading .left .history-best:before {
   content: "History Best: ";
 }
-.grading .fullcombo {}
+.grading .fullcombo {
+}
 .grading .fullcombo:before {
   position: absolute;
   content: "Full Combo";
@@ -716,23 +717,6 @@ progress.finished::-webkit-progress-value {
   margin-right: -12px;
   /* to cancel padding-right of last column*/
 }
-.dragbox {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
-  background: #555;
-  color: #eee;
-  font-size: 18px;
-  height: 190px;
-  width: 400px;
-  margin-bottom: 12px;
-  margin-right: 12px;
-  border-radius: 4px;
-}
-.dragbox-inner {
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 10%;
-  line-height: 1.5em;
-}
 .beatmapbox {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
   background: #21252b;
@@ -746,6 +730,23 @@ progress.finished::-webkit-progress-value {
   border-radius: 4px;
   /* shouldn't hide overflow because we have to show difficulty selection box */
   /* but we must ensure content don't get outside this box */
+}
+.dragbox {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.3); 
+  background: #eee;
+  color: #666;
+  border-radius: 6px;
+  font-size: 18px;
+  height: 200px;
+  width: 245px;
+  margin-bottom: 20px;
+  margin-right: 17px;
+}
+.dragbox-inner {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 16%;
+  line-height: 1.5em;
 }
 .beatmapbox:hover {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .7);
