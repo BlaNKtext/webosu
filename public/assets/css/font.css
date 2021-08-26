@@ -2,7 +2,7 @@
   font-family: 'Exo 2';
   font-style: italic;
   font-weight: 600;
-  src: local('Exo 2 SemiBold Italic'), local('Exo2-SemiBoldItalic'), url(600i.ttf) format('truetype');
+  src: local('Exo 2 SemiBold Italic'), local('Exo2-SemiBoldItalic'), url(./600i.ttf) format('truetype');
 }
 
 @font-face {

@@ -1,0 +1,24 @@
+{
+  "name": "webosu",
+  "version": "2.0.0",
+  "description": "I fucking did it boys lets go",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "open http://localhost:8080 && node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlaNKtext/Web-osu.git"
+  },
+  "author": "BlaNKtext",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlaNKtext/Web-osu/issues"
+  },
+  "homepage": "https://github.com/BlaNKtext/Web-osu#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}

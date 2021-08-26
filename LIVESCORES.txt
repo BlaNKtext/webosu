@@ -1,5 +1,5 @@
- // what's happening
-                let tbody = document.getElementById("activity-list");
+        // Live scores
+         let tbody = document.getElementById("activity-list");
             function formattime(date) {
                 let m;
                 return date.getHours() + ":" + ((m=date.getMinutes())<10?('0'+m):m);
@@ -46,7 +46,7 @@
             function refreshLivescore(){
                 let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
-                xhr.open("GET", "http://localhost:3001");
+                xhr.open("GET", "http://127.0.0.1:3001/");
                 xhr.onload = function() {
                     showActivity(JSON.parse(xhr.response));
                 }

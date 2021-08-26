@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8" />
         <title>owu! | Preview</title>
-        <link rel="stylesheet" href="style/picnic.min.css">
-        <link rel="stylesheet" type="text/css" href="style/main.css">
-        <link rel="stylesheet" type="text/css" href="style/font.css">
-        <link rel="icon" href="favicon.png">
-        <script src="scripts/launchgame.js"></script>
-        <script src="scripts/downloader.js"></script>
-        <script src="scripts/addbeatmaplist.js"></script>
-        <script src="scripts/jsloader.js"></script>
+        <link rel="stylesheet" href="assets/css/picnic.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/font.css">
+        <link rel="icon" href="assets/img/favicon.png">
+        <script src="assets/js/launchgame.js"></script>
+        <script src="assets/js/downloader.js"></script>
+        <script src="assets/js/addbeatmaplist.js"></script>
+        <script src="assets/js/jsloader.js"></script>
     </head>
     <body>
     <!--Pause menu-->
@@ -41,7 +41,7 @@
         <div class="nav-search">
             <form action="search">
                 <input type="text" name="q" placeholder="Beatmap or SID" />
-                <input type="image" class="search-button" src="search.svg">
+                <input type="image" class="search-button" src="assets/img/search.svg">
             </form>
         </div>
         <div class="nav-tool">
@@ -161,7 +161,23 @@
             }
         </script>
     </body>
-    <script src="/__/firebase/8.9.1/firebase-app.js"></script>
-    <script src="/__/firebase/8.9.1/firebase-analytics.js"></script>
-    <script src="/__/firebase/init.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBzUtIwLkJq7OQkVFpI4k1pFPS92F-Yy5M",
+          authDomain: "webosu-beta.firebaseapp.com",
+          projectId: "webosu-beta",
+          storageBucket: "webosu-beta.appspot.com",
+          messagingSenderId: "985972620070",
+          appId: "1:985972620070:web:8bfd9601c0226f212b5fe7"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      </script>
 </html>

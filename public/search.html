@@ -5,16 +5,16 @@
     <link rel=”canonical” href=”https://webosu.online/”/>
     <meta name="description" content="The unofficial web port of the rhythm game osu!">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-    <link rel="icon" href="favicon.png">
-    <link rel="stylesheet" href="style/picnic.min.css">
-    <link rel="stylesheet" type="text/css" href="style/main.css">
-    <link rel="stylesheet" type="text/css" href="style/font.css">
-    <script src="scripts/launchgame.js"></script>
-    <script src="scripts/downloader.js"></script>
-    <script src="scripts/addbeatmaplist.js"></script>
-    <script src="scripts/settings.js"></script>
-    <script src="scripts/jsloader.js"></script>
-    <script src="scripts/lib/localforage.min.js"></script>
+    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/picnic.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font.css">
+    <script src="assets/js/launchgame.js"></script>
+    <script src="assets/js/downloader.js"></script>
+    <script src="assets/js/addbeatmaplist.js"></script>
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/jsloader.js"></script>
+    <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
 <body>
@@ -44,7 +44,7 @@
         <div class="nav-search">
             <form action="search">
                 <input type="text" id="inputtext" name="q" placeholder="Beatmap or SID" />
-                <input type="image" class="search-button" src="search.svg">
+                <input type="image" class="search-button" src="assets/img/search.svg">
             </form>
         </div>
         <div class="nav-tool">
@@ -65,7 +65,7 @@
             <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord!</a></div>
             <div class="text">Translation made by: <a href="https://github.com/BlaNKtext">BlaNK</a>.</div>
             <div class="text">Beatmap API used: <a href="https://osu.sayobot.cn/"> Sayobot</a></div>
-            <div class="text">Stable Release: v.1.4<a href="https://github.com/BlaNKtext/web-osu"></a></div>
+            <div class="text">Stable Release: V2.0<a href="https://github.com/BlaNKtext/web-osu"></a></div>
         </div>
         <!-- <div class="side-panel"> to be activated in script </div> -->
         <div class="statuslines" id="statuslines">
@@ -112,7 +112,23 @@
         }
     </script>
 </body>
-<script src="/__/firebase/8.9.1/firebase-app.js"></script>
-<script src="/__/firebase/8.9.1/firebase-analytics.js"></script>
-<script src="/__/firebase/init.js"></script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBzUtIwLkJq7OQkVFpI4k1pFPS92F-Yy5M",
+      authDomain: "webosu-beta.firebaseapp.com",
+      projectId: "webosu-beta",
+      storageBucket: "webosu-beta.appspot.com",
+      messagingSenderId: "985972620070",
+      appId: "1:985972620070:web:8bfd9601c0226f212b5fe7"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
 </html>

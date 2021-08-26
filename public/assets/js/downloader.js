@@ -41,12 +41,12 @@ function startpreview(box) {
     }
 }
 
-function log_to_server(message) {
-    let url = "http://api.osugame.online/log/?msg=" + message;
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.send();
-}
+//function log_to_server(message) {
+//    let url = "http://api.osugame.online/log/?msg=" + message;
+//    let xhr = new XMLHttpRequest();
+//    xhr.open("GET", url);
+//    xhr.send();
+//}
 
 function startdownload(box) {
     startpreview(box);
@@ -78,7 +78,7 @@ function startdownload(box) {
         box.oszblob = new Blob([xhr.response]);
         bar.className = "finished";
         box.classList.remove("downloading");
-        log_to_server("got " + box.sid + " in " + (new Date().getTime() - (box.download_starttime || 0)));
+//        log_to_server("got " + box.sid + " in " + (new Date().getTime() - (box.download_starttime || 0)));
     }
     xhr.onprogress = function (e) {
         bar.value = e.loaded / e.total;

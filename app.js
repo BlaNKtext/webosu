@@ -1,8 +1,12 @@
+const express = require("express");
+const app = express();
 const http = require('http');
 const url = require('url');
 const hostname = '127.0.0.1';
+const port = 8080;
 const postport = 3000;
 const getport = 3001;
+app.use("/", express.static(__dirname + "/public"));
 var a = [];
 const postserver = http.createServer((req, res) => {
   var q = url.parse(req.url, true).query;
@@ -41,4 +45,7 @@ postserver.listen(postport, hostname, () => {
 });
 getserver.listen(getport, hostname, () => {
   console.log(`Get server running at http://${hostname}:${getport}/`);
+});
+app.listen(port, () => {
+  console.log(`Main server running at http://localhost:${port}/`);
 });

@@ -74,3 +74,6 @@ arc-sw.js
 
 # Local Netlify folder
 .netlify
+
+# NodeJS Shit
+package-lock.json
