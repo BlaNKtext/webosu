@@ -4,15 +4,14 @@
   "description": "I fucking did it boys lets go",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "open http://localhost:8080 && node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BlaNKtext/Web-osu.git"
   },
   "author": "BlaNKtext",
-  "license": "ISC",
+  "license": "CC0 1.0 Universal",
   "bugs": {
     "url": "https://github.com/BlaNKtext/Web-osu/issues"
   },

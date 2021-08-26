@@ -77,3 +77,11 @@ arc-sw.js
 
 # NodeJS Shit
 package-lock.json
+
+# I forgor 💀
+LIVESCORES.js
+
+# Firebase stuff
+.firebaserc
+firebase.json
+.firebase
