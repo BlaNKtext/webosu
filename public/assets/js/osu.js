@@ -190,7 +190,7 @@ define(["underscore", "osu-audio", "curves/LinearBezier", "curves/CircumscribedC
                                     filename: hitSample[4]
                                 };
                             } else {
-                                console.log("Attempted to decode unknown hit object type " + hit.type + ": " + line);
+                                console.log("Attempted to decode unknown hit object type, get yo catch the fruit playin' ass outta here" + hit.type + ": " + line);
                             }
                             // fallback to default set if sampleset is illegal
                             if (hit.hitSample && hit.hitSample.normalSet > 3)
@@ -221,7 +221,7 @@ define(["underscore", "osu-audio", "curves/LinearBezier", "curves/CircumscribedC
                     this.difficulty.CircleSize = this.difficulty.CircleSize || this.difficulty.OverallDifficulty;
                     this.difficulty.ApproachRate = this.difficulty.ApproachRate || this.difficulty.OverallDifficulty;
                 } else {
-                    console.warn("[preproc]", "Overall Difficulty undefined");
+                    console.warn("[preproc]", "Overall Difficulty Undefined");
                 }
 
                 // calculate inherited timing points
