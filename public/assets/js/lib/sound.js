@@ -266,7 +266,7 @@ var sounds = {
 	self.toLoad = Object.keys(sources).length;
 	for (s in sources) {
 //		console.log(s)
-//		console.log(base64ToArrayBuffer(sources[s]));
+		console.log(base64ToArrayBuffer(sources[s]));
 		var soundSprite = makeSound(s, self.loadHandler.bind(self), false, base64ToArrayBuffer(sources[s]), self.onFailed);
 		soundSprite.name = s;
 		self[soundSprite.name] = soundSprite;
