@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "osuweb",
-    "osuweb": "osuweb-95026"
+    "default": "webosu"
   }
 }

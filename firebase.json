@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "osuweb",
     "public": "public",
     "ignore": [
       "firebase.json",
