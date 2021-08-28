@@ -196,7 +196,17 @@ function setOptionPanel() {
 			checkdefault(range, item);
 		}
 	}
-
+	
+	function arrayBufferToBase64( buffer ) {
+		var binary = '';
+		var bytes = new Uint8Array( buffer );
+		var len = bytes.byteLength;
+		for (var i = 0; i < len; i++) {
+			binary += String.fromCharCode( bytes[ i ] );
+		}
+		return window.btoa( binary );
+	}
+	
 	function bindkeyselector(id, keynameitem, keycodeitem) {
 		let btn = document.getElementById(id);
 		let activate = function() {
@@ -237,7 +247,46 @@ function setOptionPanel() {
 			checkdefault(btn, keynameitem);
 		});
 	}
-
+	function soundCheck(id){
+		let s = document.getElementById(id);
+		let sampleFiles = [
+			'normal-hitnormal.ogg',
+			'normal-hitwhistle.ogg',
+			'normal-hitfinish.ogg',
+			'normal-hitclap.ogg',
+			'normal-slidertick.ogg',
+			'soft-hitnormal.ogg',
+			'soft-hitwhistle.ogg',
+			'soft-hitfinish.ogg',
+			'soft-hitclap.ogg',
+			'soft-slidertick.ogg',
+			'drum-hitnormal.ogg',
+			'drum-hitwhistle.ogg',
+			'drum-hitfinish.ogg',
+			'drum-hitclap.ogg',
+			'drum-slidertick.ogg',
+			'combobreak.ogg',
+		]
+		gamesettings.restoreCallbacks.push(function(){
+			undefined
+		});
+		s.onchange = async function() {
+			let soundFiles = s.files;
+			let newFiles = {};
+			for (file in soundFiles){
+				if (sampleFiles.includes(soundFiles[file].name)) {
+					let a = await soundFiles[file].arrayBuffer()
+					newFiles[soundFiles[file].name] = arrayBufferToBase64(a)
+				}
+			}
+			if (Object.keys(newFiles).length == sampleFiles.length){
+				gamesettings["soundNames"] = newFiles;
+			}
+			gamesettings.loadToGame();
+			saveToLocal();
+			console.log(gamesettings)
+		}
+	}
 	// gameplay settings
 	bindrange("dim-range", "dim", function(v){return v+"%"});
 	bindrange("blur-range", "blur", function(v){return v+"%"});
