@@ -265,8 +265,8 @@ var sounds = {
 	var self = this;
 	self.toLoad = Object.keys(sources).length;
 	for (s in sources) {
-//		console.log(s)
-//		console.log(base64ToArrayBuffer(sources[s]));
+		console.log(s)
+		console.log(base64ToArrayBuffer(sources[s]));
 		var soundSprite = makeSound(s, self.loadHandler.bind(self), false, base64ToArrayBuffer(sources[s]), self.onFailed);
 		soundSprite.name = s;
 		self[soundSprite.name] = soundSprite;
@@ -652,7 +652,7 @@ function loadSound(o, source, loadHandler, failHandler) {
 function decodeAudio(o, xhr, loadHandler, failHandler) {
 
   //Decode the sound and store a reference to the buffer.
-//  console.log(xhr.response)
+console.log(xhr.response)
   actx.decodeAudioData(
     xhr.response,
     function (buffer) {
