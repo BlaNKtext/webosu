@@ -221,7 +221,7 @@ var sounds = {
   //`assets.load(["images/anyImage.png", "fonts/anyFont.otf"]);`.
 
   load: function (sources) {
-    console.log("Loading sounds..");
+    console.log("Loading sounds...");
 
     //Get a reference to this asset object so we can
     //refer to it in the `forEach` loop ahead.
@@ -265,17 +265,15 @@ var sounds = {
 	var self = this;
 	self.toLoad = Object.keys(sources).length;
 	for (s in sources) {
-		console.log(s)
-		console.log(base64ToArrayBuffer(sources[s]));
+//		console.log(s)
+//		console.log(base64ToArrayBuffer(sources[s]));
 		var soundSprite = makeSound(s, self.loadHandler.bind(self), false, base64ToArrayBuffer(sources[s]), self.onFailed);
 		soundSprite.name = s;
 		self[soundSprite.name] = soundSprite;
 	}
-	console.log(self)
 	if (self.failed.length > 0) {
 		self.load(self.failed)
-	}
-	console.log(self)
+  }
   },
 
   //#### loadHandler
@@ -654,7 +652,7 @@ function loadSound(o, source, loadHandler, failHandler) {
 function decodeAudio(o, xhr, loadHandler, failHandler) {
 
   //Decode the sound and store a reference to the buffer.
-  console.log(xhr.response)
+//  console.log(xhr.response)
   actx.decodeAudioData(
     xhr.response,
     function (buffer) {

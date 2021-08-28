@@ -45,7 +45,7 @@ define([], function () {
                 dx * dx + dy * dy < r * r &&
                 Math.abs(predict.time - hit.time) < playback.MehTime;
             if (result)
-                console.log("grace hit");
+                console.log("Grace hit");
             return result;
         }
     }

@@ -16,7 +16,7 @@ function setOptionPanel() {
 	// give range inputs a visual feedback (a hovering indicator that shows on drag)
 
 	let defaultsettings = {
-		dim: 80,
+		dim: 60,
 		blur: 0,
 		cursorsize: 1.0,
 		showhwmouse: false,
@@ -39,22 +39,23 @@ function setOptionPanel() {
 		Kpause2keycode: 27,
 		Kskipkeycode: 17,
 
-		mastervolume: 5,
-		effectvolume: 35,
-		musicvolume: 25,
+		mastervolume: 60,
+		effectvolume: 100,
+		musicvolume: 100,
 		audiooffset: 0,
 		beatmapHitsound: true,
 
-		easy: false,
-		daycore: false,
-		hardrock: false,
-		nightcore: false,
-		hidden: false,
+        easy: false,
+        daycore: false,
+        hardrock: false,
+        nightcore: false,
+        hidden: false,
 		autoplay: false,
 
-		hideNumbers: false,
-		hideGreat: true,
-		hideFollowPoints: false,
+        hideNumbers: false,
+        hideGreat: false,
+        hideFollowPoints: false,
+		soundNames: undefined,
 	};
 	window.gamesettings = {};
 	Object.assign(gamesettings, defaultsettings);
@@ -70,6 +71,8 @@ function setOptionPanel() {
 	        window.game.snakein = this.snakein;
 	        window.game.snakeout = this.snakeout;
 	        window.game.autofullscreen = this.autofullscreen;
+	        window.game.overridedpi = !this.sysdpi;
+	        window.game.dpiscale = this.dpiscale;
 
 	        window.game.allowMouseScroll = !this.disableWheel;
 	        window.game.allowMouseButton = !this.disableButton;
@@ -77,6 +80,7 @@ function setOptionPanel() {
 	        window.game.K2keycode = this.K2keycode;
 	        window.game.ESCkeycode = this.Kpausekeycode;
 	        window.game.ESC2keycode = this.Kpause2keycode;
+	        window.game.CTRLkeycode = this.Kskipkeycode;
 
 	        window.game.masterVolume = this.mastervolume / 100;
 	        window.game.effectVolume = this.effectvolume / 100;
@@ -94,7 +98,6 @@ function setOptionPanel() {
 	        window.game.hideNumbers = this.hideNumbers;
 	        window.game.hideGreat = this.hideGreat;
 	        window.game.hideFollowPoints = this.hideFollowPoints;
-			
 		}
 	}
 	gamesettings.loadToGame();
@@ -215,6 +218,8 @@ function setOptionPanel() {
 					gamesettings[keynameitem] = "SPACE";
 				if (gamesettings[keynameitem] == "ESCAPE")
 					gamesettings[keynameitem] = "ESC";
+				if (gamesettings[keynameitem] == "CONTROL")
+					gamesettings[keynameitem] = "CTRL";
 				btn.value = gamesettings[keynameitem];
 				gamesettings.loadToGame();
 		        saveToLocal();
@@ -232,57 +237,7 @@ function setOptionPanel() {
 			checkdefault(btn, keynameitem);
 		});
 	}
-	
-	function arrayBufferToBase64( buffer ) {
-		var binary = '';
-		var bytes = new Uint8Array( buffer );
-		var len = bytes.byteLength;
-		for (var i = 0; i < len; i++) {
-			binary += String.fromCharCode( bytes[ i ] );
-		}
-		return window.btoa( binary );
-	}
 
-	function soundCheck(id){
-		let s = document.getElementById(id);
-		let sampleFiles = [
-			'normal-hitnormal.ogg',
-			'normal-hitwhistle.ogg',
-			'normal-hitfinish.ogg',
-			'normal-hitclap.ogg',
-			'normal-slidertick.ogg',
-			'soft-hitnormal.ogg',
-			'soft-hitwhistle.ogg',
-			'soft-hitfinish.ogg',
-			'soft-hitclap.ogg',
-			'soft-slidertick.ogg',
-			'drum-hitnormal.ogg',
-			'drum-hitwhistle.ogg',
-			'drum-hitfinish.ogg',
-			'drum-hitclap.ogg',
-			'drum-slidertick.ogg',
-			'combobreak.ogg',
-		]
-		gamesettings.restoreCallbacks.push(function(){
-			undefined
-		});
-		s.onchange = async function() {
-			let soundFiles = s.files;
-			let newFiles = {};
-			for (file in soundFiles){
-				if (sampleFiles.includes(soundFiles[file].name)) {
-					let a = await soundFiles[file].arrayBuffer()
-					newFiles[soundFiles[file].name] = arrayBufferToBase64(a)
-				}
-			}
-			if (Object.keys(newFiles).length == sampleFiles.length){
-				gamesettings["soundNames"] = newFiles;
-			}
-			gamesettings.loadToGame();
-			saveToLocal();
-			console.log(gamesettings)
-		}
-	}
 	// gameplay settings
 	bindrange("dim-range", "dim", function(v){return v+"%"});
 	bindrange("blur-range", "blur", function(v){return v+"%"});
@@ -291,6 +246,8 @@ function setOptionPanel() {
 	bindcheck("snakein-check", "snakein");
 	bindcheck("snakeout-check", "snakeout");
 	bindcheck("autofullscreen-check", "autofullscreen");
+	bindcheck("sysdpi-check", "sysdpi");
+	bindrange("dpi-range", "dpiscale", function(v){return v.toFixed(2)+"x"});
 
 	// input settings
 	bindcheck("disable-wheel-check", "disableWheel");
@@ -299,6 +256,7 @@ function setOptionPanel() {
 	bindkeyselector("rbutton1select", "K2name", "K2keycode");
 	bindkeyselector("pausebutton2select", "Kpause2name", "Kpause2keycode");
 	bindkeyselector("pausebuttonselect", "Kpausename", "Kpausekeycode");
+	bindkeyselector("skipbuttonselect", "Kskipname", "Kskipkeycode");
 
 	// audio settings
 	bindrange("mastervolume-range", "mastervolume", function(v){return v+"%"});
@@ -306,6 +264,7 @@ function setOptionPanel() {
 	bindrange("musicvolume-range", "musicvolume", function(v){return v+"%"});
 	bindrange("audiooffset-range", "audiooffset", function(v){return v+"ms"});
 	bindcheck("beatmap-hitsound-check", "beatmapHitsound");
+	soundCheck("skinhitsound");
 
 	// mods
 	bindExclusiveCheck("easy-check", "easy", "hardrock-check", "hardrock");
@@ -317,9 +276,7 @@ function setOptionPanel() {
 	bindcheck("hidenumbers-check", "hideNumbers");
 	bindcheck("hidegreat-check", "hideGreat");
 	bindcheck("hidefollowpoints-check", "hideFollowPoints");
-	
-	soundCheck("skinhitsound");
-	
+
 	document.getElementById("restoredefault-btn").onclick = function() {
 		Object.assign(gamesettings, defaultsettings);
 		for (let i=0; i<gamesettings.restoreCallbacks.length; ++i)
@@ -328,6 +285,7 @@ function setOptionPanel() {
 		saveToLocal();
 	}
 }
+
 window.addEventListener('DOMContentLoaded', setOptionPanel);
 
 
