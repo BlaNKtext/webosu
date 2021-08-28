@@ -25,9 +25,9 @@ require(["osu", "underscore", "sound", "playback"],
             snakeout: true,
 
             // audio
-            masterVolume: 0.5,
+            masterVolume: 0.7,
             effectVolume: 1.0,
-            musicVolume: 0.5,
+            musicVolume: 1.0,
             beatmapHitsound: true,
             globalOffset: 0,
 
@@ -109,28 +109,31 @@ require(["osu", "underscore", "sound", "playback"],
             'hitsounds/combobreak.ogg',
         ];
         sounds.whenLoaded = function () {
-            game.sample[1].hitnormal = sounds['hitsounds/normal-hitnormal.ogg'];
-            game.sample[1].hitwhistle = sounds['hitsounds/normal-hitwhistle.ogg'];
-            game.sample[1].hitfinish = sounds['hitsounds/normal-hitfinish.ogg'];
-            game.sample[1].hitclap = sounds['hitsounds/normal-hitclap.ogg'];
-            game.sample[1].slidertick = sounds['hitsounds/normal-slidertick.ogg'];
-            game.sample[2].hitnormal = sounds['hitsounds/soft-hitnormal.ogg'];
-            game.sample[2].hitwhistle = sounds['hitsounds/soft-hitwhistle.ogg'];
-            game.sample[2].hitfinish = sounds['hitsounds/soft-hitfinish.ogg'];
-            game.sample[2].hitclap = sounds['hitsounds/soft-hitclap.ogg'];
-            game.sample[2].slidertick = sounds['hitsounds/soft-slidertick.ogg'];
-            game.sample[3].hitnormal = sounds['hitsounds/drum-hitnormal.ogg'];
-            game.sample[3].hitwhistle = sounds['hitsounds/drum-hitwhistle.ogg'];
-            game.sample[3].hitfinish = sounds['hitsounds/drum-hitfinish.ogg'];
-            game.sample[3].hitclap = sounds['hitsounds/drum-hitclap.ogg'];
-            game.sample[3].slidertick = sounds['hitsounds/drum-slidertick.ogg'];
-            game.sampleComboBreak = sounds['hitsounds/combobreak.ogg'];
+            game.sample[1].hitnormal = sounds['normal-hitnormal.ogg'];
+            game.sample[1].hitwhistle = sounds['normal-hitwhistle.ogg'];
+            game.sample[1].hitfinish = sounds['normal-hitfinish.ogg'];
+            game.sample[1].hitclap = sounds['normal-hitclap.ogg'];
+            game.sample[1].slidertick = sounds['normal-slidertick.ogg'];
+            game.sample[2].hitnormal = sounds['soft-hitnormal.ogg'];
+            game.sample[2].hitwhistle = sounds['soft-hitwhistle.ogg'];
+            game.sample[2].hitfinish = sounds['soft-hitfinish.ogg'];
+            game.sample[2].hitclap = sounds['soft-hitclap.ogg'];
+            game.sample[2].slidertick = sounds['soft-slidertick.ogg'];
+            game.sample[3].hitnormal = sounds['drum-hitnormal.ogg'];
+            game.sample[3].hitwhistle = sounds['drum-hitwhistle.ogg'];
+            game.sample[3].hitfinish = sounds['drum-hitfinish.ogg'];
+            game.sample[3].hitclap = sounds['drum-hitclap.ogg'];
+            game.sample[3].slidertick = sounds['drum-slidertick.ogg'];
+            game.sampleComboBreak = sounds['combobreak.ogg'];
             window.soundReady = true;
             document.getElementById("sound-progress").classList.add("finished");
             document.body.classList.add("sound-ready");
         };
-        sounds.load(sample);
-
+        if (window.gamesettings.soundNames) {
+            sounds.cload(window.gamesettings.soundNames);
+        } else {
+            sounds.load(sample);
+        }
 
         PIXI.Sprite.prototype.bringToFront = function () {
             if (this.parent) {
