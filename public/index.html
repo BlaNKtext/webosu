@@ -132,7 +132,8 @@
                     problems!</div>
                 <div class="text">Translation by: <a href="https://github.com/BlaNKtext">BlaNK</a>#1154</div>
                 <div class="text">Beatmap API used: <a href="https://osu.sayobot.cn/">Sayobot</a></div>
-                <div class="text">Stable Release: V2.5<a href="https://github.com/BlaNKtext/webosu"></a></div>
+                <div class="text">Stable Release: <a href="https://github.com/BlaNKtext/webosu">V2.5</a></div>
+                
             </footer>
             <!--Loader progress-->
             <div class="statuslines" id="statuslines">
@@ -176,6 +177,15 @@
                         else
                             td.innerText = content;
                     }
+                    let b = records[i].ip.split(".");
+                    b[0] = "Player";
+                    if (b.length > 3) b[3] = "Player";
+                    nexttd(b.join("."));
+                    let title = document.createElement("a");
+                    title.innerText = records[i].title + " [" + records[i].version + "]";
+                    title.title = records[i].title + " [" + records[i].version + "]";
+                    if (records[i].sid == "undefined")
+                        records[i].sid = undefined;
                     title.href = "search.html?q=" + (records[i].sid || records[i].title);
                     nexttd(title);
                     nexttd(records[i].combo + "x");
@@ -189,6 +199,7 @@
                 }
             }
             let b = {
+                ip: "",
                 title: "",
                 version: "loading",
                 score: 0,
@@ -210,7 +221,7 @@
                 xhr.send();
             }
             refreshLivescore();
-            window.setInterval(refreshLivescore, 5000);
+            window.setInterval(refreshLivescore, 1000);
             // Recent
             if (window.localforage) {
                 let listhistory = document.getElementById("beatmap-list-history");
