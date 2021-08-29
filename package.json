@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BlaNKtext/Web-osu.git"
+    "url": "git+https://github.com/BlaNKtext/webosu.git"
   },
   "author": "BlaNKtext",
   "license": "CC0 1.0 Universal",
   "bugs": {
-    "url": "https://github.com/BlaNKtext/Web-osu/issues"
+    "url": "https://github.com/BlaNKtext/webosu/issues"
   },
-  "homepage": "https://github.com/BlaNKtext/Web-osu#readme",
+  "homepage": "https://github.com/BlaNKtext/webosu#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
