@@ -1,9 +1,8 @@
 const functions = require("firebase-functions");
-const admin = require("firebase-admin");
 const express = require("express");
-const url = require("url")
 const app = express();
-app.use("/", express.static(__dirname + "/public"));
+const url = require('url');
+app.use(cors({ origin: true }));
 var a = [];
 app.get("/post",(req, res) => {
   var q = url.parse(req.url, true).query;
@@ -26,10 +25,15 @@ app.get("/post",(req, res) => {
     a.shift();
   }
   res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.end("");
 });
 app.get("/get",(req, res) => {
   res.statusCode = 200;
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.end(JSON.stringify(a));
 });
 exports.app = functions.https.onRequest(app);
