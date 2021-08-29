@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
+
 <head>
     <title>webosu! | Home</title>
-    <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="The unofficial web port of the rhythm game osu! with a huge pool of beatmaps and a clean, lazer-like UI this is one of the best osu! web ports">
+    <link rel=”canonical” href=”https://webosu.online/”/> <meta name="description"
+        content="The unofficial web port of the rhythm game osu! with a huge pool of beatmaps and a clean, lazer-like UI this is one of the best osu! web ports">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta name="google-site-verification" content="8AkmJlQlXyRY96VwUM7YAOEAZSWqW98tObByi1trF8c" />
     <link rel="icon" href="assets/img/favicon.png">
@@ -19,6 +20,7 @@
     <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
+
 <body>
     <!--Pause menu-->
     <div class="game-area" id="game-area" hidden>
@@ -61,12 +63,13 @@
     <!--Main page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
-            <div class="announcement">Announcement: Make sure to enable Arc so I can make money! (Click that purple circle at the bottom left)</div>
+            <div class="announcement">Announcement: Make sure to enable Arc so I can make money! (Click that purple
+                circle at the bottom left)</div>
             <br>
             <div class="index-area">
                 <h2>Public plays (Coming Soon)</h2>
-                <hr/>
-               <!--<table>
+                <hr />
+                <table>
                     <thead>
                         <tr>
                             <td>Player</td>
@@ -79,14 +82,14 @@
                         </tr>
                     </thead>
                     <tbody id="activity-list">
-                        <!--will be filled in by script
+                        <!--will be filled in by script-->
                     </tbody>
-                </table>-->
+                </table>
             </div>
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
                 <a href="hot" class="more">See more Popular Beatmaps</a>
-                <hr/>
+                <hr />
                 <div class="beatmap-list" id="beatmap-list-hot">
                     <!-- Beatmaps will be here -->
                 </div>
@@ -94,7 +97,7 @@
             <div class="index-area">
                 <h2>Recently Played</h2>
                 <a href="history" class="more">See your play history</a>
-                <hr/>
+                <hr />
                 <div class="beatmap-list" id="beatmap-list-history">
                     <!-- Beatmaps will be here -->
                 </div>
@@ -102,7 +105,7 @@
             <div class="index-area">
                 <h2>Favorited Beatmaps</h2>
                 <a href="local" class="more">See all favorited Beatmaps</a>
-                <hr/>
+                <hr />
                 <div class="beatmap-list" id="beatmap-list-liked">
                     <!-- Beatmaps will be here -->
                 </div>
@@ -110,7 +113,7 @@
             <div class="index-area">
                 <h2>Latest Beatmaps</h2>
                 <a href="new" class="more">See all latest Beatmaps</a>
-                <hr/>
+                <hr />
                 <div class="beatmap-list" id="beatmap-list-new">
                     <!-- Beatmaps will be here -->
                 </div>
@@ -118,106 +121,178 @@
             <div class="index-area">
                 <h2>Random Beatmaps<h2>
                         <a onclick="genRandomList()" class="more" style="cursor:pointer;">Randomize Beatmaps</a>
-                        <hr/>
+                        <hr />
                         <div class="beatmap-list" id="beatmap-list-random">
                             <!-- to be filled in script -->
                         </div>
             </div>
             <!--Footer-->
-        <footer class="footer">
-            <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> if you have any problems!</div>
-            <div class="text">Translation by: <a href="https://github.com/BlaNKtext">BlaNK</a>#1154</div>
-            <div class="text">Beatmap API used: <a href="https://osu.sayobot.cn/">Sayobot</a></div>
-            <div class="text">Stable Release: V2.4<a href="https://github.com/BlaNKtext/web-osu"></a></div>
-        </footer>
-        <!--Loader progress-->
-        <div class="statuslines" id="statuslines">
-            <div class="progress" id="script-progress">
-                Scripts
-                <div class="lds-dual-ring"></div>
-            </div>
-            <div class="progress" id="skin-progress">
-                Skin
-                <div class="lds-dual-ring"></div>
-            </div>
-            <div class="progress" id="sound-progress">
-                Hitsounds
-                <div class="lds-dual-ring"></div>
+            <footer class="footer">
+                <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> if you have any
+                    problems!</div>
+                <div class="text">Translation by: <a href="https://github.com/BlaNKtext">BlaNK</a>#1154</div>
+                <div class="text">Beatmap API used: <a href="https://osu.sayobot.cn/">Sayobot</a></div>
+                <div class="text">Stable Release: V2.4<a href="https://github.com/BlaNKtext/web-osu"></a></div>
+            </footer>
+            <!--Loader progress-->
+            <div class="statuslines" id="statuslines">
+                <div class="progress" id="script-progress">
+                    Scripts
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="skin-progress">
+                    Skin
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="sound-progress">
+                    Hitsounds
+                    <div class="lds-dual-ring"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        // Recent
-        if (window.localforage) {
-            let listhistory = document.getElementById("beatmap-list-history");
-            localforage.getItem("playhistory1000", function (err, item) {
-                if (err) {
-                    listhistory.innerText = "Failed to load your recently played";
-                    return;
-                }
-                if (item && item.length) {
-                    item = item.reverse();
-                    sid = [];
-                    for (let i = 0; i < item.length; ++i) {
-                        if (item[i].sid)
-                            sid.push(item[i].sid);
-                    }
-                    sid = [...new Set(sid)]; // uniq
-                    for (let i = 0; i < 4 && i < sid.length; ++i)
-                        addBeatmapSid(sid[i], listhistory)
-                } else {
-                    listhistory.innerText =
-                        "You haven't played any Beatmaps yet! Click on a Beatmap and select the difficulty to start playing!";
-                }
-            })
-        }
-        // Get new beatmaps
-        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=2&5=1",
-            document.getElementById("beatmap-list-new"),
-            function (t) {
-                return (t.modes & 1) != 0;
-            }, 4);
-        // Get random beatmaps
-        function genRandomList() {
-            // Wipe Random List
-            let list = document.getElementById("beatmap-list-random");
+        <script>
+            // Live scores
+            let tbody = document.getElementById("activity-list");
 
-            // Re-fill Random List
-            let randstart = Math.floor(Math.random() * 20000);
-            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=10&1=" + randstart + "&2=1&5=1", list,
+            function formattime(date) {
+                let m;
+                return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
+            }
+
+            function showActivity(records) {
+                records = records.reverse();
+                while (tbody.firstChild)
+                    tbody.removeChild(tbody.firstChild);
+                for (let i = 0; i < records.length && i < 10; ++i) {
+                    let tr = document.createElement("tr");
+                    tbody.appendChild(tr);
+
+                    function nexttd(content) {
+                        let td = document.createElement("td");
+                        tr.appendChild(td);
+                        if (!content) return;
+                        if (content.tagName)
+                            td.appendChild(content);
+                        else
+                            td.innerText = content;
+                    }
+                    let b = records[i].ip.split(".");
+                    b[0] = "**";
+                    if (b.length > 3) b[3] = "**";
+                    nexttd(b.join("."));
+                    let title = document.createElement("a");
+                    title.innerText = records[i].title + " [" + records[i].version + "]";
+                    title.title = records[i].title + " [" + records[i].version + "]";
+                    if (records[i].sid == "undefined")
+                        records[i].sid = undefined;
+                    title.href = "search?q=" + (records[i].sid || records[i].title);
+                    nexttd(title);
+                    nexttd(records[i].combo + "x");
+                    nexttd(parseInt(records[i].score).toLocaleString());
+                    let acc = document.createElement("span");
+                    acc.innerText = records[i].acc;
+                    acc.className = records[i].grade;
+                    nexttd(acc);
+                    nexttd(records[i].mods);
+                    nexttd(formattime(new Date(parseInt(records[i].time))));
+                }
+            }
+            let b = {
+                ip: "",
+                title: "",
+                version: "loading",
+                score: 0,
+                combo: 0,
+                acc: 0
+            };
+            showActivity([b, b, b, b, b, b, b, b, b, b])
+
+            function refreshLivescore() {
+                let xhr = new XMLHttpRequest();
+                xhr.responseType = 'text';
+                xhr.open("GET", "https://us-central1-webosu.cloudfunctions.net/app/get");
+                xhr.onload = function () {
+                    showActivity(JSON.parse(xhr.response));
+                }
+                xhr.onerror = function () {
+                    console.error("Failed to fetch uploaded plays");
+                }
+                xhr.send();
+            }
+            refreshLivescore();
+            window.setInterval(refreshLivescore, 5000);
+            // Recent
+            if (window.localforage) {
+                let listhistory = document.getElementById("beatmap-list-history");
+                localforage.getItem("playhistory1000", function (err, item) {
+                    if (err) {
+                        listhistory.innerText = "Failed to load your recently played";
+                        return;
+                    }
+                    if (item && item.length) {
+                        item = item.reverse();
+                        sid = [];
+                        for (let i = 0; i < item.length; ++i) {
+                            if (item[i].sid)
+                                sid.push(item[i].sid);
+                        }
+                        sid = [...new Set(sid)]; // uniq
+                        for (let i = 0; i < 4 && i < sid.length; ++i)
+                            addBeatmapSid(sid[i], listhistory)
+                    } else {
+                        listhistory.innerText =
+                            "You haven't played any Beatmaps yet! Click on a Beatmap and select the difficulty to start playing!";
+                    }
+                })
+            }
+            // Get new beatmaps
+            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=2&5=1",
+                document.getElementById("beatmap-list-new"),
                 function (t) {
-                    while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
                 }, 4);
-        }
-        genRandomList();
-        // Get hot beatmaps
-        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById(
-            "beatmap-list-hot"));
-        // Favorite beatmaps
-        if (window.localforage) {
-            window.localforage.getItem("likedsidset", function (err, val) {
-                if (err) {
-                    document.getElementById("beatmap-list-liked").innerText = "Failed to load favorites list.";
-                    return;
-                }
-                if (val && val.size) {
-                    let listlike = document.getElementById("beatmap-list-liked");
-                    list = Array.from(val);
-                    for (let i = 0; i < list.length && i < 4; ++i)
-                        addBeatmapSid(list[i], listlike);
-                } else {
-                    document.getElementById("beatmap-list-liked").innerText =
-                        "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to save it.";
-                }
-            });
-        } else {
-            alert("Oh no, localforage isn't supported on this browser")
-        }
-    </script>
+            // Get random beatmaps
+            function genRandomList() {
+                // Wipe Random List
+                let list = document.getElementById("beatmap-list-random");
+
+                // Re-fill Random List
+                let randstart = Math.floor(Math.random() * 20000);
+                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=10&1=" + randstart + "&2=1&5=1", list,
+                    function (t) {
+                        while (list.firstChild) list.removeChild(list.firstChild);
+                        return (t.modes & 1) != 0;
+                    }, 4);
+            }
+            genRandomList();
+            // Get hot beatmaps
+            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById(
+                "beatmap-list-hot"));
+            // Favorite beatmaps
+            if (window.localforage) {
+                window.localforage.getItem("likedsidset", function (err, val) {
+                    if (err) {
+                        document.getElementById("beatmap-list-liked").innerText =
+                            "Failed to load favorites list.";
+                        return;
+                    }
+                    if (val && val.size) {
+                        let listlike = document.getElementById("beatmap-list-liked");
+                        list = Array.from(val);
+                        for (let i = 0; i < list.length && i < 4; ++i)
+                            addBeatmapSid(list[i], listlike);
+                    } else {
+                        document.getElementById("beatmap-list-liked").innerText =
+                            "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to save it.";
+                    }
+                });
+            } else {
+                alert("Oh no, localforage isn't supported on this browser")
+            }
+        </script>
 </body>
 <script type="module">
-  // Import the functions you need from the SDKs you need
+    // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
@@ -239,4 +314,5 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
+
 </html>
