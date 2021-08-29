@@ -106,7 +106,7 @@
             }
             let title = document.createElement("a");
             title.innerText = summary.title + " [" + summary.version + "]";
-            title.href = "search?q=" + (summary.sid || summary.title);
+            title.href = "search.html?q=" + (summary.sid || summary.title);
             nexttd(title);
             nexttd(summary.combo);
             nexttd(summary.score);

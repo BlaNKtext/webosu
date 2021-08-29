@@ -1,4 +1,4 @@
-# webosu! V2.4
+# webosu! V2.5
 The unofficial web port of osu!<br>
 Feel free to drop by the [Discord server](https://discord.gg/gHgcR92QMy)
 
