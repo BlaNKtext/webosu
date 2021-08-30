@@ -2,8 +2,8 @@
 body {
   background: #282c34;
   color: #d0d5df;
-  font-family: "Exo 2", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: "Comfortaa";
+  font-size: 15px;
 }
 h1,h2,h3,h4,h5,h6
  {
@@ -13,20 +13,18 @@ h1,h2,h3,h4,h5,h6
 a {
   color: #9d7dcc;
 }
-body.gaming {
-  overflow: hidden;
-}
 html, body {
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
 }
 canvas {
   display: block;
 }
 .game-area {
+}
+body.gaming {
 }
 .game-area.showhwmousemedium {
   cursor: url("cursor.cur") 40 40, url("cursorsmall.cur") 30 30, crosshair !important;

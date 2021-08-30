@@ -1,28 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 @font-face {
-  font-family: 'Exo 2';
-  font-style: italic;
-  font-weight: 600;
-  src: local('Exo 2 SemiBold Italic'), local('Exo2-SemiBoldItalic'), url(./600i.ttf) format('truetype');
-}
-
-@font-face {
-  font-family: 'Exo 2';
+  font-family: 'Comfortaa';
   font-style: normal;
-  font-weight: 400;
-  src: local('Exo 2 Regular'), local('Exo2-Regular'), url(400.ttf) format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/comfortaa/v30/1Pt_g8LJRfWJmhDAuUsSQamb1W0lwk4S4TbMDr4fIA9c.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
-
-@font-face {
+/* @font-face {
   font-family: 'fontello';
   font-style: normal;
   font-weight: normal;
   src: url('fontello.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Comfortaa';
-  src: url('Comfortaa-Regular.ttf');
-}
+} */
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {

@@ -1,11 +1,9 @@
 <!doctype html>
 <html>
-
 <head>
     <title>webosu!beta | Home</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description"
-        content="The unofficial osu web port with a huge pool of beatmaps">
+    <meta name="description" content="The unofficial osu web port with a huge pool of beatmaps">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta name="google-site-verification" content="8AkmJlQlXyRY96VwUM7YAOEAZSWqW98tObByi1trF8c" />
     <link rel="icon" href="assets/img/favicon.png">
@@ -21,7 +19,6 @@
     <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
-
 <body>
     <!--Pause menu-->
     <div class="game-area" id="game-area" hidden>
@@ -64,11 +61,13 @@
     <!--Main page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
-            <div class="announcement">Notice: Make sure to enable Arc so I can make money! (Click the purple circle on the bottom left)</div>
+            <div class="announcement">
+                Notice: Make sure to enable Arc so I can make money! (Click the purple circle on the bottom left)
+            </div>
             <br>
             <div class="index-area">
                 <h2>Public plays</h2>
-                <hr />
+                <hr/>
                 <table>
                     <thead>
                         <tr>
@@ -82,58 +81,56 @@
                         </tr>
                     </thead>
                     <tbody id="activity-list">
-                        <!--will be filled in by script-->
+                    <!--will be filled in by script-->
                     </tbody>
                 </table>
             </div>
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
                 <a href="hot.html" class="more">See more Popular Beatmaps</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-hot">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Recently Played</h2>
                 <a href="history.html" class="more">See your play history</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-history">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Favorited Beatmaps</h2>
                 <a href="local.html" class="more">See all favorited Beatmaps</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-liked">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Latest Beatmaps</h2>
                 <a href="new.html" class="more">See all latest Beatmaps</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-new">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Random Beatmaps<h2>
-                        <a onclick="genRandomList()" class="more" style="cursor:pointer;">Get new random Beatmaps</a>
-                        <hr />
-                        <div class="beatmap-list" id="beatmap-list-random">
-                            <!-- to be filled in script -->
-                        </div>
+                <a onclick="genRandomList()" class="more" style="cursor:pointer;">Get new random Beatmaps</a>
+                <hr/>
+                <div class="beatmap-list" id="beatmap-list-random">
+                <!-- to be filled in script -->
+                </div>
             </div>
             <!--Footer-->
             <footer class="footer">
-                <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> if you have any
-                    problems!</div>
+                <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> if you have any problems!</div>
                 <div class="text">Translation by: <a href="https://github.com/BlaNKtext">BlaNK</a>#1154</div>
                 <div class="text">Beatmap API used: <a href="https://osu.sayobot.cn/">Sayobot</a></div>
-                <div class="text">Stable Release: <a href="https://github.com/BlaNKtext/webosu">V2.5</a></div>
-                
+                <div class="text">Stable Release: <a href="https://github.com/BlaNKtext/webosu">V2.5.1</a></div>
             </footer>
             <!--Loader progress-->
             <div class="statuslines" id="statuslines">
@@ -152,45 +149,42 @@
             </div>
         </div>
         <script>
-            // Live scores
-            let tbody = document.getElementById("activity-list");
-
-            function formattime(date) {
-                let m;
-                return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
-            }
-
-            function showActivity(records) {
-                records = records.reverse();
-                while (tbody.firstChild)
-                    tbody.removeChild(tbody.firstChild);
-                for (let i = 0; i < records.length && i < 10; ++i) {
-                    let tr = document.createElement("tr");
-                    tbody.appendChild(tr);
-
-                    function nexttd(content) {
-                        let td = document.createElement("td");
-                        tr.appendChild(td);
-                        if (!content) return;
-                        if (content.tagName)
-                            td.appendChild(content);
-                        else
-                            td.innerText = content;
-                    }
-                    let b = records[i].ip.split(".");
-                    b[0] = "Player";
-                    if (b.length > 3) b[3] = "Player";
-                    nexttd(b.join("."));
-                    let title = document.createElement("a");
+        // Live scores
+        let tbody = document.getElementById("activity-list");
+        function formattime(date) {
+            let m;
+            return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
+        }
+        function showActivity(records) {
+            records = records.reverse();
+            while (tbody.firstChild)
+                tbody.removeChild(tbody.firstChild);
+            for (let i = 0; i < records.length && i < 10; ++i) {
+                let tr = document.createElement("tr");
+                tbody.appendChild(tr);
+                function nexttd(content) {
+                    let td = document.createElement("td");
+                    tr.appendChild(td);
+                    if (!content) return;
+                     if (content.tagName)
+                        td.appendChild(content);
+                    else
+                        td.innerText = content;
+                }
+                let b = records[i].ip.split(".");
+                b[0] = "Player";
+                if (b.length > 3) b[3] = "Player";
+                nexttd(b.join("."));
+                let title = document.createElement("a");
                     title.innerText = records[i].title + " [" + records[i].version + "]";
                     title.title = records[i].title + " [" + records[i].version + "]";
-                    if (records[i].sid == "undefined")
-                        records[i].sid = undefined;
+                if (records[i].sid == "undefined")
+                    records[i].sid = undefined;
                     title.href = "search.html?q=" + (records[i].sid || records[i].title);
-                    nexttd(title);
-                    nexttd(records[i].combo + "x");
-                    nexttd(parseInt(records[i].score).toLocaleString());
-                    let acc = document.createElement("span");
+                nexttd(title);
+                nexttd(records[i].combo + "x");
+                nexttd(parseInt(records[i].score).toLocaleString());
+                let acc = document.createElement("span");
                     acc.innerText = records[i].acc;
                     acc.className = records[i].grade;
                     nexttd(acc);
@@ -207,13 +201,12 @@
                 acc: 0
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
-
-            function refreshLivescore() {
-                let xhr = new XMLHttpRequest();
+        function refreshLivescore() {
+            let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
                 xhr.open("GET", "https://us-central1-webosu.cloudfunctions.net/app/get");
                 xhr.onload = function () {
-                    showActivity(JSON.parse(xhr.response));
+                showActivity(JSON.parse(xhr.response));
                 }
                 xhr.onerror = function () {
                     console.error("Failed to fetch uploaded plays");
@@ -221,86 +214,79 @@
                 xhr.send();
             }
             refreshLivescore();
-            window.setInterval(refreshLivescore, 1000);
-            // Recent
-            if (window.localforage) {
-                let listhistory = document.getElementById("beatmap-list-history");
-                localforage.getItem("playhistory1000", function (err, item) {
-                    if (err) {
-                        listhistory.innerText = "Failed to load your recently played";
-                        return;
+            window.setInterval(refreshLivescore, 5000);
+        // Recent
+        if (window.localforage) {
+            let listhistory = document.getElementById("beatmap-list-history");
+            localforage.getItem("playhistory1000", function (err, item) {
+                if (err) {
+                    listhistory.innerText = "Failed to load your recently played";
+                    return;
+                }
+                if (item && item.length) {
+                    item = item.reverse();
+                    sid = [];
+                    for (let i = 0; i < item.length; ++i) {
+                        if (item[i].sid)
+                            sid.push(item[i].sid);
                     }
-                    if (item && item.length) {
-                        item = item.reverse();
-                        sid = [];
-                        for (let i = 0; i < item.length; ++i) {
-                            if (item[i].sid)
-                                sid.push(item[i].sid);
-                        }
-                        sid = [...new Set(sid)]; // uniq
-                        for (let i = 0; i < 4 && i < sid.length; ++i)
-                            addBeatmapSid(sid[i], listhistory)
-                    } else {
-                        listhistory.innerText =
-                            "You haven't played any Beatmaps yet! Click on a Beatmap and select the difficulty to start playing!";
+                    sid = [...new Set(sid)]; // uniq
+                    for (let i = 0; i < 4 && i < sid.length; ++i)
+                        addBeatmapSid(sid[i], listhistory)
+                } else {
+                    listhistory.innerText =
+                        "You haven't played any Beatmaps yet! Click on a Beatmap and select the difficulty to start playing!";
                     }
                 })
             }
-            // Get new beatmaps
-            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=2&5=1",
-                document.getElementById("beatmap-list-new"),
+        // Get new beatmaps
+        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=2&5=1",
+            document.getElementById("beatmap-list-new"),
+            function (t) {
+                return (t.modes & 1) != 0;
+            }, 4);
+        // Get random beatmaps
+        function genRandomList() {
+            // Wipe Random List
+            let list = document.getElementById("beatmap-list-random");
+            // Re-fill Random List
+            let randstart = Math.floor(Math.random() * 20000);
+            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=10&1=" + randstart + "&2=1&5=1", list,
                 function (t) {
+                    while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
                 }, 4);
-            // Get random beatmaps
-            function genRandomList() {
-                // Wipe Random List
-                let list = document.getElementById("beatmap-list-random");
-
-                // Re-fill Random List
-                let randstart = Math.floor(Math.random() * 20000);
-                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=10&1=" + randstart + "&2=1&5=1", list,
-                    function (t) {
-                        while (list.firstChild) list.removeChild(list.firstChild);
-                        return (t.modes & 1) != 0;
-                    }, 4);
-            }
-            genRandomList();
-            // Get hot beatmaps
-            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById(
-                "beatmap-list-hot"));
-            // Favorite beatmaps
-            if (window.localforage) {
-                window.localforage.getItem("likedsidset", function (err, val) {
-                    if (err) {
-                        document.getElementById("beatmap-list-liked").innerText =
-                            "Failed to load favorites list.";
-                        return;
-                    }
-                    if (val && val.size) {
-                        let listlike = document.getElementById("beatmap-list-liked");
-                        list = Array.from(val);
-                        for (let i = 0; i < list.length && i < 4; ++i)
-                            addBeatmapSid(list[i], listlike);
-                    } else {
-                        document.getElementById("beatmap-list-liked").innerText =
-                            "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to save it.";
-                    }
-                });
-            } else {
-                alert("Oh no, localforage isn't supported on this browser")
+        }
+        genRandomList();
+        // Get hot beatmaps
+        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById(
+            "beatmap-list-hot"));
+        // Favorite beatmaps
+        if (window.localforage) {
+            window.localforage.getItem("likedsidset", function (err, val) {
+                if (err) {
+                    document.getElementById("beatmap-list-liked").innerText =
+                        "Failed to load favorites list.";
+                    return;
+                }
+                if (val && val.size) {
+                    let listlike = document.getElementById("beatmap-list-liked");
+                    list = Array.from(val);
+                    for (let i = 0; i < list.length && i < 4; ++i)
+                        addBeatmapSid(list[i], listlike);
+                } else {
+                    document.getElementById("beatmap-list-liked").innerText =
+                        "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to save it.";
+                }
+            });
+        } else {
+            alert("Oh no, localforage isn't supported on this browser")
             }
         </script>
 </body>
 <script type="module">
-    // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyBJyrBf03GhNZbupO6uU-wtDTfAC_zY8_0",
     authDomain: "webosu.firebaseapp.com",
@@ -310,10 +296,7 @@
     appId: "1:138250997417:web:be7407c18de702880763b8",
     measurementId: "G-55J58MR5ZW"
   };
-
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
-
 </html>
