@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>webosu! | Local Maps</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="font.css">
+        <link rel="icon" href="favicon.png">
+        <script src="scripts/lib/zip.js"></script>
+        <script src="scripts/lib/zip-fs.js"></script>
+        <script src="scripts/lib/pixi.min.js"></script>
+        <script src="scripts/lib/mp3parse.min.js"></script>
+        <script src="scripts/lib/localforage.min.js"></script>
+        <script> zip.workerScriptsPath = 'scripts/lib/'; </script>
+        <script data-main="scripts/main" src="scripts/require.js"></script>
+        <script>
+            require.config({
+                paths: {
+                    underscore: 'lib/underscore',
+                    sound: 'lib/sound'
+                },
+                shim: {
+                    "underscore": {
+                        exports: "_"
+                    }
+                },
+                urlArgs: "bust=" +  (new Date()).getTime()
+            });
+        </script>
+        <script src="scripts/settings.js"></script>
+    </head>
+
+    <body>
+        <div class="game-area" id="game-area" hidden>
+        </div>
+        <div class="main-page" id="main-page">
+            <div class="main-content">
+                <h2>Local Beatmaps</h2>
+                <hr/>
+                <div class="beatmap-list" id="beatmap-list">
+                    <div class="dragbox" id="beatmap-dragbox">
+                        <div class="dragbox-inner" id="beatmap-dragbox-inner" hidden>
+                            <div class="dragbox-title" id="beatmap-dragbox-title">
+                                <h3> Custom beatmap </h3>
+                            </div>
+                            <div class="dragbox-hint" id="beatmap-dragbox-hint">
+                                +
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Loader progress-->
+            <div class="statuslines" id="statuslines">
+                <div class="progress" id="script-progress">
+                    Scripts
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="skin-progress">
+                    Skin
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="sound-progress">
+                    Hitsounds
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="beatmap-progress">
+                    Local beatmap&nbsp;
+                    <span id="bm-loaded-counter">--</span>
+                    &sol;
+                    <span id="bm-total-counter">--</span>
+            </div>
+            </div>
+
+            <div class="panel">
+                <table class="holder" id="settings-panel">
+                    <tr>
+                        <td>
+                            <h3>
+                                Display Settings
+                            </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Background Dim</div>
+                            <div class="option-control">
+                                <input id="dim-range" class="slider" type="range" min="0" max="100" value="0">
+                                <div class="range-indicator" id="dim-range-indicator" hidden></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Background Blur</div>
+                            <div class="option-control">
+                                <input id="blur-range" class="slider" type="range" min="0" max="8" value="0">
+                                <div class="range-indicator" id="blur-range-indicator" hidden></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Cursor size</div>
+                            <div class="option-control">
+                                <input id="cursorsize-range" class="slider" type="range" min="0.5" max="2.0" step="0.01"
+                                    value="0.5">
+                                <div class="range-indicator" id="cursorsize-range-indicator" hidden></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Raw cursor input</div>
+                            <div class="option-control">
+                                <input id="showhwmouse-check" type="checkbox" /><span></span>
+                            </div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">For Chrome: Makes cursor movement smoother and more normal.</div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">For Firefox: May make cursor movement smoother but drastically increases lag, try it first as it can be helpful</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Slider snake in</div>
+                            <div class="option-control">
+                                <input id="snakein-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Slider snake out</div>
+                            <div class="option-control">
+                                <input id="snakeout-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Auto start game in fullscreen</div>
+                            <div class="option-control">
+                                <input id="autofullscreen-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Use system resolution</div>
+                            <div class="option-control">
+                                <input id="sysdpi-check" type="checkbox" /><span></span>
+                            </div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Recommended for weaker systems,
+                                if lag occurs manually lower res.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Resolution</div>
+                            <div class="option-control">
+                                <input id="dpi-range" class="slider" type="range" min="0.5" max="2.0" value="1.0"
+                                    step="0.05">
+                                <div class="range-indicator" id="dpi-range-indicator" hidden></div>
+                            </div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Is overrided by the above option
+                                if enabled</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>
+                                Input
+                            </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Disable scroll while gaming</div>
+                            <div class="option-control">
+                                <input id="disable-wheel-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Disable M1/M2 while gaming</div>
+                            <div class="option-control">
+                                <input id="disable-button-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Left Button</div>
+                            <div class="option-control">
+                                <input id="lbutton1select" type="button" value="oops" />
+                                <input type="button" value="M1" />
+                            </div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Click to re-map</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Right Button</div>
+                            <div class="option-control">
+                                <input id="rbutton1select" type="button" value="oops" />
+                                <input type="button" value="M2" />
+                            </div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Click to re-map</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Pause Button</div>
+                            <div class="option-control">
+                                <input id="pausebuttonselect" type="button" value="oops" />
+                                <input id="pausebutton2select" type="button" value="oops" />
+                            </div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Click to re-map</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Skip intro</div>
+                            <div class="option-control">
+                                <input id="skipbuttonselect" type="button" value="oops" />
+                            </div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Click to re-map</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>
+                                Audio
+                            </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Master Volume</div>
+                            <div class="option-control">
+                                <input id="mastervolume-range" class="slider" type="range" min="0" max="100" value="0">
+                                <div class="range-indicator" id="mastervolume-range-indicator" hidden></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Hitsound Volume</div>
+                            <div class="option-control">
+                                <input id="effectvolume-range" class="slider" type="range" min="0" max="100" value="0">
+                                <div class="range-indicator" id="effectvolume-range-indicator" hidden></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Music Volume</div>
+                            <div class="option-control">
+                                <input id="musicvolume-range" class="slider" type="range" min="0" max="100" value="0">
+                                <div class="range-indicator" id="musicvolume-range-indicator" hidden></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <td>
+                        <div class="option-name">Audio Offset</div>
+                        <div class="option-control">
+                            <input id="audiooffset-range" class="slider" type="range" min="-50" max="50" value="-50">
+                            <div class="range-indicator" id="audiooffset-range-indicator" hidden></div>
+                        </div>
+                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Not recommended to use! If you do,
+                            please turn off the hitsounds. Go to <a style="color: #9d7dcc"
+                                href="https://bemuse.ninja/?mode=sync">bemuse sync</a>
+                            to determine the keyboard delay.
+                        </div>
+                    </td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">
+                                Custom hitsounds<br>(Accepts .ogg from unzipped .osk file)
+                            </div>
+                            <div class="option-control">
+                                <input id="skinhitsound"
+                                    style="padding: 10px 10px 30px 10px; padding-right: 100px; padding-top: 25px;"
+                                    type="file" accept=".ogg" name="skin[]" multiple /><span></span>
+                            </div>
+                            <br>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Thanks to <a style="color: #9d7dcc" href="https://github.com/txst54">txst54</a> for custom hitsounds!</div>
+                            <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Visit<a style="color: #9d7dcc" href="https://github.com/BlaNKtext/webosu/"> the Github help discussion</a> for help</div>
+                        </td>
+                    </tr>
+                    <tr hidden>
+                        <td>
+                            <div class="option-name disabled">
+                                Enable beatmap hitsounds
+                            </div>
+                            <div class="option-control">
+                                <input id="beatmap-hitsound-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>
+                                Mods
+                            </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td title="Reduces overall difficulty">
+                            <div class="option-name">Easy</div>
+                            <div class="option-control">
+                                <input id="easy-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td title="Less zoom.">
+                            <div class="option-name">Daycore</div>
+                            <div class="option-control">
+                                <input id="daycore-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td title="Everything just got a bit harder...">
+                            <div class="option-name">Hard Rock</div>
+                            <div class="option-control">
+                                <input id="hardrock-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td title="Play with no approach circles and fading notes">
+                            <div class="option-name">Hidden</div>
+                            <div class="option-control">
+                                <input id="hidden-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td title="Zoooooooooooooom.">
+                            <div class="option-name">Nightcore</div>
+                            <div class="option-control">
+                                <input id="nightcore-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td title="Watch a (mostly) perfect automated play through of a song">
+                            <div class="option-name">Autoplay</div>
+                            <div class="option-control">
+                                <input id="autoplay-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>
+                                Skin Options
+                            </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Don't Show Hitcircle Numbers</div>
+                            <div class="option-control">
+                                <input id="hidenumbers-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name"> Don't show "Great" (300s)</div>
+                            <div class="option-control">
+                                <input id="hidegreat-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="option-name">Don't Show Follow Points</div>
+                            <div class="option-control">
+                                <input id="hidefollowpoints-check" type="checkbox" /><span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br />
+                            <input id="restoredefault-btn" type="button" class="warnbtn"
+                                value="Restore all settings to default" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
