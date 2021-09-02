@@ -8,10 +8,10 @@
         <link rel="stylesheet" type="text/css" href="assets/css/font.css">
         <link rel="icon" href="assets/img/favicon.png">
         <link rel="manifest" href="manifest.json">
-        <script src="assets/js/launchgame.js"></script>
-        <script src="assets/js/downloader.js"></script>
-        <script src="assets/js/addbeatmaplist.js"></script>
-        <script src="assets/js/jsloader.js"></script>
+        <script src="assets/previewjs/launchgame.js"></script>
+        <script src="assets/previewjs/downloader.js"></script>
+        <script src="assets/previewjs/addbeatmaplist.js"></script>
+        <script src="assets/previewjs/jsloader.js"></script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9632177002782999"
         crossorigin="anonymous"></script>
     </head>
@@ -134,7 +134,7 @@
                     document.getElementById("hint").innerText = "If the beatmap preview does not start, there may be errors in the beatmap file.";
                 };
                 window.addEventListener("click",f);
-                document.getElementById("hint").innerText = "Click anywhere to start a automated demo of Webosu";
+                document.getElementById("hint").innerText = "Click anywhere to start the automated preview";
             }
             xhr.onload = function() {
                 window.oszblob = new Blob([xhr.response]);
