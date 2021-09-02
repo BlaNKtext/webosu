@@ -350,12 +350,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
             }
 
             this.createJudgement = function (x, y, depth, finalTime) {
-                let judge = new PIXI.BitmapText('', {
-                    font: {
-                        name: 'Venera',
-                        size: 20
-                    }
-                });
+                let judge = new PIXI.Text('',{fontFamily: 'Comfortaa', fontSize: 20, fill: ['#ffffff']});
                 judge.anchor.set(0.5);
                 judge.scale.set(0.85 * this.hitSpriteScale, 1 * this.hitSpriteScale);
                 judge.visible = false;

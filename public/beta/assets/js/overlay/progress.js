@@ -14,22 +14,10 @@ define([], function () {
         this.endtime = endtime;
 
         // remaining time, in lower right corner
-        this.remaining = new PIXI.BitmapText("", {
-            font: {
-                name: 'Venera',
-                size: 16
-            },
-            tint: 0xddffff
-        });
+        this.remaining = new PIXI.Text("", {fontFamily: 'Comfortaa', fontSize: 16, tint: 0xddffff, fill: ['#ffffff']});
         this.remaining.anchor.set(1);
         this.addChild(this.remaining);
-        this.past = new PIXI.BitmapText("", {
-            font: {
-                name: 'Venera',
-                size: 16
-            },
-            tint: 0xddffff
-        });
+        this.past = new PIXI.Text("", {fontFamily: 'Comfortaa', fontSize: 16, tint: 0xddffff, fill: ['#ffffff']});
         this.past.anchor.set(0, 1);
         this.addChild(this.past);
 
