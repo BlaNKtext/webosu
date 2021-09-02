@@ -1032,7 +1032,6 @@ input[type=checkbox]:checked+span::after {
 }
 input[type=button] {
   cursor: pointer;
-  border-radius: 12px;
   position: relative;
   width: auto;
   transition: all .2s ease;
@@ -1113,7 +1112,7 @@ input[type=file] {
   overflow: hidden !important;
   color: unset;
   appearance: none;
-  cursor: default;
+  cursor: pointer;
   border: none;
   background-color: #46406b;
 }
@@ -1130,10 +1129,16 @@ input[type=file] > label {
   unicode-bidi: plaintext;
 }
 ::file-selector-button {
-  font-size: 10;
-  letter-spacing: unset;
-  cursor: unset;
-  margin-inline-end: 5px;
+  text-align: initial;
+  text-indent: initial;
+  text-transform: initial;
+  word-spacing: initial;
+  letter-spacing: initial;
+  color: #d0d5df;
+  font-family: "Comfortaa";
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: #ffffff00;
 }
 ::-webkit-slider-runnable-track {
   width: 100%;
