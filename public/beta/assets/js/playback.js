@@ -760,7 +760,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
             }
 
             // hit result handling
-            // use separate timing for hitsounds, since volume may change inside a slider or spinner
+            // use separate timing for sounds, since volume may change inside a slider or spinner
             // note: time is expected time of object hit, not real time
             this.curtimingid = 0;
             this.playTicksound = function playTicksound(hit, time) {
