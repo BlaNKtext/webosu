@@ -350,12 +350,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
             }
 
             this.createJudgement = function (x, y, depth, finalTime) {
-                let judge = new PIXI.BitmapText('', {
-                    font: {
-                        name: 'Venera',
-                        size: 20
-                    }
-                });
+                let judge = new PIXI.Text('',{fontFamily: 'Comfortaa', fontSize: 20, fill: ['#ffffff']});
                 judge.anchor.set(0.5);
                 judge.scale.set(0.85 * this.hitSpriteScale, 1 * this.hitSpriteScale);
                 judge.visible = false;
@@ -459,10 +454,10 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
                             loadBackground(uri);
                         });
                     } else {
-                        loadBackground("assets/img/defaultbg.jpg");
+                        loadBackground("skin/assets/img/defaultbg.jpg");
                     }
                 } else {
-                    loadBackground("assets/img/defaultbg.jpg");
+                    loadBackground("skin/assets/img/defaultbg.jpg");
                 }
             };
             self.createBackground();
@@ -765,7 +760,7 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
             }
 
             // hit result handling
-            // use separate timing for hitsounds, since volume may change inside a slider or spinner
+            // use separate timing for sounds, since volume may change inside a slider or spinner
             // note: time is expected time of object hit, not real time
             this.curtimingid = 0;
             this.playTicksound = function playTicksound(hit, time) {

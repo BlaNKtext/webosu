@@ -3,18 +3,16 @@
 
 <head>
     <title>404 | webosu!</title>
-    <link rel=”canonical” href=”https://webosu.online/”/> <meta name="description"
-        content="The unofficial web port of the rhythm game osu! with a huge pool of beatmaps and a clean, lazer-like UI this is one of the best osu! web ports">
+    <link rel=”canonical” href=”https://webosu.online/”/>
+    <meta name="description" content="The unofficial web port of the rhythm game osu! with a huge pool of beatmaps and a clean, lazer-like UI this is one of the best osu! web ports">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="icon" href="assets/img/favicon.png">
-    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="assets/css/picnic.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font.css">
     <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
-
 <body>
     <!--Nav Bar-->
     <nav id="main-nav">
@@ -26,8 +24,9 @@
         </div>
         <div class="nav-search">
             <form action="search.html">
-                <input type="text" name="q" placeholder="Beatmap or SID" />
-                <input type="image" class="search-button" src="assets/img/search.svg">
+                <container id="searchbar" class="searchbar">
+                    <input type="text" name="search-placeholder" placeholder="Beatmap or SID" />
+                </container>
             </form>
         </div>
         <div class="nav-tool">
@@ -56,14 +55,8 @@
         </div>
 </body>
 <script type="module">
-    // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyBJyrBf03GhNZbupO6uU-wtDTfAC_zY8_0",
     authDomain: "webosu.firebaseapp.com",
@@ -73,10 +66,7 @@
     appId: "1:138250997417:web:be7407c18de702880763b8",
     measurementId: "G-55J58MR5ZW"
   };
-
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
-
 </html>

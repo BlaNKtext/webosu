@@ -7,19 +7,9 @@ define([], function () {
         this.alpha = 1;
         this.t0 = 0;
 
-        this.mastertext = new PIXI.BitmapText('MASTER', {
-            font: {
-                name: 'Venera',
-                size: 20
-            }
-        });
+        this.mastertext = new PIXI.Text('MASTER', {fontFamily: 'Comfortaa', fontSize: 20, fill: ['#ffffff']});
         this.mastertext.anchor.set(0.5);
-        this.volumetext = new PIXI.BitmapText('', {
-            font: {
-                name: 'Venera',
-                size: 40
-            }
-        });
+        this.volumetext = new PIXI.Text('', {fontFamily: 'Comfortaa', fontSize: 40, fill: ['#ffffff']});
         this.volumetext.anchor.set(0.5);
         this.addChild(this.mastertext);
         this.addChild(this.volumetext);

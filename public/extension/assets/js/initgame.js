@@ -76,7 +76,7 @@ require(["osu", "underscore", "sound", "playback"],
         
             // load skin & game cursor
             PIXI.Loader.shared
-            .add('assets/fonts/Venera.fnt')
+            .add('assets/fonts/Comfortaa.woff2')
             .add("sprites.json").load(function(loader, resources) {
                 window.skinReady = true;
                 document.getElementById("skin-progress").classList.add("finished");

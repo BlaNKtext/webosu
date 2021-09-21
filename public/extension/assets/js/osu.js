@@ -4,14 +4,11 @@ define(["underscore", "osu-audio", "curves/LinearBezier", "curves/CircumscribedC
             HIT_TYPE_SLIDER = 2,
             HIT_TYPE_NEWCOMBO = 4,
             HIT_TYPE_SPINNER = 8;
-
         function Track(zip, track) {
             var self = this;
             this.track = track;
             this.zip = zip;
-
             this.ondecoded = null;
-
             this.general = {};
             this.metadata = {};
             this.difficulty = {};
@@ -19,7 +16,6 @@ define(["underscore", "osu-audio", "curves/LinearBezier", "curves/CircumscribedC
             this.events = [];
             this.timingPoints = [];
             this.hitObjects = [];
-
             this.decode = _.bind(function decode() {
                 // Decodes a .osu file
                 var lines = self.track.replace("\r", "").split("\n");
@@ -323,7 +319,7 @@ define(["underscore", "osu-audio", "curves/LinearBezier", "curves/CircumscribedC
                         img.src = URL.createObjectURL(blob);
                     });
                 } else {
-                    img.src = "assets/img/defaultbg.jpg";
+                    img.src = "skin/assets/img/defaultbg.jpg";
                 }
             };
 

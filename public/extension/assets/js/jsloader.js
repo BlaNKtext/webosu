@@ -1,5 +1,3 @@
-// delayed js loader
-
 function loadScript(url, callback, aux) {
 	let script = document.createElement("script");
 	document.head.appendChild(script);
@@ -12,9 +10,6 @@ function loadScript(url, callback, aux) {
 	}
 	script.src = url;
 }
-
-
-
 window.beatmaplistLoadedCallback = function () {
 	window.setTimeout(function () {
 		loadScript("assets/js/lib/zip.js", function () {
@@ -46,22 +41,6 @@ window.beatmaplistLoadedCallback = function () {
 				}, {
 					"data-main": "assets/js/initgame"
 				});
-				// load Liked list
-				if (window.localforage) {
-					localforage.getItem("likedsidset", function (err, item) {
-						if (!err) {
-							if (item && item.size)
-								window.liked_sid_set = item;
-							else
-								window.liked_sid_set = new Set();
-							for (let i = 0; i < window.liked_sid_set_callbacks.length; ++i)
-								window.liked_sid_set_callbacks[i]();
-							window.liked_sid_set_callbacks = [];
-						} else {
-							console.error("Favorites list failed to load");
-						}
-					});
-				}
 			}
 		}
 

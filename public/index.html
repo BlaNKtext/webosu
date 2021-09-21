@@ -7,7 +7,6 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta name="google-site-verification" content="8AkmJlQlXyRY96VwUM7YAOEAZSWqW98tObByi1trF8c" />
     <link rel="icon" href="assets/img/favicon.png">
-    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="assets/css/picnic.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font.css">
@@ -47,8 +46,9 @@
         </div>
         <div class="nav-search">
             <form action="search.html">
-                <input type="text" name="q" placeholder="Beatmap or SID" />
-                <input type="image" class="search-button" src="assets/img/search.svg">
+                <container id="searchbar" class="searchbar">
+                    <input type="text" name="search-placeholder" placeholder="Beatmap or SID" />
+                </container>
             </form>
         </div>
         <div class="nav-tool">
