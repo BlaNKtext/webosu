@@ -126,12 +126,7 @@ require(["osu", "underscore", "sound", "playback"],
                 document.getElementById("sound-progress").classList.add("finished");
                 document.body.classList.add("sound-ready");
             };
-            if (window.gamesettings.soundNames){
-                sounds.cload(window.gamesettings.soundNames);
-            }
-            else {
-                sounds.load(sample);
-            }
+            sounds.load(sample);
         
             PIXI.Sprite.prototype.bringToFront = function() {
                 if (this.parent) {
