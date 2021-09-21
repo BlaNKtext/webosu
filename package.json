@@ -1,10 +1,10 @@
 {
   "name": "webosu",
-  "version": "2.0.0",
-  "description": "I fucking did it boys lets go",
+  "version": "2.6.1",
+  "description": "The unofficial osu web port with a huge pool of beatmaps",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "dev": "node app.js"
   },
   "repository": {
     "type": "git",
