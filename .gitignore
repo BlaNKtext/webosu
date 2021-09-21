@@ -47,6 +47,8 @@ build/Release
 
 # Dependency directories
 node_modules/
+package-lock.json
+yarn.lock
 
 # Optional npm cache directory
 .npm
@@ -68,14 +70,10 @@ node_modules/
 
 # Google
 robots.txt
-sitemap.txt
+sitemap.xml
 
 # Arc
 arc-sw.js
 
 # Local Netlify folder
 .netlify
-
-# NodeJS
-node_modules
-package-lock.json
