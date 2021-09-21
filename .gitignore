@@ -10,12 +10,10 @@ firebase-debug.*.log*
 # Firebase cache
 .firebase/
 
-# Firebase config
-
-# Uncomment this if you'd like others to create their own Firebase project.
-# For a team working on the same Firebase project(s), it is recommended to leave
-# it commented so all members can deploy to the same project(s) in .firebaserc.
-# .firebaserc
+# Firebase stuff
+.firebaserc
+firebase.json
+.firebase
 
 # Runtime data
 pids
@@ -65,7 +63,7 @@ node_modules/
 # dotenv environment variables file
 .env
 
-# Google shit
+# Google
 robots.txt
 sitemap.txt
 
@@ -75,13 +73,5 @@ arc-sw.js
 # Local Netlify folder
 .netlify
 
-# NodeJS Shit
+# NodeJS
 package-lock.json
-
-# I forgor 💀
-LIVESCORES.js
-
-# Firebase stuff
-.firebaserc
-firebase.json
-.firebase
