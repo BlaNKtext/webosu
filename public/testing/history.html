@@ -1,11 +1,9 @@
 <!doctype html>
 <html>
-
 <head>
-    <title>Play records | webosu!</title>
+    <title>Play History | webosu!</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-   <meta name="description"
-        content="The unofficial osu web port with a huge pool of beatmaps">
+    <meta name="description" content="The unofficial osu web port with a huge pool of beatmaps">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <link rel="icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/picnic.min.css">
@@ -15,7 +13,6 @@
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
 <!--Main Nav Bar-->
-
 <body>
     <nav id="main-nav">
         <div class="nav-link">
@@ -92,11 +89,9 @@
         //*** customFormat ends
 
         var list = document.getElementById("history-list");
-
         function addEntry(summary) {
             let tr = document.createElement("tr");
             list.appendChild(tr);
-
             function nexttd(content) {
                 let td = document.createElement("td");
                 tr.appendChild(td);
@@ -125,18 +120,12 @@
                 }
             })
         } else {
-            alert("localforage is not supported.")
+            alert("Oh no, localforage isn't supported on this browser")
         }
     </script>
 </body><script type="module">
-  // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyBJyrBf03GhNZbupO6uU-wtDTfAC_zY8_0",
     authDomain: "webosu.firebaseapp.com",
@@ -146,8 +135,6 @@
     appId: "1:138250997417:web:be7407c18de702880763b8",
     measurementId: "G-55J58MR5ZW"
   };
-
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
