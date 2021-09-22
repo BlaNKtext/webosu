@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="assets/css/picnic.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
+    <script defer src="assets/js/popup.js"></script>
     <script src="assets/js/launchgame.js"></script>
     <script src="assets/js/downloader.js"></script>
     <script src="assets/js/addbeatmaplist.js"></script>
@@ -19,6 +21,20 @@
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
 <body>
+    <!--Soon to be Changelogs-->
+    <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="title">Changelogs</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+        <!--Write plaintext here-->
+        Among Us
+        <br>
+        <img src="https://cdn.discordapp.com/emojis/888252208083263508.png?v=1" alt=":tf:" width="56" height="56">
+        </div>
+      </div>
+      <div id="overlay"></div>
     <!--Pause menu-->
     <div class="game-area" id="game-area" hidden>
     </div>
@@ -62,8 +78,9 @@
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
-                Announcement: Check out a UI change at <a href="https://webosu.online/testing/">webosu!testing</a> and tell me what you think in the discord server!</a>
+                Notice: You are using the testing branch of webosu! and bugs may occur, use <a href="https://webosu.online/">webosu!</a> for the most stable build</a>
             </div>
+            <button class="popup-btn" data-modal-target="#modal">Announcement</button>
             <br>
             <div class="index-area">
                 <h2>Public plays</h2>
