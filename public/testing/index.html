@@ -230,7 +230,7 @@
                             sid.push(item[i].sid);
                     }
                     sid = [...new Set(sid)]; // uniq
-                    for (let i = 0; i < 4 && i < sid.length; ++i)
+                    for (let i = 0; i < 6 && i < sid.length; ++i)
                         addBeatmapSid(sid[i], listhistory)
                 } else {
                     listhistory.innerText =
@@ -243,7 +243,7 @@
             document.getElementById("beatmap-list-new"),
             function (t) {
                 return (t.modes & 1) != 0;
-            }, 4);
+            }, 6);
         // Get random beatmaps
         function genRandomList() {
             // Wipe Random List
@@ -254,11 +254,11 @@
                 function (t) {
                     while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
-                }, 4);
+                }, 6);
         }
         genRandomList();
         // Get hot beatmaps
-        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById(
+        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=6&1=0&2=1&5=1", document.getElementById(
             "beatmap-list-hot"));
         // Favorite beatmaps
         if (window.localforage) {
@@ -271,7 +271,7 @@
                 if (val && val.size) {
                     let listlike = document.getElementById("beatmap-list-liked");
                     list = Array.from(val);
-                    for (let i = 0; i < list.length && i < 4; ++i)
+                    for (let i = 0; i < list.length && i < 6; ++i)
                         addBeatmapSid(list[i], listlike);
                 } else {
                     document.getElementById("beatmap-list-liked").innerText =

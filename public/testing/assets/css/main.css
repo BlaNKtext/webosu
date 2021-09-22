@@ -164,7 +164,7 @@ form input {
 }
 
 .index-area table {
-  max-width: 812px;
+  width: 1250px;
   white-space: nowrap;
   table-layout: fixed;
   font-size: 0.9em;
@@ -266,7 +266,7 @@ thead {
   border-radius: 4px;
   margin: auto;
   padding-top: 12px;
-  width: 812px;
+  width: 1250px;
   height: 100%;
 }
 
@@ -922,9 +922,9 @@ progress.finished::-webkit-progress-value {
 
 .beatmaptitle {
   width: 400px;
-  padding-top: 73px;
-  padding-left: 10px;
-  padding-right: 10px;
+  top: 73px;
+  left: 10px;
+  right: 10px;
   font-size: 1.3em;
   font-style: italic;
   color: rgb(221, 221, 221);
@@ -937,9 +937,9 @@ progress.finished::-webkit-progress-value {
 
 .beatmapartist {
   width: 400px;
-  padding-top: 102px;
-  padding-left: 10px;
-  padding-right: 10px;
+  top: 102px;
+  left: 10px;
+  right: 10px;
   font-size: 0.8em;
   font-style: italic;
   color: rgb(221, 221, 221);
@@ -951,8 +951,8 @@ progress.finished::-webkit-progress-value {
 }
 
 .beatmapcreator {
-  padding-top: 134px;
-  padding-left: 10px;
+  top: 134px;
+  left: 10px;
   color: #b0b7c3;
   font-size: 14px;
   overflow: hidden;
@@ -987,8 +987,8 @@ progress.finished::-webkit-progress-value {
 }
 
 .beatmapauthor {
-  padding-top: 102px;
-  padding-left: 10px;
+  top: 102px;
+  left: 10px;
   color: #b0b7c3;
   font-size: 14px;
   padding-top: 10px;
@@ -1016,13 +1016,13 @@ progress.finished::-webkit-progress-value {
   font-style: italic;
   color: #b0b7c3;
   font-size: 0.8em;
-  padding-top: 102px;
+  bottom: 60px;
 }
 
 .beatmap-difficulties {
   position: absolute;
-  padding-top: 160px;
-  padding-left: 10px;
+  top: 160px;
+  left: 10px;
 }
 
 .beatmaplike {
