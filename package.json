@@ -1,11 +1,11 @@
 {
   "name": "webosu",
-  "version": "2.6.2",
+  "version": "2.6.5",
   "description": "The unofficial osu web port with a huge pool of beatmaps",
   "main": "app.js",
   "scripts": {
     "dev": "node app.js",
-    "deploy": "npm version patch --force "
+    "deploy": "npm version patch "
   },
   "repository": {
     "type": "git",
