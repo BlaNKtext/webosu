@@ -3,10 +3,6 @@
   "version": "2.6.7",
   "description": "The unofficial osu web port with a huge pool of beatmaps",
   "main": "app.js",
-  "scripts": {
-    "dev": "node app.js",
-    "deploy": "npm version patch "
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BlaNKtext/webosu.git"
@@ -18,9 +14,7 @@
   },
   "homepage": "https://github.com/BlaNKtext/webosu#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "firebase": "^9.0.1",
-    "nodemon": "^2.0.12"
+    "firebase": "^9.0.1"
   }
 }
