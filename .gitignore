@@ -68,6 +68,3 @@ yarn.lock
 # Google
 robots.txt
 sitemap.xml
-
-# Arc
-arc-sw.js
