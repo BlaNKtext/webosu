@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/picnic.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
     <script src="assets/js/launchgame.js"></script>
     <script src="assets/js/downloader.js"></script>
     <script src="assets/js/addbeatmaplist.js"></script>
@@ -18,7 +19,25 @@
     <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
-<body>
+<body onload="openModal(modal)">
+    <div class="modal" id="modal">
+        <div class="modal-header">
+          <div class="title">Notice</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+        <!--Write plaintext here-->
+        Hi guys, quick notice here<br>
+        I released the UI update on <a href="https://webosu.online/testing/">webosu!testing</a> 
+        but I've gotten no feedback, and I'm not sure what to do with it<br>
+        If you'd like to give me feedback or help me test future updates, or even have any complaints/suggestions<br>
+        Please, join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> and give me feedback!
+        <br>
+        - BlaNK
+        <!--<img src="https://cdn.discordapp.com/emojis/888252208083263508.png?v=1" alt=":tf:" width="56" height="56">-->
+        </div>
+      </div>
+      <div id="overlay"></div>
     <!--Pause menu-->
     <div class="game-area" id="game-area" hidden>
     </div>
@@ -61,10 +80,10 @@
     <!--Main page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
-            <div class="announcement">
-                Announcement: Check out a UI change at <a href="https://webosu.online/testing/">webosu!testing</a> and tell me what you think in the discord server!
+            <!--<div class="announcement">
+                Announcement: New updates soon hopefully
             </div>
-            <br>
+            <br>-->
             <div class="index-area">
                 <h2>Public plays</h2>
                 <hr/>
@@ -148,6 +167,40 @@
             </div>
         </div>
         <script>
+        const openModalButtons = document.querySelectorAll('[data-modal-target]')
+        const closeModalButtons = document.querySelectorAll('[data-close-button]')
+        const overlay = document.getElementById('overlay')
+
+        openModalButtons.forEach(button => {
+          button.addEventListener('click', () => {
+           const modal = document.querySelector(button.dataset.modalTarget)
+             openModal(modal)
+            })
+        })
+        overlay.addEventListener('click', () => {
+           const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+             closeModal(modal)
+            })
+        })
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+             const modal = button.closest('.modal')
+             closeModal(modal)
+            })
+        })
+        function openModal(modal) {
+            if (modal == null) return
+             modal.classList.add('active')
+             overlay.classList.add('active')
+            console.log("Modal Opened")
+        }
+        function closeModal(modal) {
+            if (modal == null) return
+             modal.classList.remove('active')
+             overlay.classList.remove('active')
+            console.log("Modal Closed")
+        }
         // Live scores
         let tbody = document.getElementById("activity-list");
         function formattime(date) {

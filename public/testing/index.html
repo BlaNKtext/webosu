@@ -20,18 +20,23 @@
     <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
-<body>
+<body onload="openModal(modal)">
     <!--Soon to be Changelogs-->
     <div class="modal" id="modal">
         <div class="modal-header">
-          <div class="title">Changelogs</div>
+          <div class="title">Notice</div>
           <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
         <!--Write plaintext here-->
-        Among Us
+        Hi guys, quick notice here<br>
+        I released the UI update on <a href="https://webosu.online/testing/">webosu!testing</a> 
+        but I've gotten no feedback, and I'm not sure what to do with it<br>
+        If you'd like to give me feedback or help me test future updates, or even have any complaints/suggestions<br>
+        Please, join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> and give me feedback!
         <br>
-        <img src="https://cdn.discordapp.com/emojis/888252208083263508.png?v=1" alt=":tf:" width="56" height="56">
+        - BlaNK
+        <!--<img src="https://cdn.discordapp.com/emojis/888252208083263508.png?v=1" alt=":tf:" width="56" height="56">-->
         </div>
       </div>
       <div id="overlay"></div>
@@ -169,6 +174,40 @@
             </div>
         </footer>
         <script>
+        const openModalButtons = document.querySelectorAll('[data-modal-target]')
+        const closeModalButtons = document.querySelectorAll('[data-close-button]')
+        const overlay = document.getElementById('overlay')
+
+        openModalButtons.forEach(button => {
+          button.addEventListener('click', () => {
+           const modal = document.querySelector(button.dataset.modalTarget)
+             openModal(modal)
+            })
+        })
+        overlay.addEventListener('click', () => {
+           const modals = document.querySelectorAll('.modal.active')
+            modals.forEach(modal => {
+             closeModal(modal)
+            })
+        })
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+             const modal = button.closest('.modal')
+             closeModal(modal)
+            })
+        })
+        function openModal(modal) {
+            if (modal == null) return
+             modal.classList.add('active')
+             overlay.classList.add('active')
+            console.log("Modal Opened")
+        }
+        function closeModal(modal) {
+            if (modal == null) return
+             modal.classList.remove('active')
+             overlay.classList.remove('active')
+            console.log("Modal Closed")
+        }
         // Live scores
         let tbody = document.getElementById("activity-list");
         function formattime(date) {
