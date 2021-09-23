@@ -21,14 +21,12 @@
     <script async src="https://arc.io/widget.min.js#jmdVhsH5"></script>
 </head>
 <body onload="openModal(modal)">
-    <!--Soon to be Changelogs-->
     <div class="modal" id="modal">
         <div class="modal-header">
           <div class="title">Notice</div>
           <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
-        <!--Write plaintext here-->
         Hi guys, quick notice here<br>
         I released the UI update on <a href="https://webosu.online/testing/">webosu!testing</a> 
         but I've gotten no feedback, and I'm not sure what to do with it<br>
@@ -39,8 +37,8 @@
         <!--<img src="https://cdn.discordapp.com/emojis/888252208083263508.png?v=1" alt=":tf:" width="56" height="56">-->
         </div>
       </div>
-      <div id="overlay"></div>
-    <!--Pause menu-->
+    <div id="overlay"></div>
+    <!--Game Area-->
     <div class="game-area" id="game-area" hidden>
     </div>
     <div class="pause-menu" id="pause-menu" hidden>
@@ -79,14 +77,12 @@
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
         </div>
     </nav>
-    <!--Main page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
                 Notice: You are using the testing branch of webosu! and bugs may occur, use <a href="https://webosu.online/">webosu!</a> for the most stable build</a>
             </div>
             <button class="popup-btn" data-modal-target="#modal">Changelogs</button>
-            <br>
             <div class="index-area">
                 <h2>Public plays</h2>
                 <hr/>
@@ -164,16 +160,15 @@
             </div>
         </div>    
         <!--Footer-->
-        <footer>
-            <div class="footer">
-                <div class="footer-infos">
-                    <span class="footer-info">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a>!</span>
-                    <span class="footer-info">Beatmap API: <a href="https://osu.sayobot.cn/">Sayobot</a></span>
-                    <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">BETA-2.7.7</span>
-                </div>
+        <div class="footer">
+            <div class="footer-infos">
+                <span class="footer-info">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a>!</span>
+                <span class="footer-info">Beatmap API: <a href="https://osu.sayobot.cn/">Sayobot</a></span>
+                <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">BETA-2.7.7</a></span>
             </div>
-        </footer>
+        </div>
         <script>
+        // Popup Script
         const openModalButtons = document.querySelectorAll('[data-modal-target]')
         const closeModalButtons = document.querySelectorAll('[data-close-button]')
         const overlay = document.getElementById('overlay')
@@ -208,6 +203,8 @@
              overlay.classList.remove('active')
             console.log("Modal Closed")
         }
+        </script>
+        <script>
         // Live scores
         let tbody = document.getElementById("activity-list");
         function formattime(date) {

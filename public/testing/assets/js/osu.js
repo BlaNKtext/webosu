@@ -316,9 +316,11 @@ define(["underscore", "osu-audio", "curves/LinearBezier", "curves/CircumscribedC
                 }
                 if (fileentry) {
                     fileentry.getBlob("image/jpeg", function (blob) {
+                        img.crossOrigin = "";
                         img.src = URL.createObjectURL(blob);
                     });
                 } else {
+                    img.crossOrigin = "";
                     img.src = "skin/assets/img/defaultbg.jpg";
                 }
             };
