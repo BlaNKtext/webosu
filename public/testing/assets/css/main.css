@@ -794,7 +794,7 @@ thead {
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
   margin: 12px auto;
   padding: 15px;
-  width: 370px;
+  width: 410px;
   height: 100%;
 }
 
@@ -862,14 +862,13 @@ progress.finished::-webkit-progress-value {
 .text {
   line-height: 1.8em;
 }
-
+/* Beatmap Box/List */
 .beatmap-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
   position: relative;
   margin-right: -12px;
-  /* to cancel padding-right of last column*/
 }
 
 .beatmapbox {
@@ -883,27 +882,6 @@ progress.finished::-webkit-progress-value {
   position: relative;
   cursor: pointer;
   border-radius: 4px;
-  /* shouldn't hide overflow because we have to show difficulty selection box */
-  /* but we must ensure content don't get outside this box */
-}
-
-.dragbox {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
-  background: #eee;
-  color: #666;
-  border-radius: 6px;
-  font-size: 18px;
-  height: 200px;
-  width: 245px;
-  margin-bottom: 20px;
-  margin-right: 17px;
-}
-
-.dragbox-inner {
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 16%;
-  line-height: 1.5em;
 }
 
 .beatmapbox:hover {
@@ -1090,7 +1068,7 @@ progress.finished::-webkit-progress-value {
     opacity: 0;
   }
 }
-
+/* Settings Page */
 .panel table {
   width: 100%;
 }
@@ -1099,7 +1077,6 @@ progress.finished::-webkit-progress-value {
   height: 2.7em;
   position: relative;
   transform: scale(1);
-  /* workaround table relative ignored https://stackoverflow.com/a/51407758 */
 }
 
 .panel tr:last-child {
@@ -1316,7 +1293,6 @@ input[type=range]::-webkit-slider-thumb {
   background: #ddd;
   cursor: pointer;
   margin-top: -8px;
-  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
 }
 
 input[type=range]::-webkit-slider-thumb:after {
@@ -1399,7 +1375,7 @@ hr {
 div[hidden=""] {
   visibility: hidden;
 }
-
+/* Difficulty Area */
 .difficulty-box {
   width: auto;
   min-width: 360px;
@@ -1451,6 +1427,7 @@ body:not(.sound-ready) .difficulty-item {
   cursor: wait;
 }
 
+/* Difficulty Colors */
 .difficulty-item span {
   top: -5px;
   left: 4px;
@@ -1585,14 +1562,6 @@ body:not(.sound-ready) .difficulty-item {
   border-color: #000;
 }
 
-.faqentry {
-  margin-bottom: 2em;
-}
-
-.faqentry h2 {
-  margin-bottom: 0.3em;
-}
-
 /* loading status lines */
 /* loader */
 .lds-dual-ring {
@@ -1614,20 +1583,19 @@ body:not(.sound-ready) .difficulty-item {
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .finished .lds-dual-ring:after {
   border: none;
   content: "\2714";
   color: #88b300;
   line-height: 0.8em;
   animation: none;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
