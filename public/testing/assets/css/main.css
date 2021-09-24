@@ -864,11 +864,32 @@ progress.finished::-webkit-progress-value {
 }
 /* Beatmap Box/List */
 .beatmap-list {
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+  margin-right: -17px;
   position: relative;
-  margin-right: -12px;
+}
+
+
+.dragbox {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.3); 
+  background: #eee;
+  color: #666;
+  border-radius: 6px;
+  font-size: 18px;
+  height: 200px;
+  width: 245px;
+  margin-bottom: 20px;
+  margin-right: 17px;
+}
+.dragbox-inner {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 16%;
+  line-height: 1.5em;
 }
 
 .beatmapbox {

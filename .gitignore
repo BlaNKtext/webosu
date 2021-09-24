@@ -68,3 +68,7 @@ yarn.lock
 # Google
 robots.txt
 sitemap.xml
+
+# In development
+custom
+newapi
