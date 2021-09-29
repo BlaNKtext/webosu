@@ -48,7 +48,7 @@ require(["osu", "underscore", "sound", "playback"],
         
                 // skin mods
                 hideNumbers: false,
-                hideGreat: false,
+                hideGreat: true,
                 hideFollowPoints: false,
         
                 // cursor info

@@ -1,5 +1,4 @@
 function setOptionPanel() {
-
 	function loadFromLocal() {
 		let str = window.localStorage.getItem("osugamesettings");
 		if (str) {
@@ -7,14 +6,11 @@ function setOptionPanel() {
 			if (s) Object.assign(gamesettings, s);
 		}
 	}
-
 	function saveToLocal() {
 		window.localStorage.setItem("osugamesettings", JSON.stringify(window.gamesettings));
 	}
-
-	// give inputs initial value; set their callback on change
-	// give range inputs a visual feedback (a hovering indicator that shows on drag)
-
+	// Give inputs initial value; set their callback on change
+	// Give range inputs a visual feedback (a hovering indicator that shows on drag)
 	let defaultsettings = {
 		dim: 60,
 		blur: 0,
@@ -53,7 +49,7 @@ function setOptionPanel() {
 		autoplay: false,
 
         hideNumbers: false,
-        hideGreat: false,
+        hideGreat: true,
         hideFollowPoints: false,
 		soundNames: undefined,
 	};
