@@ -77,7 +77,7 @@ function startdownload(box) {
     }
     xhr.onerror = function () {
         console.error("Download failed");
-        alert("Beatmap download failed. Please retry later.")
+        alert("Beatmap download failed. Please retry later. If you live in Asia try a VPN")
         box.downloading = false;
         box.classList.remove("downloading");
         log_to_server("fail " + box.sid);
