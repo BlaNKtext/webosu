@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-		<!--	created with www.mysitemapgenerator.com	-->
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!--	created with www.mysitemapgenerator.com	-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 	<loc>https://webosu.online/</loc>
 	<lastmod>2021-08-26T11:29:49+01:00</lastmod>
@@ -43,7 +43,42 @@
 </url>
 <url>
 	<loc>https://webosu.online/testing/</loc>
+	<lastmod>2021-08-26T11:29:49+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://webosu.online/testing/index.html</loc>
+	<lastmod>2021-08-26T11:29:50+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://webosu.online/testing/new.html</loc>
+	<lastmod>2021-08-26T11:29:53+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://webosu.online/testing/hot.html</loc>
+	<lastmod>2021-08-26T11:29:53+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://webosu.online/testing/browse.html</loc>
+	<lastmod>2021-08-26T11:29:54+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://webosu.online/testing/faq.html</loc>
+	<lastmod>2021-08-26T11:29:54+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://webosu.online/testing/local.html</loc>
 	<lastmod>2021-08-26T11:29:55+01:00</lastmod>
-	<priority>0.5</priority>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://webosu.online/testing/settings.html</loc>
+	<lastmod>2021-08-26T11:29:55+01:00</lastmod>
+	<priority>1.0</priority>
 </url>
 </urlset>
