@@ -1,5 +1,4 @@
 // beatmap downloader
-
 function startpreview(box) {
     let volume = 1;
     if (window.gamesettings) {
@@ -77,7 +76,7 @@ function startdownload(box) {
     }
     xhr.onerror = function () {
         console.error("Download failed");
-        alert("Beatmap download failed. Please retry later. If you live in Asia try a VPN")
+        alert("Beatmap download failed. Please retry later. If you live in Asia try a VPN such as ProtonVPN")
         box.downloading = false;
         box.classList.remove("downloading");
         log_to_server("fail " + box.sid);
