@@ -9,6 +9,7 @@ firebase-debug.*.log*
 
 # Firebase cache
 .firebase/
+functions/
 
 # Firebase stuff
 .firebaserc
