@@ -1,23 +1,10 @@
 const express = require("express");
 const app = express();
 const url = require("url");
-const cors = require("cors");
 app.use(cors({ origin: true }));
 var a = [];
 app.get("/post",(req, res) => {
   var q = url.parse(req.url, true).query;
-  var ip = req.headers["x-real-ip"];
-  if (ip) {
-    ip = ip.split(".");
-    ip[0] = "**";
-    if (ip.length > 3) {
-      ip[3] = "**";
-    }
-    ip = ip.join(".");
-  } else {
-    ip = "";
-  }
-  q.ip = ip;
   if (q.title || q.sid) {
     a.push(q);
   }
@@ -36,3 +23,5 @@ app.get("/get",(req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.end(JSON.stringify(a));
 });
+
+app.listen(23912);
