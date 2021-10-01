@@ -46,7 +46,7 @@ function startdownload(box) {
     if (box.downloading) {
         return;
     }
-    let url = "https://txy1.sayobot.cn/beatmaps/download/mini/" + box.sid;
+    let url = "https://api.chimu.moe/v1/download/"+ box.sid +"?n=0";
     box.downloading = true;
     box.classList.add("downloading");
     let xhr = new XMLHttpRequest();

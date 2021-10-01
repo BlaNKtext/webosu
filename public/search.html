@@ -3,9 +3,7 @@
 <head>
     <title>Search | webosu!</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-   <meta name="description"
-        content="The unofficial osu web port with a huge pool of beatmaps">
-    
+    <meta name="description" content="The unofficial osu web port with a huge pool of beatmaps">
     <link rel="icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/picnic.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
@@ -58,8 +56,12 @@
     </nav>
     <div class="main-page" id="main-page">
         <div class="main-content">
+            <div class="announcement">
+                Notice: If you live in a Asian country and beatmaps are not loading, please use a VPN such as <a href="https://protonvpn.com/pricing">ProtonVPN</a>
+            </div>
+            <br>
             <div class="beatmap-list" id="beatmap-list">
-                <!-- to be filled in script -->
+            <!-- to be filled in script -->
             </div>
             <div class="button" style="width:100%; margin-bottom: 10px;" id="btnmore">Load More</div>
             <!--Footer-->
@@ -88,7 +90,7 @@
     <script>
         let url = new URL(window.location.href);
         let keyword = url.searchParams.get("q");
-        // remove quotes, trailing spaces and duplicate spaces
+        // Remove quotes, trailing spaces and duplicate spaces
         keyword = keyword.split('"').join(' ').trim().replace(/ +/g, ' ');
         document.getElementById("inputtext").value = keyword;
         var cur = 0;
@@ -115,14 +117,8 @@
     </script>
 </body>
 <script type="module">
-  // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyBJyrBf03GhNZbupO6uU-wtDTfAC_zY8_0",
     authDomain: "webosu.firebaseapp.com",
@@ -132,8 +128,6 @@
     appId: "1:138250997417:web:be7407c18de702880763b8",
     measurementId: "G-55J58MR5ZW"
   };
-
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 </script>
