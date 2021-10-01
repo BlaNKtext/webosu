@@ -256,7 +256,7 @@
         function refreshLivescore() {
             let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
-                xhr.open("GET", "https://us-central1-webosu.cloudfunctions.net/app/get");
+                xhr.open("GET", "https://webosu.chimu.moe/backend/get");
                 xhr.onload = function () {
                 showActivity(JSON.parse(xhr.response));
                 }
