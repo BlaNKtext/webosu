@@ -37,5 +37,4 @@ app.get("/get",(req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.end(JSON.stringify(a));
 });
-
 exports.app = functions.https.onRequest(app);
