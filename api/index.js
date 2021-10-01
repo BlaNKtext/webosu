@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const url = require("url");
-app.use(cors({ origin: true }));
 var a = [];
 app.get("/post",(req, res) => {
   var q = url.parse(req.url, true).query;
