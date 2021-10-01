@@ -251,7 +251,7 @@ define([], function () {
 
         function uploadScore(summary) {
             let xhr = new XMLHttpRequest();
-            let url = "https://webosu.chimu.moe/backend/post";
+            let url = "https://us-central1-webosu.cloudfunctions.net/app/post";
             url += "?sid=" + encodeURIComponent(summary.sid);
             url += "&bid=" + encodeURIComponent(summary.bid);
             url += "&title=" + encodeURIComponent(summary.title);

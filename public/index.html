@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font.css">
     <link rel="stylesheet" type="text/css" href="assets/css/popup.css">
+    <script defer src="assets/js/popup.js"></script>
     <script src="assets/js/launchgame.js"></script>
     <script src="assets/js/downloader.js"></script>
     <script src="assets/js/addbeatmaplist.js"></script>
@@ -18,28 +19,28 @@
     <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#iG7WX6p8"></script>
     <script defer data-domain="webosu.chimu.moe" src="https://plausible.io/js/plausible.js"></script>
-    <script defer data-domain="webosu.online" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="webosu.online" src="https://plausible.io/js/plausible.js"></script>
 </head>
-<body onload="openModal(modal)">
-    <div class="modal" id="modal">
+<!--onload="openModal(modal)"-->
+<body>
+    <!--<div class="modal" id="modal">
         <div class="modal-header">
           <div class="title">Notice</div>
           <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
-        <!--Write plaintext here-->
         Hi guys, quick notice here<br>
-        I released the re-design on <a href="https://webosu.online/testing/">webosu!testing</a> 
+        I released the UI update on <a href="https://webosu.online/testing/">webosu!testing</a> 
         but I've gotten no feedback, and I'm not sure what to do with it<br>
         If you'd like to give me feedback or help me test future updates, or even have any complaints/suggestions<br>
         Please, join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> and give me feedback!
         <br>
         - BlaNK
-        <!--<img src="https://cdn.discordapp.com/emojis/888252208083263508.png?v=1" alt=":tf:" width="56" height="56">-->
+        <img src="https://cdn.discordapp.com/emojis/888252208083263508.png?v=1" alt=":tf:" width="56" height="56">
         </div>
       </div>
-      <div id="overlay"></div>
-    <!--Pause menu-->
+    <div id="overlay"></div>-->
+    <!--Game Area-->
     <div class="game-area" id="game-area" hidden>
     </div>
     <div class="pause-menu" id="pause-menu" hidden>
@@ -59,10 +60,10 @@
     <!--Nav Bar-->
     <nav id="main-nav">
         <div class="nav-link">
-            <a href="index.html" class="brand">webosu!</a>
-            <a href="new.html" class="pseudo button">New</a>
-            <a href="hot.html" class="pseudo button">Popular</a>
-            <a href="browse.html" class="pseudo button">Browse</a>
+            <a href="/testing/index.html" class="brand">webosu!</a>
+            <a href="/testing/new.html" class="pseudo button">New</a>
+            <a href="/testing/hot.html" class="pseudo button">Popular</a>
+            <a href="/testing/browse.html" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
             <form action="search.html">
@@ -72,19 +73,19 @@
             </form>
         </div>
         <div class="nav-tool">
-            <a href="faq.html" class="pseudo button">FAQ</a>
-            <a href="local.html" class="pseudo button">Favorites</a>
-            <a href="settings.html" class="pseudo button">Settings</a>
+            <a href="/testing/faq.html" class="pseudo button">FAQ</a>
+            <a href="/testing/local.html" class="pseudo button">Favorites</a>
+            <a href="/testing/settings.html" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
         </div>
     </nav>
-    <!--Main page-->
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
-                Notice: If you live in a Asian country and beatmaps are not loading, try using a VPN such as <a href="https://protonvpn.com/pricing">ProtonVPN</a>
+                Notice: If you live in a Asian country and beatmaps are not loading, please use a VPN such as <a href="https://protonvpn.com/pricing">ProtonVPN</a>
             </div>
             <br>
+            <button class="popup-btn" data-modal-target="#modal">Changelogs</button>
             <div class="index-area">
                 <h2>Public plays</h2>
                 <hr/>
@@ -107,7 +108,7 @@
             </div>
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
-                <a href="hot.html" class="more">See more Popular Beatmaps</a>
+                <a href="/testing/hot.html" class="more">See more Popular Beatmaps</a>
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list-hot">
                 <!-- Beatmaps will be here -->
@@ -123,7 +124,7 @@
             </div>
             <div class="index-area">
                 <h2>Favorited Beatmaps</h2>
-                <a href="local.html" class="more">See all favorited Beatmaps</a>
+                <a href="/testing/local.html" class="more">See all favorited Beatmaps</a>
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list-liked">
                 <!-- Beatmaps will be here -->
@@ -131,26 +132,20 @@
             </div>
             <div class="index-area">
                 <h2>Latest Beatmaps</h2>
-                <a href="new.html" class="more">See all latest Beatmaps</a>
+                <a href="/testing/new.html" class="more">See all latest Beatmaps</a>
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list-new">
                 <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
-                <h2>Random Beatmaps<h2>
                 <a onclick="genRandomList()" class="more" style="cursor:pointer;">Get new random Beatmaps</a>
+                <h2>Random Beatmaps<h2>
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list-random">
                 <!-- to be filled in script -->
                 </div>
             </div>
-            <!--Footer-->
-            <footer class="footer">
-                <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> if you have any problems!</div>
-                <div class="text">Beatmap API: <a href="https://osu.sayobot.cn/">Sayobot</a></div>
-                <div class="text">Stable Release: <a href="https://github.com/BlaNKtext/webosu">2.6.5</a></div>
-            </footer>
             <!--Loader progress-->
             <div class="statuslines" id="statuslines">
                 <div class="progress" id="script-progress">
@@ -166,8 +161,17 @@
                     <div class="lds-dual-ring"></div>
                 </div>
             </div>
+        </div>    
+        <!--Footer-->
+        <div class="footer">
+            <div class="footer-infos">
+                <span class="footer-info">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a>!</span>
+                <span class="footer-info">Beatmap API: <a href="https://chimu.moe/">Chimu.moe</a></span>
+                <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">BETA-2.7.7</a></span>
+            </div>
         </div>
         <script>
+        // Popup Script
         const openModalButtons = document.querySelectorAll('[data-modal-target]')
         const closeModalButtons = document.querySelectorAll('[data-close-button]')
         const overlay = document.getElementById('overlay')
@@ -202,6 +206,8 @@
              overlay.classList.remove('active')
             console.log("Modal Closed")
         }
+        </script>
+        <script>
         // Live scores
         let tbody = document.getElementById("activity-list");
         function formattime(date) {
@@ -224,7 +230,10 @@
                     else
                         td.innerText = content;
                 }
-                let b = "Player";
+                let b = records[i].ip.split(".");
+                b[0] = "Player";
+                if (b.length > 3) b[3] = "Player";
+                nexttd(b.join("."));
                 let title = document.createElement("a");
                     title.innerText = records[i].title + " [" + records[i].version + "]";
                     title.title = records[i].title + " [" + records[i].version + "]";
@@ -254,7 +263,7 @@
         function refreshLivescore() {
             let xhr = new XMLHttpRequest();
                 xhr.responseType = 'text';
-                xhr.open("GET", "https://webosu.chimu.moe/backend/get");
+                xhr.open("GET", "https://us-central1-webosu.cloudfunctions.net/app/get");
                 xhr.onload = function () {
                 showActivity(JSON.parse(xhr.response));
                 }
@@ -309,7 +318,7 @@
         }
         genRandomList();
         // Get hot beatmaps
-        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=4&1=0&2=1&5=1", document.getElementById(
+        addBeatmapList("https://api.sayobot.cn/beatmaplist?0=6&1=0&2=1&5=1", document.getElementById(
             "beatmap-list-hot"));
         // Favorite beatmaps
         if (window.localforage) {

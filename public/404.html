@@ -4,11 +4,11 @@
     <title>404 | webosu!</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
     <meta name="description" content="The unofficial web port of the rhythm game osu! with a huge pool of beatmaps and a clean, lazer-like UI this is one of the best osu! web ports">
+    
     <link rel="icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/picnic.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font.css">
-    <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#iG7WX6p8"></script>
     <script defer data-domain="webosu.chimu.moe" src="https://plausible.io/js/plausible.js"></script>
 <script defer data-domain="webosu.online" src="https://plausible.io/js/plausible.js"></script>
@@ -17,10 +17,10 @@
     <!--Nav Bar-->
     <nav id="main-nav">
         <div class="nav-link">
-            <a href="index.html" class="brand">webosu!</a>
-            <a href="new.html" class="pseudo button">New</a>
-            <a href="hot.html" class="pseudo button">Popular</a>
-            <a href="browse.html" class="pseudo button">Browse</a>
+            <a href="/testing/index.html" class="brand">webosu!</a>
+            <a href="/testing/new.html" class="pseudo button">New</a>
+            <a href="/testing/hot.html" class="pseudo button">Popular</a>
+            <a href="/testing/browse.html" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
             <form action="search.html">
@@ -30,9 +30,9 @@
             </form>
         </div>
         <div class="nav-tool">
-            <a href="faq.html" class="pseudo button">FAQ</a>
-            <a href="local.html" class="pseudo button">Favorites</a>
-            <a href="settings.html" class="pseudo button">Settings</a>
+            <a href="/testing/faq.html" class="pseudo button">FAQ</a>
+            <a href="/testing/local.html" class="pseudo button">Favorites</a>
+            <a href="/testing/settings.html" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
         </div>
     </nav>
@@ -45,11 +45,15 @@
             <br>
             <div class="index-area">
                 <h2>The page you are looking for doesn't exist. Check the URL for typos or click the webosu! button to go home.</h2>
-                <!--Footer-->
-        <footer class="footer">
-                <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server if have any problems!</a></div>
-                <div class="text">Beatmap API: <a href="https://osu.sayobot.cn/">Sayobot</a></div>
-                <div class="text">Stable Release: <a href="https://github.com/BlaNKtext/webosu">2.6.5</a></div>
+            <!--Footer-->
+            <footer>
+            <div class="footer">
+                <div class="footer-infos">
+                    <span class="footer-info">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a>!</span>
+                    <span class="footer-info">Beatmap API: <a href="https://chimu.moe/">Chimu.moe</a></span>
+                    <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">BETA-2.7.7</span>
+                </div>
+            </div>
         </footer>
             </div>
         </div>

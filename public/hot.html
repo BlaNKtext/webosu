@@ -13,8 +13,7 @@
     <script src="assets/js/addbeatmaplist.js"></script>
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/jsloader.js"></script>
-    <script async src="https://arc.io/widget.min.js#iG7WX6p8"></script>
-    <script defer data-domain="webosu.chimu.moe" src="https://plausible.io/js/plausible.js"></script>
+    <script async src="https://arc.io/widget.min.js#iG7WX6p8"></script><script defer data-domain="webosu.chimu.moe" src="https://plausible.io/js/plausible.js"></script>
 <script defer data-domain="webosu.online" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
@@ -38,10 +37,10 @@
     <!--Nav bar-->
     <nav id="main-nav">
         <div class="nav-link">
-            <a href="index.html" class="brand">webosu!</a>
-            <a href="new.html" class="pseudo button">New</a>
-            <a href="hot.html" class="pseudo button active">Popular</a>
-            <a href="browse.html" class="pseudo button">Browse</a>
+            <a href="/testing/index.html" class="brand">webosu!</a>
+            <a href="/testing/new.html" class="pseudo button">New</a>
+            <a href="/testing/hot.html" class="pseudo button active">Popular</a>
+            <a href="/testing/browse.html" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
             <form action="search.html">
@@ -51,9 +50,9 @@
             </form>
         </div>
         <div class="nav-tool">
-            <a href="faq.html" class="pseudo button">FAQ</a>
-            <a href="local.html" class="pseudo button">Favorites</a>
-            <a href="settings.html" class="pseudo button">Settings</a>
+            <a href="/testing/faq.html" class="pseudo button">FAQ</a>
+            <a href="/testing/local.html" class="pseudo button">Favorites</a>
+            <a href="/testing/settings.html" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
         </div>
     </nav>
@@ -65,15 +64,9 @@
             </div>
             <br>
             <div class="beatmap-list" id="beatmap-list">
-            <!-- to be filled in script -->
+                <!-- to be filled in script -->
             </div>
             <div class="button" style="width:100%; margin-bottom: 10px;" id="btnmore">Load More</div>
-            <!--Footer-->
-        <footer class="footer">
-            <div class="text">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server if have any problems!</a></div>
-            <div class="text">Beatmap API: <a href="https://osu.sayobot.cn/"> Sayobot</a></div>
-            <div class="text">Stable Release: <a href="https://github.com/BlaNKtext/webosu">2.6.5</a></div>
-        </footer>
         </div>
     </div>
     <!-- <div class="side-panel">to be activated in script</div> -->
@@ -91,6 +84,16 @@
             <div class="lds-dual-ring"></div>
         </div>
     </div>
+    <!--Footer-->
+    <footer>
+        <div class="footer">
+            <div class="footer-infos">
+                <span class="footer-info">Join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a>!</span>
+                <span class="footer-info">Beatmap API: <a href="https://chimu.moe/">Chimu.moe</a></span>
+                <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">BETA-2.7.7</span>
+            </div>
+        </div>
+    </footer>
     <script>
         addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=1&5=1");
         var cur = 20;
@@ -102,7 +105,6 @@
                     document.getElementById("btnmore").innerText = "There is no more beatmaps to load!";
                 else
                     addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + window.list_endid + "&2=1&5=1");
-
             }
             cur += 20;
         }

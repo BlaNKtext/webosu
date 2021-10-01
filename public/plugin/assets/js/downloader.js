@@ -40,20 +40,12 @@ function startpreview(box) {
         }, 10);
     }
 }
-
-//function log_to_server(message) {
-//    let url = "http://api.osugame.online/log/?msg=" + message;
-//    let xhr = new XMLHttpRequest();
-//    xhr.open("GET", url);
-//    xhr.send();
-//}
-
 function startdownload(box) {
     startpreview(box);
     if (box.downloading) {
         return;
     }
-    let url = "https://txy1.sayobot.cn/beatmaps/download/mini/" + box.sid;
+    let url = "https://api.chimu.moe/v1/download/" + box.sid + "?n-0";
     box.downloading = true;
     box.classList.add("downloading");
     let xhr = new XMLHttpRequest();
