@@ -1,5 +1,5 @@
 {
-  "name": "webosu!functions",
+  "name": "webosu-functions",
   "description": "webosu!backend",
   "scripts": {
     "serve": "firebase emulators:start --only functions",
