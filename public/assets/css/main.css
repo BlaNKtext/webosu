@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 body {
   background: #282c34;
   color: #d0d5df;
@@ -32,10 +31,6 @@ body {
 canvas {
   display: block;
 }
-
-.game-area {}
-
-body.gaming {}
 
 .game-area.showhwmousemedium {
   cursor: url("cursor.cur") 40 40, url("cursorsmall.cur") 30 30, crosshair !important;
@@ -108,7 +103,6 @@ nav .brand {
     left: 40px !important;
   }
 }
-
 nav .pseudo.button {
   margin-top: 0.7em;
   height: 2.3em;
@@ -128,13 +122,13 @@ nav form {
 }
 
 /*fix placeholder color for chrome*/
-form input[type="text"]::-webkit-input-placeholder {
+form input[type=text]::-webkit-input-placeholder {
   color: #849cac;
 }
 
-form input[type="text"] {
+form input[type=text] {
   height: 36px;
-  margin-top: 6px;
+  margin-top: 4.5px;
 }
 
 form input {
@@ -151,7 +145,7 @@ form input {
 }
 
 .main-page {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .announcement {
@@ -161,10 +155,12 @@ form input {
   padding-left: 6px;
   padding-top: 2px;
   padding-bottom: 2px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .index-area table {
-  max-width: 812px;
+  width: 1250px;
   white-space: nowrap;
   table-layout: fixed;
   font-size: 0.9em;
@@ -183,7 +179,7 @@ thead {
   max-width: 400px;
   text-overflow: ellipsis;
   overflow: hidden;
-  padding: .3em 0.9em .3em .0em;
+  padding: 0.3em 0.9em 0.3em 0em;
 }
 
 .index-area td:nth-child(1) {
@@ -262,11 +258,27 @@ thead {
   color: #999;
 }
 
+.footer {
+  margin-bottom: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
+  border-radius: 4px 4px 4px 4px;
+  overflow-x: hidden;
+  padding: 1.5rem;
+  background: #22252C;
+  font-size: 15px;
+  text-align: center;
+}
+
+.footer-info {
+  margin: 8px;
+}
+
 .main-content {
   border-radius: 4px;
   margin: auto;
   padding-top: 12px;
-  width: 812px;
+  width: 1225px;
   height: 100%;
 }
 
@@ -275,10 +287,9 @@ thead {
     width: 400px;
   }
 }
-
 .index-area {
   position: relative;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 .index-area .more {
@@ -320,7 +331,7 @@ thead {
   box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.6);
   width: 120%;
   left: -10%;
-  background: rgba(0, 0, 0, 0.3)
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .pausebutton {
@@ -344,7 +355,7 @@ thead {
 .pausebutton .inner {
   transform: skewX(19deg);
   padding-top: 0.4em;
-  text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.2)
+  text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .pausebutton.continue {
@@ -371,11 +382,11 @@ thead {
   font-size: 1.2rem;
 }
 
-.grading>* {
+.grading > * {
   transition: 0.4s ease opacity;
 }
 
-.grading.transparent>* {
+.grading.transparent > * {
   opacity: 0;
 }
 
@@ -605,8 +616,6 @@ thead {
   content: "History Best: ";
 }
 
-.grading .fullcombo {}
-
 .grading .fullcombo:before {
   position: absolute;
   content: "Full Combo";
@@ -701,7 +710,7 @@ thead {
   right: 0px;
   padding-top: 48px;
   height: 100%;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .side-panel .imgwrapper {
@@ -721,7 +730,7 @@ thead {
 
 .side-panel .imgwrapper .overlay {
   width: 100%;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .7));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
   height: 100%;
   position: absolute;
 }
@@ -733,7 +742,7 @@ thead {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, .75);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
 }
 
 .side-panel .imgwrapper .title {
@@ -773,10 +782,10 @@ thead {
 .panel {
   background: #292929;
   border-radius: 5px;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
   margin: 12px auto;
   padding: 15px;
-  width: 425px;
+  width: 410px;
   height: 100%;
 }
 
@@ -800,6 +809,7 @@ h3 {
   padding-right: 12px;
   width: 152px;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7);
+  border-radius: 0px 4px 4px 0px;
 }
 
 .download-progress {
@@ -844,32 +854,19 @@ progress.finished::-webkit-progress-value {
   line-height: 1.8em;
 }
 
+/* Beatmap Box/List */
 .beatmap-list {
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+  margin-right: -17px;
   position: relative;
-  margin-right: -12px;
-  /* to cancel padding-right of last column*/
-}
-
-.beatmapbox {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
-  background: #21252b;
-  font-size: 18px;
-  height: 190px;
-  width: 400px;
-  margin-bottom: 12px;
-  margin-right: 12px;
-  position: relative;
-  cursor: pointer;
-  border-radius: 4px;
-  /* shouldn't hide overflow because we have to show difficulty selection box */
-  /* but we must ensure content don't get outside this box */
 }
 
 .dragbox {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   background: #eee;
   color: #666;
   border-radius: 6px;
@@ -887,8 +884,21 @@ progress.finished::-webkit-progress-value {
   line-height: 1.5em;
 }
 
+.beatmapbox {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  background: #21252b;
+  font-size: 18px;
+  height: 190px;
+  width: 400px;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 .beatmapbox:hover {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .7);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.7);
 }
 
 .beatmapcover {
@@ -910,11 +920,11 @@ progress.finished::-webkit-progress-value {
 }
 
 .beatmappreview:before {
-  content: "\F144"
+  content: "\f144";
 }
 
 .beatmapcover-overlay {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .7));
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
   width: 100%;
   height: 130px;
   position: absolute;
@@ -922,9 +932,9 @@ progress.finished::-webkit-progress-value {
 
 .beatmaptitle {
   width: 400px;
-  padding-top: 73px;
-  padding-left: 10px;
-  padding-right: 10px;
+  top: 73px;
+  left: 10px;
+  right: 10px;
   font-size: 1.3em;
   font-style: italic;
   color: rgb(221, 221, 221);
@@ -932,14 +942,14 @@ progress.finished::-webkit-progress-value {
   position: absolute;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, .75);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
 }
 
 .beatmapartist {
   width: 400px;
-  padding-top: 102px;
-  padding-left: 10px;
-  padding-right: 10px;
+  top: 102px;
+  left: 10px;
+  right: 10px;
   font-size: 0.8em;
   font-style: italic;
   color: rgb(221, 221, 221);
@@ -947,12 +957,12 @@ progress.finished::-webkit-progress-value {
   position: absolute;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, .75);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
 }
 
 .beatmapcreator {
-  padding-top: 134px;
-  padding-left: 10px;
+  top: 134px;
+  left: 10px;
   color: #b0b7c3;
   font-size: 14px;
   overflow: hidden;
@@ -987,8 +997,8 @@ progress.finished::-webkit-progress-value {
 }
 
 .beatmapauthor {
-  padding-top: 102px;
-  padding-left: 10px;
+  top: 102px;
+  left: 10px;
   color: #b0b7c3;
   font-size: 14px;
   padding-top: 10px;
@@ -1016,13 +1026,13 @@ progress.finished::-webkit-progress-value {
   font-style: italic;
   color: #b0b7c3;
   font-size: 0.8em;
-  padding-top: 102px;
+  bottom: 60px;
 }
 
 .beatmap-difficulties {
   position: absolute;
-  padding-top: 160px;
-  padding-left: 10px;
+  top: 160px;
+  left: 10px;
 }
 
 .beatmaplike {
@@ -1062,16 +1072,14 @@ progress.finished::-webkit-progress-value {
   0% {
     opacity: 1;
   }
-
   70% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
 }
-
+/* Settings Page */
 .panel table {
   width: 100%;
 }
@@ -1080,7 +1088,6 @@ progress.finished::-webkit-progress-value {
   height: 2.7em;
   position: relative;
   transform: scale(1);
-  /* workaround table relative ignored https://stackoverflow.com/a/51407758 */
 }
 
 .panel tr:last-child {
@@ -1136,7 +1143,7 @@ input[type=checkbox] {
   z-index: 2;
 }
 
-input[type=checkbox]+span {
+input[type=checkbox] + span {
   background: rgba(85, 85, 85, 0);
   border-radius: 10px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
@@ -1145,31 +1152,31 @@ input[type=checkbox]+span {
   margin: 2px 2px;
   position: relative;
   width: 40px;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
-input[type=checkbox]+span::before,
-input[type=checkbox]+span::after {
+input[type=checkbox] + span::before,
+input[type=checkbox] + span::after {
   background: #eee;
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   height: 16px;
   top: 2px;
   border-radius: 50%;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
-input[type=checkbox]+span::after {
+input[type=checkbox] + span::after {
   right: 22px;
   width: 16px;
 }
 
-input[type=checkbox]:checked+span {
+input[type=checkbox]:checked + span {
   background: #9d7dcc;
 }
 
-input[type=checkbox]:checked+span::after {
+input[type=checkbox]:checked + span::after {
   right: 2px;
   width: 16px;
 }
@@ -1202,7 +1209,7 @@ input[type=checkbox]:checked+span::after {
   left: 0px;
   opacity: 0.8;
   margin-left: -1%;
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }
 
 .range-indicator:after {
@@ -1221,10 +1228,9 @@ input[type=checkbox]:checked+span::after {
 
 input[type=button] {
   cursor: pointer;
-  border-radius: 12px;
   position: relative;
   width: auto;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   color: #eee;
   font-size: 16px;
   line-height: 17px;
@@ -1298,7 +1304,6 @@ input[type=range]::-webkit-slider-thumb {
   background: #ddd;
   cursor: pointer;
   margin-top: -8px;
-  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
 }
 
 input[type=range]::-webkit-slider-thumb:after {
@@ -1315,29 +1320,33 @@ input[type=file] {
   overflow: hidden !important;
   color: unset;
   appearance: none;
-  cursor: default;
+  cursor: pointer;
   border: none;
   background-color: #46406b;
 }
 
-input[type=file]>label {
+input[type=file] > label {
   display: inline-block;
   min-inline-size: 12em;
   text-align: match-parent;
-
   color: unset;
   font-size: unset;
   letter-spacing: unset;
-
   user-select: none;
   unicode-bidi: plaintext;
 }
 
 ::file-selector-button {
-  font-size: 10;
-  letter-spacing: unset;
-  cursor: unset;
-  margin-inline-end: 5px;
+  text-align: initial;
+  text-indent: initial;
+  text-transform: initial;
+  word-spacing: initial;
+  letter-spacing: initial;
+  color: #d0d5df;
+  font-family: "Comfortaa";
+  font-size: 12px;
+  border-radius: 5px;
+  background-color: #ffffff00;
 }
 
 ::-webkit-slider-runnable-track {
@@ -1365,16 +1374,18 @@ input[type=file]>label {
 }
 
 hr {
-  height: 2px;
+  height: 2.5px;
   margin-bottom: 12px;
   border: none;
   background: #9d7dcc;
+  border-radius: 9px 9px 9px 9px;
 }
 
 div[hidden=""] {
   visibility: hidden;
 }
 
+/* Difficulty Area */
 .difficulty-box {
   width: auto;
   min-width: 360px;
@@ -1389,12 +1400,10 @@ div[hidden=""] {
   0% {
     transform: scaleY(0);
   }
-
   100% {
     transform: scaleY(1);
   }
 }
-
 .difficulty-item {
   background: #2c2c34;
   box-shadow: 2px 2px 5px #000;
@@ -1426,6 +1435,7 @@ body:not(.sound-ready) .difficulty-item {
   cursor: wait;
 }
 
+/* Difficulty Colors */
 .difficulty-item span {
   top: -5px;
   left: 4px;
@@ -1560,16 +1570,17 @@ body:not(.sound-ready) .difficulty-item {
   border-color: #000;
 }
 
-.faqentry {
-  margin-bottom: 2em;
-}
-
-.faqentry h2 {
-  margin-bottom: 0.3em;
-}
-
 /* loading status lines */
 /* loader */
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .lds-dual-ring {
   display: inline-block;
   width: 1em;
@@ -1589,19 +1600,9 @@ body:not(.sound-ready) .difficulty-item {
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
-@keyframes lds-dual-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 .finished .lds-dual-ring:after {
   border: none;
-  content: "\2714";
+  content: "✔";
   color: #88b300;
   line-height: 0.8em;
   animation: none;
