@@ -223,10 +223,7 @@
                     else
                         td.innerText = content;
                 }
-                let b = records[i].ip.split(".");
-                b[0] = "Player";
-                if (b.length > 3) b[3] = "Player";
-                nexttd(b.join("."));
+                let b = "Player";
                 let title = document.createElement("a");
                     title.innerText = records[i].title + " [" + records[i].version + "]";
                     title.title = records[i].title + " [" + records[i].version + "]";
