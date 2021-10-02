@@ -3,7 +3,7 @@
 <head>
     <title>Home | webosu!</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="The unofficial osu web port with a huge pool of beatmaps">
+    <meta name="description" content="The unofficial web port of the rhythm game osu! using chimu.moe">
     <meta name="google-site-verification" content="8AkmJlQlXyRY96VwUM7YAOEAZSWqW98tObByi1trF8c" />
     <link rel="icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/picnic.min.css">
@@ -18,8 +18,7 @@
     <script src="assets/js/jsloader.js"></script>
     <script src="assets/js/lib/localforage.min.js"></script>
     <script async src="https://arc.io/widget.min.js#iG7WX6p8"></script>
-    <script defer data-domain="webosu.chimu.moe" src="https://plausible.io/js/plausible.js"></script>
-<script defer data-domain="webosu.online" src="https://plausible.io/js/plausible.js"></script>
+    <script defer data-domain="webosu.online,webosu.chimu.moe" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <!--onload="openModal(modal)"-->
 <body>
@@ -30,7 +29,7 @@
         </div>
         <div class="modal-body">
         Hi guys, quick notice here<br>
-        I released the UI update on <a href="https://webosu.online/testing/">webosu!testing</a> 
+        I released the UI update on <a href="https://webosu.online">webosu!testing</a> 
         but I've gotten no feedback, and I'm not sure what to do with it<br>
         If you'd like to give me feedback or help me test future updates, or even have any complaints/suggestions<br>
         Please, join the <a href="https://discord.gg/gHgcR92QMy">Discord server</a> and give me feedback!
@@ -60,10 +59,10 @@
     <!--Nav Bar-->
     <nav id="main-nav">
         <div class="nav-link">
-            <a href="/testing/index.html" class="brand">webosu!</a>
-            <a href="/testing/new.html" class="pseudo button">New</a>
-            <a href="/testing/hot.html" class="pseudo button">Popular</a>
-            <a href="/testing/browse.html" class="pseudo button">Browse</a>
+            <a href="index.html" class="brand">webosu!</a>
+            <a href="new.html" class="pseudo button">New</a>
+            <a href="hot.html" class="pseudo button">Popular</a>
+            <a href="browse.html" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
             <form action="search.html">
@@ -73,9 +72,9 @@
             </form>
         </div>
         <div class="nav-tool">
-            <a href="/testing/faq.html" class="pseudo button">FAQ</a>
-            <a href="/testing/local.html" class="pseudo button">Favorites</a>
-            <a href="/testing/settings.html" class="pseudo button">Settings</a>
+            <a href="faq.html" class="pseudo button">FAQ</a>
+            <a href="local.html" class="pseudo button">Favorites</a>
+            <a href="settings.html" class="pseudo button">Settings</a>
             <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
         </div>
     </nav>
@@ -108,7 +107,7 @@
             </div>
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
-                <a href="/testing/hot.html" class="more">See more Popular Beatmaps</a>
+                <a href="hot.html" class="more">See more Popular Beatmaps</a>
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list-hot">
                 <!-- Beatmaps will be here -->
@@ -124,7 +123,7 @@
             </div>
             <div class="index-area">
                 <h2>Favorited Beatmaps</h2>
-                <a href="/testing/local.html" class="more">See all favorited Beatmaps</a>
+                <a href="local.html" class="more">See all favorited Beatmaps</a>
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list-liked">
                 <!-- Beatmaps will be here -->
@@ -132,7 +131,7 @@
             </div>
             <div class="index-area">
                 <h2>Latest Beatmaps</h2>
-                <a href="/testing/new.html" class="more">See all latest Beatmaps</a>
+                <a href="new.html" class="more">See all latest Beatmaps</a>
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list-new">
                 <!-- Beatmaps will be here -->

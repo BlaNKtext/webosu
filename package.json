@@ -1,7 +1,7 @@
 {
   "name": "webosu",
   "version": "2.6.7",
-  "description": "The unofficial osu web port with a huge pool of beatmaps",
+  "description": "The unofficial web port of the rhythm game osu! using chimu.moe",
   "main": "app.js",
   "repository": {
     "type": "git",
