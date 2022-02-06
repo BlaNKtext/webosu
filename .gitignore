@@ -73,3 +73,8 @@ sitemap.xml
 # In development
 custom
 newapi
+
+# Supabase
+**/supabase/.branches
+**/supabase/.temp
+**/supabase/.env

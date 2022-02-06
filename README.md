@@ -1,5 +1,5 @@
 # webosu! 2.6.5
-Feel free to drop by the [Discord server](https://discord.gg/gHgcR92QMy)<br>
+Feel free to drop by the [Discord server](https://discord.gg/v7wBtSdYzx)<br>
 
 ## Info
 Beatmap API: [Sayobot](https://osu.sayobot.cn), transitioning to [Chimu](https://chimu.moe) soon.<br>
