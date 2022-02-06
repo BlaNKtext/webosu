@@ -722,7 +722,7 @@ var requirejs, require, define;
         g.createNode = function (b) {
             var c = b.xhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "html:script") : document.createElement("script");
             c.type = b.scriptType || "text/javascript";
-            c.charset = "utf-8";
+            c.charset = "UTF-8";
             c.async = !0;
             return c
         };
