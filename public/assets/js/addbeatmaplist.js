@@ -291,15 +291,15 @@ var NSaddBeatmapList = {
 
     // async
     requestMoreInfo: function (box) {
-        let url = "https://api.sayobot.cn/beatmapinfo?1=" + box.sid;
-        let xhr = new XMLHttpRequest();
-        xhr.responseType = 'text';
-        xhr.open("GET", url);
-        xhr.onload = function () {
-            let res = JSON.parse(xhr.response);
-            NSaddBeatmapList.addMoreInfo(box, res.data);
-        }
-        xhr.send();
+        fetch("https://api.sayobot.cn/beatmapinfo?1=" + box.sid)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                if (data.length > 0) {
+                    NSaddBeatmapList.addMoreInfo(box, data);
+                }
+            });
     }
 }
 
@@ -357,30 +357,19 @@ function addBeatmapList(listurl, list, filter, maxsize) {
 
 function addBeatmapSid(sid, list) {
     if (!list) list = document.getElementById("beatmap-list");
-    let url = "https://api.sayobot.cn/v2/beatmapinfo?0=" + sid;
-    let xhr = new XMLHttpRequest();
-    xhr.responseType = 'text';
-    xhr.open("GET", url);
-    xhr.onload = function () {
-        let res = JSON.parse(xhr.response);
-        if (res.status == -1) {
-            alert("Beatmap not found with specified sid");
-            return;
-        }
-        // use data of first track as set data
-        let box = NSaddBeatmapList.addpreviewbox(res.data, list);
-        box.sid = res.data.sid;
-        NSaddBeatmapList.requestMoreInfo(box);
-        box.onclick = function (e) {
-            // this is effective only when box.data is available
-            createDifficultyList(box, e);
-            startdownload(box);
-        }
-        if (window.beatmaplistLoadedCallback) {
-            window.beatmaplistLoadedCallback();
-            window.beatmaplistLoadedCallback = null;
-            // to make sure it's called only once
-        }
-    }
-    xhr.send();
+    fetch("https://api.sayobot.cn/v2/beatmapinfo?0=" + sid)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            if (data.length > 0) {
+                let box = NSaddBeatmapList.addpreviewbox(data[0], list);
+                box.sid = sid;
+                NSaddBeatmapList.requestMoreInfo(box);
+                box.onclick = function (e) {
+                    createDifficultyList(box, e);
+                    startdownload(box);
+                }
+            }
+        });
 }
