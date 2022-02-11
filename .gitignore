@@ -78,3 +78,5 @@ newapi
 **/supabase/.branches
 **/supabase/.temp
 **/supabase/.env
+
+.vercel
