@@ -20,7 +20,7 @@ function createStarRow(star) {
         let img = document.createElement("img");
         container.appendChild(img);
         row.appendChild(container);
-        img.src = "star.png";
+        img.src = "assets/img/star.png";
         let value = Math.min(Math.max(star-i,0),1);
         let size = 8 + value*10;
         let pad = (1-value) * 5;
@@ -208,7 +208,7 @@ var NSaddBeatmapList = {
         // set beatmap title & artist display (prefer ascii title)
         pBeatmapTitle.innerText = map.title;
         pBeatmapArtist.innerText = map.artist;
-        pBeatmapCreator.innerText = "mapped by " + map.creator;
+        pBeatmapCreator.innerText = "Mapper: " + map.creator;
         pBeatmapCover.alt = "cover" + map.sid;
         pBeatmapCover.src = "https://cdn.sayobot.cn:25225/beatmaps/" + map.sid + "/covers/cover.webp";
         list.appendChild(pBeatmapBox);
