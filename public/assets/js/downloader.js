@@ -45,7 +45,7 @@ function startdownload(box) {
     if (box.downloading) {
         return;
     }
-    let url = "https://txy1.sayobot.cn/beatmaps/download/mini/" + box.sid;
+    let url = "https://catboy.best/d/" + box.sid;
     box.downloading = true;
     box.classList.add("downloading");
     let xhr = new XMLHttpRequest();
@@ -57,7 +57,7 @@ function startdownload(box) {
     let bar = document.createElement("progress");
     container.className = "download-progress";
     title.className = "title";
-    title.innerText = box.setdata.title;
+    title.innerText = box.setdata.Title;
     container.appendChild(title);
     container.appendChild(bar);
     // insert so that download list from recent to old

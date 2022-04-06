@@ -2,12 +2,13 @@ function launchOSU(osu, beatmapid, version) {
     // select track
     let trackid = -1;
     // mode can be 0 or undefined
-    for (let i = 0; i < osu.tracks.length; ++i)
-        if (osu.tracks[i].metadata.BeatmapID == beatmapid || !osu.tracks[i].mode && osu.tracks[i].metadata.Version == version)
+    for (let i = 0; i < osu.tracks.length; i++){
+        if (osu.tracks[i].metadata.BeatmapID == beatmapid || !osu.tracks[i].mode && osu.tracks[i].metadata.Version == version){
             trackid = i;
+        }
+    }
     console.log("Launching", beatmapid, version)
     if (trackid == -1) {
-        if (log_to_server) log_to_server("unmatch " + beatmapid + " " + version);
         console.error("No such track");
         console.log("Available tracks are:");
         for (let i = 0; i < osu.tracks.length; ++i)

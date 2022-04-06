@@ -39,11 +39,10 @@
             <a href="index.html" class="brand">webosu!</a>
             <a href="new.html" class="pseudo button">New</a>
             <a href="hot.html" class="pseudo button">Popular</a>
-            <a href="browse.html" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
             <form action="search.html">
-                <input type="text" id="inputtext" name="q" placeholder="Beatmap or SID" />
+                <input type="text" id="inputtext" name="q" placeholder="Beatmap name or Set ID" />
                 <input type="image" alt="Search" class="search-button" src="assets/img/search.svg">
             </form>
         </div>
@@ -51,13 +50,13 @@
             <a href="faq.html" class="pseudo button">FAQ</a>
             <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
-            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
+            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">F11</a>
         </div>
     </nav>
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
-                Notice: If beatmaps are not loading please use a VPN such as <a href="https://protonvpn.com/pricing">ProtonVPN</a>
+                Notice: API is now switched to <a href="https://catboy.best">Mino</a>!! For any issues join the <a href="https://discord.gg/v7wBtSdYzx">Discord></a>
             </div>
             <br>
             <div class="beatmap-list" id="beatmap-list">
@@ -81,16 +80,6 @@
             </div>
         </div>
     </div>
-    <!--Footer-->
-    <footer>
-        <div class="footer">
-            <div class="footer-infos">
-                <span class="footer-info">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</span>
-                <span class="footer-info">Beatmap API: <a href="https://sayobot.cn/">Sayobot</a></span>
-                <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">2.8</span>
-            </div>
-        </div>
-    </footer>
     <script>
         let url = new URL(window.location.href);
         let keyword = url.searchParams.get("q");
@@ -103,12 +92,16 @@
             addBeatmapSid(keyword);
         } else {
             // Insert keyword
-            addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=0&2=4&3=" + keyword + "&5=1");
-            cur = 20;
+            addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=0&status=-2`);
+            addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=0&status=1`);
+            addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=0&status=4`);
+            p = 1
         }
         document.getElementById("btnmore").onclick = function () {
             if (typeof (window.list_endid) == "undefined") {
-                addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + cur + "&2=4&3=" + keyword + "&5=1");
+                addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=${p}&status=-2`);
+                addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=${p}&status=1`);
+                addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=${p}&status=4`);
             } else {
                 if (window.list_endid == 0)
                     document.getElementById("btnmore").innerText = "There's no more beatmaps ;-;";
@@ -116,7 +109,7 @@
                     addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + window.list_endid + "&2=4&3=" +
                         keyword + "&5=1");
             }
-            cur += 20;
+            p++
         }
     </script>
 </body>

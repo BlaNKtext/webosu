@@ -19,12 +19,11 @@
             <a href="index.html" class="brand">webosu!</a>
             <a href="new.html" class="pseudo button">New</a>
             <a href="hot.html" class="pseudo button">Popular</a>
-            <a href="browse.html" class="pseudo button">Browse</a>
         </div>
         <div class="nav-search">
             <form action="search.html">
                 <container id="searchbar" class="searchbar">
-                    <input type="text" name="q" placeholder="Beatmap or SID" />
+                    <input type="text" name="q" placeholder="Beatmap name or Set ID" />
                 </container>
             </form>
         </div>
@@ -32,7 +31,7 @@
             <a href="faq.html" class="pseudo button">FAQ</a>
             <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button active">Settings</a>
-            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">Fullscreen</a>
+            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">F11</a>
         </div>
     </nav>
     <!--Main Page-->
@@ -80,7 +79,7 @@
                         <div class="option-control">
                             <input id="showhwmouse-check" type="checkbox" /><span></span>
                         </div>
-                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Makes cursor movement smoother and more normal, may cause lag on lower end systems.</div>
+                        <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Bypass accel and smoothing, may help with lag on lower end systems.</div>
                     </td>
                 </tr>
                 <tr>
@@ -242,14 +241,13 @@
                 <tr>
                     <td>
                         <div class="option-name">
-                            Custom hitsounds<br>(Accepts .ogg from unzipped .osk file)
+                            Custom hitsounds [BROKEN]
                         </div>
-                        <div class="option-control">
+                        <div class="option-control" hidden>
                             <input id="skinhitsound"
                                 style="padding: 10px 10px 30px 10px; padding-right: 100px; padding-top: 25px;"
                                 type="file" accept=".ogg,.wav" name="skin[]" multiple /><span></span>
                         </div>
-                        <br>
                         <div style="font-size: 0.8em; color: #999; margin-top: 2.2em;">Thanks to <a style="color: #9d7dcc" href="https://github.com/txst54">txst54</a> for custom hitsounds!</div>
                     </td>
                 </tr>
