@@ -191,6 +191,7 @@ var NSaddBeatmapList = {
         let pBeatmapArtist = document.createElement("div");
         let pBeatmapCreator = document.createElement("div");
         let pBeatmapApproved = document.createElement("div");
+        let pBeatmapSid = document.createElement("div");
         pBeatmapBox.className = "beatmapbox";
         pBeatmapCover.className = "beatmapcover";
         pBeatmapCoverOverlay.className = "beatmapcover-overlay";
@@ -198,17 +199,20 @@ var NSaddBeatmapList = {
         pBeatmapArtist.className = "beatmapartist";
         pBeatmapCreator.className = "beatmapcreator";
         pBeatmapApproved.className = "beatmapapproved";
+        pBeatmapSid.className = "beatmapsid";
         pBeatmapBox.appendChild(pBeatmapCover);
         pBeatmapBox.appendChild(pBeatmapCoverOverlay);
         pBeatmapBox.appendChild(pBeatmapTitle);
         pBeatmapBox.appendChild(pBeatmapArtist);
         pBeatmapBox.appendChild(pBeatmapCreator);
         pBeatmapBox.appendChild(pBeatmapApproved);
+        pBeatmapBox.appendChild(pBeatmapSid);
         NSaddBeatmapList.addlikeicon(pBeatmapBox);
         // set beatmap title & artist display (prefer ascii title)
         pBeatmapTitle.innerText = map.Title;
         pBeatmapArtist.innerText = map.Artist;
         pBeatmapCreator.innerText = "Mapper: " + map.Creator;
+        pBeatmapSid.innerText = map.SetID;
         pBeatmapCover.alt = "cover" + map.SetID;
         pBeatmapCover.src = "https://assets.ppy.sh/beatmaps/" + map.SetID + "/covers/cover.jpg";
         list.appendChild(pBeatmapBox);
