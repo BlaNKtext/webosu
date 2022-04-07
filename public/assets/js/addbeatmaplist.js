@@ -291,15 +291,11 @@ var NSaddBeatmapList = {
     // async
     requestMoreInfo: async function(box) {
         const request = await fetch(`https://catboy.best/api/s/${box.sid}`);
-
         const data = await request.json()
-
         if(request.error) return;
-
         NSaddBeatmapList.addMoreInfo(box, data);
     }
 }
-
 
 // async
 // adds symbols of these beatmap packs to webpage

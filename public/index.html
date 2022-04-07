@@ -200,18 +200,12 @@
                 acc: 0
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
-        function refreshLivescore() {
-            let xhr = new XMLHttpRequest();
-                xhr.responseType = 'text';
-                xhr.open("GET", "https://us-central1-webosu.cloudfunctions.net/app/get");
-                xhr.onload = function () {
-                showActivity(JSON.parse(xhr.response));
+    async function refreshLivescore() {
+            const request = await fetch(`https://us-central1-webosu.cloudfunctions.net/app/get`)
+            const data = await request.json()
+            if(request.error) return console.log(request.error)
+                showActivity(data);
                 }
-                xhr.onerror = function () {
-                    console.error("Failed to fetch uploaded plays");
-                }
-                xhr.send();
-            }
             refreshLivescore();
             window.setInterval(refreshLivescore, 5000);
         // Recent
@@ -246,13 +240,13 @@
                 return (t.modes & 1) != 0;
             }, 6);
         // Get random beatmaps
-        function genRandomList() {
+    function genRandomList() {
             // Wipe Random List
             let list = document.getElementById("beatmap-list-random");
             list.innerHTML = ''
             // Re-fill Random List
             addBeatmapList("https://catboy.best/api/search?amount=6&random=1", list,
-                function (t) {
+            function (t) {
                     while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
                 }, 6);
