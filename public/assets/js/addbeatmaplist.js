@@ -290,7 +290,7 @@ var NSaddBeatmapList = {
 
     // async
     requestMoreInfo: async function(box) {
-        const request = await fetch(`https://catboy.best/api/s/${box.sid}`);
+        const request = await fetch(`https://us.catboy.best/api/s/${box.sid}`);
         const data = await request.json()
         if(request.error) return;
         NSaddBeatmapList.addMoreInfo(box, data);
@@ -339,7 +339,7 @@ async function addBeatmapList(listurl, list) {
     async function addBeatmapSid(sid, list) {
         if (!list) list = document.getElementById("beatmap-list");
 
-        const request = await fetch(`https://catboy.best/api/s/${sid}`)
+        const request = await fetch(`https://us.catboy.best/api/s/${sid}`)
 
         const data = await request.json()
 

@@ -92,16 +92,16 @@
             addBeatmapSid(keyword);
         } else {
             // Insert keyword
-            addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=0&status=-2`);
-            addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=0&status=1`);
-            addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=0&status=4`);
+            addBeatmapList(`https://us.catboy.best/api/search?query=${keyword}&p=0&status=-2`);
+            addBeatmapList(`https://us.catboy.best/api/search?query=${keyword}&p=0&status=1`);
+            addBeatmapList(`https://us.catboy.best/api/search?query=${keyword}&p=0&status=4`);
             p = 1
         }
         document.getElementById("btnmore").onclick = function () {
             if (typeof (window.list_endid) == "undefined") {
-                addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=${p}&status=-2`);
-                addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=${p}&status=1`);
-                addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=${p}&status=4`);
+                addBeatmapList(`https://us.catboy.best/api/search?query=${keyword}&p=${p}&status=-2`);
+                addBeatmapList(`https://us.catboy.best/api/search?query=${keyword}&p=${p}&status=1`);
+                addBeatmapList(`https://us.catboy.best/api/search?query=${keyword}&p=${p}&status=4`);
             } else {
                 if (window.list_endid == 0)
                     document.getElementById("btnmore").innerText = "There's no more beatmaps ;-;";
