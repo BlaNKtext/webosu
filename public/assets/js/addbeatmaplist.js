@@ -286,14 +286,6 @@ var NSaddBeatmapList = {
         box.data = data;
         NSaddBeatmapList.addStarRings(box, data.ChildrenBeatmaps);
         NSaddBeatmapList.addLength(box, data.ChildrenBeatmaps);
-    },
-
-    // async
-    requestMoreInfo: async function(box) {
-        const request = await fetch(`https://us.catboy.best/api/s/${box.sid}`);
-        const data = await request.json()
-        if(request.error) return;
-        NSaddBeatmapList.addMoreInfo(box, data);
     }
 }
 
@@ -323,7 +315,8 @@ async function addBeatmapList(listurl, list) {
         // async add more info
         for (let i=0; i < data.length; i++) {
             box[i].sid = data[i].SetID;
-            NSaddBeatmapList.requestMoreInfo(box[i]);
+
+            NSaddBeatmapList.addMoreInfo(box[i], data[i]);
             box[i].onclick = function(e) {
                 // this is effective only when box.data is available
                 createDifficultyList(box[i], e);
@@ -348,7 +341,7 @@ async function addBeatmapList(listurl, list) {
         // use data of first track as set data
         let box = NSaddBeatmapList.addpreviewbox(data, list);
         box.sid = data.SetID;
-        NSaddBeatmapList.requestMoreInfo(box);
+        NSaddBeatmapList.addMoreInfo(box, data);
         box.onclick = function(e) {
             // this is effective only when box.data is available
             createDifficultyList(box, e);
