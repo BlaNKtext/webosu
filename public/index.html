@@ -246,7 +246,7 @@
             let list = document.getElementById("beatmap-list-random");
             list.innerHTML = ''
             // Re-fill Random List
-            addBeatmapList("https://us.catboy.best/api/search?amount=6&random=1", list,
+            addBeatmapList("https://us.catboy.best/api/search?q=Random&amount=6&mode=0", list,
             function (t) {
                     while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;

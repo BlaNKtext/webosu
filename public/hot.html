@@ -86,10 +86,10 @@
         </div>
     </div>    
     <script>
-        addBeatmapList("https://us.catboy.best/api/search?query=Top Rated");
+        addBeatmapList("https://us.catboy.best/api/search?mode=0&query=Top Rated");
         var p = 1;
         document.getElementById("btnmore").onclick = function () {
-            addBeatmapList(`https://us.catboy.best/api/search?p=${p}&query=Top Rated`);
+            addBeatmapList(`https://us.catboy.best/api/search?p=${p}&mode=0&query=Top Rated`);
             p++
         }
     </script>
