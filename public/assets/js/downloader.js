@@ -41,6 +41,7 @@ function startpreview(box) {
 }
 
 function startdownload(box) {
+    startpreview(box);
     if (box.downloading) {
         return;
     }
@@ -81,6 +82,4 @@ function startdownload(box) {
         log_to_server("fail " + box.sid);
     }
     xhr.send();
-
-    startpreview(box);
 }
