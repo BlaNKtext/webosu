@@ -81,16 +81,16 @@
         </div>
     </div>
     <script>
-        addBeatmapList("https://us.catboy.best/api/search?mode=0");
+        addBeatmapList("https://catboy.best/api/search?mode=0");
         p = 1
         document.getElementById("btnmore").onclick = function () {
             if (typeof (window.list_endid) == "undefined") {
-                addBeatmapList("https://us.catboy.best/api/search?mode=0&p=" + p);
+                addBeatmapList("https://catboy.best/api/search?mode=0&p=" + p);
             } else {
                 if (window.list_endid == 0)
                     document.getElementById("btnmore").innerText = "There's no more to load!";
                 else
-                    addBeatmapList("https://us.catboy.best/api/search?mode=0&p="+ p);
+                    addBeatmapList("https://catboy.best/api/search?mode=0&p="+ p);
             }
             p++
         }
