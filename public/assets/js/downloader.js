@@ -24,7 +24,7 @@ function startpreview(box) {
             clearInterval(fadeIn);
     }, 30);
     let fadeOut = setInterval(function () {
-        if (a.currentTime > 9.3) // assume it's 10s long
+        if (a.currentTime > 29.3) // assume it's 10s long
             a.volume = Math.max(0, a.volume - 0.05 * volume);
         if (a.volume == 0)
             clearInterval(fadeOut);
