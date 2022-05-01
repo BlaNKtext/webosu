@@ -11,7 +11,7 @@ function startpreview(box) {
             audios[i].softstop();
     let a = document.createElement("audio");
     let s = document.createElement("source");
-    s.src = "https://cdn.sayobot.cn:25225/preview/" + box.sid + ".mp3";
+    s.src = "https://us.catboy.best/api/preview/audio/" + box.sid + "?set=1";
     s.type = "audio/mpeg";
     a.appendChild(s);
     a.volume = 0;
