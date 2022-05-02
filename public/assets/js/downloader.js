@@ -1,12 +1,5 @@
 // beatmap downloader
 function startpreview(box) {
-    const date = Date.now();
-    let currentDate = null;
-
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < 1000);
-
     let volume = 1;
     if (window.gamesettings) {
         volume = (window.gamesettings.mastervolume / 60) * (window.gamesettings.musicvolume / 60);
