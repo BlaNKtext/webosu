@@ -273,6 +273,12 @@ define([], function () {
                 console.error("Score upload failed");
             }
             xhr.send();
+
+
+            args += "&greats=" + encodeURIComponent(summary.count300);
+            args += "&goods=" + encodeURIComponent(summary.count100);
+            args += "&bads=" + encodeURIComponent(summary.count50);
+            args += "&misses=" + encodeURIComponent(summary.misses);
             // //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres
             // fetch(`https://api.catboy.best/score${args}`).then(resp => {
             //     resp.json().then(data => {
@@ -311,6 +317,16 @@ define([], function () {
                 for (let i = 1; i < l.length; ++i)
                     s = s + '+' + l[i];
                 return s;
+            }
+
+            function modsEnum(game){
+                let num = 0;
+                if (game.easy) num += 2;
+                if (game.hidden) num += 8;
+                if (game.hardrock) num += 16;
+                if (game.nightcore) num += 64;
+                if (game.daycore) num += 256;
+                return num;
             }
 
             function newdiv(parent, classname, text) {
@@ -371,6 +387,11 @@ define([], function () {
                 title: metadata.Title,
                 version: metadata.Version,
                 mods: modstext(window.game),
+                modsNum: modsEnum(window.game),
+                count300: this.judgecnt.great,
+                count100: this.judgecnt.good,
+                count50: this.judgecnt.meh,
+                misses: this.judgecnt.miss,
                 grade: rank,
                 score: Math.round(this.score).toString(),
                 combo: this.maxcombo.toString(),
