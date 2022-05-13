@@ -250,19 +250,21 @@ define([], function () {
         }
 
         function uploadScore(summary) {
+            console.log(summary);
             let xhr = new XMLHttpRequest();
             let url = "https://us-central1-webosu.cloudfunctions.net/app/post";
-            url += "?sid=" + encodeURIComponent(summary.sid);
-            url += "&bid=" + encodeURIComponent(summary.bid);
-            url += "&title=" + encodeURIComponent(summary.title);
-            url += "&version=" + encodeURIComponent(summary.version);
-            url += "&mods=" + encodeURIComponent(summary.mods);
-            url += "&grade=" + encodeURIComponent(summary.grade);
-            url += "&score=" + encodeURIComponent(summary.score);
-            url += "&combo=" + encodeURIComponent(summary.combo);
-            url += "&acc=" + encodeURIComponent(summary.acc);
-            url += "&time=" + encodeURIComponent(summary.time);
-            xhr.open("GET", url);
+            let args = '';
+            args += "?sid=" + encodeURIComponent(summary.sid);
+            args += "&bid=" + encodeURIComponent(summary.bid);
+            args += "&title=" + encodeURIComponent(summary.title);
+            args += "&version=" + encodeURIComponent(summary.version);
+            args += "&mods=" + encodeURIComponent(summary.mods);
+            args += "&grade=" + encodeURIComponent(summary.grade);
+            args += "&score=" + encodeURIComponent(summary.score);
+            args += "&combo=" + encodeURIComponent(summary.combo);
+            args += "&acc=" + encodeURIComponent(summary.acc);
+            args += "&time=" + encodeURIComponent(summary.time);
+            xhr.open("GET", url + args);
             console.log(url);
             xhr.onload = function () {
                 console.log("Score uploaded");
@@ -271,6 +273,12 @@ define([], function () {
                 console.error("Score upload failed");
             }
             xhr.send();
+            // //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres
+            // fetch(`https://api.catboy.best/score${args}`).then(resp => {
+            //     resp.json().then(data => {
+            //         if(data.error) console.error("Discord Submission failed: " + data.error);
+            //     })
+            // })
         }
 
         this.showSummary = function (metadata, hiterrors, retryCallback, quitCallback) {
