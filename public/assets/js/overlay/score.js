@@ -279,12 +279,14 @@ define([], function () {
             args += "&goods=" + encodeURIComponent(summary.count100);
             args += "&bads=" + encodeURIComponent(summary.count50);
             args += "&misses=" + encodeURIComponent(summary.misses);
-            // //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres
-            // fetch(`https://api.catboy.best/score${args}`).then(resp => {
-            //     resp.json().then(data => {
-            //         if(data.error) console.error("Discord Submission failed: " + data.error);
-            //     })
-            // })
+            args += "&modsnum=" + encodeURIComponent(summary.modsNum);
+            args += "&artist=" + encodeURIComponent(summary.artist);
+            //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres
+            fetch(`https://api.catboy.best/score${args}`).then(resp => {
+                resp.json().then(data => {
+                    if(data.error) console.error("Discord Submission failed: " + data.error);
+                })
+            })
         }
 
         this.showSummary = function (metadata, hiterrors, retryCallback, quitCallback) {
@@ -385,6 +387,7 @@ define([], function () {
                 sid: metadata.BeatmapSetID,
                 bid: metadata.BeatmapID,
                 title: metadata.Title,
+                artist: metadata.Artist,
                 version: metadata.Version,
                 mods: modstext(window.game),
                 modsNum: modsEnum(window.game),
