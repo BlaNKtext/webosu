@@ -250,7 +250,6 @@ define([], function () {
         }
 
         function uploadScore(summary) {
-            console.log(summary);
             let xhr = new XMLHttpRequest();
             let url = "https://us-central1-webosu.cloudfunctions.net/app/post";
             let args = '';
@@ -265,7 +264,6 @@ define([], function () {
             args += "&acc=" + encodeURIComponent(summary.acc);
             args += "&time=" + encodeURIComponent(summary.time);
             xhr.open("GET", url + args);
-            console.log(url);
             xhr.onload = function () {
                 console.log("Score uploaded");
             }
