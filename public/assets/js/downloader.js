@@ -11,7 +11,7 @@ function startpreview(box) {
             audios[i].softstop();
     let a = document.createElement("audio");
     let s = document.createElement("source");
-    s.src = "https://cdn.sayobot.cn:25225/preview/" + box.sid + ".mp3";
+    s.src = `https://catboy.best/preview/audio/${box.sid}?set=1`;
     s.type = "audio/mpeg";
     a.appendChild(s);
     a.volume = 0;
@@ -24,7 +24,7 @@ function startpreview(box) {
             clearInterval(fadeIn);
     }, 30);
     let fadeOut = setInterval(function () {
-        if (a.currentTime > 9.3) // assume it's 10s long
+        if (a.currentTime > 29.3)
             a.volume = Math.max(0, a.volume - 0.05 * volume);
         if (a.volume == 0)
             clearInterval(fadeOut);
