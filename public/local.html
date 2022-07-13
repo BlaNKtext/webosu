@@ -100,16 +100,9 @@
                         function addlist(startoffset, maxlength) {
                             for (let i = startoffset; i < list.length && i < startoffset + maxlength; ++i)
                                 addBeatmapSid(list[i]);
-                            if (list.length <= startoffset + maxlength) {
-                                document.getElementById("btnmore").setAttribute("style", "display:none;");
-                            }
                         }
-                        addlist(0, 20);
-                        var cur = 20;
-                        document.getElementById("btnmore").onclick = function () {
-                            addlist(cur, 20);
-                            cur += 20;
-                        }
+                        addlist(0, 1000);
+                        var cur = 1000;
                     } else {
                         document.getElementById("beatmap-list").innerText =
                             "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to favorite it!";
