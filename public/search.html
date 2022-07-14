@@ -101,8 +101,7 @@
                 if (window.list_endid == 0)
                     document.getElementById("btnmore").innerText = "There's no more beatmaps ;-;";
                 else
-                    addBeatmapList("https://api.sayobot.cn/beatmaplist?0=20&1=" + window.list_endid + "&2=4&3=" +
-                        keyword + "&5=1");
+                addBeatmapList(`https://catboy.best/api/search?query=${keyword}&p=${p}&mode=0&status=4&status=1`);
             }
             p++
         }
