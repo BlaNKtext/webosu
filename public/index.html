@@ -241,18 +241,19 @@
                 return (t.modes & 1) != 0;
             }, 6);
         // Get random beatmaps
-    function genRandomList() {
+        function genRandomList() {
             // Wipe Random List
             let list = document.getElementById("beatmap-list-random");
             list.innerHTML = ''
             // Re-fill Random List
-            addBeatmapList("https://catboy.best/api/search?q=Random&amount=6&mode=0", list,
-            function (t) {
+            let randquery = Math.random().toString(36).replace(/[^a-p]+/g, '').substr(1, 5);
+            addBeatmapList("https://catboy.best/api/search?q=" + randquery + "&amount=6&mode=0", list,
+                function (t) {
                     while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
                 }, 6);
         }
-        // genRandomList();
+        genRandomList();
         // Get hot beatmaps
         addBeatmapList("https://catboy.best/api/search?amount=6&mode=0&query=Top Rated", document.getElementById(
             "beatmap-list-hot"));
