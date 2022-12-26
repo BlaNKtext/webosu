@@ -94,6 +94,7 @@ function setOptionPanel() {
 	        window.game.hideNumbers = this.hideNumbers;
 	        window.game.hideGreat = this.hideGreat;
 	        window.game.hideFollowPoints = this.hideFollowPoints;
+			soundNames: undefined
 		}
 	}
 	gamesettings.loadToGame();

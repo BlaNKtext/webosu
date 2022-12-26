@@ -605,15 +605,16 @@ thead {
 
 .block.player {
   background: #a64d99;
-  width: 50%;
-  font-size: 2em;
+  width: 100%;
+  bottom: auto;
+  font-size: 200%;
   padding-top: 1em;
 }
 
 .block.player:before {
-  font-size: 0.7;
   line-height: 1em;
   content: "Player";
+
 }
 
 .grading .left .history-best {
@@ -644,7 +645,7 @@ thead {
   padding-left: 0.2em;
   padding-right: 0.3em;
   bottom: 35px;
-  right: 150px;
+  right: 400px;
   text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.3);
 }
