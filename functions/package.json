@@ -2,23 +2,15 @@
   "name": "webosu-functions",
   "description": "webosu!backend",
   "scripts": {
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "start": "npm run shell"
   },
   "engines": {
     "node": "14"
   },
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1",
-    "firebase-admin": "^9.8.0",
-    "firebase-functions": "^3.15.5"
-  },
-  "devDependencies": {
-    "firebase-functions-test": "^0.2.0"
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
   },
   "private": true
 }

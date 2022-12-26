@@ -17,7 +17,6 @@
     <script src="assets/js/jsloader.js"></script> 
     <link rel="manifest" href="/manifest.json">
     <script src="assets/js/lib/localforage.min.js"></script>
-    <script defer data-domain="webosu.online" src="https://plausible.io/js/plausible.js"></script>
 </head>
 <body>
     <!--Game Area-->
@@ -55,13 +54,13 @@
             <a href="faq.html" class="pseudo button">FAQ</a>
             <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
-            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">F11</a>
+            <input type="username" id="userreg" placeholder="Username" />
         </div>
     </nav>
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
-                Notice: API is now switched to <a href="https://catboy.best">Mino</a>!! For any issues join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a>
+                To save the username just press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
             </div>
             <br>
             <div class="index-area">
@@ -149,66 +148,21 @@
             </div>
         </div>
         <script>
-        // Live scores
-        let tbody = document.getElementById("activity-list");
-        function formattime(date) {
-            let m;
-            return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
-        }
-        function showActivity(records) {
-            records = records.reverse();
-            while (tbody.firstChild)
-                tbody.removeChild(tbody.firstChild);
-            for (let i = 0; i < records.length && i < 10; ++i) {
-                let tr = document.createElement("tr");
-                tbody.appendChild(tr);
-                function nexttd(content) {
-                    let td = document.createElement("td");
-                    tr.appendChild(td);
-                    if (!content) return;
-                     if (content.tagName)
-                        td.appendChild(content);
-                    else
-                        td.innerText = content;
-                }
-                let b = records[i].ip.split(".");
-                b[0] = "Player";
-                if (b.length > 3) b[3] = "Player";
-                nexttd(b.join("."));
-                let title = document.createElement("a");
-                    title.innerText = records[i].title + " [" + records[i].version + "]";
-                    title.title = records[i].title + " [" + records[i].version + "]";
-                if (records[i].sid == "undefined")
-                    records[i].sid = undefined;
-                    title.href = "search.html?q=" + (records[i].sid || records[i].title);
-                nexttd(title);
-                nexttd(records[i].combo + "x");
-                nexttd(parseInt(records[i].score).toLocaleString());
-                let acc = document.createElement("span");
-                    acc.innerText = records[i].acc;
-                    acc.className = records[i].grade;
-                    nexttd(acc);
-                    nexttd(records[i].mods);
-                    nexttd(formattime(new Date(parseInt(records[i].time))));
-                }
+        //Make enter work
+        var input = document.getElementById("userreg");
+            input.addEventListener("keypress", function(event) {
+             if (event.key === "Enter") {
+            event.preventDefault();
+            saveUser();
             }
-            let b = {
-                ip: "",
-                title: "",
-                version: "loading",
-                score: 0,
-                combo: 0,
-                acc: 0
-            };
-            showActivity([b, b, b, b, b, b, b, b, b, b])
-    async function refreshLivescore() {
-            const request = await fetch(`https://us-central1-webosu.cloudfunctions.net/app/get`)
-            const data = await request.json()
-            if(request.error) return console.log(request.error)
-                showActivity(data);
-                }
-            refreshLivescore();
-            window.setInterval(refreshLivescore, 5000);
+        }); 
+        //Store username in localstorage
+        function saveUser( name ) {
+        var player = document.getElementById('userreg').value;
+        document.cookie = 'username=' + player;
+        }
+        // Live scores
+        //Copy paste from livescores.txt to replace.
         // Recent
         if (window.localforage) {
             let listhistory = document.getElementById("beatmap-list-history");
@@ -280,6 +234,67 @@
         } else {
             alert("Oh no, localforage isn't supported on this browser")
             }
+            //Live Scores is no longer being paid for, the current code is for use on firebase functions.
+        let tbody = document.getElementById("activity-list");
+        function formattime(date) {
+            let m;
+            return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
+        }
+        function showActivity(records) {
+            records = records.reverse();
+            while (tbody.firstChild)
+                tbody.removeChild(tbody.firstChild);
+            for (let i = 0; i < records.length && i < 10; ++i) {
+                let tr = document.createElement("tr");
+                tbody.appendChild(tr);
+                function nexttd(content) {
+                    let td = document.createElement("td");
+                    tr.appendChild(td);
+                    if (!content) return;
+                     if (content.tagName)
+                        td.appendChild(content);
+                    else
+                        td.innerText = content;
+                }
+                let b = ('');
+                let player = document.createElement("span");
+                    player.innerText = records[i].player;
+                    player.classText = records[i].player;
+                nexttd(player);
+                let title = document.createElement("a");
+                    title.innerText = records[i].title + " [" + records[i].version + "]";
+                    title.title = records[i].title + " [" + records[i].version + "]";
+                if (records[i].sid == "undefined")
+                    records[i].sid = undefined;
+                    title.href = "search.html?q=" + (records[i].sid || records[i].title);
+                nexttd(title);
+                nexttd(records[i].combo + "x");
+                nexttd(parseInt(records[i].score).toLocaleString());
+                let acc = document.createElement("span");
+                    acc.innerText = records[i].acc;
+                    acc.className = records[i].grade;
+                    nexttd(acc);
+                    nexttd(records[i].mods);
+                    nexttd(formattime(new Date(parseInt(records[i].time))));
+                }
+            }
+            let b = {
+                player: "",
+                title: "",
+                version: "loading",
+                score: 0,
+                combo: 0,
+                acc: 0
+            };
+            showActivity([b, b, b, b, b, b, b, b, b, b])
+    async function refreshLivescore() {
+            const request = await fetch(`http://127.0.0.1:8989/get`)
+            const data = await request.json()
+            if(request.error) return console.log(request.error)
+                showActivity(data);
+                }
+            refreshLivescore();
+            window.setInterval(refreshLivescore, 5000);
         </script>
 </body>
 <script type="module">

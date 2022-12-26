@@ -603,6 +603,19 @@ thead {
   content: "Max Combo";
 }
 
+.block.player {
+  background: #a64d99;
+  width: 50%;
+  font-size: 2em;
+  padding-top: 1em;
+}
+
+.block.player:before {
+  font-size: 0.7;
+  line-height: 1em;
+  content: "Player";
+}
+
 .grading .left .history-best {
   position: absolute;
   top: -14px;
@@ -620,20 +633,18 @@ thead {
 
 .grading .fullcombo:before {
   position: absolute;
-  content: "Full Combo";
+  content: "FC";
   font-size: 2em;
   font-style: italic;
   color: #ff969c;
   border: 5px #ff969c solid;
   border-radius: 12px;
   white-space: nowrap;
-  line-height: 1.2em;
+  line-height: 1.1em;
   padding-left: 0.2em;
-  padding-right: 0.2em;
-  padding-bottom: 0.1em;
-  transform: rotate(21deg);
-  bottom: 15px;
-  right: 90px;
+  padding-right: 0.3em;
+  bottom: 35px;
+  right: 150px;
   text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 2px 0px rgba(0, 0, 0, 0.3);
 }
@@ -1133,6 +1144,11 @@ input:focus {
 
 input:focus {
   outline: 0;
+}
+
+input[type=username] {
+  width: 145px;
+  margin: 6px 2px;
 }
 
 input[type=checkbox] {

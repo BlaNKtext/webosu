@@ -37,6 +37,15 @@ define([], function () {
         return 'D';
     }
 
+    function getUser( name ) {
+        let cookie = {};
+        document.cookie.split(';').forEach(function(el) {
+          let [key,value] = el.split('=');
+          cookie[key.trim()] = value;
+        })
+        return cookie[name];
+      }
+
     function LazyNumber(value = 0) {
         this.value = value;
         this.target = value;
@@ -251,11 +260,12 @@ define([], function () {
 
         function uploadScore(summary) {
             let xhr = new XMLHttpRequest();
-            let url = "https://us-central1-webosu.cloudfunctions.net/app/post";
+            let url = "http://127.0.0.1:8989/post";
             let args = '';
             args += "?sid=" + encodeURIComponent(summary.sid);
             args += "&bid=" + encodeURIComponent(summary.bid);
             args += "&title=" + encodeURIComponent(summary.title);
+            args += "&player=" + encodeURIComponent(getUser('username'));
             args += "&version=" + encodeURIComponent(summary.version);
             args += "&mods=" + encodeURIComponent(summary.mods);
             args += "&grade=" + encodeURIComponent(summary.grade);
@@ -263,6 +273,14 @@ define([], function () {
             args += "&combo=" + encodeURIComponent(summary.combo);
             args += "&acc=" + encodeURIComponent(summary.acc);
             args += "&time=" + encodeURIComponent(summary.time);
+            /*
+            args += "&greats=" + encodeURIComponent(summary.count300);
+            args += "&goods=" + encodeURIComponent(summary.count100);
+            args += "&bads=" + encodeURIComponent(summary.count50);
+            args += "&misses=" + encodeURIComponent(summary.misses);
+            args += "&modsnum=" + encodeURIComponent(summary.modsNum);
+            */
+            args += "&artist=" + encodeURIComponent(summary.artist);
             xhr.open("GET", url + args);
             xhr.onload = function () {
                 console.log("Score uploaded");
@@ -271,21 +289,14 @@ define([], function () {
                 console.error("Score upload failed");
             }
             xhr.send();
-
-
-            args += "&greats=" + encodeURIComponent(summary.count300);
-            args += "&goods=" + encodeURIComponent(summary.count100);
-            args += "&bads=" + encodeURIComponent(summary.count50);
-            args += "&misses=" + encodeURIComponent(summary.misses);
-            args += "&modsnum=" + encodeURIComponent(summary.modsNum);
-            args += "&artist=" + encodeURIComponent(summary.artist);
+        }
             //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres
-            fetch(`https://api.catboy.best/score${args}`).then(resp => {
+        /*    fetch(`https://api.catboy.best/score${args}`).then(resp => {
                 resp.json().then(data => {
                     if(data.error) console.error("Discord Submission failed: " + data.error);
                 })
             })
-        }
+        } */
 
         this.showSummary = function (metadata, hiterrors, retryCallback, quitCallback) {
             function errortext(a) {
@@ -346,6 +357,7 @@ define([], function () {
             document.body.appendChild(grading);
             let top = newdiv(grading, "top");
             let info = newdiv(top, "beatmap-info");
+            let left = newdiv(grading, "left");
             newdiv(info, "title", metadata.Title);
             newdiv(info, "artist", metadata.Artist);
             newdiv(info, "version", metadata.Version);
@@ -353,7 +365,6 @@ define([], function () {
             newdiv(info, "version", modstext(window.game));
             newdiv(top, "ranking", "Ranking");
             newdiv(top, "grade " + rank, rank);
-            let left = newdiv(grading, "left");
             newdiv(left, "block score", Math.round(this.score).toString());
             newdiv(left, "block acc", (acc * 100).toFixed(2) + "%");
             newdiv(left, "block err", errortext(hiterrors));
@@ -361,7 +372,7 @@ define([], function () {
             newdiv(left, "block good", this.judgecnt.good.toString());
             newdiv(left, "block meh", this.judgecnt.meh.toString());
             newdiv(left, "block miss", this.judgecnt.miss.toString());
-            newdiv(left, "block placeholder");
+            newdiv(left, "block player", getUser("username"));
             newdiv(left, "block combo", this.maxcombo.toString() + "x");
             if (this.fullcombo)
                 newdiv(left, "fullcombo");
@@ -386,6 +397,7 @@ define([], function () {
                 bid: metadata.BeatmapID,
                 title: metadata.Title,
                 artist: metadata.Artist,
+                player: metadata.Player,
                 version: metadata.Version,
                 mods: modstext(window.game),
                 modsNum: modsEnum(window.game),
