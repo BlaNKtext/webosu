@@ -6,7 +6,7 @@
     <link rel=”canonical” href=”https://webosu.online/”/>
     <meta name="description" content="The unofficial web port of the rhythm game osu!">
     <meta name="google-site-verification" content="lLznJ7kC5ONeKPxymEt_ecjm1iz-tDisk8TQcs-60vc">
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/picnic.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/font.css">
@@ -61,11 +61,12 @@
             <div class="main-content">
                 <div class="beatmap-list" id="beatmap-list">
                     <!-- to be filled in script -->
-                    <h1 id="hint">谱面预览加载中</h1>
+                    <h1 id="hint">Preview Loading</h1>
                 </div>
-                <div class="text">推荐使用最新版本 Firefox 或 Chrome.</div>
-                <div class="text">内测版v1.4.3. <a href="https://github.com/111116/osu">Github</a></div>
-                <div class="text">由<a href="https://osu.sayobot.cn/">Sayobot</a>提供谱面</div>
+                    <span class="footer-info">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</span>
+                    <span class="footer-info">Beatmap API: <a href="https://catboy.best/">Mino</a></span>
+                    <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">3.0</a></span>
+                </div>
             </div>
             <!-- <div class="side-panel">
                 to be activated in script
@@ -89,36 +90,11 @@
             let cururl = new URL(window.location.href);
             let sid = cururl.searchParams.get("sid");
             let bid = cururl.searchParams.get("bid");
-            // version look up
-            let version = null;
-            {
-                let xhr = new XMLHttpRequest();
-                let url = "https://api.sayobot.cn/v2/beatmapinfo?T=1&K=" + bid;
-                xhr.responseType = 'text';
-                xhr.open("GET", url);
-                xhr.onload = function() {
-                    let res = JSON.parse(xhr.response);
-                    console.log(res)
-                    for (let i=0; i<res.data.bid_data.length; ++i)
-                        if (res.data.bid_data[i].bid == bid)
-                            version = res.data.bid_data[i].version;
-                }
-                xhr.send();
-            }
             // download beatmap
             let url = "https://txy1.sayobot.cn/beatmaps/download/mini/" + sid;
             let xhr = new XMLHttpRequest();
             xhr.responseType = 'arraybuffer';
             xhr.open("GET", url);
-            // create download progress bar
-            let container = document.createElement("div");
-            let title = document.createElement("div");
-            let bar = document.createElement("progress");
-            container.className = "download-progress";
-            title.className = "title";
-            title.innerText = sid;
-            container.appendChild(title);
-            container.appendChild(bar);
             // insert so that download list from recent to old
             let statuslines = document.getElementById("statuslines");
             statuslines.insertBefore(container, statuslines.children[3]);

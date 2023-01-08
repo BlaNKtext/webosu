@@ -1,5 +1,4 @@
 const express = require("express");
-const functions = require("firebase-functions");
 const app = express();
 const url = require("url");
 const port = 8989;
@@ -31,4 +30,3 @@ app.listen(port, () => {
   console.log("Listening on http://127.0.0.1:8989")  
 })
 */
-exports.app = functions.https.onRequest(app);
