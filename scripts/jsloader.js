@@ -17,20 +17,20 @@ function loadScript(url, callback, aux) {
 
 window.beatmaplistLoadedCallback = function () {
 	window.setTimeout(function () {
-		loadScript("assets/js/lib/zip.js", function () {
-			window.zip.workerScriptsPath = 'assets/js/lib/';
-			loadScript("assets/js/lib/zip-fs.js", checkdep);
+		loadScript("scripts/lib/zip.js", function () {
+			window.zip.workerScriptsPath = 'scripts/lib/';
+			loadScript("scripts/lib/zip-fs.js", checkdep);
 		});
-		loadScript("assets/js/lib/pixi.min.js", checkdep);
-		loadScript("assets/js/lib/mp3parse.min.js", checkdep);
-		loadScript("assets/js/lib/localforage.min.js", checkdep);
+		loadScript("scripts/lib/pixi.min.js", checkdep);
+		loadScript("scripts/lib/mp3parse.min.js", checkdep);
+		loadScript("scripts/lib/localforage.min.js", checkdep);
 
 		function checkdep() {
 			if (!window.aaaaa) window.aaaaa = 0;
 			window.aaaaa += 1;
 			if (window.aaaaa == 4) {
 				// load scripts of game
-				loadScript("assets/js/lib/require.js", function () {
+				loadScript("scripts/lib/require.js", function () {
 					require.config({
 						paths: {
 							underscore: 'lib/underscore',
@@ -44,7 +44,7 @@ window.beatmaplistLoadedCallback = function () {
 						// urlArgs: "bust=" +  (new Date()).getTime()
 					});
 				}, {
-					"data-main": "assets/js/initgame"
+					"data-main": "scripts/initgame"
 				});
 				// load Liked list
 				if (window.localforage) {
