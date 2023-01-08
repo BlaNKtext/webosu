@@ -81,6 +81,8 @@
         </div>
     </div>
     <script>
+        let url = new URL(window.location.href);
+        let keyword = url.searchParams.get("q");
         var cur = 0;
         if (keyword == parseInt(keyword, 10)) {
             // Checks for SID
