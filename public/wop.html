@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Home</title>
+    <title>Preview</title>
     <meta charset="UTF-8">
     <link rel=”canonical” href=”https://webosu.online/”/>
     <meta name="description" content="The unofficial web port of the rhythm game osu!">
@@ -10,31 +10,32 @@
     <link rel="stylesheet" href="assets/css/picnic.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/font.css">
-    <script src="./assets/js/launchgame.js"></script>
-    <script src="./assets/js/downloader.js"></script>
-    <script src="./assets/js/addbeatmaplist.js"></script>
-    <script src="./assets/js/jsloader.js"></script>
-    <script src="./assets/js/lib/localforage.min.js"></script>
-</head>
-<body>
-    <!--Game Area-->
-    <div class="game-area" id="game-area" hidden>
-    </div>
-    <div class="pause-menu" id="pause-menu" hidden>
-        <div class="paused-title">Paused</div>
-        <div class="button-list">
-            <div class="pausebutton continue" id="pausebtn-continue">
-                <div class="inner">Continue</div>
-            </div>
-            <div class="pausebutton retry" id="pausebtn-retry">
-                <div class="inner">Retry</div>
-            </div>
-            <div class="pausebutton quit" id="pausebtn-quit">
-                <div class="inner">Quit</div>
+        <script src="scripts/launchgame.js"></script>
+        <script src="scripts/downloader.js"></script>
+        <script src="scripts/addbeatmaplist.js"></script>
+        <script src="scripts/jsloader.js"></script>
+    </head>
+
+    <body>
+        <div class="game-area" id="game-area" hidden>
+        </div>
+
+        <div class="pause-menu" id="pause-menu" hidden>
+            <div class="paused-title">paused</div>
+            <div class="button-list">
+                <div class="pausebutton continue" id="pausebtn-continue">
+                    <div class="inner">Continue</div>
+                </div>
+                <div class="pausebutton retry" id="pausebtn-retry">
+                    <div class="inner">Retry</div>
+                </div>
+                <div class="pausebutton quit" id="pausebtn-quit">
+                    <div class="inner">Quit</div>
+                </div>
             </div>
         </div>
-    </div>
-    <!--Nav Bar-->
+
+<!--Nav Bar-->
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">webosu!</a>
@@ -52,16 +53,19 @@
             <a href="faq.html" class="pseudo button">FAQ</a>
             <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
+            <input type="username" id="userreg" placeholder="Username" />
         </div>
     </nav>
-    <div class="main-page" id="main-page">
-        <div class="main-content">
-            <div class="announcement">
-                To save the username just press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
-            </div>
+
+        <div class="main-page" id="main-page">
+            <div class="main-content">
                 <div class="beatmap-list" id="beatmap-list">
                     <!-- to be filled in script -->
-                    <h1 id="hint">Loading beatmap...</h1>
+                    <h1 id="hint">谱面预览加载中</h1>
+                </div>
+                <div class="text">推荐使用最新版本 Firefox 或 Chrome.</div>
+                <div class="text">内测版v1.4.3. <a href="https://github.com/111116/osu">Github</a></div>
+                <div class="text">由<a href="https://osu.sayobot.cn/">Sayobot</a>提供谱面</div>
             </div>
             <!-- <div class="side-panel">
                 to be activated in script
@@ -133,10 +137,10 @@
                     }
                     wtf();
                     window.removeEventListener("click",f);
-                    document.getElementById("hint").innerText = "如果谱面预览未开始，可能谱包或数据有错。";
+                    document.getElementById("hint").innerText = "If the preview does not start, there may be an error, reload the page";
                 };
                 window.addEventListener("click",f);
-                document.getElementById("hint").innerText = "点击任意处以开始";
+                document.getElementById("hint").innerText = "Click anywhere to start";
             }
             xhr.onload = function() {
                 window.oszblob = new Blob([xhr.response]);
