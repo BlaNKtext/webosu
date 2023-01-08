@@ -355,6 +355,21 @@
         </div>
     </div>
 </body>
+<script>
+    //Make enter work
+    var input = document.getElementById("userreg");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+        event.preventDefault();
+        saveUser();
+        }
+    }); 
+    //Store username in localstorage
+function saveUser( name ) {
+    var player = document.getElementById('userreg').value;
+    document.cookie = 'username=' + player;
+    }
+</script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";

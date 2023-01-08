@@ -105,6 +105,19 @@
         </div>
     </div>
     <script>
+    //Make enter work
+    var input = document.getElementById("userreg");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+        event.preventDefault();
+        saveUser();
+        }
+    }); 
+    //Store username in localstorage
+    function saveUser( name ) {
+    var player = document.getElementById('userreg').value;
+        document.cookie = 'username=' + player;
+        }
         let btns = document.getElementsByClassName("selitem");
 
         function search(genre, lang) {

@@ -81,6 +81,19 @@
         </div>
     </div>
     <script>
+    //Make enter work
+    var input = document.getElementById("userreg");
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+        event.preventDefault();
+        saveUser();
+        }
+     }); 
+        //Store username in localstorage
+        function saveUser( name ) {
+        var player = document.getElementById('userreg').value;
+        document.cookie = 'username=' + player;
+         }
         let url = new URL(window.location.href);
         let keyword = url.searchParams.get("q");
         // remove quotes, trailing spaces and duplicate spaces
