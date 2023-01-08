@@ -20,7 +20,7 @@ function createStarRow(star) {
         let img = document.createElement("img");
         container.appendChild(img);
         row.appendChild(container);
-        img.src = "assets/img/star.png";
+        img.src = "img/star.png";
         let value = Math.min(Math.max(star-i,0),1);
         let size = 8 + value*10;
         let pad = (1-value) * 5;

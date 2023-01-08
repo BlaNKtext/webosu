@@ -366,7 +366,7 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"image": "assets/img/sprites.png",
+		"image": "img/sprites.png",
 		"format": "RGBA8888",
 		"size": {"w":1926,"h":1613},
 		"scale": "1",

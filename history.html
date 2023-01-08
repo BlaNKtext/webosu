@@ -3,15 +3,14 @@
 <head>
     <title>Play History</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="The unofficial web port of the rhythm game osu!">
-    <link rel="icon" href="assets/img/favicon.png">
+    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
+    <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/picnic.min.css">
     <link rel="stylesheet"href="css/main.css">
     <link rel="stylesheet"href="css/font.css">
-    <script src="scripts/lib/localforage.min.js"></script>
+    <script src="js/lib/localforage.min.js"></script>
 </head>
-<!--Main Nav Bar-->
-<body>
+    <!--Nav Bar-->
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">webosu!</a>
@@ -29,7 +28,7 @@
             <a href="faq.html" class="pseudo button">FAQ</a>
             <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
-            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">F11</a>
+            <input type="username" id="userreg" placeholder="Username" />
         </div>
     </nav>
     <!--Main Page-->

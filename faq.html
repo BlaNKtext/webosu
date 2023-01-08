@@ -4,32 +4,33 @@
     <meta charset="UTF-8" />
     <title>FAQ </title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="The unofficial web port of the rhythm game osu!">
+    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
     <link rel="stylesheet" href="css/picnic.min.css">
     <link rel="stylesheet"href="css/main.css">
     <link rel="stylesheet"href="css/font.css">
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="icon" href="img/favicon.png">
 </head>
-<!--Top nav bar-->
-<nav id="main-nav">
-    <div class="nav-link">
-        <a href="index.html" class="brand">webosu!</a>
-        <a href="new.html" class="pseudo button">New</a>
-        <a href="hot.html" class="pseudo button">Popular</a>
-    </div>
-    <div class="nav-search">
-        <form action="search.html">
-            <input type="text" name="q" placeholder="Beatmap name or Set ID" />
-            <input type="image" alt="Search" class="search-button" src="assets/img/search.svg">
-        </form>
-    </div>
-    <div class="nav-tool">
-        <a href="faq.html" class="pseudo button active">FAQ</a>
-        <a href="local.html" class="pseudo button">Favorites</a>
-        <a href="settings.html" class="pseudo button">Settings</a>
-        <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">F11</a>
-    </div>
-</nav>
+    <!--Nav Bar-->
+    <nav id="main-nav">
+        <div class="nav-link">
+            <a href="index.html" class="brand">webosu!</a>
+            <a href="new.html" class="pseudo button">New</a>
+            <a href="hot.html" class="pseudo button">Popular</a>
+        </div>
+        <div class="nav-search">
+            <form action="search.html">
+                <container id="searchbar" class="searchbar">
+                    <input type="text" name="q" placeholder="Beatmap name or Set ID" />
+                </container>
+            </form>
+        </div>
+        <div class="nav-tool">
+            <a href="faq.html" class="pseudo button">FAQ</a>
+            <a href="local.html" class="pseudo button">Favorites</a>
+            <a href="settings.html" class="pseudo button">Settings</a>
+            <input type="username" id="userreg" placeholder="Username" />
+        </div>
+    </nav>
 <div class="main-page" id="main-page">
     <div class="main-content">
         <div class="announcement">

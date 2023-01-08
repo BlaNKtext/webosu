@@ -454,10 +454,10 @@ define(["osu", "playerActions", "SliderMesh", "overlay/score", "overlay/volume",
                             loadBackground(uri);
                         });
                     } else {
-                        loadBackground("assets/img/defaultbg.jpg");
+                        loadBackground("img/defaultbg.jpg");
                     }
                 } else {
-                    loadBackground("assets/img/defaultbg.jpg");
+                    loadBackground("img/defaultbg.jpg");
                 }
             };
             self.createBackground();

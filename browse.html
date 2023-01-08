@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <title>Browse</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="The unofficial web port of the rhythm game osu!">
+    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
     <link rel="stylesheet" href="css/picnic.min.css">
     <link rel="stylesheet"href="css/main.css">
     <link rel="stylesheet"href="css/font.css">
-    <link rel="icon" href="assets/img/favicon.png">
-    <script src="scripts/launchgame.js"></script>
-    <script src="scripts/downloader.js"></script>
-    <script src="scripts/addbeatmaplist.js"></script>
-    <script src="scripts/settings.js"></script>
-    <script src="scripts/jsloader.js"></script>
+    <link rel="icon" href="img/favicon.png">
+    <script src="js/launchgame.js"></script>
+    <script src="js/downloader.js"></script>
+    <script src="js/addbeatmaplist.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/jsloader.js"></script>
 </head>
 <body>
     <div class="game-area" id="game-area" hidden>
@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <!--Top nav bar-->
+    <!--Nav Bar-->
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">webosu!</a>
@@ -50,7 +50,7 @@
             <a href="faq.html" class="pseudo button">FAQ</a>
             <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
-            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">F11</a>
+            <input type="username" id="userreg" placeholder="Username" />
         </div>
     </nav>
     <div class="main-page" id="main-page">

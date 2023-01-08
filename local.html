@@ -3,17 +3,17 @@
 <head>
     <title>Favorites</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="The unofficial web port of the rhythm game osu!">
-    <link rel="icon" href="assets/img/favicon.png">
+    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
+    <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/picnic.min.css">
     <link rel="stylesheet"href="css/main.css">
     <link rel="stylesheet"href="css/font.css">
-    <script src="scripts/launchgame.js"></script>
-    <script src="scripts/downloader.js"></script>
-    <script src="scripts/addbeatmaplist.js"></script>
-    <script src="scripts/settings.js"></script>
-    <script src="scripts/jsloader.js"></script>
-    <script src="scripts/lib/localforage.min.js"></script>
+    <script src="js/launchgame.js"></script>
+    <script src="js/downloader.js"></script>
+    <script src="js/addbeatmaplist.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/jsloader.js"></script>
+    <script src="js/lib/localforage.min.js"></script>
 </head>
 <body>
     <div class="game-area" id="game-area" hidden>
@@ -32,6 +32,7 @@
             </div>
         </div>
     </div>
+    <!--Nav Bar-->
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">webosu!</a>
@@ -47,9 +48,9 @@
         </div>
         <div class="nav-tool">
             <a href="faq.html" class="pseudo button">FAQ</a>
-            <a href="local.html" class="pseudo button active">Favorites</a>
+            <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
-            <a onclick="document.documentElement.requestFullscreen();" class="pseudo button">F11</a>
+            <input type="username" id="userreg" placeholder="Username" />
         </div>
     </nav>
     <div class="main-page" id="main-page">
@@ -83,7 +84,7 @@
                 <div class="footer-infos">
                     <span class="footer-info">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</span>
                     <span class="footer-info">Beatmap API: <a href="https://catboy.best/">Mino</a></span>
-                    <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">3.0</span>
+                    <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">3.1</span>
                 </div>
             </div>
         </footer>

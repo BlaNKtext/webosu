@@ -4,19 +4,18 @@
     <title>Home</title>
     <meta charset="UTF-8">
     <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="The unofficial web port of the rhythm game osu!">
+    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
     <meta name="google-site-verification" content="lLznJ7kC5ONeKPxymEt_ecjm1iz-tDisk8TQcs-60vc">
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/picnic.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/font.css">
-    <script src="scripts/launchgame.js"></script>
-    <script src="scripts/downloader.js"></script>
-    <script src="scripts/addbeatmaplist.js"></script>
-    <script src="scripts/settings.js"></script>
-    <script src="scripts/jsloader.js"></script> 
-    <link rel="manifest" href="/manifest.json">
-    <script src="scripts/lib/localforage.min.js"></script>
+    <script src="js/launchgame.js"></script>
+    <script src="js/downloader.js"></script>
+    <script src="js/addbeatmaplist.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/jsloader.js"></script> 
+    <script src="js/lib/localforage.min.js"></script>
 </head>
 <body>
     <!--Game Area-->
@@ -144,7 +143,7 @@
             <div class="footer-infos">
                 <span class="footer-info">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</span>
                 <span class="footer-info">Beatmap API: <a href="https://catboy.best/">Mino</a></span>
-                <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">3.0</a></span>
+                <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">3.1</a></span>
             </div>
         </div>
         <script>
@@ -288,7 +287,7 @@
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
     async function refreshLivescore() {
-            const request = await fetch(`http://127.0.0.1:8989/get`)
+            const request = await fetch(`https://livescores.cyclic.app/get`)
             const data = await request.json()
             if(request.error) return console.log(request.error)
                 showActivity(data);
