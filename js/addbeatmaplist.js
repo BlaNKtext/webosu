@@ -332,7 +332,7 @@ async function addBeatmapList(listurl, list) {
     async function addBeatmapSid(sid, list) {
         if (!list) list = document.getElementById("beatmap-list");
 
-        const request = await fetch(`https://catboy.best/api/s/${sid}`)
+        const request = await fetch(`https://uk.catboy.best/api/s/${sid}`)
 
         const data = await request.json()
 

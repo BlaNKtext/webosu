@@ -56,7 +56,7 @@
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
-                To save the username just press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
+                To save the username just type it in the top right & press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
             </div>
             <br>
             <div class="sort-nav">
@@ -114,16 +114,16 @@
             while (list.firstChild) {
                 list.removeChild(list.firstChild);
             }
-            addBeatmapList("https://catboy.best/api/search?mode=0");
+            addBeatmapList("https://uk.catboy.best/api/search?mode=0");
             var p = 0
             document.getElementById("btnmore").onclick = function () {
                 if (typeof (window.list_endid) == "undefined") {
-                    addBeatmapList("https://catboy.best/api/search?mode=0&p=" + p);
+                    addBeatmapList("https://uk.catboy.best/api/search?mode=0&p=" + p);
                 } else {
                     if (window.list_endid == 0)
                         document.getElementById("btnmore").innerText = "There's no more beatmaps to load!";
                     else
-                        addBeatmapList("https://catboy.best/api/search?mode=0&p=" + p);
+                        addBeatmapList("https://uk.catboy.best/api/search?mode=0&p=" + p);
                 }
                 p++
             }

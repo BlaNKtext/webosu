@@ -2,7 +2,7 @@
 Feel free to drop by the [Discord server](https://discord.gg/v7wBtSdYzx)<br>
 
 ## Info
-Beatmap API: [Mino](https://catboy.best) (US Server)<br>
+Beatmap API: [Mino](https://uk.catboy.best) (US Server)<br>
 Thanks [@txst54](https://github.com/txst54) for the custom hitsounds!<br>
 Thanks [@Mxnuuel](https://github.com/Mxnuuel) for refactoring all the fetch code, optimizing some loadtimes and Mino! :grin:<br>
 ## License Notes / Credits

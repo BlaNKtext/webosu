@@ -11,7 +11,7 @@ function startpreview(box) {
             audios[i].softstop();
     let a = document.createElement("audio");
     let s = document.createElement("source");
-    s.src = `https://catboy.best/preview/audio/${box.sid}?set=1`;
+    s.src = `https://uk.catboy.best/preview/audio/${box.sid}?set=1`;
     s.type = "audio/mpeg";
     a.appendChild(s);
     a.volume = 0;
@@ -45,7 +45,7 @@ function startdownload(box) {
     if (box.downloading) {
         return;
     }
-    let url = "https://catboy.best/d/" + box.sid + "n";
+    let url = "https://uk.catboy.best/d/" + box.sid + "n";
     box.downloading = true;
     box.classList.add("downloading");
     let xhr = new XMLHttpRequest();
