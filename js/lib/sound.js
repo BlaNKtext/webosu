@@ -202,7 +202,7 @@ var sounds = {
   //The callback function to run if an asset fails to load or decode
   onFailed: function (source, error) {
 	var self = this;
-	source = "sounds/"+source
+	source = "hitsounds/"+source
 	var soundSprite = makeSound(source, self.loadHandler.bind(self), true, false, self.onFailed);
 	//Get the sound file name.
 	soundSprite.name = source;
