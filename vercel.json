@@ -1,6 +1,5 @@
 {
     "cleanUrls": true,
-    "installCommand": "npm i",
     "functions": {
         "api/index.js": {
           "memory": 1024
