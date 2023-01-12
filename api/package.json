@@ -2,7 +2,6 @@
   "name": "webosu-functions",
   "description": "webosu!backend",
   "scripts": {
-    "install": "npm i",
     "start": "node index.js"
   },
   "engines": {
