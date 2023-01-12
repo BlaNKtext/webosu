@@ -1,9 +1,4 @@
 {
-    "cleanUrls": true,
-    "functions": {
-        "api/index.js": {
-          "memory": 1024
-        }
-    }
-    
+    "cleanUrls": true
   }
+  
