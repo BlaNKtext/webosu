@@ -1,4 +1,13 @@
 {
-    "cleanUrls": true
-  }
+    "cleanUrls": true,
+    "framework": null,
+    "git": {
+        "deploymentEnabled": {
+          "main": true
+        }
+      },
+    "github": {
+        "silent": true
+    }
+}
   
