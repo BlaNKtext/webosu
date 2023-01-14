@@ -290,7 +290,7 @@
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
     async function refreshLivescore() {
-            const request = await fetch(`https://livescores.cyclic.app/get`)
+            const request = await fetch(`https://livescores.webosu.workers.dev/get`)
             const data = await request.json()
             if(request.error) return console.log(request.error)
                 showActivity(data);

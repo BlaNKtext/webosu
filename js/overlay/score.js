@@ -260,7 +260,7 @@ define([], function () {
 
         function uploadScore(summary) {
             let xhr = new XMLHttpRequest();
-            let url = "https://livescores.cyclic.app/post";
+            let url = "https://livescores.webosu.workers.dev/post";
             let args = '';
             args += "?sid=" + encodeURIComponent(summary.sid);
             args += "&bid=" + encodeURIComponent(summary.bid);
