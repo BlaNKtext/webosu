@@ -99,10 +99,10 @@ function saveUser( name ) {
     var player = document.getElementById('userreg').value;
     document.cookie = 'username=' + player;
     }
-        addBeatmapList("https://uk.catboy.best/api/search?mode=0&query=Top Rated");
+        addBeatmapList("https://catboy.best/api/search?mode=0&query=Top Rated");
         var p = 1;
         document.getElementById("btnmore").onclick = function () {
-            addBeatmapList(`https://uk.catboy.best/api/search?p=${p}&mode=0&query=Top Rated`);
+            addBeatmapList(`https://catboy.best/api/search?p=${p}&mode=0&query=Top Rated`);
             p++
         }
     </script>
