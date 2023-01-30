@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <title>Home</title>
     <meta charset="UTF-8">
-    <link rel=”canonical” href=”https://webosu.online/”/> <meta name="description"
-    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard" />
+    <link rel=”canonical” href=”https://webosu.online/”/>
+    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
     <meta name="google-site-verification" content="lLznJ7kC5ONeKPxymEt_ecjm1iz-tDisk8TQcs-60vc">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/favicon.png">
@@ -16,13 +15,11 @@
     <script src="js/downloader.js"></script>
     <script src="js/addbeatmaplist.js"></script>
     <script src="js/settings.js"></script>
-    <script src="js/jsloader.js"></script>
+    <script src="js/jsloader.js"></script> 
     <script src="js/lib/localforage.min.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script async src="https://arc.io/widget.min.js#MfA1gDkn"></script>
-
 </head>
-
 <body>
     <!--Game Area-->
     <div class="game-area" id="game-area" hidden>
@@ -45,76 +42,6 @@
     <nav id="main-nav">
         <div class="nav-link">
             <a href="index.html" class="brand">webosu!</a>
-            <div class="dropdown">
-                <a class="pseudo button">Mods</a>
-                <div class="dropdown-content center">
-
-                    <script src="js/settings-dropdown.js"></script>
-                    <div class="main-page" id="main-page">
-                        <div class="panel">
-                            <table class="holder" id="settings-panel">
-
-                                <tr>
-                                    <td>
-                                        <h3>
-                                            Mods
-                                        </h3>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td title="Reduces overall difficulty">
-                                        <div class="option-name">Easy</div>
-                                        <div class="option-control">
-                                            <input id="easy-check" type="checkbox" /><span></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td title="Less zoom.">
-                                        <div class="option-name">Daycore</div>
-                                        <div class="option-control">
-                                            <input id="daycore-check" type="checkbox" /><span></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td title="Everything just got a bit harder...">
-                                        <div class="option-name">Hard Rock</div>
-                                        <div class="option-control">
-                                            <input id="hardrock-check" type="checkbox" /><span></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td title="Play with no approach circles and fading notes">
-                                        <div class="option-name">Hidden</div>
-                                        <div class="option-control">
-                                            <input id="hidden-check" type="checkbox" /><span></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td title="Zoooooooooooooom.">
-                                        <div class="option-name">Nightcore</div>
-                                        <div class="option-control">
-                                            <input id="nightcore-check" type="checkbox" /><span></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td title="Watch a (mostly) perfect automated play through of a song">
-                                        <div class="option-name">Autoplay</div>
-                                        <div class="option-control">
-                                            <input id="autoplay-check" type="checkbox" /><span></span>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <a href="new.html" class="pseudo button">New</a>
             <a href="hot.html" class="pseudo button">Popular</a>
         </div>
@@ -134,13 +61,12 @@
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
-                To save the username just type it in the top right & press enter! Join the <a
-                    href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
+                To save the username just type it in the top right & press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
             </div>
             <br>
             <div class="index-area">
                 <h2>Live plays</h2>
-                <hr />
+                <hr/>
                 <table>
                     <thead>
                         <tr>
@@ -154,54 +80,54 @@
                         </tr>
                     </thead>
                     <tbody id="activity-list">
-                        <!--will be filled in by script-->
+                    <!--will be filled in by script-->
                     </tbody>
                 </table>
             </div>
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
                 <a href="hot.html" class="more">See more Popular Beatmaps</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-hot">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Recently Played</h2>
                 <a href="history.html" class="more">See your play history</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-history">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Favorited Beatmaps</h2>
                 <a href="local.html" class="more">See all favorited Beatmaps</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-liked">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <h2>Latest Beatmaps</h2>
                 <a href="new.html" class="more">See all latest Beatmaps</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list-new">
-                    <!-- Beatmaps will be here -->
+                <!-- Beatmaps will be here -->
                 </div>
             </div>
             <div class="index-area">
                 <a onclick="genRandomList()" class="more" style="cursor:pointer;">Get new random Beatmaps</a>
                 <h2>Random Beatmaps<h2>
-                        <hr />
-                        <div class="beatmap-list" id="beatmap-list-random">
-                            <!-- to be filled in script -->
-                        </div>
+                <hr/>
+                <div class="beatmap-list" id="beatmap-list-random">
+                <!-- to be filled in script -->
+                </div>
             </div>
             <div class="index-area">
                 <h2>Latest Beatmaps</h2>
                 <a href="new.html" class="more">See all latest Beatmaps</a>
-                <hr />
+                <hr/>
                 <div class="beatmap-list" id="beatmap-list">
                     <div id="ezoic-pub-ad-placeholder-102"> </div>
                 </div>
@@ -221,7 +147,7 @@
                     <div class="lds-dual-ring"></div>
                 </div>
             </div>
-        </div>
+        </div>    
         <!--Footer-->
         <div class="footer">
             <div class="footer-infos">
@@ -231,132 +157,129 @@
             </div>
         </div>
         <script>
-            //Make enter work
-            var input = document.getElementById("userreg");
-            input.addEventListener("keypress", function (event) {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    saveUser();
-                }
-            });
-            //Store username in localstorage
-            function saveUser(name) {
-                var player = document.getElementById('userreg').value;
-                document.cookie = 'username=' + player;
+        //Make enter work
+        var input = document.getElementById("userreg");
+            input.addEventListener("keypress", function(event) {
+             if (event.key === "Enter") {
+            event.preventDefault();
+            saveUser();
             }
-            // Live scores
-            //Copy paste from livescores.txt to replace.
-            // Recent
-            if (window.localforage) {
-                let listhistory = document.getElementById("beatmap-list-history");
-                localforage.getItem("playhistory1000", function (err, item) {
-                    if (err) {
-                        listhistory.innerText = "Failed to load your recently played";
-                        return;
+        }); 
+        //Store username in localstorage
+        function saveUser( name ) {
+        var player = document.getElementById('userreg').value;
+        document.cookie = 'username=' + player;
+        }
+        // Live scores
+        //Copy paste from livescores.txt to replace.
+        // Recent
+        if (window.localforage) {
+            let listhistory = document.getElementById("beatmap-list-history");
+            localforage.getItem("playhistory1000", function (err, item) {
+                if (err) {
+                    listhistory.innerText = "Failed to load your recently played";
+                    return;
+                }
+                if (item && item.length) {
+                    item = item.reverse();
+                    sid = [];
+                    for (let i = 0; i < item.length; ++i) {
+                        if (item[i].sid)
+                            sid.push(item[i].sid);
                     }
-                    if (item && item.length) {
-                        item = item.reverse();
-                        sid = [];
-                        for (let i = 0; i < item.length; ++i) {
-                            if (item[i].sid)
-                                sid.push(item[i].sid);
-                        }
-                        sid = [...new Set(sid)]; // uniq
-                        for (let i = 0; i < 6 && i < sid.length; ++i) {
-                            addBeatmapSid(sid[i], listhistory)
-                        }
-                    } else {
-                        listhistory.innerText =
-                            "You haven't played any Beatmaps yet! Click on a Beatmap and select the difficulty to start playing!";
+                    sid = [...new Set(sid)]; // uniq
+                    for (let i = 0; i < 6 && i < sid.length; ++i){
+                    addBeatmapSid(sid[i], listhistory)
+                    }
+                } else {
+                    listhistory.innerText =
+                        "You haven't played any Beatmaps yet! Click on a Beatmap and select the difficulty to start playing!";
                     }
                 })
             }
-            // Get new beatmaps
-            addBeatmapList("https://catboy.best/api/search?amount=6&mode=0",
-                document.getElementById("beatmap-list-new"),
+        // Get new beatmaps
+        addBeatmapList("https://catboy.best/api/search?amount=6&mode=0",
+            document.getElementById("beatmap-list-new"),
+            function (t) {
+                return (t.modes & 1) != 0;
+            }, 6);
+        // Get random beatmaps
+        function genRandomList() {
+            // Wipe Random List
+            let list = document.getElementById("beatmap-list-random");
+            list.innerHTML = ''
+            // Re-fill Random List
+            let randquery = Math.random().toString(36).replace(/[^a-p]+/g, '').substr(1, 5);
+            addBeatmapList("https://catboy.best/api/search?q=" + randquery + "&amount=6&mode=0", list,
                 function (t) {
+                    while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
                 }, 6);
-            // Get random beatmaps
-            function genRandomList() {
-                // Wipe Random List
-                let list = document.getElementById("beatmap-list-random");
-                list.innerHTML = ''
-                // Re-fill Random List
-                let randquery = Math.random().toString(36).replace(/[^a-p]+/g, '').substr(1, 5);
-                addBeatmapList("https://catboy.best/api/search?q=" + randquery + "&amount=6&mode=0", list,
-                    function (t) {
-                        while (list.firstChild) list.removeChild(list.firstChild);
-                        return (t.modes & 1) != 0;
-                    }, 6);
-            }
-            genRandomList();
-            // Get hot beatmaps
-            addBeatmapList("https://catboy.best/api/search?amount=6&mode=0&query=Top Rated", document.getElementById(
-                "beatmap-list-hot"));
-            // Favorite beatmaps
-            if (window.localforage) {
-                window.localforage.getItem("likedsidset", function (err, val) {
-                    if (err) {
-                        document.getElementById("beatmap-list-liked").innerText =
-                            "Failed to load favorites list.";
-                        return;
+        }
+        genRandomList();
+        // Get hot beatmaps
+        addBeatmapList("https://catboy.best/api/search?amount=6&mode=0&query=Top Rated", document.getElementById(
+            "beatmap-list-hot"));
+        // Favorite beatmaps
+        if (window.localforage) {
+            window.localforage.getItem("likedsidset", function (err, val) {
+                if (err) {
+                    document.getElementById("beatmap-list-liked").innerText =
+                        "Failed to load favorites list.";
+                    return;
+                }
+                if (val && val.size) {
+                    let listlike = document.getElementById("beatmap-list-liked");
+                    list = Array.from(val);
+                    for (let i = 0; i < list.length && i < 6; ++i){
+                        addBeatmapSid(list[i], listlike);
                     }
-                    if (val && val.size) {
-                        let listlike = document.getElementById("beatmap-list-liked");
-                        list = Array.from(val);
-                        for (let i = 0; i < list.length && i < 6; ++i) {
-                            addBeatmapSid(list[i], listlike);
-                        }
 
-                    } else {
-                        document.getElementById("beatmap-list-liked").innerText =
-                            "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to save it.";
-                    }
-                });
-            } else {
-                alert("Oh no, localforage isn't supported on this browser")
+                } else {
+                    document.getElementById("beatmap-list-liked").innerText =
+                        "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to save it.";
+                }
+            });
+        } else {
+            alert("Oh no, localforage isn't supported on this browser")
             }
             //Live Scores is no longer being paid for, the current code is for use on firebase functions.
-            let tbody = document.getElementById("activity-list");
-
-            function formattime(date) {
-                let m;
-                return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
-            }
-
-            function showActivity(records) {
-                records = records.reverse();
-                while (tbody.firstChild)
-                    tbody.removeChild(tbody.firstChild);
-                for (let i = 0; i < records.length && i < 10; ++i) {
-                    let tr = document.createElement("tr");
-                    tbody.appendChild(tr);
-
-                    function nexttd(content) {
-                        let td = document.createElement("td");
-                        tr.appendChild(td);
-                        if (!content) return;
-                        if (content.tagName)
-                            td.appendChild(content);
-                        else
-                            td.innerText = content;
-                    }
-                    let b = ('');
-                    let player = document.createElement("span");
+        let tbody = document.getElementById("activity-list");
+        function formattime(date) {
+            let m;
+            return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
+        }
+        function showActivity(records) {
+            records = records.reverse();
+            while (tbody.firstChild)
+                tbody.removeChild(tbody.firstChild);
+            for (let i = 0; i < records.length && i < 10; ++i) {
+                let tr = document.createElement("tr");
+                tbody.appendChild(tr);
+                function nexttd(content) {
+                    let td = document.createElement("td");
+                    tr.appendChild(td);
+                    if (!content) return;
+                     if (content.tagName)
+                        td.appendChild(content);
+                    else
+                        td.innerText = content;
+                }
+                let b = ('');
+                let player = document.createElement("span");
                     player.innerText = records[i].player;
                     player.classText = records[i].player;
-                    nexttd(player);
-                    let title = document.createElement("a");
+                nexttd(player);
+                let title = document.createElement("a");
                     title.innerText = records[i].title + " [" + records[i].version + "]";
                     title.title = records[i].title + " [" + records[i].version + "]";
-                    if (records[i].sid == "undefined")
-                        records[i].sid = undefined;
+                if (records[i].sid == "undefined")
+                    records[i].sid = undefined;
                     title.href = "search.html?q=" + (records[i].sid || records[i].title);
-                    nexttd(title);
-                    nexttd(records[i].combo + "x");
-                    nexttd(parseInt(records[i].score).toLocaleString());
-                    let acc = document.createElement("span");
+                nexttd(title);
+                nexttd(records[i].combo + "x");
+                nexttd(parseInt(records[i].score).toLocaleString());
+                let acc = document.createElement("span");
                     acc.innerText = records[i].acc;
                     acc.className = records[i].grade;
                     nexttd(acc);
@@ -373,15 +296,14 @@
                 acc: 0
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
-            async function refreshLivescore() {
-                const request = await fetch(`https://livescores.webosu.workers.dev/get`)
-                const data = await request.json()
-                if (request.error) return console.log(request.error)
+    async function refreshLivescore() {
+            const request = await fetch(`https://livescores.webosu.workers.dev/get`)
+            const data = await request.json()
+            if(request.error) return console.log(request.error)
                 showActivity(data);
-            }
+                }
             refreshLivescore();
             window.setInterval(refreshLivescore, 5000);
         </script>
 </body>
-
 </html>
