@@ -1,4 +1,27 @@
 @charset "UTF-8";
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  top: 45px;
+  position: absolute;
+  background-color: #282c34;
+  min-width: 500px;
+  min-height: 500px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 15px 15px;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 body {
   background: #282c34;
   color: #d0d5df;
@@ -27,9 +50,11 @@ body {
   padding: 0;
   margin: 0;
 }
+
 button {
   background-color: #9d7dcc;
 }
+
 canvas {
   display: block;
 }
@@ -105,6 +130,7 @@ nav .brand {
     left: 40px !important;
   }
 }
+
 nav .pseudo.button {
   margin-top: 0.7em;
   height: 2.3em;
@@ -289,6 +315,7 @@ thead {
     width: 400px;
   }
 }
+
 .index-area {
   position: relative;
   margin-bottom: 1.5em;
@@ -384,11 +411,11 @@ thead {
   font-size: 1.2rem;
 }
 
-.grading > * {
+.grading>* {
   transition: 0.4s ease opacity;
 }
 
-.grading.transparent > * {
+.grading.transparent>* {
   opacity: 0;
 }
 
@@ -1087,13 +1114,16 @@ progress.finished::-webkit-progress-value {
   0% {
     opacity: 1;
   }
+
   70% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
 }
+
 /* Settings Page */
 .panel table {
   width: 100%;
@@ -1163,7 +1193,7 @@ input[type=checkbox] {
   z-index: 2;
 }
 
-input[type=checkbox] + span {
+input[type=checkbox]+span {
   background: rgba(85, 85, 85, 0);
   border-radius: 10px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
@@ -1175,8 +1205,8 @@ input[type=checkbox] + span {
   transition: all 0.2s ease;
 }
 
-input[type=checkbox] + span::before,
-input[type=checkbox] + span::after {
+input[type=checkbox]+span::before,
+input[type=checkbox]+span::after {
   background: #eee;
   content: "";
   display: block;
@@ -1187,16 +1217,16 @@ input[type=checkbox] + span::after {
   transition: all 0.2s ease;
 }
 
-input[type=checkbox] + span::after {
+input[type=checkbox]+span::after {
   right: 22px;
   width: 16px;
 }
 
-input[type=checkbox]:checked + span {
+input[type=checkbox]:checked+span {
   background: #9d7dcc;
 }
 
-input[type=checkbox]:checked + span::after {
+input[type=checkbox]:checked+span::after {
   right: 2px;
   width: 16px;
 }
@@ -1345,7 +1375,7 @@ input[type=file] {
   background-color: #46406b;
 }
 
-input[type=file] > label {
+input[type=file]>label {
   display: inline-block;
   min-inline-size: 12em;
   text-align: match-parent;
@@ -1420,10 +1450,12 @@ div[hidden=""] {
   0% {
     transform: scaleY(0);
   }
+
   100% {
     transform: scaleY(1);
   }
 }
+
 .difficulty-item {
   background: #2c2c34;
   box-shadow: 2px 2px 5px #000;
@@ -1596,6 +1628,7 @@ body:not(.sound-ready) .difficulty-item {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
