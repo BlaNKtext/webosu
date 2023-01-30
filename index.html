@@ -1,101 +1,97 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Home</title>
-    <meta charset="UTF-8">
-    <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
-    <meta name="google-site-verification" content="lLznJ7kC5ONeKPxymEt_ecjm1iz-tDisk8TQcs-60vc">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/picnic.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/font.css">
-    <script src="js/launchgame.js"></script>
-    <script src="js/downloader.js"></script>
-    <script src="js/addbeatmaplist.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/jsloader.js"></script> 
-    <script src="js/lib/localforage.min.js"></script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script async src="https://arc.io/widget.min.js#MfA1gDkn"></script>
-
-</head>
-
-<body>
-    <!--Game Area-->
-    <div class="game-area" id="game-area" hidden>
-    </div>
-    <div class="pause-menu" id="pause-menu" hidden>
-        <div class="paused-title">Paused</div>
-        <div class="button-list">
-            <div class="pausebutton continue" id="pausebtn-continue">
-                <div class="inner">Continue</div>
-            </div>
-            <div class="pausebutton retry" id="pausebtn-retry">
-                <div class="inner">Retry</div>
-            </div>
-            <div class="pausebutton quit" id="pausebtn-quit">
-                <div class="inner">Quit</div>
-            </div>
-        </div>
-    </div>
-    <!--Nav Bar-->
-    <nav id="main-nav">
-        <div class="nav-link">
-            <a href="index.html" class="brand">webosu!</a>
-
-
-
-            <a href="new.html" class="pseudo button">New</a>
-            <a href="hot.html" class="pseudo button">Popular</a>
-        </div>
-        <div class="nav-search">
-            <form action="search.html">
-                <container id="searchbar" class="searchbar">
-                    <input type="text" name="q" placeholder="Beatmap name or Set ID" />
-                </container>
-            </form>
-        </div>
-        <div class="nav-tool">
-            <a href="local.html" class="pseudo button">Favorites</a>
-            <a href="settings.html" class="pseudo button">Settings</a>
-            <input type="username" id="userreg" placeholder="Username" />
-        </div>
-    </nav>
-    <div class="main-page" id="main-page">
-        <div class="main-content">
-            <div class="announcement">
-                To save the username just type it in the top right & press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
-            </div>
-            <br>
-            <div class="index-area">
-                <h2>Live plays</h2>
-                <hr/>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Player</td>
-                            <td>Song</td>
-                            <td>Combo</td>
-                            <td>Score</td>
-                            <td>Acc</td>
-                            <td>Mods</td>
-                            <td>Time</td>
-                        </tr>
-                    </thead>
-                    <tbody id="activity-list">
-                    <!--will be filled in by script-->
-                    </tbody>
-                </table>
+                </div>
             </div>
             <div class="index-area">
-                <h2>Popular beatmaps</h2>
-                <a href="hot.html" class="more">See more Popular Beatmaps</a>
+                <h2>Latest Beatmaps</h2>
+                <a href="new.html" class="more">See all latest Beatmaps</a>
                 <hr/>
-                <div class="beatmap-list" id="beatmap-list-hot">
-                <!-- Beatmaps will be here -->
+                <div class="beatmap-list" id="beatmap-list">
+                    <div id="ezoic-pub-ad-placeholder-102"> </div>
+                </div>
+            </div>
+            <!--Loader progress-->
+            <div class="statuslines" id="statuslines">
+                <div class="progress" id="script-progress">
+                    Scripts
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="skin-progress">
+                    Skin
+                    <div class="lds-dual-ring"></div>
+                </div>
+                <div class="progress" id="sound-progress">
+                    Hitsounds
+                    <div class="lds-dual-ring"></div>
+                </div>
+            </div>
+        </div>    
+        <!--Footer-->
+        <div class="footer">
+            <div class="footer-infos">
+                <span class="footer-info">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</span>
+                <span class="footer-info">Beatmap API: <a href="https://catboy.best/">Mino</a></span>
+                <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">3.1</a></span>
+            </div>
+        </div>
+        <script>
+        //Make enter work
+        var input = document.getElementById("userreg");
+            input.addEventListener("keypress", function(event) {
+             if (event.key === "Enter") {
+            event.preventDefault();
+            saveUser();
+            }
+        }); 
+        //Store username in localstorage
+        function saveUser( name ) {
+        var player = document.getElementById('userreg').value;
+        document.cookie = 'username=' + player;
+        }
+        // Live scores
+        //Copy paste from livescores.txt to replace.
+        // Recent
+        if (window.localforage) {
+            let listhistory = document.getElementById("beatmap-list-history");
+            localforage.getItem("playhistory1000", function (err, item) {
+                if (err) {
+                    listhistory.innerText = "Failed to load your recently played";
+                    return;
+                }
+                if (item && item.length) {
+                    item = item.reverse();
+                    sid = [];
+                    for (let i = 0; i < item.length; ++i) {
+                        if (item[i].sid)
+                            sid.push(item[i].sid);
+                    }
+                    sid = [...new Set(sid)]; // uniq
+                    for (let i = 0; i < 6 && i < sid.length; ++i){
+                    addBeatmapSid(sid[i], listhistory)
+                    }
+                } else {
+                    listhistory.innerText =
+                        "You haven't played any Beatmaps yet! Click on a Beatmap and select the difficulty to start playing!";
+                    }
+                })
+            }
+        // Get new beatmaps
+        addBeatmapList("https://catboy.best/api/search?amount=6&mode=0",
+            document.getElementById("beatmap-list-new"),
+            function (t) {
+                return (t.modes & 1) != 0;
+            }, 6);
+        // Get random beatmaps
+        function genRandomList() {
+            // Wipe Random List
+            let list = document.getElementById("beatmap-list-random");
+            list.innerHTML = ''
+            // Re-fill Random List
+            let randquery = Math.random().toString(36).replace(/[^a-p]+/g, '').substr(1, 5);
+            addBeatmapList("https://catboy.best/api/search?q=" + randquery + "&amount=6&mode=0", list,
+                function (t) {
+                    while (list.firstChild) list.removeChild(list.firstChild);
+                    return (t.modes & 1) != 0;
+                }, 6);
+        }
         genRandomList();
         // Get hot beatmaps
         addBeatmapList("https://catboy.best/api/search?amount=6&mode=0&query=Top Rated", document.getElementById(
@@ -189,5 +185,4 @@
             window.setInterval(refreshLivescore, 5000);
         </script>
 </body>
-
 </html>
