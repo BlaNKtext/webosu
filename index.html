@@ -1,3 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <link rel=”canonical” href=”https://webosu.online/”/>
+    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
+    <meta name="google-site-verification" content="lLznJ7kC5ONeKPxymEt_ecjm1iz-tDisk8TQcs-60vc">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/picnic.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/font.css">
+    <script src="js/launchgame.js"></script>
+    <script src="js/downloader.js"></script>
+    <script src="js/addbeatmaplist.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/jsloader.js"></script> 
+    <script src="js/lib/localforage.min.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script async src="https://arc.io/widget.min.js#MfA1gDkn"></script>
+</head>
+<body>
+    <!--Game Area-->
+    <div class="game-area" id="game-area" hidden>
+    </div>
+    <div class="pause-menu" id="pause-menu" hidden>
+        <div class="paused-title">Paused</div>
+        <div class="button-list">
+            <div class="pausebutton continue" id="pausebtn-continue">
+                <div class="inner">Continue</div>
+            </div>
+            <div class="pausebutton retry" id="pausebtn-retry">
+                <div class="inner">Retry</div>
+            </div>
+            <div class="pausebutton quit" id="pausebtn-quit">
+                <div class="inner">Quit</div>
+            </div>
+        </div>
+    </div>
+    <!--Nav Bar-->
+    <nav id="main-nav">
+        <div class="nav-link">
+            <a href="index.html" class="brand">webosu!</a>
+            <a href="new.html" class="pseudo button">New</a>
+            <a href="hot.html" class="pseudo button">Popular</a>
+        </div>
+        <div class="nav-search">
+            <form action="search.html">
+                <container id="searchbar" class="searchbar">
+                    <input type="text" name="q" placeholder="Beatmap name or Set ID" />
+                </container>
+            </form>
+        </div>
+        <div class="nav-tool">
+            <a href="local.html" class="pseudo button">Favorites</a>
+            <a href="settings.html" class="pseudo button">Settings</a>
+            <input type="username" id="userreg" placeholder="Username" />
+        </div>
+    </nav>
+    <div class="main-page" id="main-page">
+        <div class="main-content">
+            <div class="announcement">
+                To save the username just type it in the top right & press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
+            </div>
+            <br>
+            <div class="index-area">
+                <h2>Live plays</h2>
+                <hr/>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Player</td>
+                            <td>Song</td>
+                            <td>Combo</td>
+                            <td>Score</td>
+                            <td>Acc</td>
+                            <td>Mods</td>
+                            <td>Time</td>
+                        </tr>
+                    </thead>
+                    <tbody id="activity-list">
+                    <!--will be filled in by script-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="index-area">
+                <h2>Popular beatmaps</h2>
+                <a href="hot.html" class="more">See more Popular Beatmaps</a>
+                <hr/>
+                <div class="beatmap-list" id="beatmap-list-hot">
+                <!-- Beatmaps will be here -->
+                </div>
+            </div>
+            <div class="index-area">
+                <h2>Recently Played</h2>
+                <a href="history.html" class="more">See your play history</a>
+                <hr/>
+                <div class="beatmap-list" id="beatmap-list-history">
+                <!-- Beatmaps will be here -->
+                </div>
+            </div>
+            <div class="index-area">
+                <h2>Favorited Beatmaps</h2>
+                <a href="local.html" class="more">See all favorited Beatmaps</a>
+                <hr/>
+                <div class="beatmap-list" id="beatmap-list-liked">
+                <!-- Beatmaps will be here -->
+                </div>
+            </div>
+            <div class="index-area">
+                <h2>Latest Beatmaps</h2>
+                <a href="new.html" class="more">See all latest Beatmaps</a>
+                <hr/>
+                <div class="beatmap-list" id="beatmap-list-new">
+                <!-- Beatmaps will be here -->
+                </div>
+            </div>
+            <div class="index-area">
+                <a onclick="genRandomList()" class="more" style="cursor:pointer;">Get new random Beatmaps</a>
+                <h2>Random Beatmaps<h2>
+                <hr/>
+                <div class="beatmap-list" id="beatmap-list-random">
+                <!-- to be filled in script -->
                 </div>
             </div>
             <div class="index-area">
@@ -120,9 +244,6 @@
             alert("Oh no, localforage isn't supported on this browser")
             }
             //Live Scores is no longer being paid for, the current code is for use on firebase functions.
-
-
-
         let tbody = document.getElementById("activity-list");
         function formattime(date) {
             let m;
