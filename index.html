@@ -198,7 +198,7 @@
                 })
             }
         // Get new beatmaps
-        addBeatmapList("https://catboy.best/api/search?amount=6&mode=0",
+        addBeatmapList("https://catboy.best/api/search?amount=6&status=1&status=4&status=-2&mode=0",
             document.getElementById("beatmap-list-new"),
             function (t) {
                 return (t.modes & 1) != 0;
@@ -210,7 +210,7 @@
             list.innerHTML = ''
             // Re-fill Random List
             let randquery = Math.random().toString(36).replace(/[^a-p]+/g, '').substr(1, 5);
-            addBeatmapList("https://catboy.best/api/search?q=" + randquery + "&amount=6&mode=0", list,
+            addBeatmapList("https://catboy.best/api/search?q=" + randquery + "&amount=6&status=1&status=4&status=-2&mode=0", list,
                 function (t) {
                     while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
@@ -218,7 +218,7 @@
         }
         genRandomList();
         // Get hot beatmaps
-        addBeatmapList("https://catboy.best/api/search?amount=6&mode=0&query=Top Rated", document.getElementById(
+        addBeatmapList("https://catboy.best/api/search?amount=6&status=1&status=4&status=-2&mode=0&query=Top Rated", document.getElementById(
             "beatmap-list-hot"));
         // Favorite beatmaps
         if (window.localforage) {
