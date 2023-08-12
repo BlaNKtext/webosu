@@ -96,7 +96,8 @@
     }); 
     //Store username in localstorage
 function saveUser( name ) {
-    var player = document.getElementById('userreg').value;
+    let player = document.getElementById('userreg').value;
+    window.localStorage.setItem("username", player);
     document.cookie = 'username=' + player;
     }
         addBeatmapList("https://catboy.best/api/search?mode=0&query=Top Rated");
