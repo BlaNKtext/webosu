@@ -101,7 +101,7 @@ function createDifficultyList(boxclicked, event) {
             if (!window.scriptReady || !window.soundReady || !window.skinReady || !this.parentElement.parentElement.oszblob) {
                 return;
             }
-            launchGame(this.parentElement.parentElement.oszblob, this.data.BeatmapID, this.data.DiffName);
+            launchGame(this.parentElement.parentElement.oszblob, this.data.id, this.data.version);
         }
     }
     difficultyBox.onclick = function(e) {
