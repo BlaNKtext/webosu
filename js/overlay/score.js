@@ -273,13 +273,11 @@ define([], function () {
             args += "&combo=" + encodeURIComponent(summary.combo);
             args += "&acc=" + encodeURIComponent(summary.acc);
             args += "&time=" + encodeURIComponent(summary.time);
-            /*
             args += "&greats=" + encodeURIComponent(summary.count300);
             args += "&goods=" + encodeURIComponent(summary.count100);
             args += "&bads=" + encodeURIComponent(summary.count50);
             args += "&misses=" + encodeURIComponent(summary.misses);
             args += "&modsnum=" + encodeURIComponent(summary.modsNum);
-            */
             args += "&artist=" + encodeURIComponent(summary.artist);
             xhr.open("GET", url + args);
             xhr.onload = function () {
