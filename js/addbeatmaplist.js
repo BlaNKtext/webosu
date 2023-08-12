@@ -184,7 +184,7 @@ var NSaddBeatmapList = {
         // create container of beatmap on web page
         let pBeatmapBox = document.createElement("div");
         pBeatmapBox.setdata = map;
-        pBeatmapBox.sid = map.ParentSetID;
+        pBeatmapBox.sid = map.id;
         let pBeatmapCover = document.createElement("img");
         let pBeatmapCoverOverlay = document.createElement("div");
         let pBeatmapTitle = document.createElement("div");
@@ -300,6 +300,7 @@ async function addBeatmapList(listurl, list) {
     const request = await fetch(listurl);
     // request beatmap pack list
         const data = await request.json()
+        console.log(data)
 
         if (typeof(data.endid) != "undefined"){
             window.list_endid = data.endid;
@@ -309,7 +310,7 @@ async function addBeatmapList(listurl, list) {
         let box = [];
 
         // add widget to webpage as soon as list is fetched
-        for (let i=0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             box.push(NSaddBeatmapList.addpreviewbox(data[i], list));
         }
         // async add more info
