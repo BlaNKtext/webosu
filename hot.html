@@ -86,22 +86,23 @@
         </div>
     </div>    
     <script>
-//Make enter work
-    var input = document.getElementById("userreg");
+        const input = document.getElementById("userreg");
+        const username = window.localStorage.getItem("username")
+        if(username) input.value = username;
         input.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
-        event.preventDefault();
-        saveUser();
-        }
-    }); 
+                event.preventDefault();
+                saveUser();
+            }
+        }); 
     //Store username in localstorage
-function saveUser( name ) {
-    let player = document.getElementById('userreg').value;
-    window.localStorage.setItem("username", player);
-    document.cookie = 'username=' + player;
-    }
+        function saveUser( name ) {
+            const player = document.getElementById('userreg').value;
+            window.localStorage.setItem("username", player);
+            document.cookie = 'username=' + player;
+        }
         addBeatmapList("https://catboy.best/api/search?mode=0&query=Top Rated");
-        var p = 1;
+        let p = 1;
         document.getElementById("btnmore").onclick = function () {
             addBeatmapList(`https://catboy.best/api/search?p=${p}&mode=0&query=Top Rated`);
             p++
