@@ -265,7 +265,7 @@ define([], function () {
             args += "?sid=" + encodeURIComponent(summary.sid);
             args += "&bid=" + encodeURIComponent(summary.bid);
             args += "&title=" + encodeURIComponent(summary.title);
-            args += "&player=" + encodeURIComponent(getUser('username') || "Unknown");
+            args += "&player=" + encodeURIComponent(window.localStorage.getItem("username") || "Unknown");
             args += "&version=" + encodeURIComponent(summary.version);
             args += "&mods=" + encodeURIComponent(summary.mods);
             args += "&grade=" + encodeURIComponent(summary.grade);
