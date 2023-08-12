@@ -289,14 +289,14 @@ define([], function () {
                 console.error("Score upload failed");
             }
             xhr.send();
-        }
+            
             //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres
-        /*    fetch(`https://api.catboy.best/score${args}`).then(resp => {
+            fetch(`http://api.catboy.best/score${args}`).then(resp => {
                 resp.json().then(data => {
                     if(data.error) console.error("Discord Submission failed: " + data.error);
                 })
             })
-        } */
+        }
 
         this.showSummary = function (metadata, hiterrors, retryCallback, quitCallback) {
             function errortext(a) {
