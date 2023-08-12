@@ -353,3 +353,30 @@ async function addBeatmapList(listurl, list) {
             // to make sure it's called only once
         }
     }
+
+    async function addBeatmapSids(ids, list) {
+        if (!list) list = document.getElementById("beatmap-list");
+
+        const request = await fetch(`https://catboy.best/api/v2/beatmapsets?ids=${ids.join("&ids=")}`)
+
+        const data = await request.json()
+
+        if(request.error) return alert("Beatmap not found with specified SetID")
+
+        // use data of first track as set data
+        for(let i = 0; i < data.length; i++){
+            let box = NSaddBeatmapList.addpreviewbox(data[i], list);
+            box.sid = data.id;
+            NSaddBeatmapList.addMoreInfo(box, data[i]);
+            box.onclick = function(e) {
+                // this is effective only when box.data is available
+                createDifficultyList(box, e);
+                startdownload(box);
+            }
+            if (window.beatmaplistLoadedCallback) {
+                window.beatmaplistLoadedCallback();
+                window.beatmaplistLoadedCallback = null;
+                // to make sure it's called only once
+            }
+        }
+    }

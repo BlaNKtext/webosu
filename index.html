@@ -234,10 +234,8 @@
                 if (val && val.size) {
                     let listlike = document.getElementById("beatmap-list-liked");
                     list = Array.from(val);
-                    for (let i = 0; i < list.length && i < 6; ++i){
-                        addBeatmapSid(list[i], listlike);
-                    }
-
+                    list.length = Math.min(list.length, 6)
+                    addBeatmapSids(list, listlike);
                 } else {
                     document.getElementById("beatmap-list-liked").innerText =
                         "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to save it.";
