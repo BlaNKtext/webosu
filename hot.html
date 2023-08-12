@@ -101,10 +101,10 @@
             window.localStorage.setItem("username", player);
             document.cookie = 'username=' + player;
         }
-        addBeatmapList("https://catboy.best/api/search?mode=0&query=Top Rated");
+        addBeatmapList("https://catboy.best/api/v2/search?mode=0&query=Top Rated");
         let p = 1;
         document.getElementById("btnmore").onclick = function () {
-            addBeatmapList(`https://catboy.best/api/search?p=${p}&mode=0&query=Top Rated`);
+            addBeatmapList(`https://catboy.best/api/v2/search?p=${p}&mode=0&query=Top Rated`);
             p++
         }
     </script>

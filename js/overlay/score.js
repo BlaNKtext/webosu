@@ -370,7 +370,7 @@ define([], function () {
             newdiv(left, "block good", this.judgecnt.good.toString());
             newdiv(left, "block meh", this.judgecnt.meh.toString());
             newdiv(left, "block miss", this.judgecnt.miss.toString());
-            newdiv(left, "block player", getUser("username"));
+            newdiv(left, "block player", window.localStorage.getItem("username") || "Unknown");
             newdiv(left, "block combo", this.maxcombo.toString() + "x");
             if (this.fullcombo)
                 newdiv(left, "fullcombo");

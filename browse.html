@@ -129,16 +129,16 @@
             while (list.firstChild) {
                 list.removeChild(list.firstChild);
             }
-            addBeatmapList("https://catboy.best/api/search?mode=0");
+            addBeatmapList("https://catboy.best/api/v2/search?mode=0");
             var p = 0
             document.getElementById("btnmore").onclick = function () {
                 if (typeof (window.list_endid) == "undefined") {
-                    addBeatmapList("https://catboy.best/api/search?mode=0&p=" + p);
+                    addBeatmapList("https://catboy.best/api/v2/search?mode=0&p=" + p);
                 } else {
                     if (window.list_endid == 0)
                         document.getElementById("btnmore").innerText = "There's no more beatmaps to load!";
                     else
-                        addBeatmapList("https://catboy.best/api/search?mode=0&p=" + p);
+                        addBeatmapList("https://catboy.best/api/v2/search?mode=0&p=" + p);
                 }
                 p++
             }
