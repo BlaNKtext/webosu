@@ -184,7 +184,7 @@ var NSaddBeatmapList = {
         // create container of beatmap on web page
         let pBeatmapBox = document.createElement("div");
         pBeatmapBox.setdata = map;
-        pBeatmapBox.sid = map.ParentSetID;
+        pBeatmapBox.sid = map.id;
         let pBeatmapCover = document.createElement("img");
         let pBeatmapCoverOverlay = document.createElement("div");
         let pBeatmapTitle = document.createElement("div");
@@ -281,7 +281,7 @@ var NSaddBeatmapList = {
     
     addMoreInfo: async function(box, data) {
         // remove all but osu std mode
-        data.beatmaps = data.beatmaps.filter(function(o){return o.Mode == 0;});
+        data.beatmaps = data.beatmaps.filter(function(o){return o.mode_int == 0;});
         data.beatmaps = data.beatmaps.sort(function(a,b){return Math.sign(a.difficulty_rating-b.difficulty_rating);});
         box.data = data;
         NSaddBeatmapList.addStarRings(box, data.beatmaps);
@@ -309,11 +309,11 @@ async function addBeatmapList(listurl, list) {
         let box = [];
 
         // add widget to webpage as soon as list is fetched
-        for (let i=0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             box.push(NSaddBeatmapList.addpreviewbox(data[i], list));
         }
         // async add more info
-        for (let i=0; i < data.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             box[i].sid = data[i].id;
 
             NSaddBeatmapList.addMoreInfo(box[i], data[i]);
