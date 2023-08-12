@@ -186,14 +186,12 @@
                 if (item && item.length) {
                     item = item.reverse();
                     sid = [];
-                    for (let i = 0; i < item.length; ++i) {
-                        if (item[i].sid)
-                            sid.push(item[i].sid);
+                    for (let i = 0; i < item.length; i++) {
+                        if(item[i].sid) sid.push(item[i].sid);
                     }
                     sid = [...new Set(sid)]; // uniq
-                    for (let i = 0; i < 6 && i < sid.length; ++i){
-                    addBeatmapSid(sid[i], listhistory)
-                    }
+                    sid.length = Math.min(sid.length, 6)
+                    addBeatmapSids(sid, listhistory)
                 } else {
                     listhistory.innerText =
                         "You haven't played any Beatmaps yet! Click on a Beatmap and select the difficulty to start playing!";

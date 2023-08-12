@@ -111,13 +111,13 @@ function saveUser( name ) {
                         return;
                     }
                     if (val && val.size) {
-                        list = Array.from(val);
                         function addlist(startoffset, maxlength) {
-                            for (let i = startoffset; i < list.length && i < startoffset + maxlength; ++i)
-                                addBeatmapSid(list[i]);
+                            list = Array.from(val);
+                            list.length = Math.min(list.length, startoffset + maxLength)
+                            addBeatmapSids(list);
                         }
                         addlist(0, 1000);
-                        var cur = 1000;
+                        let cur = 1000;
                     } else {
                         document.getElementById("beatmap-list").innerText =
                             "You haven't favorited any Beatmaps yet! Click on the heart in the lower right corner of the Beatmap to favorite it!";
