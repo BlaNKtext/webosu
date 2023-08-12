@@ -1,4 +1,4 @@
-# webosu! 3.2 :heart_eyes:
+# webosu! 3.3 :heart_eyes:
 Feel free to drop by the [Discord server](https://discord.gg/v7wBtSdYzx)<br>
 
 ## Info
