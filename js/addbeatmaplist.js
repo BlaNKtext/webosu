@@ -300,6 +300,7 @@ async function addBeatmapList(listurl, list) {
     const request = await fetch(listurl);
     // request beatmap pack list
         const data = await request.json()
+        console.log(data)
 
         if (typeof(data.endid) != "undefined"){
             window.list_endid = data.endid;
