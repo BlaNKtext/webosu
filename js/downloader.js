@@ -57,7 +57,7 @@ function startdownload(box) {
     let bar = document.createElement("progress");
     container.className = "download-progress";
     title.className = "title";
-    title.innerText = box.setdata.Title;
+    title.innerText = box.setdata.title;
     container.appendChild(title);
     container.appendChild(bar);
     // insert so that download list from recent to old
