@@ -366,7 +366,7 @@ async function addBeatmapList(listurl, list) {
         // use data of first track as set data
         for(let i = 0; i < data.length; i++){
             let box = NSaddBeatmapList.addpreviewbox(data[i], list);
-            box.sid = data.id;
+            box.sid = data[i].id;
             NSaddBeatmapList.addMoreInfo(box, data[i]);
             box.onclick = function(e) {
                 // this is effective only when box.data is available
