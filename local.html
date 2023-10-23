@@ -111,9 +111,9 @@ function saveUser( name ) {
                         return;
                     }
                     if (val && val.size) {
-                        function addlist(startoffset, maxlength) {
+                        function addlist(startOffset, maxLength) {
                             list = Array.from(val);
-                            list.length = Math.min(list.length, startoffset + maxLength)
+                            list.length = Math.min(list.length, startOffset + maxLength)
                             addBeatmapSids(list);
                         }
                         addlist(0, 1000);
