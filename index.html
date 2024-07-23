@@ -300,7 +300,6 @@
     async function refreshLivescore() {
             const request = await fetch(`https://scores.webosu.online/get`)
             const data = await request.json()
-            if(request.error) return console.log(request.error)
                 showActivity(data);
                 }
             refreshLivescore();
