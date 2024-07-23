@@ -260,7 +260,7 @@ define([], function () {
 
         function uploadScore(summary) {
             let xhr = new XMLHttpRequest();
-            let url = "https://livescores.webosu.workers.dev/post";
+            let url = "https://scores.webosu.workers.dev/post";
             let args = '';
             args += "?sid=" + encodeURIComponent(summary.sid);
             args += "&bid=" + encodeURIComponent(summary.bid);
@@ -288,7 +288,7 @@ define([], function () {
             }
             xhr.send();
             
-            //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres
+            //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres | MWAH LEMRES I LOVE U ~ ME <3
             fetch(`https://api.catboy.best/score${args}`).then(resp => {
                 resp.json().then(data => {
                     if(data.error) console.error("Discord Submission failed: " + data.error);
