@@ -3,7 +3,7 @@
 <head>
     <title>Search</title>
     <link rel=”canonical” href=”https://webosu.online/”/>
-    <meta name="description" content="webosu! is a web port of osu! that can run on almost any PC, with features like usernames and a live scoreboard">
+    <meta name="description" content="Search through over 1,000,000 beatmaps hosted by Mino to find your new favorite!">
     <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/picnic.min.css">
     <link rel="stylesheet"href="css/main.css">
@@ -14,8 +14,6 @@
     <script src="js/settings.js"></script>
     <script src="js/jsloader.js"></script>
     <script src="js/lib/localforage.min.js"></script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script async src="https://arc.io/widget.min.js#MfA1gDkn"></script>
 </head>
 <body>
     <div class="game-area" id="game-area" hidden>
@@ -44,14 +42,14 @@
         <div class="nav-search">
             <form action="search.html">
                 <container id="searchbar" class="searchbar">
-                    <input type="text" name="q" placeholder="Beatmap name or Set ID" />
+                    <input type="text" name="q" placeholder="Seach for beatmap or enter a Set ID" />
                 </container>
             </form>
         </div>
         <div class="nav-tool">
             <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
-            <input type="username" id="userreg" placeholder="Username" />
+            <input type="username" id="userreg" placeholder="Type your name" />
         </div>
     </nav>
     <div class="main-page" id="main-page">

@@ -157,6 +157,7 @@ form input[type=text]::-webkit-input-placeholder {
 form input[type=text] {
   height: 36px;
   margin-top: 4.5px;
+  text-align: center;
 }
 
 form input {
@@ -1181,6 +1182,7 @@ input:focus {
 input[type=username] {
   width: 145px;
   margin: 6px 2px;
+  text-align: center;
 }
 
 input[type=checkbox] {

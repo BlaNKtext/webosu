@@ -15,8 +15,6 @@
     <script src="js/settings.js"></script>
     <script src="js/jsloader.js"></script>
     <script src="js/lib/localforage.min.js"></script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script async src="https://arc.io/widget.min.js#MfA1gDkn"></script>
 </head>
 <body>
     <div class="game-area" id="game-area" hidden>
@@ -45,20 +43,23 @@
         <div class="nav-search">
             <form action="search.html">
                 <container id="searchbar" class="searchbar">
-                    <input type="text" name="q" placeholder="Beatmap name or Set ID" />
+                    <input type="text" name="q" placeholder="Seach for beatmap or enter a Set ID" />
                 </container>
             </form>
         </div>
         <div class="nav-tool">
             <a href="local.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
-            <input type="username" id="userreg" placeholder="Username" />
+            <input type="username" id="userreg" placeholder="Type your name" />
         </div>
     </nav>
     <div class="main-page" id="main-page">
         <div class="main-content">
             <div class="announcement">
                 To save the username just type it in the top right & press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
+            </div>
+            <div class="announcement">
+                Thank you so much to everyone who has been involved with webosu!, especially Lemres who has kept this ship afloat for like 2 years while I did nothing lol
             </div>
             <br>
             <div class="beatmap-list" id="beatmap-list">
@@ -85,8 +86,8 @@
             <div class="footer">
                 <div class="footer-infos">
                     <span class="footer-info">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</span>
-                    <span class="footer-info">Beatmap API: <a href="https://catboy.best/">Mino</a></span>
-                    <span class="footer-info">Stable Release: <a href="https://github.com/BlaNKtext/webosu">3.1</span>
+                    <span class="footer-info">Beatmap Mirror <a href="https://catboy.best/">Mino</a></span>
+                    <span class="footer-info">Source code: <a href="https://github.com/BlaNKtext/webosu"></span>
                 </div>
             </div>
         </footer>
@@ -103,6 +104,7 @@
 function saveUser( name ) {
     var player = document.getElementById('userreg').value;
     document.cookie = 'username=' + player;
+    console.log('Username saved!');
     }
             if (window.localforage) {
                 window.localforage.getItem("likedsidset", function (err, val) {
