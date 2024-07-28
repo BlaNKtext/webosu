@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="css/picnic.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/font.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
     <script src="js/launchgame.js"></script>
     <script src="js/downloader.js"></script>
     <script src="js/addbeatmaplist.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/jsloader.js"></script> 
-    <script src="js/lib/localforage.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <script src="js/lib/localforage.min.js"></script>    
 </head>
 <body>
     <!--Game Area-->
@@ -156,7 +156,7 @@
             <div class="footer-infos">
                 <span class="footer-info">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</span>
                 <span class="footer-info">Beatmap Mirror <a href="https://catboy.best/">Mino</a></span>
-                <span class="footer-info">Source code: <a href="https://github.com/BlaNKtext/webosu"></a></span>
+                <span class="footer-info">Source code: <a href="https://github.com/BlaNKtext/webosu">Github</a></span>
             </div>
         </div>
         <script>
@@ -300,10 +300,11 @@
     async function refreshLivescore() {
             const request = await fetch(`https://scores.webosu.online/get`)
             const data = await request.json()
+            if(request.error) return console.log(request.error)
                 showActivity(data);
                 }
             refreshLivescore();
-            window.setInterval(refreshLivescore, 5000);
+            window.setInterval(refreshLivescore, 10000);
         </script>
 </body>
 </html>

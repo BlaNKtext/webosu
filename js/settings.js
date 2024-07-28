@@ -281,7 +281,7 @@ function setOptionPanel() {
 			}
 			gamesettings.loadToGame();
 			saveToLocal();
-			//console.log(gamesettings)
+			console.log(gamesettings)
 		}
 	}
 	// gameplay settings
@@ -335,8 +335,8 @@ function setOptionPanel() {
 window.addEventListener('DOMContentLoaded', setOptionPanel);
 
 
-// press any key to search
-/*window.onkeydown = function(e) {
+//press any key to search
+window.onkeydown = function(e) {
 	if (e.ctrlKey || e.altKey || e.metaKey)
 		return;
 	if (e.key.length == 1 && e.key != " ") {
@@ -344,4 +344,4 @@ window.addEventListener('DOMContentLoaded', setOptionPanel);
 		textinput.focus();
 	}
 }
-*/
+
