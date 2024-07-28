@@ -297,19 +297,19 @@
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
     async function refreshLivescore() {
-            const request = await fetch(`https://scores.webosu.online/get`, {
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'}
-            })
-            const data = await request.json()
+            const request = await
+             fetch(`https://scores.webosu.online/get`, {
+                method: 'GET',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'}
+             })
             if(request.error) return console.log(request.error)
-                showActivity(data);
+                showActivity(request.json());
                 }
             refreshLivescore();
-            window.setInterval(refreshLivescore, 10000);
+            window.setInterval(refreshLivescore, 2000);
         </script>
 </body>
 </html>
