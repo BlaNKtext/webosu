@@ -176,9 +176,7 @@
             window.localStorage.setItem("username", player);
             document.cookie = 'username=' + player;
         }
-        // Live scores
-        //Copy paste from livescores.txt to replace.
-        // Recent
+        //Recently played
         if (window.localforage) {
             let listhistory = document.getElementById("beatmap-list-history");
             localforage.getItem("playhistory1000", function (err, item) {
@@ -250,6 +248,7 @@
             let m;
             return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
         }
+        //Live scores
         function showActivity(records) {
             records = records.reverse();
             while (tbody.firstChild)
@@ -298,7 +297,13 @@
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
     async function refreshLivescore() {
-            const request = await fetch(`https://scores.webosu.online/get`)
+            const request = await fetch(`https://scores.webosu.online/get`, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'}
+            })
             const data = await request.json()
             if(request.error) return console.log(request.error)
                 showActivity(data);

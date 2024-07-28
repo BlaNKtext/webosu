@@ -289,8 +289,15 @@ define([], function () {
             xhr.send();
             
             //TODO: Change url to api.webosu.online OR integrate to Mino over /api/webosu/score ~ Lemres | MWAH LEMRES I LOVE U ~ ME <3
-            fetch(`https://api.catboy.best/score${args}`).then(resp => {
-                resp.json().then(data => {
+            fetch(`https://api.catboy.best/score${args}`, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'}
+            })
+            .then(resp => {resp.json()
+            .then(data => {
                     if(data.error) console.error("Discord Submission failed: " + data.error);
                 })
             })
