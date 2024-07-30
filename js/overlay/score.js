@@ -260,7 +260,7 @@ define([], function () {
 
         function uploadScore(summary) {
             let xhr = new XMLHttpRequest();
-            let url = "https://scores.webosu.workers.dev/post";
+            let url = "https://scores.webosu.online/post";
             let args = '';
             args += "?sid=" + encodeURIComponent(summary.sid);
             args += "&bid=" + encodeURIComponent(summary.bid);
