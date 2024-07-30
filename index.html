@@ -243,12 +243,12 @@
         } else {
             alert("Oh no, localforage isn't supported on this browser")
             }
-        let tbody = document.getElementById("activity-list");
+ // Live scores
+ let tbody = document.getElementById("activity-list");
         function formattime(date) {
             let m;
             return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
         }
-        //Live scores
         function showActivity(records) {
             records = records.reverse();
             while (tbody.firstChild)
@@ -265,11 +265,10 @@
                     else
                         td.innerText = content;
                 }
-                let b = ('');
-                let player = document.createElement("span");
-                    player.innerText = records[i].player;
-                    player.classText = records[i].player;
-                nexttd(player);
+                let b = records[i].ip.split(".");
+                b[0] = "Player";
+                if (b.length > 3) b[3] = "Player";
+                nexttd(b.join("."));
                 let title = document.createElement("a");
                     title.innerText = records[i].title + " [" + records[i].version + "]";
                     title.title = records[i].title + " [" + records[i].version + "]";
@@ -288,28 +287,28 @@
                 }
             }
             let b = {
-                player: "",
+                ip: "",
                 title: "",
-                version: "",
+                version: "loading",
                 score: 0,
                 combo: 0,
                 acc: 0
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
-    async function refreshLivescore() {
-            const request = await
-             fetch(`https://scores.webosu.online/get`, {
-                method: 'GET',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'}
-             })
-            if(request.error) return console.log(request.error)
-                showActivity(request.json());
+        function refreshLivescore() {
+            let xhr = new XMLHttpRequest();
+                xhr.responseType = 'text';
+                xhr.open("GET", "https://scores.webosu.online/get");
+                xhr.onload = function () {
+                showActivity(JSON.parse(xhr.response));
                 }
+                xhr.onerror = function () {
+                    console.error("Failed to fetch uploaded plays");
+                }
+                xhr.send();
+            }
             refreshLivescore();
-            window.setInterval(refreshLivescore, 2000);
+            window.setInterval(refreshLivescore, 5000);
         </script>
 </body>
 </html>
