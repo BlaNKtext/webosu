@@ -333,15 +333,3 @@ function setOptionPanel() {
 }
 
 window.addEventListener('DOMContentLoaded', setOptionPanel);
-
-
-//press any key to search
-window.onkeydown = function(e) {
-	if (e.ctrlKey || e.altKey || e.metaKey)
-		return;
-	if (e.key.length == 1 && e.key != " ") {
-		let textinput = document.getElementsByTagName("input")[0];
-		textinput.focus();
-	}
-}
-

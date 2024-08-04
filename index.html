@@ -18,8 +18,8 @@
     <script src="js/downloader.js"></script>
     <script src="js/addbeatmaplist.js"></script>
     <script src="js/settings.js"></script>
-    <script src="js/jsloader.js"></script> 
-    <script src="js/lib/localforage.min.js"></script>    
+    <script src="js/jsloader.js"></script>
+    <script src="js/lib/localforage.min.js"></script>
 </head>
 <body>
     <!--Game Area-->
@@ -296,20 +296,21 @@
                 acc: 0
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
-        function refreshLivescore() {
-            let xhr = new XMLHttpRequest();
-                xhr.responseType = 'text';
-                xhr.open("GET", "https://scores.webosu.online/get");
-                xhr.onload = function () {
-                showActivity(JSON.parse(xhr.response));
+        async function refreshLivescore() {
+            const url = "https://scores.webosu.online/get"
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Response status: ${response.status}`);
                 }
-                xhr.onerror = function () {
-                    console.error("Failed to fetch uploaded plays");
-                }
-                xhr.send();
+                const json = await response.json();
+                console.log(json);
+            } catch (error) {
+                console.error(error.message);
             }
-            refreshLivescore();
-            window.setInterval(refreshLivescore, 5000);
-        </script>
+        }
+        refreshLivescore();
+        window.setInterval(refreshLivescore, 5000);
+    </script>
 </body>
 </html>
