@@ -16,7 +16,7 @@
     <script src="js/addbeatmaplist.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/jsloader.js"></script>
-    <script src="js/lib/localforage.min.js"></script>
+    <script src="js\lib\localforage.min.js"></script>
 </head>
 <body>
     <div class="game-area" id="game-area" hidden>
@@ -52,14 +52,11 @@
         <div class="nav-tool">
             <a href="liked.html" class="pseudo button">Favorites</a>
             <a href="settings.html" class="pseudo button">Settings</a>
-            <input type="username" id="userreg" placeholder="Type your name" />
+            <input type="username" id="userreg" placeholder="Type name" />
         </div>
     </nav>
     <div class="main-page" id="main-page">
         <div class="main-content">
-            <div class="announcement">
-                To save the username just type it in the top right & press enter! Join the <a href="https://discord.gg/v7wBtSdYzx">Discord</a> and share your scores!
-            </div>
             <br>
             <div class="beatmap-list" id="beatmap-list">
                 <!-- to be filled in script -->
@@ -91,37 +88,19 @@
             addBeatmapSid(keyword);
         } else {
             // Insert keyword
-            addBeatmapList(`https://catboy.best/api/v2/search?query=${keyword}&p=0&mode=0&status=4&status=1`);
-            p = 1
+            addBeatmapList(`https://catboy.best/api/v2/search?query=${keyword}&?p=0&?mode=0&status=3`);
         }
-        document.getElementById("btnmore").onclick = function () {
+        document.getElementById("btnmore").onclick = function () { let p = 0;
             if (typeof (window.list_endid) == "undefined") {
-                addBeatmapList(`https://catboy.best/api/v2/search?query=${keyword}&p=${p}&mode=0&status=4&status=1`);
+                addBeatmapList(`https://catboy.best/api/v2/search?query=${keyword}&p=${p}&?mode=0&status=3`);
             } else {
                 if (window.list_endid == 0)
                     document.getElementById("btnmore").innerText = "There's no more beatmaps ;-;";
                 else
-                addBeatmapList(`https://catboy.best/api/v2/search?query=${keyword}&p=${p}&mode=0&status=4&status=1`);
+                addBeatmapList(`https://catboy.best/api/v2/search?query=${keyword}&p=${p}&?mode=0&status=3`);
             }
             p++
         }
     </script>
 </body>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
-  const firebaseConfig = {
-    apiKey: "AIzaSyBJyrBf03GhNZbupO6uU-wtDTfAC_zY8_0",
-    authDomain: "webosu.firebaseapp.com",
-    projectId: "webosu",
-    storageBucket: "webosu.appspot.com",
-    messagingSenderId: "138250997417",
-    appId: "1:138250997417:web:be7407c18de702880763b8",
-    measurementId: "G-55J58MR5ZW"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
 </html>

@@ -256,7 +256,7 @@ var NSaddBeatmapList = {
         if (data.length == 0) {
             let cnt = document.createElement("span");
             cnt.className = "difficulty-count";
-            cnt.innerText = "no std map";
+            cnt.innerText = "no Standard map";
             row.appendChild(cnt);
         }
     },
@@ -269,14 +269,14 @@ var NSaddBeatmapList = {
             length = Math.max(length, data[i].total_length);
             bpm = Math.max(bpm, data[i].bpm);
         }
-        // let pBeatmapBPM = document.createElement("div");
-        // pBeatmapBPM.className = "beatmapbpm";
-        // box.appendChild(pBeatmapBPM);
-        // pBeatmapBPM.innerText = Math.round(bpm) + "♪";
+         let pBeatmapBPM = document.createElement("div");
+         pBeatmapBPM.className = "beatmapbpm";
+         box.appendChild(pBeatmapBPM);
+         pBeatmapBPM.innerText = Math.round(bpm) + " ♪bpm";
         let pBeatmapLength = document.createElement("div");
         pBeatmapLength.className = "beatmaplength";
         box.appendChild(pBeatmapLength);
-        pBeatmapLength.innerText = Math.floor(length / 60) + ":" + (length % 60 < 10 ? "0" : "") + (length % 60);
+        pBeatmapLength.innerText = "Time: " + Math.floor(length / 60) + ":" + (length % 60 < 10 ? "0" : "") + (length % 60);
     },
     
     addMoreInfo: async function(box, data) {

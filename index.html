@@ -19,7 +19,7 @@
     <script src="js/addbeatmaplist.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/jsloader.js"></script>
-    <script src="js/lib/localforage.min.js"></script>
+    <script src="js\lib\localforage.min.js"></script>
 </head>
 <body>
     <!--Game Area-->
@@ -69,7 +69,7 @@
             </div>
             <br>
             <div class="index-area">
-                <h2>Live plays - Should be working soon check back!</h2>
+                <h2>Live plays</h2>
                 <hr/>
                 <table>
                     <thead>
@@ -126,13 +126,6 @@
                 <hr/>
                 <div class="beatmap-list" id="beatmap-list-random">
                 <!-- to be filled in script -->
-                </div>
-            </div>
-            <div class="index-area">
-                <h2>Latest Beatmaps</h2>
-                <a href="new.html" class="more">See all latest Beatmaps</a>
-                <hr/>
-                <div class="beatmap-list" id="beatmap-list">
                 </div>
             </div>
             <!--Loader progress-->
@@ -200,7 +193,7 @@
                 })
             }
         // Get new beatmaps
-        addBeatmapList("https://catboy.best/api/v2/search?amount=6&status=1&status=4&status=-2&mode=0",
+        addBeatmapList("https://catboy.best/api/v2/search?limit=6&status=4&mode=0",
             document.getElementById("beatmap-list-new"),
             function (t) {
                 return (t.modes & 1) != 0;
@@ -212,7 +205,7 @@
             list.innerHTML = ''
             // Re-fill Random List
             let randquery = Math.random().toString(36).replace(/[^a-p]+/g, '').substr(1, 5);
-            addBeatmapList("https://catboy.best/api/v2/search?q=" + randquery + "&amount=6&status=1&status=4&status=-2&mode=0", list,
+            addBeatmapList("https://catboy.best/api/v2/search?limit=6&status=3&status=4&status=1&status=-2&mode=0&query=" + randquery + "", list,
                 function (t) {
                     while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
@@ -220,7 +213,7 @@
         }
         genRandomList();
         // Get hot beatmaps
-        addBeatmapList("https://catboy.best/api/v2/search?amount=6&status=1&status=4&status=-2&mode=0&query=Top Rated", document.getElementById(
+        addBeatmapList("https://catboy.best/api/v2/search?limit=6&status=3&mode=0", document.getElementById(
             "beatmap-list-hot"));
         // Favorite beatmaps
         if (window.localforage) {
@@ -297,7 +290,7 @@
             };
             showActivity([b, b, b, b, b, b, b, b, b, b])
         async function refreshLivescore() {
-            const url = "https://scores.webosu.online/get"
+            const url = ""
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -310,7 +303,7 @@
             }
         }
         refreshLivescore();
-        window.setInterval(refreshLivescore, 5000);
+        window.setInterval(refreshLivescore, 50000);
     </script>
 </body>
 </html>

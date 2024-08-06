@@ -1,5 +1,4 @@
 // delayed js loader
-
 function loadScript(url, callback, aux) {
 	let script = document.createElement("script");
 	document.head.appendChild(script);
@@ -12,9 +11,6 @@ function loadScript(url, callback, aux) {
 	}
 	script.src = url;
 }
-
-
-
 window.beatmaplistLoadedCallback = function () {
 	window.setTimeout(function () {
 		loadScript("js/lib/zip.js", function () {
@@ -24,7 +20,6 @@ window.beatmaplistLoadedCallback = function () {
 		loadScript("js/lib/pixi.min.js", checkdep);
 		loadScript("js/lib/mp3parse.min.js", checkdep);
 		loadScript("js/lib/localforage.min.js", checkdep);
-
 		function checkdep() {
 			if (!window.aaaaa) window.aaaaa = 0;
 			window.aaaaa += 1;
@@ -41,7 +36,7 @@ window.beatmaplistLoadedCallback = function () {
 								exports: "_"
 							}
 						},
-						// urlArgs: "bust=" +  (new Date()).getTime()
+						 urlArgs: "bust=" +  (new Date()).getTime()
 					});
 				}, {
 					"data-main": "js/initgame"
