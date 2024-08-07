@@ -77,15 +77,6 @@
                especially Lemres who has kept this ship afloat for like 2 years
                while I did nothing lol
             </div>
-            <br />
-            <div class="sort-nav">
-               <div class="title">Genre</div>
-               <div class="selitem" genre="">All</div>
-            </div>
-            <div class="sort-nav">
-               <div class="title">Language</div>
-               <div class="selitem" lang="Instrumental">Instrumental</div>
-            </div>
             <hr />
             <div class="beatmap-list" id="beatmap-list">
                <!-- to be filled in script -->
@@ -93,9 +84,7 @@
             <div
                class="button"
                style="width: 100%; margin-bottom: 10px"
-               id="btnmore"
-            >
-               Load More
+               id="btnmore">Load More
             </div>
          </div>
          <!-- <div class="side-panel">to be activated in script</div> -->
@@ -138,48 +127,24 @@
                list.removeChild(list.firstChild);
             }
             addBeatmapList(
-               "https://catboy.best/api/v2/search?query=" + genre + "?mode=0"
+               "https://catboy.best/api/v2/search?query=" + genre + "?mode=0&status=1&status=2&status=3&status=4&sort=id:asc"
             );
             var p = 0;
             document.getElementById("btnmore").onclick = function () {
                if (typeof window.list_endid == "undefined") {
                   addBeatmapList(
-                     "https://catboy.best/api/v2/search?mode=0&p=" + p
-                  );
+                     "https://catboy.best/api/v2/search?mode=0&p=" + p + "&status=1&status=2&status=3&status=4&sort=id:asc");
                } else {
                   if (window.list_endid == 0)
                      document.getElementById("btnmore").innerText =
                         "There's no more beatmaps to load!";
                   else
                      addBeatmapList(
-                        "https://catboy.best/api/v2/search?mode=0&p=" + p
-                     );
+                        "https://catboy.best/api/v2/search?mode=0&p=" + p + "&status=1&status=2&status=3&status=4&sort=id:asc");
                }
                p++;
-            };
-            // update buttons state
-            for (let i = 0; i < btns.length; ++i) {
-               let g = eval(btns[i].getAttribute("genre"));
-               let l = eval(btns[i].getAttribute("lang"));
-               if (g == genre || l == lang) {
-                  btns[i].classList.add("active");
-               } else {
-                  btns[i].classList.remove("active");
                }
-            }
-         }
-         let curgenre = 1;
-         let curlang = 1;
-         search(curgenre, curlang);
-         for (let i = 0; i < btns.length; ++i) {
-            btns[i].onclick = function () {
-               let g = eval(btns[i].getAttribute("genre"));
-               let l = eval(btns[i].getAttribute("lang"));
-               if (g) curgenre = g;
-               if (l) curlang = l;
-               search(curgenre, curlang);
             };
-         }
       </script>
    </body>
 </html>
