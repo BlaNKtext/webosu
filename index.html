@@ -68,7 +68,7 @@
                 Thank you so much to everyone who has been involved with webosu!, especially Lemres who has kept this ship afloat for like 2 years while I did nothing lol
             </div>
             <br>
-            <div class="index-area">
+           <!-- <div class="index-area">
                 <h2>Live plays</h2>
                 <hr/>
                 <table>
@@ -84,10 +84,10 @@
                         </tr>
                     </thead>
                     <tbody id="activity-list">
-                    <!--will be filled in by script-->
+                    <\!--will be filled in by script--\>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
             <div class="index-area">
                 <h2>Popular beatmaps</h2>
                 <a href="hot.html" class="more">See more Popular Beatmaps</a>
@@ -236,8 +236,8 @@
         } else {
             alert("Oh no, localforage isn't supported on this browser")
             }
- // Live scores
- let tbody = document.getElementById("activity-list");
+ // Live scores shit the bed fr
+/* let tbody = document.getElementById("activity-list");
         function formattime(date) {
             let m;
             return date.getHours() + ":" + ((m = date.getMinutes()) < 10 ? ('0' + m) : m);
@@ -304,6 +304,7 @@
         }
         refreshLivescore();
         window.setInterval(refreshLivescore, 50000);
+        */
     </script>
 </body>
 </html>
