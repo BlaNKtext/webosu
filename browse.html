@@ -117,17 +117,14 @@
             var player = document.getElementById("userreg").value;
             document.cookie = "username=" + player;
          }
-         let btns = document.getElementsByClassName("selitem");
-
-         function search(genre, lang) {
-            // clear list
+         function search() {
             list = document.getElementById("beatmap-list");
             document.getElementById("btnmore").innerText = "Load More";
             while (list.firstChild) {
                list.removeChild(list.firstChild);
             }
             addBeatmapList(
-               "https://catboy.best/api/v2/search?query=" + genre + "?mode=0&status=1&status=2&status=3&status=4&sort=id:asc"
+               "https://catboy.best/api/v2/search?mode=0&status=1&status=2&status=3&status=4&sort=id:asc"
             );
             var p = 0;
             document.getElementById("btnmore").onclick = function () {
