@@ -8,22 +8,19 @@
          name="description"
          content="Scroll through over a million beatmaps made available by Mino the beatmap mirror!"
       />
-      <link rel="stylesheet" href="css/picnic.min.css" />
-      <link rel="stylesheet" href="css/main.css" />
-      <link rel="stylesheet" href="css/font.css" />
-      <link rel="icon" href="img/favicon.png" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-         href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
-         rel="stylesheet"
-      />
-      <script src="js/launchgame.js"></script>
-      <script src="js/downloader.js"></script>
-      <script src="js/addbeatmaplist.js"></script>
-      <script src="js/settings.js"></script>
-      <script src="js/jsloader.js"></script>
+    <link rel="icon" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/picnic.min.css">
+    <link rel="stylesheet"href="css/main.css">
+    <link rel="stylesheet"href="css/font.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <script src="js/launchgame.js"></script>
+    <script src="js/downloader.js"></script>
+    <script src="js/addbeatmaplist.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/jsloader.js"></script>
    </head>
    <body>
       <div class="game-area" id="game-area" hidden></div>
@@ -47,6 +44,7 @@
             <a href="index.html" class="brand">webosu!</a>
             <a href="new.html" class="pseudo button">New</a>
             <a href="hot.html" class="pseudo button">Popular</a>
+            <a href="browse.html" class="pseudo button">Browse</a>
          </div>
          <div class="nav-search">
             <form action="search.html">
@@ -104,44 +102,27 @@
          </div>
       </div>
       <script>
-         //Make enter work
-         var input = document.getElementById("userreg");
-         input.addEventListener("keypress", function (event) {
+                const input = document.getElementById("userreg");
+        const username = window.localStorage.getItem("username")
+        if(username) input.value = username;
+        input.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
-               event.preventDefault();
-               saveUser();
+                event.preventDefault();
+                saveUser();
             }
-         });
-         //Store username in localstorage
-         function saveUser(name) {
-            var player = document.getElementById("userreg").value;
-            document.cookie = "username=" + player;
+        }); 
+    //Store username in localstorage
+        function saveUser( name ) {
+            const player = document.getElementById('userreg').value;
+            window.localStorage.setItem("username", player);
+            document.cookie = 'username=' + player;
+        }
+        addBeatmapList("https://catboy.best/api/v2/search?mode=0&status=1&status=2&status=3&status=4&sort=id:asc");
+        let p = "1";
+        document.getElementById("btnmore").onclick = function () {
+            addBeatmapList(`https://catboy.best/api/v2/search?p=${p}&status=1&status=2&status=3&status=4&sort=id:asc`);
+        p++
          }
-         function search() {
-            list = document.getElementById("beatmap-list");
-            document.getElementById("btnmore").innerText = "Load More";
-            while (list.firstChild) {
-               list.removeChild(list.firstChild);
-            }
-            addBeatmapList(
-               "https://catboy.best/api/v2/search?mode=0&status=1&status=2&status=3&status=4&sort=id:asc"
-            );
-            var p = 0;
-            document.getElementById("btnmore").onclick = function () {
-               if (typeof window.list_endid == "undefined") {
-                  addBeatmapList(
-                     "https://catboy.best/api/v2/search?mode=0&p=" + p + "&status=1&status=2&status=3&status=4&sort=id:asc");
-               } else {
-                  if (window.list_endid == 0)
-                     document.getElementById("btnmore").innerText =
-                        "There's no more beatmaps to load!";
-                  else
-                     addBeatmapList(
-                        "https://catboy.best/api/v2/search?mode=0&p=" + p + "&status=1&status=2&status=3&status=4&sort=id:asc");
-               }
-               p++;
-               }
-            };
       </script>
    </body>
 </html>

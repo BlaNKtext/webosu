@@ -78,7 +78,6 @@ require(["osu", "underscore", "sound", "playback"], function (
 
    // load skin & game cursor
    PIXI.Loader.shared
-      .add("assets/fonts/Comfortaa.woff2")
       .add("sprites.json")
       .load(function (loader, resources) {
          window.skinReady = true;
