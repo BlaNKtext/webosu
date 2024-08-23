@@ -90,26 +90,25 @@
             </div>
         </div>
     <script>
-        const input = document.getElementById("userreg");
-        const username = window.localStorage.getItem("username")
-        if(username) input.value = username;
-        input.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                saveUser();
-            }
-        }); 
-    //Store username in localstorage
-        function saveUser( name ) {
-            const player = document.getElementById('userreg').value;
-            window.localStorage.setItem("username", player);
-            document.cookie = 'username=' + player;
+    //Make enter work
+    const input = document.getElementById("userreg");
+    const username = window.localStorage.getItem("username")
+    if(username) input.value = username;
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            saveUser();
         }
-        addBeatmapList("https://catboy.best/api/v2/search?mode=1&query=Popular");
-        let p = 1;
+    });
+    //Store username in localstorage
+    function saveUser( name ) {
+        const player = document.getElementById('userreg').value;
+        window.localStorage.setItem("username", player);
+        document.cookie = 'username=' + player;
+      }
+        addBeatmapList("https://catboy.best/api/v2/search?q=Popular&offset=20&mode=0");
         document.getElementById("btnmore").onclick = function () {
-            addBeatmapList(`https://catboy.best/api/v2/search?p=${p}mode=1&query=Popular`);
-            p++
+            addBeatmapList(`https://catboy.best/api/v2/search?q=Popular&offset=20&mode=0`);
         }
     </script>
 </body>

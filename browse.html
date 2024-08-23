@@ -102,7 +102,7 @@
          </div>
       </div>
       <script>
-                const input = document.getElementById("userreg");
+        const input = document.getElementById("userreg");
         const username = window.localStorage.getItem("username")
         if(username) input.value = username;
         input.addEventListener("keypress", function(event) {
@@ -110,17 +110,17 @@
                 event.preventDefault();
                 saveUser();
             }
-        }); 
+        });
     //Store username in localstorage
         function saveUser( name ) {
             const player = document.getElementById('userreg').value;
             window.localStorage.setItem("username", player);
             document.cookie = 'username=' + player;
         }
-        addBeatmapList("https://catboy.best/api/v2/search?mode=-1&status=1&status=2&status=3&status=4&sort=id:asc");
+        addBeatmapList("https://catboy.best/api/v2/search?q=&mode=0&sort=id:asc");
         let p = "1";
         document.getElementById("btnmore").onclick = function () {
-            addBeatmapList(`https://catboy.best/api/v2/search?p=${p}&status=1&status=2&status=3&status=4&sort=id:asc`);
+            addBeatmapList(`https://catboy.best/api/v2/search?q=&p=${p}&mode=0&sort=id:asc`);
         p++
          }
       </script>
