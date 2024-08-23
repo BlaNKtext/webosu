@@ -117,7 +117,7 @@
             window.localStorage.setItem("username", player);
             document.cookie = 'username=' + player;
         }
-        addBeatmapList("https://catboy.best/api/v2/search?mode=0&status=1&status=2&status=3&status=4&sort=id:asc");
+        addBeatmapList("https://catboy.best/api/v2/search?mode=osu&status=1&status=2&status=3&status=4&sort=id:asc");
         let p = "1";
         document.getElementById("btnmore").onclick = function () {
             addBeatmapList(`https://catboy.best/api/v2/search?p=${p}&status=1&status=2&status=3&status=4&sort=id:asc`);
