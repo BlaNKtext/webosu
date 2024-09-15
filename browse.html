@@ -117,10 +117,10 @@
             window.localStorage.setItem("username", player);
             document.cookie = 'username=' + player;
         }
-        addBeatmapList("https://catboy.best/api/v2/search?q=&mode=0&sort=id:asc");
+        addBeatmapList("https://osu.direct/api/v2/search?q=&mode=0&sort=id:asc");
         let p = "1";
         document.getElementById("btnmore").onclick = function () {
-            addBeatmapList(`https://catboy.best/api/v2/search?q=&p=${p}&mode=0&sort=id:asc`);
+            addBeatmapList(`https://osu.direct/api/v2/search?q=&p=${p}&mode=0&sort=id:asc`);
         p++
          }
       </script>

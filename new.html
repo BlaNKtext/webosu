@@ -104,16 +104,16 @@
         window.localStorage.setItem("username", player);
         document.cookie = 'username=' + player;
       }
-        addBeatmapList("https://catboy.best/api/v2/search?q=&mode=-1&status=4&status=1");
+        addBeatmapList("https://osu.direct/api/v2/search?q=&mode=-1&status=4&status=1");
         p = 1
         document.getElementById("btnmore").onclick = function () {
             if (typeof (window.list_endid) == "undefined") {
-                addBeatmapList("https://catboy.best/api/v2/search?q=&mode=0&p=" + p + "&status=4&status=1");
+                addBeatmapList("https://osu.direct/api/v2/search?q=&mode=0&p=" + p + "&status=4&status=1");
             } else {
                 if (window.list_endid == 0)
                     document.getElementById("btnmore").innerText = "There's no more to load!";
                 else
-                    addBeatmapList("https://catboy.best/api/v2/search?q=&mode=0&p=" + p + "&status=4&status=1");
+                    addBeatmapList("https://osu.direct/api/v2/search?q=&mode=0&p=" + p + "&status=4&status=1");
             }
             p++
         }

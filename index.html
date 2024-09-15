@@ -149,7 +149,7 @@
         <div class="footer">
             <div class="footer-infos">
                 <span class="footer-info">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</span>
-                <span class="footer-info">Beatmap Mirror <a href="https://catboy.best/">Mino</a></span>
+                <span class="footer-info">Beatmap Mirror <a href="https://osu.direct/">osu.direct</a></span>
                 <span class="footer-info">Source code: <a href="https://github.com/BlaNKtext/webosu">Github</a></span>
             </div>
         </div>
@@ -194,7 +194,7 @@
                 })
             }
         // Get new beatmaps
-        addBeatmapList("https://catboy.best/api/v2/search?q=&limit=6&status=4&mode=0",
+        addBeatmapList("https://osu.direct/api/v2/search?q=&limit=6&status=4&mode=0",
             document.getElementById("beatmap-list-new"),
             function (t) {
                 return (t.modes & 1) != 0;
@@ -206,7 +206,7 @@
             list.innerHTML = ''
             // Re-fill Random List
             let randquery = Math.random().toString(36).replace(/[^a-p]+/g, '').substr(1, 5);
-            addBeatmapList("https://catboy.best/api/v2/search?q=" + randquery + "&limit=6&offset=20&status=3&status=4&status=1&status=-2&mode=0", list,
+            addBeatmapList("https://osu.direct/api/v2/search?q=" + randquery + "&limit=6&offset=20&status=3&status=4&status=1&status=-2&mode=0", list,
                 function (t) {
                     while (list.firstChild) list.removeChild(list.firstChild);
                     return (t.modes & 1) != 0;
@@ -214,7 +214,7 @@
         }
         genRandomList();
         // Get hot beatmaps
-        addBeatmapList("https://catboy.best/api/v2/search?q=&limit=6&offset=20&status=3&mode=0", document.getElementById(
+        addBeatmapList("https://osu.direct/api/v2/search?q=&limit=6&offset=20&status=3&mode=0", document.getElementById(
             "beatmap-list-hot"));
         // Favorite beatmaps
         if (window.localforage) {

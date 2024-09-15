@@ -106,9 +106,9 @@
         window.localStorage.setItem("username", player);
         document.cookie = 'username=' + player;
       }
-        addBeatmapList("https://catboy.best/api/v2/search?q=Popular&offset=20&mode=0");
+        addBeatmapList("https://osu.direct/api/v2/search?q=Popular&offset=20&mode=0");
         document.getElementById("btnmore").onclick = function () {
-            addBeatmapList(`https://catboy.best/api/v2/search?q=Popular&offset=20&mode=0`);
+            addBeatmapList(`https://osu.direct/api/v2/search?q=Popular&offset=20&mode=0`);
         }
     </script>
 </body>
