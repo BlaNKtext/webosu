@@ -2,7 +2,7 @@
 Feel free to drop by the [Discord server](https://discord.gg/v7wBtSdYzx)<br>
 
 ## Info
-Beatmap Mirror [Mino](https://catboy.best)<br>
+Beatmap Mirror [osu.direct](https://osu.direct)<br>
 Thanks [@txst54](https://github.com/txst54) for the custom hitsounds!<br>
 Thanks [@Calemy](https://github.com/Calemy) for refactoring all the fetch code, optimizing some loadtimes and Mino! :grin:<br>
 
