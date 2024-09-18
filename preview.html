@@ -68,7 +68,7 @@
                 </div>
                 <div class="text">Previews work best on Chrome and Firefox!</div>
                 <div class="text">Join the <a href="https://discord.gg/v7wBtSdYzx">Discord server</a>!</div>
-                <div class="text">Beatmap Mirror <a href="https://catboy.best/">Mino</a></div>
+                <div class="text">Beatmap Mirror <a href="https://osu.direct/">osu.direct</a></div>
                 <div class="text">Source code: <a href="https://github.com/BlaNKtext/webosu">Github</a></div>
             </div>
             <!-- <div class="side-panel">
@@ -98,7 +98,7 @@
             // Version look up
             let version = null;
             const fetchVersion = async () => {
-            let apiUrl = `https://catboy.best/api/v2/b/${bid}`;
+            let apiUrl = `https://osu.direct/api/v2/b/${bid}`;
                 try {
             let response = await fetch(apiUrl);
                     if (!response.ok) {
@@ -117,7 +117,7 @@
                 }
             };
             fetchVersion();
-            let url = `https://catboy.best/api/v2/s/${sid}`;
+            let url = `https://osu.direct/api/v2/s/${sid}`;
 
             // Create download progress bar
             let container = document.createElement("div");
