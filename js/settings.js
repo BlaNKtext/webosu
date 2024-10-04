@@ -351,12 +351,48 @@ function setOptionPanel() {
    bindcheck("hidegreat-check", "hideGreat");
    bindcheck("hidefollowpoints-check", "hideFollowPoints");
 
-   document.getElementById("restoredefault-btn").onclick = function () {
+   document.getElementById("restoredefault-btn").onclick = function() {
       Object.assign(gamesettings, defaultsettings);
       for (let i = 0; i < gamesettings.restoreCallbacks.length; ++i)
          gamesettings.restoreCallbacks[i]();
       gamesettings.loadToGame();
       saveToLocal();
+   };
+   document.getElementById("export-btn").onclick = function() {
+      let modified = {};
+      Object.keys(gamesettings).forEach(k => {
+         if (!['object','function'].includes(typeof gamesettings[k])) modified[k] = gamesettings[k];
+      });
+      let element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(modified, null, 2)));
+      element.setAttribute('download', 'webosu-settings.json');
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+   };
+   document.getElementById("import-btn").onclick = function() {
+      document.getElementById('file-import').click();
+   };
+   document.getElementById("file-import").onchange = function(event) {
+      let file = event.target.files[0];
+      event.target.value = '';
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+         try {
+            let data = JSON.parse(evt.target.result);
+            Object.keys(data).forEach(k => gamesettings[k] = data[k])
+            gamesettings.loadToGame();
+            saveToLocal();
+         } catch (err) {
+            alert('Could not parse file')
+         }
+      };
+      reader.onerror = () => {
+         alert('Could not load file')
+      };
+      reader.readAsText(file);
    };
 }
 
