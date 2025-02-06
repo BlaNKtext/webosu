@@ -1342,9 +1342,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] + span {
-   background: rgba(85, 85, 85, 0);
+   background: rgb(85, 85, 85);
    border-radius: 10px;
-   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0);
    display: inline-block;
    height: 20px;
    margin: 2px 2px;
