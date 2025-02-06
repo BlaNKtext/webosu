@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
       <title>Settings</title>
-      <link rel=”canonical” href=”https://webosu.online/”/>
+      <link rel="canonical" href="https://webosu.online/">
       <meta
          name="description"
          content="Customize your settings for webosu! make it your own!"
@@ -507,6 +507,13 @@
                      class="warnbtn"
                      value="Restore all settings to default"
                   />
+                  <br>
+                  <br>
+                  <span style="display:flex;justify-content:center;">
+                    <input id="export-btn" type="button" value="Export">
+                    <input type="file" id="file-import" accept=".json, application/json" style="display:none">
+                    <input id="import-btn" type="button" value="Import">
+                  </span>
                </td>
             </tr>
          </table>
